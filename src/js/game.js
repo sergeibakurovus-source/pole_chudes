@@ -4,13 +4,17 @@ import { UI } from './ui.js';
 export class Game {
     constructor() {
         this.wordList = [
-            {word: 'АВТОМОБИЛЬ', hint: 'Мечта каждого участника'},
-            {word: 'МЕТАФОРА', hint: 'Скрытое сравнение'},
-            {word: 'КАПИТАЛ', hint: 'Главное богатство программы'},
-            {word: 'ПОЛЕ', hint: 'Место, где происходят чудеса'},
-            {word: 'БАРАБАН', hint: 'То, что нужно вращать'}
+            {word: 'АВТОМОБИЛЬ', hint: 'Мечта каждого участника', superGame: false},
+            {word: 'МЕТАФОРА', hint: 'Скрытое сравнение', superGame: false},
+            {word: 'КАПИТАЛ', hint: 'Главное богатство программы', superGame: false},
+            {word: 'ПОЛЕ', hint: 'Место, где происходят чудеса', superGame: false},
+            {word: 'БАРАБАН', hint: 'То, что нужно вращать', superGame: false},
+            {word: 'ИНВЕСТИЦИЯ', hint: 'Вложение средств', superGame: true},
+            {word: 'АЛГОРИТМ', hint: 'Набор инструкций', superGame: true}
         ];
-        const randomItem = this.wordList[Math.floor(Math.random() * this.wordList.length)];
+        
+        const regularWords = this.wordList.filter(w => !w.superGame);
+        const randomItem = regularWords[Math.floor(Math.random() * regularWords.length)];
 
         this.context = {
             players: [
@@ -112,9 +116,12 @@ export class Game {
     }
 
     setupSuperGame() {
+        const superWords = this.wordList.filter(w => w.superGame);
+        const randomSuper = superWords[Math.floor(Math.random() * superWords.length)];
+
         this.context.isSuperGame = true;
-        this.context.secretWord = 'ИНВЕСТИЦИЯ'; 
-        this.context.hint = 'Вложение средств';
+        this.context.secretWord = randomSuper.word; 
+        this.context.hint = randomSuper.hint;
         this.context.revealedLetters = new Set();
         this.context.superGameSetupLettersLeft = 3;
         this.ui.initBoard(this.context.secretWord, this.context.hint);
