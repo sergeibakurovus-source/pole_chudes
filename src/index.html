@@ -28,19 +28,25 @@
             <div class="wheel-section glass-panel">
                 <div class="wheel-container">
                     <div id="wheel" class="wheel">
-                        <!-- Сектора барабана (только очки для Инкремента 1) -->
-                        <div class="sector" style="--i:1;"><span>100</span></div>
-                        <div class="sector" style="--i:2;"><span>250</span></div>
+                        <div class="sector" style="--i:0;"><span>100</span></div>
+                        <div class="sector" style="--i:1;"><span>250</span></div>
+                        <div class="sector" style="--i:2;"><span>Б</span></div>
                         <div class="sector" style="--i:3;"><span>500</span></div>
-                        <div class="sector" style="--i:4;"><span>750</span></div>
-                        <div class="sector" style="--i:5;"><span>1000</span></div>
-                        <div class="sector" style="--i:6;"><span>350</span></div>
-                        <div class="sector" style="--i:7;"><span>500</span></div>
-                        <div class="sector" style="--i:8;"><span>800</span></div>
+                        <div class="sector" style="--i:4;"><span>0</span></div>
+                        <div class="sector" style="--i:5;"><span>750</span></div>
+                        <div class="sector" style="--i:6;"><span>1000</span></div>
+                        <div class="sector" style="--i:7;"><span>П</span></div>
+                        <div class="sector" style="--i:8;"><span>350</span></div>
+                        <div class="sector" style="--i:9;"><span>500</span></div>
+                        <div class="sector" style="--i:10;"><span>+</span></div>
+                        <div class="sector" style="--i:11;"><span>800</span></div>
                     </div>
                     <div class="wheel-pointer"></div>
                 </div>
-                <button id="btn-spin" class="btn primary-btn" disabled>Вращать барабан</button>
+                <div class="wheel-controls" style="display: flex; gap: 10px; margin-top: 10px; align-items: center; justify-content: center;">
+                    <button id="btn-spin" class="btn primary-btn" disabled>Вращать барабан</button>
+                    <button id="btn-guess-word" class="btn primary-btn" disabled>Назвать слово</button>
+                </div>
             </div>
         </div>
 
@@ -56,6 +62,30 @@
             <h2 id="modal-title">Переход хода</h2>
             <p id="modal-text">Ход переходит к Игроку 2</p>
             <button id="btn-modal-action" class="btn primary-btn">Начать ход</button>
+        </div>
+    </div>
+
+    <!-- Модалка ввода слова -->
+    <div id="modal-guess-word" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <h2>Назовите слово</h2>
+            <input type="text" id="input-guess-word" class="input-text" style="width: 80%; padding: 10px; margin-bottom: 15px; font-size: 1.2rem; text-align: center;" placeholder="Ваше слово">
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="btn-submit-word" class="btn primary-btn">Подтвердить</button>
+                <button id="btn-cancel-word" class="btn">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка Сектор Приз -->
+    <div id="modal-prize" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <h2>Сектор ПРИЗ!</h2>
+            <p style="margin-bottom: 15px;">Вы можете взять приз и покинуть игру, или отказаться от приза, получить 1000 очков и продолжить ход!</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="btn-take-prize" class="btn primary-btn">Взять ПРИЗ</button>
+                <button id="btn-take-points" class="btn">1000 очков</button>
+            </div>
         </div>
     </div>
 

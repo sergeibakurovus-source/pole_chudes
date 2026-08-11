@@ -10,14 +10,12 @@ export class Game {
                 { id: 3, name: 'Игрок 3', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
-            secretWord: 'КАПИТАЛ', // Для Инкремента 1 гласные просто заблокированы
+            secretWord: 'КАПИТАЛ', // Гласные можно нажимать, но мы используем слово без них, хотя в Инкременте 2 всё работает.
             revealedLetters: new Set(),
             currentSectorValue: 0
         };
-        
-        // В Инкременте 1 используем слово без гласных для возможности победить, 
-        // так как гласные заблокированы и покупка не реализована.
-        this.context.secretWord = 'ВДНХ'; 
+
+        this.context.secretWord = 'ВДНХ'; // Для теста
 
         this.ui = new UI(this);
         this.stateMachine = new StateMachine(this);
@@ -32,6 +30,12 @@ export class Game {
     handleSpinClick() {
         if (this.stateMachine.state === GameState.WAITING_FOR_SPIN) {
             this.stateMachine.transition(GameState.SPINNING);
+        }
+    }
+
+    handleGuessWordClick() {
+        if (this.stateMachine.state === GameState.WAITING_FOR_SPIN) {
+            this.stateMachine.transition(GameState.GUESSING_WORD);
         }
     }
 
@@ -51,6 +55,11 @@ export class Game {
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
     }
 
+    eliminateCurrentPlayer() {
+        this.context.players[this.context.activePlayerIndex].isEliminated = true;
+        this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+    }
+
     isWordFullyRevealed() {
         for (const char of this.context.secretWord) {
             if (!this.context.revealedLetters.has(char)) {
@@ -61,11 +70,22 @@ export class Game {
     }
 
     nextPlayer() {
+        const activePlayers = this.context.players.filter(p => !p.isEliminated);
+        if (activePlayers.length === 0) {
+            return false;
+        }
+
+        if (activePlayers.length === 1 && activePlayers[0] === this.context.players[this.context.activePlayerIndex]) {
+            return true;
+        }
+
         let attempts = 0;
         do {
             this.context.activePlayerIndex = (this.context.activePlayerIndex + 1) % this.context.players.length;
             attempts++;
         } while (this.context.players[this.context.activePlayerIndex].isEliminated && attempts < this.context.players.length);
+        
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+        return true;
     }
 }

@@ -152,7 +152,7 @@ body {
     transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Basic CSS for 8 sectors */
+/* Basic CSS for 12 sectors */
 .sector {
     position: absolute;
     width: 50%;
@@ -160,7 +160,6 @@ body {
     transform-origin: 100% 100%;
     left: 0;
     top: 0;
-    clip-path: polygon(100% 100%, 100% 0, 0 0); /* roughly 45 deg, but let's just use simple CSS conic gradient instead below, and just position text */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,14 +167,18 @@ body {
 
 .wheel {
     background: conic-gradient(
-        #ff9a9e 0deg 45deg,
-        #fecfef 45deg 90deg,
-        #a1c4fd 90deg 135deg,
-        #c2e9fb 135deg 180deg,
-        #d4fc79 180deg 225deg,
-        #96e6a1 225deg 270deg,
-        #ffecd2 270deg 315deg,
-        #fcb69f 315deg 360deg
+        #ff9a9e 0deg 30deg,
+        #fecfef 30deg 60deg,
+        #a1c4fd 60deg 90deg,
+        #c2e9fb 90deg 120deg,
+        #d4fc79 120deg 150deg,
+        #96e6a1 150deg 180deg,
+        #ffecd2 180deg 210deg,
+        #fcb69f 210deg 240deg,
+        #ff9a9e 240deg 270deg,
+        #fecfef 270deg 300deg,
+        #a1c4fd 300deg 330deg,
+        #c2e9fb 330deg 360deg
     );
 }
 
@@ -185,7 +188,7 @@ body {
     height: 100%;
     border-radius: 50%;
     clip-path: none;
-    transform: rotate(calc(45deg * var(--i)));
+    transform: rotate(calc(30deg * var(--i)));
     text-align: center;
 }
 
@@ -193,7 +196,7 @@ body {
     position: absolute;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%) rotate(22.5deg); /* center in 45deg slice */
+    transform: translateX(-50%) rotate(15deg); /* center in 30deg slice */
     font-weight: bold;
     color: #000;
     font-size: 1.2rem;
@@ -297,4 +300,25 @@ body {
     text-align: center;
     max-width: 400px;
     width: 90%;
+}
+
+.input-text {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-text::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.cell.clickable {
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.cell.clickable:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
