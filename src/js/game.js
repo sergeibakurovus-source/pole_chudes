@@ -3,18 +3,7 @@ import { UI } from './ui.js';
 
 export class Game {
     constructor() {
-        this.wordList = [
-            {word: 'АВТОМОБИЛЬ', hint: 'Мечта каждого участника', superGame: false},
-            {word: 'МЕТАФОРА', hint: 'Скрытое сравнение', superGame: false},
-            {word: 'КАПИТАЛ', hint: 'Главное богатство программы', superGame: false},
-            {word: 'ПОЛЕ', hint: 'Место, где происходят чудеса', superGame: false},
-            {word: 'БАРАБАН', hint: 'То, что нужно вращать', superGame: false},
-            {word: 'ИНВЕСТИЦИЯ', hint: 'Вложение средств', superGame: true},
-            {word: 'АЛГОРИТМ', hint: 'Набор инструкций', superGame: true}
-        ];
-        
-        const regularWords = this.wordList.filter(w => !w.superGame);
-        const randomItem = regularWords[Math.floor(Math.random() * regularWords.length)];
+        this.wordList = [];
 
         this.context = {
             players: [
@@ -23,8 +12,8 @@ export class Game {
                 { id: 3, name: 'Рон', avatar: 'assets/avatar_ron.png', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
-            secretWord: randomItem.word,
-            hint: randomItem.hint,
+            secretWord: '',
+            hint: '',
             revealedLetters: new Set(),
             currentSectorValue: 0,
             consecutiveGuesses: 0,
@@ -35,6 +24,23 @@ export class Game {
 
         this.ui = new UI(this);
         this.stateMachine = new StateMachine(this);
+    }
+
+    async init() {
+        try {
+            const response = await fetch('assets/dictionary.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            this.wordList = await response.json();
+        } catch (error) {
+            console.error("Failed to load dictionary:", error);
+            this.wordList = [{word: "ОШИБКА", hint: "Словарь не загружен", superGame: false}];
+        }
+
+        const regularWords = this.wordList.filter(w => !w.superGame);
+        const randomItem = regularWords[Math.floor(Math.random() * regularWords.length)];
+
+        this.context.secretWord = randomItem.word.toUpperCase();
+        this.context.hint = randomItem.hint;
     }
 
     start() {

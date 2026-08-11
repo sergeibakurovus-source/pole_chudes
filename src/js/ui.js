@@ -339,4 +339,11 @@ export class UI {
 
         this.modalSuperOffer.classList.remove('hidden');
     }
+
+    hideLoader() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.style.display = 'none';
+        }
+    }
 }

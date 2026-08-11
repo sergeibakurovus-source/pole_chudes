@@ -1,0 +1,37 @@
+[
+    {"word": "МЕДВЕДЬ", "hint": "Крупный хищник, который любит спать зимой", "category": "Животные", "difficulty": 1, "superGame": false},
+    {"word": "ЛИСИЦА", "hint": "Рыжая плутовка из русских сказок", "category": "Животные", "difficulty": 1, "superGame": false},
+    {"word": "ВОРОБЕЙ", "hint": "Маленькая птичка, которая чирикает на ветке", "category": "Животные", "difficulty": 1, "superGame": false},
+    {"word": "СЛОН", "hint": "Самое большое сухопутное животное с хоботом", "category": "Животные", "difficulty": 1, "superGame": false},
+    {"word": "КРОКОДИЛ", "hint": "Зеленое зубастое животное из Африки", "category": "Животные", "difficulty": 2, "superGame": false},
+    {"word": "МУРАВЕЙ", "hint": "Очень сильное и трудолюбивое насекомое", "category": "Животные", "difficulty": 2, "superGame": false},
+    {"word": "ЖИРАФ", "hint": "Животное с самой длинной шеей", "category": "Животные", "difficulty": 2, "superGame": false},
+    {"word": "БАБОЧКА", "hint": "Красивое насекомое с яркими крыльями", "category": "Животные", "difficulty": 2, "superGame": false},
+
+    {"word": "БЕРЕЗА", "hint": "Дерево с белой корой", "category": "Природа", "difficulty": 1, "superGame": false},
+    {"word": "РАДУГА", "hint": "Разноцветная дуга на небе после дождя", "category": "Природа", "difficulty": 1, "superGame": false},
+    {"word": "РОМАШКА", "hint": "Белый цветок с желтой серединкой", "category": "Природа", "difficulty": 1, "superGame": false},
+    {"word": "СОЛНЦЕ", "hint": "Желтая звезда, которая нас греет", "category": "Природа", "difficulty": 1, "superGame": false},
+    {"word": "ОБЛАКО", "hint": "Пушистое белое пятно на небе", "category": "Природа", "difficulty": 2, "superGame": false},
+    {"word": "МОЛНИЯ", "hint": "Яркая вспышка света во время грозы", "category": "Природа", "difficulty": 2, "superGame": false},
+    {"word": "ВУЛКАН", "hint": "Гора, из которой извергается лава", "category": "Природа", "difficulty": 2, "superGame": true},
+    {"word": "ОКЕАН", "hint": "Огромное водное пространство", "category": "Природа", "difficulty": 2, "superGame": true},
+
+    {"word": "КОЛОБОК", "hint": "Он от бабушки ушел, он от дедушки ушел", "category": "Сказки", "difficulty": 1, "superGame": false},
+    {"word": "БУРАТИНО", "hint": "Деревянный мальчик с длинным носом", "category": "Сказки", "difficulty": 1, "superGame": false},
+    {"word": "ЗОЛУШКА", "hint": "Она потеряла хрустальную туфельку на балу", "category": "Сказки", "difficulty": 1, "superGame": false},
+    {"word": "РУСАЛОЧКА", "hint": "Девочка, живущая в море с хвостом вместо ног", "category": "Сказки", "difficulty": 1, "superGame": false},
+    {"word": "ДЮЙМОВОЧКА", "hint": "Крошечная девочка, родившаяся в цветке", "category": "Сказки", "difficulty": 2, "superGame": false},
+    {"word": "МОЙДОДЫР", "hint": "Умывальников начальник и мочалок командир", "category": "Сказки", "difficulty": 2, "superGame": false},
+    {"word": "ЧЕБУРАШКА", "hint": "Неизвестный науке зверь с большими ушами", "category": "Сказки", "difficulty": 2, "superGame": true},
+    {"word": "АЙБОЛИТ", "hint": "Добрый доктор, который лечит зверей", "category": "Сказки", "difficulty": 2, "superGame": true},
+
+    {"word": "ПЕНАЛ", "hint": "Коробочка для ручек и карандашей", "category": "Школа", "difficulty": 1, "superGame": false},
+    {"word": "ПЕРЕМЕНА", "hint": "Время для отдыха между уроками", "category": "Школа", "difficulty": 1, "superGame": false},
+    {"word": "УЧИТЕЛЬ", "hint": "Человек, который ведет уроки", "category": "Школа", "difficulty": 1, "superGame": false},
+    {"word": "ПЯТЕРКА", "hint": "Самая лучшая оценка в школе", "category": "Школа", "difficulty": 1, "superGame": false},
+    {"word": "ГЛОБУС", "hint": "Круглая модель Земли", "category": "Школа", "difficulty": 2, "superGame": false},
+    {"word": "ЛИНЕЙКА", "hint": "Инструмент, чтобы чертить прямые линии", "category": "Школа", "difficulty": 2, "superGame": false},
+    {"word": "ДНЕВНИК", "hint": "Тетрадь для оценок и домашнего задания", "category": "Школа", "difficulty": 2, "superGame": true},
+    {"word": "РЮКЗАК", "hint": "Сумка, с которой ходят в школу", "category": "Школа", "difficulty": 2, "superGame": true}
+]
