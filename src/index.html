@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Капитал-шоу Поле Чудес: Premium Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Уведомления/Статус -->
+        <div id="status-bar" class="glass-panel status-bar">
+            Добро пожаловать!
+        </div>
+
+        <!-- Табло с буквами -->
+        <div id="scoreboard" class="glass-panel scoreboard">
+            <!-- Буквы будут добавляться сюда динамически -->
+        </div>
+
+        <div class="main-content">
+            <!-- Игроки (Hot-Seat) -->
+            <div id="players-container" class="glass-panel players-container">
+                <!-- Карточки игроков -->
+            </div>
+
+            <!-- Барабан -->
+            <div class="wheel-section glass-panel">
+                <div class="wheel-container">
+                    <div id="wheel" class="wheel">
+                        <!-- Сектора барабана (только очки для Инкремента 1) -->
+                        <div class="sector" style="--i:1;"><span>100</span></div>
+                        <div class="sector" style="--i:2;"><span>250</span></div>
+                        <div class="sector" style="--i:3;"><span>500</span></div>
+                        <div class="sector" style="--i:4;"><span>750</span></div>
+                        <div class="sector" style="--i:5;"><span>1000</span></div>
+                        <div class="sector" style="--i:6;"><span>350</span></div>
+                        <div class="sector" style="--i:7;"><span>500</span></div>
+                        <div class="sector" style="--i:8;"><span>800</span></div>
+                    </div>
+                    <div class="wheel-pointer"></div>
+                </div>
+                <button id="btn-spin" class="btn primary-btn" disabled>Вращать барабан</button>
+            </div>
+        </div>
+
+        <!-- Клавиатура -->
+        <div id="keyboard" class="glass-panel keyboard disabled">
+            <!-- Кнопки клавиатуры -->
+        </div>
+    </div>
+
+    <!-- Модалка для объявлений (Переход хода, Победа) -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <h2 id="modal-title">Переход хода</h2>
+            <p id="modal-text">Ход переходит к Игроку 2</p>
+            <button id="btn-modal-action" class="btn primary-btn">Начать ход</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

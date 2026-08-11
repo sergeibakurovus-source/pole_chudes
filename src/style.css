@@ -1,0 +1,300 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #e94560;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.status-bar {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    min-height: 80px;
+}
+
+.cell {
+    width: 60px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--glass-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.5s ease-in-out, background 0.3s;
+}
+
+.cell.revealed {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    transform: rotateY(360deg);
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.players-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.player-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.player-card.active {
+    border-color: var(--accent-color);
+    background: rgba(233, 69, 96, 0.2);
+    transform: scale(1.02);
+}
+
+.player-card.eliminated {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.player-score {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.wheel-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+    transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Basic CSS for 8 sectors */
+.sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 0;
+    top: 0;
+    clip-path: polygon(100% 100%, 100% 0, 0 0); /* roughly 45 deg, but let's just use simple CSS conic gradient instead below, and just position text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel {
+    background: conic-gradient(
+        #ff9a9e 0deg 45deg,
+        #fecfef 45deg 90deg,
+        #a1c4fd 90deg 135deg,
+        #c2e9fb 135deg 180deg,
+        #d4fc79 180deg 225deg,
+        #96e6a1 225deg 270deg,
+        #ffecd2 270deg 315deg,
+        #fcb69f 315deg 360deg
+    );
+}
+
+.sector {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip-path: none;
+    transform: rotate(calc(45deg * var(--i)));
+    text-align: center;
+}
+
+.sector span {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(22.5deg); /* center in 45deg slice */
+    font-weight: bold;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid var(--text-color);
+    z-index: 10;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.primary-btn:hover:not(:disabled) {
+    background-color: #d13d56;
+}
+
+.primary-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.keyboard.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.key {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.key:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.key:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.key:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal {
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
