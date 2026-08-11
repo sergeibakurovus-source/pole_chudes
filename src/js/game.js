@@ -3,14 +3,24 @@ import { UI } from './ui.js';
 
 export class Game {
     constructor() {
+        this.wordList = [
+            {word: 'АВТОМОБИЛЬ', hint: 'Мечта каждого участника'},
+            {word: 'МЕТАФОРА', hint: 'Скрытое сравнение'},
+            {word: 'КАПИТАЛ', hint: 'Главное богатство программы'},
+            {word: 'ПОЛЕ', hint: 'Место, где происходят чудеса'},
+            {word: 'БАРАБАН', hint: 'То, что нужно вращать'}
+        ];
+        const randomItem = this.wordList[Math.floor(Math.random() * this.wordList.length)];
+
         this.context = {
             players: [
-                { id: 1, name: 'Игрок 1', score: 0, isEliminated: false },
-                { id: 2, name: 'Игрок 2', score: 0, isEliminated: false },
-                { id: 3, name: 'Игрок 3', score: 0, isEliminated: false }
+                { id: 1, name: 'Гарри', avatar: 'assets/avatar_harry.png', score: 0, isEliminated: false },
+                { id: 2, name: 'Гермиона', avatar: 'assets/avatar_hermione.png', score: 0, isEliminated: false },
+                { id: 3, name: 'Рон', avatar: 'assets/avatar_ron.png', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
-            secretWord: 'КАПИТАЛ',
+            secretWord: randomItem.word,
+            hint: randomItem.hint,
             revealedLetters: new Set(),
             currentSectorValue: 0,
             consecutiveGuesses: 0,
@@ -19,14 +29,12 @@ export class Game {
             superGameTimer: null
         };
 
-        this.context.secretWord = 'ВДНХ'; // Для теста
-
         this.ui = new UI(this);
         this.stateMachine = new StateMachine(this);
     }
 
     start() {
-        this.ui.initBoard(this.context.secretWord);
+        this.ui.initBoard(this.context.secretWord, this.context.hint);
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
         this.stateMachine.transition(GameState.NEXT_PLAYER_ANNOUNCE);
     }
@@ -106,9 +114,10 @@ export class Game {
     setupSuperGame() {
         this.context.isSuperGame = true;
         this.context.secretWord = 'ИНВЕСТИЦИЯ'; 
+        this.context.hint = 'Вложение средств';
         this.context.revealedLetters = new Set();
         this.context.superGameSetupLettersLeft = 3;
-        this.ui.initBoard(this.context.secretWord);
+        this.ui.initBoard(this.context.secretWord, this.context.hint);
         
         Array.from(this.ui.keyboardElement.children).forEach(btn => btn.disabled = false);
         this.ui.enableKeyboard();

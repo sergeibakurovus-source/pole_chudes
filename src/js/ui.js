@@ -16,6 +16,8 @@ export class UI {
         this.modalCaskets = document.getElementById('modal-caskets');
         this.modalSuperOffer = document.getElementById('modal-super-offer');
         
+        this.hostHintElement = document.getElementById('host-hint');
+        
         this.vowels = ['А', 'Е', 'Ё', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я'];
         this.wheelSectors = [100, 250, 'Б', 500, '0', 750, 1000, 'П', 350, 500, '+', 800];
         
@@ -113,8 +115,11 @@ export class UI {
         });
     }
 
-    initBoard(word) {
+    initBoard(word, hint) {
         this.boardElement.innerHTML = '';
+        if (hint && this.hostHintElement) {
+            this.hostHintElement.textContent = `Задание: ${hint}`;
+        }
         for (let i = 0; i < word.length; i++) {
             const cell = document.createElement('div');
             cell.className = 'cell';
@@ -127,7 +132,7 @@ export class UI {
         for (let i = 0; i < word.length; i++) {
             const cell = this.boardElement.children[i];
             if (revealedLetters.has(word[i]) && !cell.classList.contains('revealed')) {
-                cell.classList.add('revealed');
+                cell.classList.add('revealed', 'pop-in');
                 cell.textContent = word[i];
                 this.playTick();
             }
@@ -156,7 +161,9 @@ export class UI {
         players.forEach((p, index) => {
             const div = document.createElement('div');
             div.className = `player-card ${index === activeIndex ? 'active' : ''} ${p.isEliminated ? 'eliminated' : ''}`;
+            const avatarHtml = p.avatar ? `<img src="${p.avatar}" alt="${p.name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.3);">` : '';
             div.innerHTML = `
+                ${avatarHtml}
                 <div class="player-name">${p.name}</div>
                 <div class="player-score">${p.score}</div>
             `;
