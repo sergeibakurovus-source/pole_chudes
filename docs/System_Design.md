@@ -3,8 +3,8 @@
 ## 1. Implementation Approach
 Проект реализуется в формате **Compact Mode (Hot-Seat Multiplayer)**. Поскольку игра предназначена для игры за одним экраном (локальный мультиплеер, передача хода), бэкенд не требуется.
 Вся бизнес-логика и управление состоянием реализуются на **Pure HTML5, CSS3, JS ES6+ (Vanilla JS)**.
-Для обеспечения Premium Visual Experience (Glassmorphism, микро-анимации) используются современные возможности CSS (backdrop-filter, CSS-переменные, transitions, keyframes).
-Управление стейтом построено на базе строгого **конечного автомата (State Machine)**, что гарантирует защиту от гонки состояний (Race Conditions) и невалидных переходов. Компоненты UI взаимодействуют с логикой через событийную модель (CustomEvent), изолируя отображение от ядра игры.
+Для обеспечения Premium Visual Experience (Glassmorphism, микро-анимации, pop-in эффекты) используются современные возможности CSS (backdrop-filter, CSS-переменные, transitions, keyframes).
+Управление стейтом построено на базе строгого **конечного автомата (State Machine)**, что гарантирует защиту от гонки состояний (Race Conditions) и невалидных переходов. Компоненты UI взаимодействуют с логикой через событийную модель (CustomEvent), изолируя отображение от ядра игры. Интеграция Ведущего (Якубович) и вывод подсказок реализованы как подписчики на события начала раунда и смены хода в слое UI.
 
 ## 2. Data Structures & Interface Definitions
 
@@ -38,14 +38,22 @@ enum SectorType {
 interface Player {
     id: number;
     name: string;
+    avatar: string; // URL или класс для отображения аватара (Гарри, Гермиона, Рон)
     score: number;
     isEliminated: boolean;
+}
+
+interface WordData {
+    word: string;
+    hint: string;
+    superGame: boolean;
 }
 
 interface GameContext {
     players: Player[];
     activePlayerIndex: number;
-    secretWord: string;
+    dictionary: WordData[]; // Хранение массива словарей
+    currentWord: WordData; // Текущее загаданное слово и подсказка
     revealedLetters: Set<string>;
     consecutiveGuesses: number; // Для мини-игры "две шкатулки"
     currentSector: SectorType | null;
@@ -57,7 +65,7 @@ interface GameContext {
 ```mermaid
 stateDiagram-v2
     [*] --> INIT
-    INIT --> NEXT_PLAYER_ANNOUNCE : Start Game
+    INIT --> NEXT_PLAYER_ANNOUNCE : Start Game (Init Host & Hints)
     
     NEXT_PLAYER_ANNOUNCE --> WAITING_FOR_SPIN : NEXT_TURN_CLICK (Подтверждение)
     
@@ -100,10 +108,17 @@ stateDiagram-v2
 ```mermaid
 sequenceDiagram
     participant UI as UI Layer (DOM)
+    participant Host as Host UI (Yakubovich)
     participant SM as State Machine (Core)
     participant Audio as Audio Engine
     participant Logic as Game Logic Context
 
+    UI->>SM: dispatch('START_ROUND')
+    SM->>Logic: selectWordFromDictionary()
+    Logic-->>SM: {word, hint}
+    SM->>UI: dispatch('ROUND_STARTED', hint)
+    UI->>Host: updateHint(hint)
+    
     UI->>SM: dispatch('SPIN_CLICK')
     SM->>SM: Validate State (WAITING_FOR_SPIN)
     SM->>UI: lockControls()
@@ -131,12 +146,12 @@ sequenceDiagram
 *Вся директория исходников:* `src/` и `tests/`
 Никакие другие файлы не должны создаваться.
 
-- `src/index.html` - Главная разметка, подключение стилей и скриптов.
-- `src/style.css` - Стили с использованием CSS-переменных, Glassmorphism, Animations.
+- `src/index.html` - Главная разметка, подключение стилей, скриптов, аватаров и интерфейса Ведущего.
+- `src/style.css` - Стили с использованием CSS-переменных, Glassmorphism, центрирование барабана, Pop-in анимации.
 - `src/js/main.js` - Точка входа, инициализация игры и привязка событий.
 - `src/js/state.js` - Реализация строгой стейт-машины (Конечный автомат).
-- `src/js/game.js` - Управление контекстом (Игроки, Очки, Табло слов).
-- `src/js/ui.js` - Управление DOM, анимациями, модалками и рендером.
+- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, superGame}).
+- `src/js/ui.js` - Управление DOM, анимациями, интерфейсом Ведущего, карточками игроков.
 - `src/js/audio.js` - Менеджер звуков и эффектов.
 - `tests/game.test.js` - Юнит-тесты логики контекста и стейт-машины (Node Test Runner).
 - `package.json` - Описание скриптов запуска `npm start` (через `serve`) и `npm test`.
