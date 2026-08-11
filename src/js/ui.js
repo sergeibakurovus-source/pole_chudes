@@ -200,7 +200,8 @@ export class UI {
         const sectorValue = this.wheelSectors[randomSectorIndex];
         
         const sectorAngle = 30;
-        const targetDeg = (spins * 360) - (randomSectorIndex * sectorAngle); 
+        // - (sectorAngle / 2) центрирует стрелку ровно посередине сектора
+        const targetDeg = (spins * 360) - (randomSectorIndex * sectorAngle) - (sectorAngle / 2); 
         
         this.wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
         this.wheel.style.transform = `rotate(${targetDeg}deg)`;

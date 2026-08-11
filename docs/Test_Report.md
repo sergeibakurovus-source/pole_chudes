@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary
 - **Project:** pole_chudes_capital
-- **Status:** All Increments 1-4 Completed
+- **Status:** All Increments 1-5 Completed
 - **Overall Result:** Passed
-- **Version:** v4.0.0
+- **Version:** v5.0.0
 
 ## 2. Test Plan & Scope
 The test suite covers the following critical areas of the application:
@@ -14,6 +14,7 @@ The test suite covers the following critical areas of the application:
 4. **Audio System:** Background music toggles, sound effects for spinning, guessing, winning, and losing.
 5. **Database & WebSocket (Backend):** Connection stability, message format, database querying for words.
 6. **Word Selection Logic:** Random selection of normal and super-game words.
+7. **Dynamic Dictionary Loading:** Asynchronous loading of `dictionary.json`.
 
 ## 3. Test Cases & Execution Results
 
@@ -41,8 +42,13 @@ The test suite covers the following critical areas of the application:
 - **TC-WS-01:** Game initializes with a randomly selected regular word (not superGame). **[PASS]**
 - **TC-WS-02:** setupSuperGame correctly selects a word explicitly marked as superGame=true. **[PASS]**
 
+### 3.6 Increment 5: Dynamic Dictionary Loading
+- **TC-DD-01:** System dynamically loads words from `dictionary.json` via async fetch. **[PASS]**
+- **TC-DD-02:** Unit tests mock `fetch` and successfully validate game initialization. **[PASS]**
+- **TC-DD-03:** Module type enabled to support modern ES imports in tests. **[PASS]**
+
 ## 4. Conclusion
-The application meets all the product requirements for Increments 1-4. Game loop
- is fully functional, WebSocket synchronization works reliably, audio cues are properly integrated, and word selection (normal vs super-game) has been tested and verified.
+The application meets all the product requirements for Increments 1-5. Game loop
+ is fully functional, WebSocket synchronization works reliably, audio cues are properly integrated, word selection (normal vs super-game) has been tested and verified, and dynamic loading of `dictionary.json` successfully integrates with the asynchronous initialization flow.
 
 test(qa): test suite verification passed

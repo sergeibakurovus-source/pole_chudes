@@ -1,6 +1,7 @@
 {
   "name": "pole_chudes_capital",
   "version": "1.0.0",
+  "type": "module",
   "description": "Premium Edition",
   "main": "src/js/main.js",
   "scripts": {

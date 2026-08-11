@@ -26,18 +26,28 @@ global.window = {
     }
 };
 
+global.fetch = async () => ({
+    ok: true,
+    json: async () => [
+        { word: 'ПРОГРАММА', hint: 'Тест', superGame: false },
+        { word: 'СУПЕР', hint: 'Тест 2', superGame: true }
+    ]
+});
+
 import { Game } from '../src/js/game.js';
 
 describe('Game Word Selection Logic', () => {
-    test('Game initializes with a regular word (not superGame)', () => {
+    test('Game initializes with a regular word (not superGame)', async () => {
         const game = new Game();
+        await game.init();
         const wordInfo = game.wordList.find(w => w.word === game.context.secretWord);
         assert.ok(wordInfo, 'Word should exist in word list');
         assert.strictEqual(wordInfo.superGame, false, 'Word should not be a super game word');
     });
 
-    test('setupSuperGame selects a superGame word', () => {
+    test('setupSuperGame selects a superGame word', async () => {
         const game = new Game();
+        await game.init();
         game.setupSuperGame();
         const wordInfo = game.wordList.find(w => w.word === game.context.secretWord);
         assert.ok(wordInfo, 'Word should exist in word list');
