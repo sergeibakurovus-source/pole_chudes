@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary
 - **Project:** pole_chudes_capital
-- **Status:** All Increments 1-3 Completed
+- **Status:** All Increments 1-4 Completed
 - **Overall Result:** Passed
-- **Version:** v3.0.0
+- **Version:** v4.0.0
 
 ## 2. Test Plan & Scope
 The test suite covers the following critical areas of the application:
@@ -13,6 +13,7 @@ The test suite covers the following critical areas of the application:
 3. **Super Game:** Trigger conditions, 3-word logic, timer, win/loss evaluation.
 4. **Audio System:** Background music toggles, sound effects for spinning, guessing, winning, and losing.
 5. **Database & WebSocket (Backend):** Connection stability, message format, database querying for words.
+6. **Word Selection Logic:** Random selection of normal and super-game words.
 
 ## 3. Test Cases & Execution Results
 
@@ -36,7 +37,12 @@ The test suite covers the following critical areas of the application:
 - **TC-AUD-02:** 'Yakubovich' voice lines trigger on specific events (start, win). **[PASS]**
 - **TC-AUD-03:** Background music loops correctly. **[PASS]**
 
+### 3.5 Increment 4: Word Selection Logic
+- **TC-WS-01:** Game initializes with a randomly selected regular word (not superGame). **[PASS]**
+- **TC-WS-02:** setupSuperGame correctly selects a word explicitly marked as superGame=true. **[PASS]**
+
 ## 4. Conclusion
-The application meets all the product requirements for Increments 1-3. Game loop is fully functional, WebSocket synchronization works reliably, and audio cues are properly integrated.
+The application meets all the product requirements for Increments 1-4. Game loop
+ is fully functional, WebSocket synchronization works reliably, audio cues are properly integrated, and word selection (normal vs super-game) has been tested and verified.
 
 test(qa): test suite verification passed
