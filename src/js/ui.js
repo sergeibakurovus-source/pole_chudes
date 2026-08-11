@@ -13,17 +13,84 @@ export class UI {
         // New modals
         this.modalGuessWord = document.getElementById('modal-guess-word');
         this.modalPrize = document.getElementById('modal-prize');
+        this.modalCaskets = document.getElementById('modal-caskets');
+        this.modalSuperOffer = document.getElementById('modal-super-offer');
         
         this.vowels = ['А', 'Е', 'Ё', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я'];
         this.wheelSectors = [100, 250, 'Б', 500, '0', 750, 1000, 'П', 350, 500, '+', 800];
         
+        this.audioCtx = null;
+        
         this.setupKeyboard();
         this.spinBtn.addEventListener('click', () => {
+            this.initAudio();
             this.game.handleSpinClick();
         });
         this.guessBtn.addEventListener('click', () => {
+            this.initAudio();
             this.game.handleGuessWordClick();
         });
+    }
+
+    initAudio() {
+        if (!this.audioCtx) {
+            this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    }
+
+    playTick() {
+        if(!this.audioCtx) return;
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, this.audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1, this.audioCtx.currentTime);
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 0.1);
+        osc.stop(this.audioCtx.currentTime + 0.1);
+    }
+
+    playWin() {
+        if(!this.audioCtx) return;
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(400, this.audioCtx.currentTime);
+        osc.frequency.setValueAtTime(600, this.audioCtx.currentTime + 0.1);
+        osc.frequency.setValueAtTime(800, this.audioCtx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.2, this.audioCtx.currentTime);
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 1);
+        osc.stop(this.audioCtx.currentTime + 1);
+    }
+
+    triggerConfetti() {
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-10px';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.zIndex = '9999';
+            confetti.style.borderRadius = '50%';
+            confetti.style.transition = `transform ${Math.random() * 2 + 2}s linear, top ${Math.random() * 2 + 2}s linear`;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.style.top = '100vh';
+                confetti.style.transform = `rotate(${Math.random() * 720}deg)`;
+            }, 50);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 4050);
+        }
     }
 
     setupKeyboard() {
@@ -35,14 +102,12 @@ export class UI {
             btn.textContent = letter;
             btn.dataset.letter = letter;
             
-            // В Инкременте 1 гласные заблокированы
-            if (this.vowels.includes(letter)) {
-                btn.disabled = true;
-            }
+            // Increment 3: Vowels unlocked. (They will just reveal without points, logic handled in Game)
             
             btn.addEventListener('click', () => {
+                this.initAudio();
                 btn.disabled = true;
-                this.game.handleLetterClick(letter);
+                this.game.handleLetterClick(letter, this.vowels.includes(letter));
             });
             this.keyboardElement.appendChild(btn);
         });
@@ -64,17 +129,16 @@ export class UI {
             if (revealedLetters.has(word[i]) && !cell.classList.contains('revealed')) {
                 cell.classList.add('revealed');
                 cell.textContent = word[i];
+                this.playTick();
             }
         }
     }
 
     enableCellClick(callback) {
-        // Sector PLUS: Make unrevealed cells clickable
         Array.from(this.boardElement.children).forEach(cell => {
             if (!cell.classList.contains('revealed')) {
                 cell.classList.add('clickable');
                 const handler = () => {
-                    // Remove clickable from all
                     Array.from(this.boardElement.children).forEach(c => {
                         c.classList.remove('clickable');
                         c.removeEventListener('click', c._clickHandler);
@@ -128,14 +192,16 @@ export class UI {
         const randomSectorIndex = Math.floor(Math.random() * this.wheelSectors.length);
         const sectorValue = this.wheelSectors[randomSectorIndex];
         
-        // 360 градусов / 12 секторов = 30 градусов на сектор.
         const sectorAngle = 30;
         const targetDeg = (spins * 360) - (randomSectorIndex * sectorAngle); 
         
         this.wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
         this.wheel.style.transform = `rotate(${targetDeg}deg)`;
         
+        let tickInterval = setInterval(() => this.playTick(), 300);
+
         setTimeout(() => {
+            clearInterval(tickInterval);
             this.wheel.style.transition = 'none';
             this.wheel.style.transform = `rotate(${targetDeg % 360}deg)`;
             
@@ -214,5 +280,56 @@ export class UI {
 
         this.modalGuessWord.classList.remove('hidden');
         input.focus();
+    }
+
+    showCasketsModal(onWin, onLose) {
+        const btn1 = document.getElementById('btn-casket-1');
+        const btn2 = document.getElementById('btn-casket-2');
+        
+        const winningCasket = Math.random() < 0.5 ? 1 : 2;
+
+        const makeSelection = (selected) => {
+            btn1.removeEventListener('click', handler1);
+            btn2.removeEventListener('click', handler2);
+            this.modalCaskets.classList.add('hidden');
+            if (selected === winningCasket) {
+                onWin();
+            } else {
+                onLose();
+            }
+        };
+
+        const handler1 = () => makeSelection(1);
+        const handler2 = () => makeSelection(2);
+
+        btn1.addEventListener('click', handler1);
+        btn2.addEventListener('click', handler2);
+
+        this.modalCaskets.classList.remove('hidden');
+    }
+
+    showSuperGameOffer(onAccept, onDecline) {
+        const btnYes = document.getElementById('btn-super-yes');
+        const btnNo = document.getElementById('btn-super-no');
+
+        const yesHandler = () => {
+            cleanup();
+            onAccept();
+        };
+        const noHandler = () => {
+            cleanup();
+            onDecline();
+        };
+
+        const cleanup = () => {
+            btnYes.removeEventListener('click', yesHandler);
+            btnNo.removeEventListener('click', noHandler);
+            this.modalSuperOffer.classList.add('hidden');
+        };
+
+        btnYes.addEventListener('click', yesHandler);
+        btnNo.addEventListener('click', noHandler);
+
+        this.modalSuperOffer.classList.remove('hidden');
     }
 }

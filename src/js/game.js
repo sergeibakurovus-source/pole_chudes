@@ -10,9 +10,13 @@ export class Game {
                 { id: 3, name: 'Игрок 3', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
-            secretWord: 'КАПИТАЛ', // Гласные можно нажимать, но мы используем слово без них, хотя в Инкременте 2 всё работает.
+            secretWord: 'КАПИТАЛ',
             revealedLetters: new Set(),
-            currentSectorValue: 0
+            currentSectorValue: 0,
+            consecutiveGuesses: 0,
+            isSuperGame: false,
+            superGameSetupLettersLeft: 3,
+            superGameTimer: null
         };
 
         this.context.secretWord = 'ВДНХ'; // Для теста
@@ -39,9 +43,19 @@ export class Game {
         }
     }
 
-    handleLetterClick(letter) {
+    handleLetterClick(letter, isVowel) {
         if (this.stateMachine.state === GameState.WAITING_FOR_LETTER) {
-            this.stateMachine.transition(GameState.CHECK_MATCH, letter);
+            this.stateMachine.transition(GameState.CHECK_MATCH, { letter, isVowel });
+        } else if (this.stateMachine.state === GameState.SUPER_GAME_SETUP) {
+            this.context.superGameSetupLettersLeft--;
+            if (this.context.secretWord.includes(letter)) {
+                this.revealLetter(letter);
+            }
+            if (this.context.superGameSetupLettersLeft <= 0) {
+                this.stateMachine.transition(GameState.SUPER_GAME_PLAYING);
+            } else {
+                this.ui.updateStatus(`Супер-игра: выберите еще ${this.context.superGameSetupLettersLeft} букв(ы) для открытия.`);
+            }
         }
     }
 
@@ -87,5 +101,17 @@ export class Game {
         
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
         return true;
+    }
+
+    setupSuperGame() {
+        this.context.isSuperGame = true;
+        this.context.secretWord = 'ИНВЕСТИЦИЯ'; 
+        this.context.revealedLetters = new Set();
+        this.context.superGameSetupLettersLeft = 3;
+        this.ui.initBoard(this.context.secretWord);
+        
+        Array.from(this.ui.keyboardElement.children).forEach(btn => btn.disabled = false);
+        this.ui.enableKeyboard();
+        this.ui.updateStatus(`Супер-игра: выберите 3 буквы для открытия.`);
     }
 }
