@@ -46,6 +46,8 @@ interface Player {
 interface WordData {
     word: string;
     hint: string;
+    category: string;
+    difficulty: number;
     superGame: boolean;
 }
 
@@ -153,8 +155,8 @@ sequenceDiagram
 - `src/style.css` - Стили с использованием CSS-переменных, Glassmorphism, центрирование барабана, Pop-in анимации.
 - `src/js/main.js` - Точка входа, инициализация игры и привязка событий.
 - `src/js/state.js` - Реализация строгой стейт-машины (Конечный автомат).
-- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, superGame}).
-- `src/js/ui.js` - Управление DOM, анимациями, интерфейсом Ведущего, карточками игроков.
+- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, category, difficulty, superGame}). Асинхронная инициализация словаря (`async fetch`).
+- `src/js/ui.js` - Управление DOM, анимациями, интерфейсом Ведущего, карточками игроков. Интеграция Loader-а.
 - `src/js/audio.js` - Менеджер звуков и эффектов.
 - `tests/game.test.js` - Юнит-тесты логики контекста и стейт-машины (Node Test Runner).
 - `package.json` - Описание скриптов запуска `npm start` (через `serve`) и `npm test`.
