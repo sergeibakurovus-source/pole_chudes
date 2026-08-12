@@ -1,54 +1,25 @@
-# QA Test Report: "Капитал-шоу Поле Чудес"
+# Test Report: Increment 6 (Dictionary Cache)
 
-## 1. Executive Summary
-- **Project:** pole_chudes_capital
-- **Status:** All Increments 1-5 Completed
-- **Overall Result:** Passed
-- **Version:** v5.0.0
+## Overview
+- **Project**: Pole Chudes Capital
+- **Increment**: 6 (Caching used words via `localStorage`)
+- **Status**: PASSED
 
-## 2. Test Plan & Scope
-The test suite covers the following critical areas of the application:
-1. **State Machine (Game Flow):** Transitions between Intro, Wheel Spin, Letter Guess, Word Guess, Super Game, and End Game.
-2. **Sectors Logic:** Normal points, Bankrupt (Б), Plus (+), Chance (Ш), Zero (0), Prize (П).
-3. **Super Game:** Trigger conditions, 3-word logic, timer, win/loss evaluation.
-4. **Audio System:** Background music toggles, sound effects for spinning, guessing, winning, and losing.
-5. **Database & WebSocket (Backend):** Connection stability, message format, database querying for words.
-6. **Word Selection Logic:** Random selection of normal and super-game words.
-7. **Dynamic Dictionary Loading:** Asynchronous loading of `dictionary.json`.
+## Scope of Testing
+1. **Mock Environment Compatibility**:
+   - `global.localStorage` has been mocked correctly in the test environment.
+   - `global.fetch` has been updated to include enough words to test depletion.
+2. **Word Selection Logic (`pickRandomWord`)**:
+   - Verification that the word randomly selected is stored inside the `playedWordsCache`.
+   - Verification that a previously played word is never selected again while there are still unplayed words available.
+   - Verification that when all words of the requested type (regular / supergame) are exhausted, the cache gets successfully flushed and resets via `localStorage.removeItem`.
+3. **Core Scenarios (`Game.init()` & `Game.setupSuperGame()`)**:
+   - Ensure the initialization workflow functions properly with caching mechanisms enabled.
 
-## 3. Test Cases & Execution Results
+## QA Results
+- **Tests Implemented**: 3 Integration Unit tests (`Game Word Selection Logic`)
+- **Success Rate**: 100% Passing in Node.js test runner environment.
+- **Bugs Found**: None. The implementation properly integrates `localStorage` cache states matching the in-memory sets.
 
-### 3.1 State Machine
-- **TC-SM-01:** Start game transitions from Intro to Game. **[PASS]**
-- **TC-SM-02:** Turn passes to the next player on incorrect letter. **[PASS]**
-- **TC-SM-03:** Word guess transition triggers correctly when a player chooses to guess the full word. **[PASS]**
-
-### 3.2 Sectors Logic
-- **TC-SEC-01:** 'Bankrupt' zeroes current player's score and passes turn. **[PASS]**
-- **TC-SEC-02:** 'Plus' sector allows opening any closed letter. **[PASS]**
-- **TC-SEC-03:** 'Prize' sector prompts player to take prize or continue. **[PASS]**
-
-### 3.3 Super Game
-- **TC-SG-01:** Triggers when the final round is won and player accepts. **[PASS]**
-- **TC-SG-02:** Loads 3 words (1 main, 2 secondary). **[PASS]**
-- **TC-SG-03:** 1-minute timer functions and forces game over if time expires. **[PASS]**
-
-### 3.4 Audio System
-- **TC-AUD-01:** Audio context initializes on first user interaction. **[PASS]**
-- **TC-AUD-02:** 'Yakubovich' voice lines trigger on specific events (start, win). **[PASS]**
-- **TC-AUD-03:** Background music loops correctly. **[PASS]**
-
-### 3.5 Increment 4: Word Selection Logic
-- **TC-WS-01:** Game initializes with a randomly selected regular word (not superGame). **[PASS]**
-- **TC-WS-02:** setupSuperGame correctly selects a word explicitly marked as superGame=true. **[PASS]**
-
-### 3.6 Increment 5: Dynamic Dictionary Loading
-- **TC-DD-01:** System dynamically loads words from `dictionary.json` via async fetch. **[PASS]**
-- **TC-DD-02:** Unit tests mock `fetch` and successfully validate game initialization. **[PASS]**
-- **TC-DD-03:** Module type enabled to support modern ES imports in tests. **[PASS]**
-
-## 4. Conclusion
-The application meets all the product requirements for Increments 1-5. Game loop
- is fully functional, WebSocket synchronization works reliably, audio cues are properly integrated, word selection (normal vs super-game) has been tested and verified, and dynamic loading of `dictionary.json` successfully integrates with the asynchronous initialization flow.
-
-test(qa): test suite verification passed
+## Conclusion
+Increment 6 features have been fully covered and validated by the Test Suite. QA Gate 3 is officially approved.
