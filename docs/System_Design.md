@@ -43,12 +43,14 @@ interface Player {
     isEliminated: boolean;
 }
 
+type CategoryType = 'Животные' | 'Природа' | 'Сказки' | 'Изобретения' | 'Космос';
+
 interface WordData {
-    word: string;
-    hint: string;
-    category: string;
-    difficulty: number;
-    superGame: boolean;
+    word: string;           // uppercase string (само загаданное слово)
+    hint: string;           // trivia question/fact string (факт-подсказка)
+    category: CategoryType; // Категория слова
+    difficulty: 1 | 2;      // Уровень сложности (1 или 2)
+    superGame: boolean;     // Подходит ли слово для Суперигры
 }
 
 interface GameContext {
@@ -66,6 +68,14 @@ interface GameContext {
 ### Session Caching (localStorage)
 Для исключения повторений слов между сессиями/раундами используется `localStorage` браузера.
 Поле `playedWordsCache` инициализируется сохраненными данными из `localStorage` при старте. При выборе нового слова оно добавляется в `playedWordsCache`, и изменения синхронно сохраняются в `localStorage`. Если словарь исчерпан (все слова находятся в кэше), кэш автоматически очищается для возможности повторного использования слов.
+
+### Dictionary Distribution & Selection Rules
+Образовательный словарь состоит из 500 реальных слов, адаптированных для учеников 4-го класса. 
+Словарь строго сбалансирован: 5 категорий ровно по 100 слов ('Животные', 'Природа', 'Сказки', 'Изобретения', 'Космос').
+
+**Правила выборки (Selection Rules):**
+1. **Обычный тур (Regular Round):** Выбирается случайное несыгранное слово (отсутствующее в `playedWordsCache`) из любой категории. Флаг `superGame` не учитывается.
+2. **Суперигра (Super Game):** Для финала из словаря выбираются 3 случайных несыгранных слова (1 основное и 2 дополнительных) **строго с флагом `superGame: true`**. Это гарантирует, что для финального и самого сложного испытания будут использованы только слова, прошедшие проверку на соответствие формату Суперигры.
 
 ## 3. State Machine Diagram
 
@@ -167,4 +177,5 @@ sequenceDiagram
 - `src/js/audio.js` - Менеджер звуков и эффектов.
 - `tests/game.test.js` - Юнит-тесты логики контекста и стейт-машины (Node Test Runner).
 - `package.json` - Описание скриптов запуска `npm start` (через `serve`) и `npm test`.
+
 
