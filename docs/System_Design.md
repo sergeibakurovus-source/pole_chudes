@@ -59,8 +59,13 @@ interface GameContext {
     revealedLetters: Set<string>;
     consecutiveGuesses: number; // Для мини-игры "две шкатулки"
     currentSector: SectorType | null;
+    playedWordsCache: Set<string>; // Хранение сыгранных слов (синхронизируется с localStorage)
 }
 ```
+
+### Session Caching (localStorage)
+Для исключения повторений слов между сессиями/раундами используется `localStorage` браузера.
+Поле `playedWordsCache` инициализируется сохраненными данными из `localStorage` при старте. При выборе нового слова оно добавляется в `playedWordsCache`, и изменения синхронно сохраняются в `localStorage`. Если словарь исчерпан (все слова находятся в кэше), кэш автоматически очищается для возможности повторного использования слов.
 
 ## 3. State Machine Diagram
 
@@ -116,8 +121,10 @@ sequenceDiagram
     participant Logic as Game Logic Context
 
     UI->>SM: dispatch('START_ROUND')
-    SM->>Logic: selectWordFromDictionary()
+    SM->>Logic: init/load playedWordsCache (localStorage)
+    SM->>Logic: selectWordFromDictionary(playedWordsCache)
     Logic-->>SM: {word, hint}
+    SM->>Logic: update playedWordsCache & save to localStorage
     SM->>UI: dispatch('ROUND_STARTED', hint)
     UI->>Host: updateHint(hint)
     
@@ -145,7 +152,7 @@ sequenceDiagram
 
 ## 5. Directory Structure (Strict File List)
 *Вся директория исходников:* `src/` и `tests/`
-Никагие другие файлы не должны создаваться.
+Никакие другие файлы не должны создаваться.
 
 ### Strict Diff & Git Workflow Rule
 **Абсолютное правило для Оркестратора и Субагентов (Files Changed Protocol):**
@@ -155,8 +162,9 @@ sequenceDiagram
 - `src/style.css` - Стили с использованием CSS-переменных, Glassmorphism, центрирование барабана, Pop-in анимации.
 - `src/js/main.js` - Точка входа, инициализация игры и привязка событий.
 - `src/js/state.js` - Реализация строгой стейт-машины (Конечный автомат).
-- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, category, difficulty, superGame}). Асинхронная инициализация словаря (`async fetch`).
+- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, category, difficulty, superGame}). Асинхронная инициализация словаря (`async fetch`), управление `localStorage` и `playedWordsCache`.
 - `src/js/ui.js` - Управление DOM, анимациями, интерфейсом Ведущего, карточками игроков. Интеграция Loader-а.
 - `src/js/audio.js` - Менеджер звуков и эффектов.
 - `tests/game.test.js` - Юнит-тесты логики контекста и стейт-машины (Node Test Runner).
 - `package.json` - Описание скриптов запуска `npm start` (через `serve`) и `npm test`.
+
