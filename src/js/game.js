@@ -4,6 +4,7 @@ import { UI } from './ui.js';
 export class Game {
     constructor() {
         this.wordList = [];
+        this.playedWordsCache = new Set();
 
         this.context = {
             players: [
@@ -36,11 +37,37 @@ export class Game {
             this.wordList = [{word: "ОШИБКА", hint: "Словарь не загружен", superGame: false}];
         }
 
-        const regularWords = this.wordList.filter(w => !w.superGame);
-        const randomItem = regularWords[Math.floor(Math.random() * regularWords.length)];
+        const cache = localStorage.getItem('pole_chudes_cache');
+        if (cache) {
+            try {
+                this.playedWordsCache = new Set(JSON.parse(cache));
+            } catch (e) {
+                this.playedWordsCache = new Set();
+            }
+        }
+
+        const randomItem = this.pickRandomWord(false);
 
         this.context.secretWord = randomItem.word.toUpperCase();
         this.context.hint = randomItem.hint;
+    }
+
+    pickRandomWord(isSuperGame) {
+        let availableWords = this.wordList.filter(w => !!w.superGame === isSuperGame && !this.playedWordsCache.has(w.word.toUpperCase()));
+        
+        if (availableWords.length === 0) {
+            this.playedWordsCache.clear();
+            localStorage.removeItem('pole_chudes_cache');
+            availableWords = this.wordList.filter(w => !!w.superGame === isSuperGame);
+        }
+        
+        const randomItem = availableWords[Math.floor(Math.random() * availableWords.length)];
+        if (randomItem) {
+            this.playedWordsCache.add(randomItem.word.toUpperCase());
+            localStorage.setItem('pole_chudes_cache', JSON.stringify(Array.from(this.playedWordsCache)));
+        }
+        
+        return randomItem || { word: "ОШИБКА", hint: "Словарь пуст" };
     }
 
     start() {
@@ -122,11 +149,10 @@ export class Game {
     }
 
     setupSuperGame() {
-        const superWords = this.wordList.filter(w => w.superGame);
-        const randomSuper = superWords[Math.floor(Math.random() * superWords.length)];
+        const randomSuper = this.pickRandomWord(true);
 
         this.context.isSuperGame = true;
-        this.context.secretWord = randomSuper.word; 
+        this.context.secretWord = randomSuper.word.toUpperCase(); 
         this.context.hint = randomSuper.hint;
         this.context.revealedLetters = new Set();
         this.context.superGameSetupLettersLeft = 3;
