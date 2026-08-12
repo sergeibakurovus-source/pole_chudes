@@ -1,3502 +1,3502 @@
 [
-    {
-        "word": "КОТ",
-        "hint": "Домашнее животное",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ПЕС",
-        "hint": "Домашнее животное",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ВОЛК",
-        "hint": "Лесной хищник",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЛИСА",
-        "hint": "Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "МЕДВЕДЬ",
-        "hint": "Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "СЛОН",
-        "hint": "Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ТИГР",
-        "hint": "Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЛЕВ",
-        "hint": "Царь зверей",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "ЖИРАФ",
-        "hint": "Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЗЕБРА",
-        "hint": "Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "КРОКОДИЛ",
-        "hint": "Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ОБЕЗЬЯНА",
-        "hint": "Примат",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "НОСОРОГ",
-        "hint": "С рогом на носу",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "БЕГЕМОТ",
-        "hint": "Гиппопотам",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ПАНТЕРА",
-        "hint": "Черная кошка",
-        "category": "Животные",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ДЕРЕВО",
-        "hint": "Растение со стволом",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ТРАВА",
-        "hint": "Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЦВЕТОК",
-        "hint": "Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "КАМЕНЬ",
-        "hint": "Твердая порода",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "РЕКА",
-        "hint": "Водный поток",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ОЗЕРО",
-        "hint": "Водоем",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ОКЕАН",
-        "hint": "Огромный водоем",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "МОРЕ",
-        "hint": "Соленый водоем",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ВУЛКАН",
-        "hint": "Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ГОРА",
-        "hint": "Возвышенность",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ОБЛАКО",
-        "hint": "Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ВЕТЕР",
-        "hint": "Движение воздуха",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ГРОЗА",
-        "hint": "Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ДОЖДЬ",
-        "hint": "Осадки",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "СНЕГ",
-        "hint": "Белые осадки",
-        "category": "Природа",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ГЕРОЙ",
-        "hint": "Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "ПРИНЦЕССА",
-        "hint": "Дочь короля",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЗАМОК",
-        "hint": "Дворец",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ДРАКОН",
-        "hint": "Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "КОРОЛЬ",
-        "hint": "Правитель",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ВЕДЬМА",
-        "hint": "Колдунья",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "КОЛДУН",
-        "hint": "Маг",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "БАШНЯ",
-        "hint": "Высокое строение",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "МЕЧ",
-        "hint": "Оружие",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "КАРЕТА",
-        "hint": "Повозка",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "СУНДУК",
-        "hint": "Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЗОЛУШКА",
-        "hint": "Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "РУСАЛКА",
-        "hint": "Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": true
-    },
-    {
-        "word": "БОГАТЫРЬ",
-        "hint": "Сильный воин",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЗМЕЙ",
-        "hint": "Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЛЮДОЕД",
-        "hint": "Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ГНОМ",
-        "hint": "Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ЭЛЬФ",
-        "hint": "Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ТРОЛЛЬ",
-        "hint": "Злой дух",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "ФЕЯ",
-        "hint": "Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 1,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКОТ",
-        "hint": "Вариация (СУПЕР): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРПЕС",
-        "hint": "Вариация (СУПЕР): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРВОЛК",
-        "hint": "Вариация (СУПЕР): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЛИСА",
-        "hint": "Вариация (СУПЕР): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРМЕДВЕДЬ",
-        "hint": "Вариация (СУПЕР): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРСЛОН",
-        "hint": "Вариация (СУПЕР): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРТИГР",
-        "hint": "Вариация (СУПЕР): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЛЕВ",
-        "hint": "Вариация (СУПЕР): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЖИРАФ",
-        "hint": "Вариация (СУПЕР): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЗЕБРА",
-        "hint": "Вариация (СУПЕР): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКРОКОДИЛ",
-        "hint": "Вариация (СУПЕР): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРОБЕЗЬЯНА",
-        "hint": "Вариация (СУПЕР): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРНОСОРОГ",
-        "hint": "Вариация (СУПЕР): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРБЕГЕМОТ",
-        "hint": "Вариация (СУПЕР): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРПАНТЕРА",
-        "hint": "Вариация (СУПЕР): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРДЕРЕВО",
-        "hint": "Вариация (СУПЕР): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРТРАВА",
-        "hint": "Вариация (СУПЕР): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЦВЕТОК",
-        "hint": "Вариация (СУПЕР): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКАМЕНЬ",
-        "hint": "Вариация (СУПЕР): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРРЕКА",
-        "hint": "Вариация (СУПЕР): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРОЗЕРО",
-        "hint": "Вариация (СУПЕР): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРОКЕАН",
-        "hint": "Вариация (СУПЕР): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРМОРЕ",
-        "hint": "Вариация (СУПЕР): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРВУЛКАН",
-        "hint": "Вариация (СУПЕР): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРГОРА",
-        "hint": "Вариация (СУПЕР): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРОБЛАКО",
-        "hint": "Вариация (СУПЕР): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРВЕТЕР",
-        "hint": "Вариация (СУПЕР): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРГРОЗА",
-        "hint": "Вариация (СУПЕР): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРДОЖДЬ",
-        "hint": "Вариация (СУПЕР): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРСНЕГ",
-        "hint": "Вариация (СУПЕР): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРГЕРОЙ",
-        "hint": "Вариация (СУПЕР): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРПРИНЦЕССА",
-        "hint": "Вариация (СУПЕР): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЗАМОК",
-        "hint": "Вариация (СУПЕР): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРДРАКОН",
-        "hint": "Вариация (СУПЕР): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКОРОЛЬ",
-        "hint": "Вариация (СУПЕР): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРВЕДЬМА",
-        "hint": "Вариация (СУПЕР): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКОЛДУН",
-        "hint": "Вариация (СУПЕР): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРБАШНЯ",
-        "hint": "Вариация (СУПЕР): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРМЕЧ",
-        "hint": "Вариация (СУПЕР): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРКАРЕТА",
-        "hint": "Вариация (СУПЕР): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРСУНДУК",
-        "hint": "Вариация (СУПЕР): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЗОЛУШКА",
-        "hint": "Вариация (СУПЕР): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "СУПЕРРУСАЛКА",
-        "hint": "Вариация (СУПЕР): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРБОГАТЫРЬ",
-        "hint": "Вариация (СУПЕР): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЗМЕЙ",
-        "hint": "Вариация (СУПЕР): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЛЮДОЕД",
-        "hint": "Вариация (СУПЕР): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРГНОМ",
-        "hint": "Вариация (СУПЕР): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРЭЛЬФ",
-        "hint": "Вариация (СУПЕР): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРТРОЛЛЬ",
-        "hint": "Вариация (СУПЕР): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "СУПЕРФЕЯ",
-        "hint": "Вариация (СУПЕР): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАКОТ",
-        "hint": "Вариация (МЕГА): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАПЕС",
-        "hint": "Вариация (МЕГА): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАВОЛК",
-        "hint": "Вариация (МЕГА): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЛИСА",
-        "hint": "Вариация (МЕГА): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАМЕДВЕДЬ",
-        "hint": "Вариация (МЕГА): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАСЛОН",
-        "hint": "Вариация (МЕГА): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАТИГР",
-        "hint": "Вариация (МЕГА): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЛЕВ",
-        "hint": "Вариация (МЕГА): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЖИРАФ",
-        "hint": "Вариация (МЕГА): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЗЕБРА",
-        "hint": "Вариация (МЕГА): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАКРОКОДИЛ",
-        "hint": "Вариация (МЕГА): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАОБЕЗЬЯНА",
-        "hint": "Вариация (МЕГА): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАНОСОРОГ",
-        "hint": "Вариация (МЕГА): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАБЕГЕМОТ",
-        "hint": "Вариация (МЕГА): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАПАНТЕРА",
-        "hint": "Вариация (МЕГА): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАДЕРЕВО",
-        "hint": "Вариация (МЕГА): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАТРАВА",
-        "hint": "Вариация (МЕГА): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЦВЕТОК",
-        "hint": "Вариация (МЕГА): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАКАМЕНЬ",
-        "hint": "Вариация (МЕГА): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАРЕКА",
-        "hint": "Вариация (МЕГА): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАОЗЕРО",
-        "hint": "Вариация (МЕГА): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАОКЕАН",
-        "hint": "Вариация (МЕГА): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАМОРЕ",
-        "hint": "Вариация (МЕГА): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАВУЛКАН",
-        "hint": "Вариация (МЕГА): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАГОРА",
-        "hint": "Вариация (МЕГА): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАОБЛАКО",
-        "hint": "Вариация (МЕГА): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАВЕТЕР",
-        "hint": "Вариация (МЕГА): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАГРОЗА",
-        "hint": "Вариация (МЕГА): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МЕГАДОЖДЬ",
-        "hint": "Вариация (МЕГА): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАСНЕГ",
-        "hint": "Вариация (МЕГА): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАГЕРОЙ",
-        "hint": "Вариация (МЕГА): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАПРИНЦЕССА",
-        "hint": "Вариация (МЕГА): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЗАМОК",
-        "hint": "Вариация (МЕГА): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МЕГАДРАКОН",
-        "hint": "Вариация (МЕГА): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАКОРОЛЬ",
-        "hint": "Вариация (МЕГА): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАВЕДЬМА",
-        "hint": "Вариация (МЕГА): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МЕГАКОЛДУН",
-        "hint": "Вариация (МЕГА): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МЕГАБАШНЯ",
-        "hint": "Вариация (МЕГА): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАМЕЧ",
-        "hint": "Вариация (МЕГА): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАКАРЕТА",
-        "hint": "Вариация (МЕГА): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАСУНДУК",
-        "hint": "Вариация (МЕГА): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЗОЛУШКА",
-        "hint": "Вариация (МЕГА): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАРУСАЛКА",
-        "hint": "Вариация (МЕГА): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАБОГАТЫРЬ",
-        "hint": "Вариация (МЕГА): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЗМЕЙ",
-        "hint": "Вариация (МЕГА): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЛЮДОЕД",
-        "hint": "Вариация (МЕГА): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАГНОМ",
-        "hint": "Вариация (МЕГА): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАЭЛЬФ",
-        "hint": "Вариация (МЕГА): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАТРОЛЛЬ",
-        "hint": "Вариация (МЕГА): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МЕГАФЕЯ",
-        "hint": "Вариация (МЕГА): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОКОТ",
-        "hint": "Вариация (МИКРО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОПЕС",
-        "hint": "Вариация (МИКРО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОВОЛК",
-        "hint": "Вариация (МИКРО): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЛИСА",
-        "hint": "Вариация (МИКРО): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОМЕДВЕДЬ",
-        "hint": "Вариация (МИКРО): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОСЛОН",
-        "hint": "Вариация (МИКРО): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОТИГР",
-        "hint": "Вариация (МИКРО): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЛЕВ",
-        "hint": "Вариация (МИКРО): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЖИРАФ",
-        "hint": "Вариация (МИКРО): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЗЕБРА",
-        "hint": "Вариация (МИКРО): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОКРОКОДИЛ",
-        "hint": "Вариация (МИКРО): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРООБЕЗЬЯНА",
-        "hint": "Вариация (МИКРО): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОНОСОРОГ",
-        "hint": "Вариация (МИКРО): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОБЕГЕМОТ",
-        "hint": "Вариация (МИКРО): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОПАНТЕРА",
-        "hint": "Вариация (МИКРО): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОДЕРЕВО",
-        "hint": "Вариация (МИКРО): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОТРАВА",
-        "hint": "Вариация (МИКРО): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОЦВЕТОК",
-        "hint": "Вариация (МИКРО): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОКАМЕНЬ",
-        "hint": "Вариация (МИКРО): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОРЕКА",
-        "hint": "Вариация (МИКРО): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРООЗЕРО",
-        "hint": "Вариация (МИКРО): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРООКЕАН",
-        "hint": "Вариация (МИКРО): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОМОРЕ",
-        "hint": "Вариация (МИКРО): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОВУЛКАН",
-        "hint": "Вариация (МИКРО): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОГОРА",
-        "hint": "Вариация (МИКРО): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРООБЛАКО",
-        "hint": "Вариация (МИКРО): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОВЕТЕР",
-        "hint": "Вариация (МИКРО): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОГРОЗА",
-        "hint": "Вариация (МИКРО): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОДОЖДЬ",
-        "hint": "Вариация (МИКРО): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОСНЕГ",
-        "hint": "Вариация (МИКРО): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОГЕРОЙ",
-        "hint": "Вариация (МИКРО): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОПРИНЦЕССА",
-        "hint": "Вариация (МИКРО): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЗАМОК",
-        "hint": "Вариация (МИКРО): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОДРАКОН",
-        "hint": "Вариация (МИКРО): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОКОРОЛЬ",
-        "hint": "Вариация (МИКРО): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОВЕДЬМА",
-        "hint": "Вариация (МИКРО): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОКОЛДУН",
-        "hint": "Вариация (МИКРО): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОБАШНЯ",
-        "hint": "Вариация (МИКРО): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОМЕЧ",
-        "hint": "Вариация (МИКРО): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МИКРОКАРЕТА",
-        "hint": "Вариация (МИКРО): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОСУНДУК",
-        "hint": "Вариация (МИКРО): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЗОЛУШКА",
-        "hint": "Вариация (МИКРО): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОРУСАЛКА",
-        "hint": "Вариация (МИКРО): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОБОГАТЫРЬ",
-        "hint": "Вариация (МИКРО): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЗМЕЙ",
-        "hint": "Вариация (МИКРО): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЛЮДОЕД",
-        "hint": "Вариация (МИКРО): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОГНОМ",
-        "hint": "Вариация (МИКРО): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОЭЛЬФ",
-        "hint": "Вариация (МИКРО): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОТРОЛЛЬ",
-        "hint": "Вариация (МИКРО): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МИКРОФЕЯ",
-        "hint": "Вариация (МИКРО): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОКОТ",
-        "hint": "Вариация (ПСЕВДО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОПЕС",
-        "hint": "Вариация (ПСЕВДО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОВОЛК",
-        "hint": "Вариация (ПСЕВДО): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЛИСА",
-        "hint": "Вариация (ПСЕВДО): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОМЕДВЕДЬ",
-        "hint": "Вариация (ПСЕВДО): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОСЛОН",
-        "hint": "Вариация (ПСЕВДО): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОТИГР",
-        "hint": "Вариация (ПСЕВДО): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЛЕВ",
-        "hint": "Вариация (ПСЕВДО): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЖИРАФ",
-        "hint": "Вариация (ПСЕВДО): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОЗЕБРА",
-        "hint": "Вариация (ПСЕВДО): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОКРОКОДИЛ",
-        "hint": "Вариация (ПСЕВДО): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДООБЕЗЬЯНА",
-        "hint": "Вариация (ПСЕВДО): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОНОСОРОГ",
-        "hint": "Вариация (ПСЕВДО): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОБЕГЕМОТ",
-        "hint": "Вариация (ПСЕВДО): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОПАНТЕРА",
-        "hint": "Вариация (ПСЕВДО): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОДЕРЕВО",
-        "hint": "Вариация (ПСЕВДО): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОТРАВА",
-        "hint": "Вариация (ПСЕВДО): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЦВЕТОК",
-        "hint": "Вариация (ПСЕВДО): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОКАМЕНЬ",
-        "hint": "Вариация (ПСЕВДО): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОРЕКА",
-        "hint": "Вариация (ПСЕВДО): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДООЗЕРО",
-        "hint": "Вариация (ПСЕВДО): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДООКЕАН",
-        "hint": "Вариация (ПСЕВДО): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОМОРЕ",
-        "hint": "Вариация (ПСЕВДО): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОВУЛКАН",
-        "hint": "Вариация (ПСЕВДО): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОГОРА",
-        "hint": "Вариация (ПСЕВДО): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДООБЛАКО",
-        "hint": "Вариация (ПСЕВДО): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОВЕТЕР",
-        "hint": "Вариация (ПСЕВДО): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОГРОЗА",
-        "hint": "Вариация (ПСЕВДО): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОДОЖДЬ",
-        "hint": "Вариация (ПСЕВДО): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОСНЕГ",
-        "hint": "Вариация (ПСЕВДО): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОГЕРОЙ",
-        "hint": "Вариация (ПСЕВДО): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОПРИНЦЕССА",
-        "hint": "Вариация (ПСЕВДО): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЗАМОК",
-        "hint": "Вариация (ПСЕВДО): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОДРАКОН",
-        "hint": "Вариация (ПСЕВДО): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОКОРОЛЬ",
-        "hint": "Вариация (ПСЕВДО): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОВЕДЬМА",
-        "hint": "Вариация (ПСЕВДО): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОКОЛДУН",
-        "hint": "Вариация (ПСЕВДО): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОБАШНЯ",
-        "hint": "Вариация (ПСЕВДО): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОМЕЧ",
-        "hint": "Вариация (ПСЕВДО): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОКАРЕТА",
-        "hint": "Вариация (ПСЕВДО): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОСУНДУК",
-        "hint": "Вариация (ПСЕВДО): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОЗОЛУШКА",
-        "hint": "Вариация (ПСЕВДО): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОРУСАЛКА",
-        "hint": "Вариация (ПСЕВДО): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОБОГАТЫРЬ",
-        "hint": "Вариация (ПСЕВДО): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОЗМЕЙ",
-        "hint": "Вариация (ПСЕВДО): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОЛЮДОЕД",
-        "hint": "Вариация (ПСЕВДО): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПСЕВДОГНОМ",
-        "hint": "Вариация (ПСЕВДО): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОЭЛЬФ",
-        "hint": "Вариация (ПСЕВДО): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОТРОЛЛЬ",
-        "hint": "Вариация (ПСЕВДО): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПСЕВДОФЕЯ",
-        "hint": "Вариация (ПСЕВДО): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИКОТ",
-        "hint": "Вариация (АНТИ): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИПЕС",
-        "hint": "Вариация (АНТИ): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИВОЛК",
-        "hint": "Вариация (АНТИ): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЛИСА",
-        "hint": "Вариация (АНТИ): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИМЕДВЕДЬ",
-        "hint": "Вариация (АНТИ): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИСЛОН",
-        "hint": "Вариация (АНТИ): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИТИГР",
-        "hint": "Вариация (АНТИ): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИЛЕВ",
-        "hint": "Вариация (АНТИ): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИЖИРАФ",
-        "hint": "Вариация (АНТИ): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЗЕБРА",
-        "hint": "Вариация (АНТИ): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИКРОКОДИЛ",
-        "hint": "Вариация (АНТИ): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИОБЕЗЬЯНА",
-        "hint": "Вариация (АНТИ): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИНОСОРОГ",
-        "hint": "Вариация (АНТИ): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИБЕГЕМОТ",
-        "hint": "Вариация (АНТИ): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИПАНТЕРА",
-        "hint": "Вариация (АНТИ): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИДЕРЕВО",
-        "hint": "Вариация (АНТИ): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИТРАВА",
-        "hint": "Вариация (АНТИ): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЦВЕТОК",
-        "hint": "Вариация (АНТИ): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИКАМЕНЬ",
-        "hint": "Вариация (АНТИ): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИРЕКА",
-        "hint": "Вариация (АНТИ): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИОЗЕРО",
-        "hint": "Вариация (АНТИ): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИОКЕАН",
-        "hint": "Вариация (АНТИ): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИМОРЕ",
-        "hint": "Вариация (АНТИ): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИВУЛКАН",
-        "hint": "Вариация (АНТИ): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИГОРА",
-        "hint": "Вариация (АНТИ): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИОБЛАКО",
-        "hint": "Вариация (АНТИ): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИВЕТЕР",
-        "hint": "Вариация (АНТИ): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИГРОЗА",
-        "hint": "Вариация (АНТИ): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИДОЖДЬ",
-        "hint": "Вариация (АНТИ): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИСНЕГ",
-        "hint": "Вариация (АНТИ): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИГЕРОЙ",
-        "hint": "Вариация (АНТИ): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИПРИНЦЕССА",
-        "hint": "Вариация (АНТИ): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЗАМОК",
-        "hint": "Вариация (АНТИ): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИДРАКОН",
-        "hint": "Вариация (АНТИ): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИКОРОЛЬ",
-        "hint": "Вариация (АНТИ): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИВЕДЬМА",
-        "hint": "Вариация (АНТИ): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИКОЛДУН",
-        "hint": "Вариация (АНТИ): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АНТИБАШНЯ",
-        "hint": "Вариация (АНТИ): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИМЕЧ",
-        "hint": "Вариация (АНТИ): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИКАРЕТА",
-        "hint": "Вариация (АНТИ): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИСУНДУК",
-        "hint": "Вариация (АНТИ): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЗОЛУШКА",
-        "hint": "Вариация (АНТИ): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИРУСАЛКА",
-        "hint": "Вариация (АНТИ): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИБОГАТЫРЬ",
-        "hint": "Вариация (АНТИ): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЗМЕЙ",
-        "hint": "Вариация (АНТИ): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЛЮДОЕД",
-        "hint": "Вариация (АНТИ): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИГНОМ",
-        "hint": "Вариация (АНТИ): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИЭЛЬФ",
-        "hint": "Вариация (АНТИ): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИТРОЛЛЬ",
-        "hint": "Вариация (АНТИ): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АНТИФЕЯ",
-        "hint": "Вариация (АНТИ): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУКОТ",
-        "hint": "Вариация (ПОЛУ): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУПЕС",
-        "hint": "Вариация (ПОЛУ): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУВОЛК",
-        "hint": "Вариация (ПОЛУ): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЛИСА",
-        "hint": "Вариация (ПОЛУ): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУМЕДВЕДЬ",
-        "hint": "Вариация (ПОЛУ): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУСЛОН",
-        "hint": "Вариация (ПОЛУ): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУТИГР",
-        "hint": "Вариация (ПОЛУ): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУЛЕВ",
-        "hint": "Вариация (ПОЛУ): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЖИРАФ",
-        "hint": "Вариация (ПОЛУ): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЗЕБРА",
-        "hint": "Вариация (ПОЛУ): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУКРОКОДИЛ",
-        "hint": "Вариация (ПОЛУ): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУОБЕЗЬЯНА",
-        "hint": "Вариация (ПОЛУ): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУНОСОРОГ",
-        "hint": "Вариация (ПОЛУ): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУБЕГЕМОТ",
-        "hint": "Вариация (ПОЛУ): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУПАНТЕРА",
-        "hint": "Вариация (ПОЛУ): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУДЕРЕВО",
-        "hint": "Вариация (ПОЛУ): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУТРАВА",
-        "hint": "Вариация (ПОЛУ): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЦВЕТОК",
-        "hint": "Вариация (ПОЛУ): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУКАМЕНЬ",
-        "hint": "Вариация (ПОЛУ): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУРЕКА",
-        "hint": "Вариация (ПОЛУ): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУОЗЕРО",
-        "hint": "Вариация (ПОЛУ): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУОКЕАН",
-        "hint": "Вариация (ПОЛУ): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУМОРЕ",
-        "hint": "Вариация (ПОЛУ): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУВУЛКАН",
-        "hint": "Вариация (ПОЛУ): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУГОРА",
-        "hint": "Вариация (ПОЛУ): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУОБЛАКО",
-        "hint": "Вариация (ПОЛУ): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУВЕТЕР",
-        "hint": "Вариация (ПОЛУ): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУГРОЗА",
-        "hint": "Вариация (ПОЛУ): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУДОЖДЬ",
-        "hint": "Вариация (ПОЛУ): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУСНЕГ",
-        "hint": "Вариация (ПОЛУ): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУГЕРОЙ",
-        "hint": "Вариация (ПОЛУ): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУПРИНЦЕССА",
-        "hint": "Вариация (ПОЛУ): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЗАМОК",
-        "hint": "Вариация (ПОЛУ): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУДРАКОН",
-        "hint": "Вариация (ПОЛУ): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУКОРОЛЬ",
-        "hint": "Вариация (ПОЛУ): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУВЕДЬМА",
-        "hint": "Вариация (ПОЛУ): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУКОЛДУН",
-        "hint": "Вариация (ПОЛУ): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУБАШНЯ",
-        "hint": "Вариация (ПОЛУ): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУМЕЧ",
-        "hint": "Вариация (ПОЛУ): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУКАРЕТА",
-        "hint": "Вариация (ПОЛУ): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУСУНДУК",
-        "hint": "Вариация (ПОЛУ): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЗОЛУШКА",
-        "hint": "Вариация (ПОЛУ): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУРУСАЛКА",
-        "hint": "Вариация (ПОЛУ): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "ПОЛУБОГАТЫРЬ",
-        "hint": "Вариация (ПОЛУ): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЗМЕЙ",
-        "hint": "Вариация (ПОЛУ): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЛЮДОЕД",
-        "hint": "Вариация (ПОЛУ): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУГНОМ",
-        "hint": "Вариация (ПОЛУ): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУЭЛЬФ",
-        "hint": "Вариация (ПОЛУ): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУТРОЛЛЬ",
-        "hint": "Вариация (ПОЛУ): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "ПОЛУФЕЯ",
-        "hint": "Вариация (ПОЛУ): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКОТ",
-        "hint": "Вариация (НЕДО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОПЕС",
-        "hint": "Вариация (НЕДО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОВОЛК",
-        "hint": "Вариация (НЕДО): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОЛИСА",
-        "hint": "Вариация (НЕДО): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОМЕДВЕДЬ",
-        "hint": "Вариация (НЕДО): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОСЛОН",
-        "hint": "Вариация (НЕДО): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОТИГР",
-        "hint": "Вариация (НЕДО): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЛЕВ",
-        "hint": "Вариация (НЕДО): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЖИРАФ",
-        "hint": "Вариация (НЕДО): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЗЕБРА",
-        "hint": "Вариация (НЕДО): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКРОКОДИЛ",
-        "hint": "Вариация (НЕДО): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДООБЕЗЬЯНА",
-        "hint": "Вариация (НЕДО): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОНОСОРОГ",
-        "hint": "Вариация (НЕДО): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОБЕГЕМОТ",
-        "hint": "Вариация (НЕДО): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОПАНТЕРА",
-        "hint": "Вариация (НЕДО): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОДЕРЕВО",
-        "hint": "Вариация (НЕДО): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОТРАВА",
-        "hint": "Вариация (НЕДО): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЦВЕТОК",
-        "hint": "Вариация (НЕДО): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКАМЕНЬ",
-        "hint": "Вариация (НЕДО): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОРЕКА",
-        "hint": "Вариация (НЕДО): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДООЗЕРО",
-        "hint": "Вариация (НЕДО): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДООКЕАН",
-        "hint": "Вариация (НЕДО): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОМОРЕ",
-        "hint": "Вариация (НЕДО): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОВУЛКАН",
-        "hint": "Вариация (НЕДО): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОГОРА",
-        "hint": "Вариация (НЕДО): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДООБЛАКО",
-        "hint": "Вариация (НЕДО): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОВЕТЕР",
-        "hint": "Вариация (НЕДО): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОГРОЗА",
-        "hint": "Вариация (НЕДО): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОДОЖДЬ",
-        "hint": "Вариация (НЕДО): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОСНЕГ",
-        "hint": "Вариация (НЕДО): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОГЕРОЙ",
-        "hint": "Вариация (НЕДО): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОПРИНЦЕССА",
-        "hint": "Вариация (НЕДО): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЗАМОК",
-        "hint": "Вариация (НЕДО): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОДРАКОН",
-        "hint": "Вариация (НЕДО): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКОРОЛЬ",
-        "hint": "Вариация (НЕДО): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОВЕДЬМА",
-        "hint": "Вариация (НЕДО): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКОЛДУН",
-        "hint": "Вариация (НЕДО): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОБАШНЯ",
-        "hint": "Вариация (НЕДО): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОМЕЧ",
-        "hint": "Вариация (НЕДО): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОКАРЕТА",
-        "hint": "Вариация (НЕДО): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОСУНДУК",
-        "hint": "Вариация (НЕДО): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЗОЛУШКА",
-        "hint": "Вариация (НЕДО): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОРУСАЛКА",
-        "hint": "Вариация (НЕДО): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОБОГАТЫРЬ",
-        "hint": "Вариация (НЕДО): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЗМЕЙ",
-        "hint": "Вариация (НЕДО): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЛЮДОЕД",
-        "hint": "Вариация (НЕДО): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОГНОМ",
-        "hint": "Вариация (НЕДО): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОЭЛЬФ",
-        "hint": "Вариация (НЕДО): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "НЕДОТРОЛЛЬ",
-        "hint": "Вариация (НЕДО): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "НЕДОФЕЯ",
-        "hint": "Вариация (НЕДО): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКОТ",
-        "hint": "Вариация (АВТО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОПЕС",
-        "hint": "Вариация (АВТО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОВОЛК",
-        "hint": "Вариация (АВТО): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЛИСА",
-        "hint": "Вариация (АВТО): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОМЕДВЕДЬ",
-        "hint": "Вариация (АВТО): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОСЛОН",
-        "hint": "Вариация (АВТО): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОТИГР",
-        "hint": "Вариация (АВТО): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЛЕВ",
-        "hint": "Вариация (АВТО): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЖИРАФ",
-        "hint": "Вариация (АВТО): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЗЕБРА",
-        "hint": "Вариация (АВТО): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКРОКОДИЛ",
-        "hint": "Вариация (АВТО): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТООБЕЗЬЯНА",
-        "hint": "Вариация (АВТО): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОНОСОРОГ",
-        "hint": "Вариация (АВТО): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОБЕГЕМОТ",
-        "hint": "Вариация (АВТО): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОПАНТЕРА",
-        "hint": "Вариация (АВТО): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОДЕРЕВО",
-        "hint": "Вариация (АВТО): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОТРАВА",
-        "hint": "Вариация (АВТО): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЦВЕТОК",
-        "hint": "Вариация (АВТО): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКАМЕНЬ",
-        "hint": "Вариация (АВТО): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОРЕКА",
-        "hint": "Вариация (АВТО): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТООЗЕРО",
-        "hint": "Вариация (АВТО): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТООКЕАН",
-        "hint": "Вариация (АВТО): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОМОРЕ",
-        "hint": "Вариация (АВТО): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОВУЛКАН",
-        "hint": "Вариация (АВТО): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОГОРА",
-        "hint": "Вариация (АВТО): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТООБЛАКО",
-        "hint": "Вариация (АВТО): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОВЕТЕР",
-        "hint": "Вариация (АВТО): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОГРОЗА",
-        "hint": "Вариация (АВТО): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОДОЖДЬ",
-        "hint": "Вариация (АВТО): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОСНЕГ",
-        "hint": "Вариация (АВТО): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОГЕРОЙ",
-        "hint": "Вариация (АВТО): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОПРИНЦЕССА",
-        "hint": "Вариация (АВТО): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОЗАМОК",
-        "hint": "Вариация (АВТО): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОДРАКОН",
-        "hint": "Вариация (АВТО): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКОРОЛЬ",
-        "hint": "Вариация (АВТО): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОВЕДЬМА",
-        "hint": "Вариация (АВТО): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКОЛДУН",
-        "hint": "Вариация (АВТО): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОБАШНЯ",
-        "hint": "Вариация (АВТО): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОМЕЧ",
-        "hint": "Вариация (АВТО): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОКАРЕТА",
-        "hint": "Вариация (АВТО): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОСУНДУК",
-        "hint": "Вариация (АВТО): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЗОЛУШКА",
-        "hint": "Вариация (АВТО): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОРУСАЛКА",
-        "hint": "Вариация (АВТО): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОБОГАТЫРЬ",
-        "hint": "Вариация (АВТО): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЗМЕЙ",
-        "hint": "Вариация (АВТО): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЛЮДОЕД",
-        "hint": "Вариация (АВТО): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОГНОМ",
-        "hint": "Вариация (АВТО): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "АВТОЭЛЬФ",
-        "hint": "Вариация (АВТО): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОТРОЛЛЬ",
-        "hint": "Вариация (АВТО): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "АВТОФЕЯ",
-        "hint": "Вариация (АВТО): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОКОТ",
-        "hint": "Вариация (МОТО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОПЕС",
-        "hint": "Вариация (МОТО): Домашнее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОВОЛК",
-        "hint": "Вариация (МОТО): Лесной хищник",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОЛИСА",
-        "hint": "Вариация (МОТО): Рыжая хищница",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОМЕДВЕДЬ",
-        "hint": "Вариация (МОТО): Хозяин тайги",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОСЛОН",
-        "hint": "Вариация (МОТО): Крупное млекопитающее с хоботом",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОТИГР",
-        "hint": "Вариация (МОТО): Полосатая кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЛЕВ",
-        "hint": "Вариация (МОТО): Царь зверей",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЖИРАФ",
-        "hint": "Вариация (МОТО): Длинношеее животное",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЗЕБРА",
-        "hint": "Вариация (МОТО): Полосатая лошадь",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОКРОКОДИЛ",
-        "hint": "Вариация (МОТО): Зеленая рептилия",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТООБЕЗЬЯНА",
-        "hint": "Вариация (МОТО): Примат",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОНОСОРОГ",
-        "hint": "Вариация (МОТО): С рогом на носу",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОБЕГЕМОТ",
-        "hint": "Вариация (МОТО): Гиппопотам",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОПАНТЕРА",
-        "hint": "Вариация (МОТО): Черная кошка",
-        "category": "Животные",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОДЕРЕВО",
-        "hint": "Вариация (МОТО): Растение со стволом",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОТРАВА",
-        "hint": "Вариация (МОТО): Зеленый покров земли",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЦВЕТОК",
-        "hint": "Вариация (МОТО): Растение с бутоном",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОКАМЕНЬ",
-        "hint": "Вариация (МОТО): Твердая порода",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОРЕКА",
-        "hint": "Вариация (МОТО): Водный поток",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТООЗЕРО",
-        "hint": "Вариация (МОТО): Водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТООКЕАН",
-        "hint": "Вариация (МОТО): Огромный водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОМОРЕ",
-        "hint": "Вариация (МОТО): Соленый водоем",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОВУЛКАН",
-        "hint": "Вариация (МОТО): Огнедышащая гора",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОГОРА",
-        "hint": "Вариация (МОТО): Возвышенность",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТООБЛАКО",
-        "hint": "Вариация (МОТО): Скопление пара на небе",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОВЕТЕР",
-        "hint": "Вариация (МОТО): Движение воздуха",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОГРОЗА",
-        "hint": "Вариация (МОТО): Ненастье с молнией",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОДОЖДЬ",
-        "hint": "Вариация (МОТО): Осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОСНЕГ",
-        "hint": "Вариация (МОТО): Белые осадки",
-        "category": "Природа",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОГЕРОЙ",
-        "hint": "Вариация (МОТО): Храбрый персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОПРИНЦЕССА",
-        "hint": "Вариация (МОТО): Дочь короля",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЗАМОК",
-        "hint": "Вариация (МОТО): Дворец",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОДРАКОН",
-        "hint": "Вариация (МОТО): Огнедышащий ящер",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОКОРОЛЬ",
-        "hint": "Вариация (МОТО): Правитель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОВЕДЬМА",
-        "hint": "Вариация (МОТО): Колдунья",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОКОЛДУН",
-        "hint": "Вариация (МОТО): Маг",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОБАШНЯ",
-        "hint": "Вариация (МОТО): Высокое строение",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОМЕЧ",
-        "hint": "Вариация (МОТО): Оружие",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОКАРЕТА",
-        "hint": "Вариация (МОТО): Повозка",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОСУНДУК",
-        "hint": "Вариация (МОТО): Вместилище для сокровищ",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЗОЛУШКА",
-        "hint": "Вариация (МОТО): Девушка, потерявшая туфельку",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОРУСАЛКА",
-        "hint": "Вариация (МОТО): Девушка с рыбьим хвостом",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОБОГАТЫРЬ",
-        "hint": "Вариация (МОТО): Сильный воин",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОЗМЕЙ",
-        "hint": "Вариация (МОТО): Сказочная рептилия",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЛЮДОЕД",
-        "hint": "Вариация (МОТО): Злой персонаж",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОГНОМ",
-        "hint": "Вариация (МОТО): Маленький человечек",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОЭЛЬФ",
-        "hint": "Вариация (МОТО): Сказочный лесной житель",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": true
-    },
-    {
-        "word": "МОТОТРОЛЛЬ",
-        "hint": "Вариация (МОТО): Злой дух",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    },
-    {
-        "word": "МОТОФЕЯ",
-        "hint": "Вариация (МОТО): Добрая волшебница",
-        "category": "Сказки",
-        "difficulty": 2,
-        "superGame": false
-    }
+  {
+    "word": "СОБАКА",
+    "hint": "Домашнее животное, верный друг человека, произошедшее от волка.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КОШКА",
+    "hint": "Пушистое домашнее животное, которое ловит мышей и умеет мурлыкать.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕДВЕДЬ",
+    "hint": "Крупный лесной хищник, который всю зиму проводит в спячке в берлоге.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЖИРАФ",
+    "hint": "Самое высокое млекопитающее на Земле с длинной шеей.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СЛОН",
+    "hint": "Крупнейшее наземное животное с длинным хоботом и большими бивнями.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КРОКОДИЛ",
+    "hint": "Опасная водоплавающая рептилия с мощными челюстями, обитающая в тропических реках.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЛЕВ",
+    "hint": "Царь зверей, крупная кошка с густой гривой у самцов.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТИГР",
+    "hint": "Крупнейшая дикая кошка с характерным полосатым окрасом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КЕНГУРУ",
+    "hint": "Сумчатое животное из Австралии, передвигающееся мощными прыжками.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПИНГВИН",
+    "hint": "Нелетающая морская птица, обитающая в Антарктиде и отлично плавающая.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ДЕЛЬФИН",
+    "hint": "Высокоинтеллектуальное морское млекопитающее, способное к эхолокации.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "КИТ",
+    "hint": "Самое крупное животное в мире, обитающее в океане и дышащее через дыхало.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛИСА",
+    "hint": "Рыжая хищница с пушистым хвостом, героиня многих русских сказок.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВОЛК",
+    "hint": "Серый хищник, санитар леса, который воет на луну.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗАЯЦ",
+    "hint": "Трусливый длинноухий зверек, меняющий серую шубку на белую зимой.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЕЖИК",
+    "hint": "Маленький зверек, спина которого покрыта острыми иглами для защиты.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "БЕЛКА",
+    "hint": "Проворный грызун с пушистым хвостом, который питается орехами и живет на деревьях.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БАРСУК",
+    "hint": "Ночной зверек с характерными черно-белыми полосами на мордочке.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЕНОТ",
+    "hint": "Небольшой зверек, известный своей привычкой полоскать еду в воде.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАБАН",
+    "hint": "Дикая свинья с густой щетиной и длинными клыками.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛОСЬ",
+    "hint": "Крупное копытное животное лесов с огромными ветвистыми рогами.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ОЛЕНЬ",
+    "hint": "Изящное копытное животное, самцы которого каждую весну сбрасывают рога.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОСУЛЯ",
+    "hint": "Небольшой изящный олень с короткими рогами, обитающий в лесах и степях.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РЫСЬ",
+    "hint": "Дикая кошка среднего размера с характерными кисточками на ушах.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПАНТЕРА",
+    "hint": "Крупная хищная кошка, часто имеющая полностью черный окрас.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГЕПАРД",
+    "hint": "Самое быстрое наземное животное, способное развивать скорость до 120 км/ч.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЛЕОПАРД",
+    "hint": "Крупная кошка с пятнистым окрасом, отлично лазающая по деревьям.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЯГУАР",
+    "hint": "Крупнейшая кошка Южной Америки, отлично плавающая и имеющая мощные челюсти.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗЕБРА",
+    "hint": "Африканское животное, родственное лошадям, с характерным черно-белым полосатым окрасом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БЕГЕМОТ",
+    "hint": "Крупное травоядное животное, большую часть времени проводящее в воде рек и озер.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НОСОРОГ",
+    "hint": "Массивное травоядное животное с одним или двумя рогами на морде.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ВЕРБЛЮД",
+    "hint": "Корабль пустыни, способный долгое время обходиться без воды благодаря горбам.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГОРИЛЛА",
+    "hint": "Самая крупная человекообразная обезьяна, обитающая в тропических лесах Африки.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ШИМПАНЗЕ",
+    "hint": "Обезьяна, наиболее близкая к человеку по генетическому строению.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОРАНГУТАН",
+    "hint": "Крупная человекообразная обезьяна с рыжей шерстью, обитающая в Азии.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПАВИАН",
+    "hint": "Крупная обезьяна с вытянутой собакообразной мордой.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "МАРТЫШКА",
+    "hint": "Небольшая проворная обезьянка с длинным хвостом.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МАКАКА",
+    "hint": "Широко распространенный вид обезьян, часто используемый в научных исследованиях.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕНИВЕЦ",
+    "hint": "Очень медлительное животное, обитающее на деревьях в Южной Америке.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МУРАВЬЕД",
+    "hint": "Животное с длинной мордой и липким языком, питающееся муравьями и термитами.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БРОНЕНОСЕЦ",
+    "hint": "Млекопитающее, тело которого покрыто панцирем из ороговевших щитков.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СКУНС",
+    "hint": "Небольшой зверек, известный своей способностью выделять жидкость с резким запахом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ДИКОБРАЗ",
+    "hint": "Грызун, чья спина покрыта длинными острыми иглами для защиты от хищников.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БОБР",
+    "hint": "Крупный грызун, строящий плотины и хатки на реках.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ОНДАТРА",
+    "hint": "Полуводный грызун, родом из Северной Америки, часто называемый мускусной крысой.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ХОРЕК",
+    "hint": "Маленький хищник с гибким телом, часто используемый для охоты на норных животных.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "НОРКА",
+    "hint": "Небольшой полуводный хищник с ценным густым мехом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КУНИЦА",
+    "hint": "Ловкий лесной хищник, отлично лазающий по деревьям и охотящийся на белок.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СОБОЛЬ",
+    "hint": "Хищный зверек тайги, славящийся своим красивым и дорогим мехом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РОСОМАХА",
+    "hint": "Свирепый северный хищник семейства куньих, напоминающий небольшого медведя.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПЕСЕЦ",
+    "hint": "Полярная лисица, меняющая свой окрас на чисто белый в зимнее время.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "МОРЖ",
+    "hint": "Крупное морское млекопитающее Арктики с длинными бивнями.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЮЛЕНЬ",
+    "hint": "Морское млекопитающее с ластами, неуклюжее на суше, но ловкое в воде.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "НЕРПА",
+    "hint": "Вид тюленя, обитающий в холодных водах, в том числе пресноводная байкальская.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАЛАН",
+    "hint": "Морская выдра, часто использующая камни для вскрытия раковин моллюсков.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СИВУЧ",
+    "hint": "Крупный ушастый тюлень, которого также называют северным морским львом.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КАСАТКА",
+    "hint": "Крупный хищный дельфин с контрастным черно-белым окрасом.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КАШАЛОТ",
+    "hint": "Крупнейший зубатый кит, способный нырять на огромную глубину за гигантскими кальмарами.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НАРВАЛ",
+    "hint": "Морское млекопитающее, самцы которого имеют длинный прямой бивень-рог.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БЕЛУХА",
+    "hint": "Полярный дельфин белого цвета, известный своими разнообразными звуковыми сигналами.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "УТКОНОС",
+    "hint": "Удивительное животное из Австралии с клювом, несущее яйца, но кормящее детенышей молоком.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЕХИДНА",
+    "hint": "Австралийское животное, покрытое иглами, откладывающее яйца и питающееся муравьями.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОАЛА",
+    "hint": "Сумчатый медведь, питающийся исключительно листьями эвкалипта.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВОМБАТ",
+    "hint": "Травоядное сумчатое животное, роющее длинные норы и похожее на маленького медведя.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТАПИР",
+    "hint": "Животное с коротким хоботком, обитающее в лесах Южной Америки и Азии.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЯК",
+    "hint": "Крупное животное с длинной шерстью, обитающее в высокогорьях Тибета.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "БИЗОН",
+    "hint": "Крупный дикий бык Северной Америки, чуть не истребленный в 19 веке.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗУБР",
+    "hint": "Европейский дикий бык, самое крупное наземное животное Европы.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БУЙВОЛ",
+    "hint": "Крупный бык, обитающий в Африке и Азии, часто проводящий время в грязи.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МУСТАНГ",
+    "hint": "Одичавшая домашняя лошадь, обитающая в прериях Северной Америки.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОНИ",
+    "hint": "Небольшая лошадка, отличающаяся выносливостью и густой шерстью.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ОСЕЛ",
+    "hint": "Домашнее животное, родственное лошади, известное своим упрямством и длинными ушами.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МУЛ",
+    "hint": "Животное, полученное от скрещивания осла и кобылы, отличающееся большой выносливостью.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛАМА",
+    "hint": "Южноамериканское животное, используемое в Андах как вьючное животное.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "АЛЬПАКА",
+    "hint": "Животное семейства верблюжьих, разводимое ради высококачественной шерсти.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОВЦА",
+    "hint": "Домашнее парнокопытное животное, дающее человеку шерсть, мясо и молоко.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "БАРАН",
+    "hint": "Самец овцы, часто имеющий крупные спирально закрученные рога.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОЗА",
+    "hint": "Домашнее животное, известное своей неприхотливостью и вкусным молоком.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОЗЕЛ",
+    "hint": "Самец козы с рогами и характерной бородкой.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СВИНЬЯ",
+    "hint": "Домашнее животное, выращиваемое ради мяса и сала.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОРОВА",
+    "hint": "Крупное рогатое животное, главный источник молока для человека.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "БЫК",
+    "hint": "Крупный и сильный самец коровы, часто используемый как тягловое животное.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КРОЛИК",
+    "hint": "Небольшой пушистый зверек с длинными ушами, которого разводят ради мяса и меха.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ХОМЯК",
+    "hint": "Популярный домашний грызун, запасающий еду в защечных мешках.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МОРСКАЯ СВИНКА",
+    "hint": "Небольшой пушистый грызун, родом из Южной Америки, популярный домашний питомец.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ШИНШИЛЛА",
+    "hint": "Южноамериканский грызун с очень густым и мягким мехом.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МЫШЬ",
+    "hint": "Маленький грызун с длинным хвостом, часто обитающий рядом с человеком.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КРЫСА",
+    "hint": "Крупный грызун с голым хвостом, известный своим интеллектом и выживаемостью.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КРОТ",
+    "hint": "Подземный житель с мощными передними лапами для рытья ходов и плохим зрением.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗЕМЛЕРОЙКА",
+    "hint": "Один из самых маленьких млекопитающих, питающийся насекомыми.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕТУЧАЯ МЫШЬ",
+    "hint": "Единственное млекопитающее, способное к активному полету благодаря крыльям.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ВАМПИР",
+    "hint": "Вид летучих мышей Южной Америки, питающихся кровью других животных.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МАНГУСТ",
+    "hint": "Небольшой ловкий хищник, известный своей способностью убивать ядовитых змей.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СУРИКАТ",
+    "hint": "Маленькое африканское животное, часто стоящее столбиком на задних лапах для осмотра местности.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ШАКАЛ",
+    "hint": "Небольшой хищник семейства псовых, часто питающийся падалью.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГИЕНА",
+    "hint": "Африканский хищник, известный своим смеющимся голосом и мощными челюстями.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ПАНДА",
+    "hint": "Бамбуковый медведь, символ Всемирного фонда дикой природы.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕМУР",
+    "hint": "Животное с длинным полосатым хвостом, обитающее только на острове Мадагаскар.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТУШКАНЧИК",
+    "hint": "Маленький пустынный грызун, передвигающийся длинными прыжками на задних лапах.",
+    "category": "Животные",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СУСЛИК",
+    "hint": "Степной грызун, часто стоящий столбиком возле своей норы.",
+    "category": "Животные",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВУЛКАН",
+    "hint": "Огнедышащая гора, извергающая на поверхность земли лаву и пепел.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ГРОЗА",
+    "hint": "Бурное атмосферное явление с мощными электрическими разрядами и громом.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РАДУГА",
+    "hint": "Разноцветная дуга на небе, возникающая из-за преломления солнечного света в каплях дождя.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МОЛНИЯ",
+    "hint": "Гигантская электрическая искра в атмосфере во время грозы.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГРОМ",
+    "hint": "Громкий раскатистый звук в атмосфере, сопровождающий разряд молнии.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "УРАГАН",
+    "hint": "Разрушительный ветер огромной силы, сметающий все на своем пути.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "СМЕРЧ",
+    "hint": "Атмосферный вихрь в виде темного столба, спускающийся из грозового облака к земле.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТАЙФУН",
+    "hint": "Мощный тропический циклон с ураганными ветрами в Тихом океане.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЦУНАМИ",
+    "hint": "Гигантская океанская волна, возникающая из-за подводных землетрясений.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗЕМЛЕТРЯСЕНИЕ",
+    "hint": "Подземные толчки и колебания поверхности Земли.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛАВИНА",
+    "hint": "Огромная масса снега, стремительно падающая со склонов гор.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ОБВАЛ",
+    "hint": "Внезапное отделение и падение масс горных пород на крутых склонах.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СЕЛЬ",
+    "hint": "Грязекаменный поток, внезапно возникающий в руслах горных рек.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕТЕЛЬ",
+    "hint": "Перенос снега сильным ветром над поверхностью земли.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВЬЮГА",
+    "hint": "Сильная снежная буря, часто сопровождающаяся завыванием ветра.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БУРАН",
+    "hint": "Сильная снежная буря в степной местности при низких температурах.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ПУРГА",
+    "hint": "Сильная низовая метель, поднимающая снег с земли.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГРАД",
+    "hint": "Вид атмосферных осадков в виде кусочков льда разного размера.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РОСА",
+    "hint": "Капельки воды, оседающие на растениях и почве прохладным утром.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ИНЕЙ",
+    "hint": "Тонкий слой ледяных кристаллов, образующийся на поверхностях в морозную погоду.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ИЗМОРОЗЬ",
+    "hint": "Рыхлые снежные кристаллы, нарастающие на ветвях деревьев и проводах в морозный туман.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ТУМАН",
+    "hint": "Скопление мелких капель воды или кристаллов льда у поверхности земли, ухудшающее видимость.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ОБЛАКО",
+    "hint": "Видимое скопление капель воды или ледяных кристаллов в атмосфере высоко над землей.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТУЧА",
+    "hint": "Большое, темное облако, из которого выпадают осадки.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СНЕГОПАД",
+    "hint": "Выпадение снега из облаков.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛИВЕНЬ",
+    "hint": "Сильный проливной дождь, часто сопровождающийся грозой.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ДОЖДЬ",
+    "hint": "Атмосферные осадки в виде капель воды, падающих из облаков.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СУМЕРКИ",
+    "hint": "Плавный переход от дневного света к ночной темноте.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЗАРЯ",
+    "hint": "Свечение неба перед восходом или после захода солнца.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗАКАТ",
+    "hint": "Ежедневное скрытие солнца за горизонтом.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВОСХОД",
+    "hint": "Появление солнца над горизонтом утром.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "РАССВЕТ",
+    "hint": "Время перед восходом солнца, когда небо начинает светлеть.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СМЕРЧ",
+    "hint": "Сильный вихрь в виде столба, поднимающий предметы в воздух.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МИРАЖ",
+    "hint": "Оптическое явление, когда на горизонте появляются мнимые изображения, например, вода в пустыне.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗВЕЗДОПАД",
+    "hint": "Метеорный поток, при котором кажется, что с неба падают звезды.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МЕТЕОРИТ",
+    "hint": "Космическое тело, упавшее на поверхность Земли.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "КОМЕТА",
+    "hint": "Небесное тело с ярким светящимся хвостом из газа и пыли.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗАТМЕНИЕ",
+    "hint": "Явление, при котором одно небесное тело закрывает свет от другого.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛЯРНОЕ СИЯНИЕ",
+    "hint": "Свечение верхних слоев атмосферы, которое можно увидеть на севере.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГАЛО",
+    "hint": "Светящееся кольцо вокруг Солнца или Луны в морозную погоду.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВЕСНА",
+    "hint": "Время года, когда пробуждается природа, тает снег и распускаются почки.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЛЕТО",
+    "hint": "Самое теплое время года с длинными днями и короткими ночами.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ОСЕНЬ",
+    "hint": "Время года, когда желтеют листья и природа готовится к зиме.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗИМА",
+    "hint": "Самое холодное время года, когда земля покрывается снегом.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕС",
+    "hint": "Множество деревьев, растущих на обширной территории.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТАЙГА",
+    "hint": "Густой хвойный лес, занимающий огромные пространства на севере.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ДЖУНГЛИ",
+    "hint": "Густые и непроходимые тропические леса.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "САВАННА",
+    "hint": "Тропическая степь с редко растущими деревьями и кустарниками.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПУСТЫНЯ",
+    "hint": "Территория с очень сухим климатом, где почти нет растений и воды.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОАЗИС",
+    "hint": "Участок растительности у источника воды посреди пустыни.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СТЕПЬ",
+    "hint": "Обширное безлесное пространство, покрытое травой.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ТУНДРА",
+    "hint": "Холодная безлесная равнина на севере с вечной мерзлотой.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛЕ",
+    "hint": "Открытое безлесное пространство, часто используемое для посевов.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛУГ",
+    "hint": "Участок земли, покрытый густой травой и полевыми цветами.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БОЛОТО",
+    "hint": "Переувлажненный участок земли со стоячей водой и влаголюбивыми растениями.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТРЯСИНА",
+    "hint": "Опасное, засасывающее место на болоте.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ГОРЫ",
+    "hint": "Высокие возвышенности на земной поверхности с крутыми склонами.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СКАЛА",
+    "hint": "Крутая, отвесная каменная глыба.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "УЩЕЛЬЕ",
+    "hint": "Глубокая узкая долина с крутыми склонами между горами.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЕЩЕРА",
+    "hint": "Естественная подземная полость в скалах или земле.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ХОЛМ",
+    "hint": "Небольшая округлая возвышенность на равнине.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "РАВНИНА",
+    "hint": "Обширный участок земной поверхности с ровным рельефом.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОКЕАН",
+    "hint": "Огромный водоем с соленой водой, разделяющий материки.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МОРЕ",
+    "hint": "Большой водоем с соленой водой, часть океана, ограниченная сушей.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗАЛИВ",
+    "hint": "Часть моря или океана, вдающаяся в сушу.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПРОЛИВ",
+    "hint": "Узкое водное пространство, разделяющее участки суши и соединяющее водоемы.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ОСТРОВ",
+    "hint": "Участок суши, со всех сторон окруженный водой.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛУОСТРОВ",
+    "hint": "Участок суши, вдающийся в водоем и окруженный водой с трех сторон.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МАТЕРИК",
+    "hint": "Огромный участок суши, омываемый океанами.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РЕКА",
+    "hint": "Постоянный водный поток, текущий в выработанном им русле.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РУЧЕЙ",
+    "hint": "Небольшой постоянный водный поток.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВОДОПАД",
+    "hint": "Падение воды реки с высокого уступа.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОЗЕРО",
+    "hint": "Большой естественный водоем, замкнутый в берегах.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПРУД",
+    "hint": "Небольшой искусственный или естественный водоем.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РОДНИК",
+    "hint": "Естественный выход подземных вод на поверхность.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛУЖА",
+    "hint": "Небольшое скопление воды на поверхности земли после дождя.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЛЕДНИК",
+    "hint": "Огромная масса льда, медленно сползающая по горному склону.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "АЙСБЕРГ",
+    "hint": "Огромная ледяная гора, плавающая в океане.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПРОТАЛИНА",
+    "hint": "Место, где стаял снег и обнажилась земля весной.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛЫНЬЯ",
+    "hint": "Пространство открытой воды в ледяном покрове реки или озера.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СОСУЛЬКА",
+    "hint": "Конусообразный кусок льда, свисающий с крыши или ветки.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СУГРОБ",
+    "hint": "Наметанная ветром большая куча снега.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "НАСТ",
+    "hint": "Твердая ледяная корка на поверхности снега.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГОЛОЛЕД",
+    "hint": "Слой плотного льда, образующийся на земле и дорогах после замерзания дождя.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛОВОДЬЕ",
+    "hint": "Ежегодный высокий подъем уровня воды в реке весной после таяния снега.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НАВОДНЕНИЕ",
+    "hint": "Затопление суши водой, поднявшейся из-за дождей или таяния снегов.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЗАСУХА",
+    "hint": "Длительный период без дождей, губительный для растений.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОЖАР",
+    "hint": "Стихийное распространение огня, особенно опасное в лесу.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЭХО",
+    "hint": "Отражение звука от преграды, благодаря которому мы слышим его повторение.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЕНЬ",
+    "hint": "Темная область за освещенным предметом.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СВЕТ",
+    "hint": "Электромагнитное излучение, делающее мир видимым для нас.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВЕТЕР",
+    "hint": "Поток воздуха, движущийся вдоль земной поверхности.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БРИЗ",
+    "hint": "Слабый теплый ветер на побережье моря, меняющий направление дважды в сутки.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ШТИЛЬ",
+    "hint": "Полное безветрие на море или суше.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БУРЯ",
+    "hint": "Очень сильный ветер с дождем или снегом, наносящий разрушения.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ШТОРМ",
+    "hint": "Сильная буря на море, поднимающая высокие волны.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КЛИМАТ",
+    "hint": "Многолетний режим погоды, характерный для определенной местности.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОГОДА",
+    "hint": "Состояние атмосферы в данном месте и в данное время.",
+    "category": "Природа",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "АТМОСФЕРА",
+    "hint": "Воздушная оболочка Земли.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПРИРОДА",
+    "hint": "Весь материальный мир вокруг нас, не созданный человеком.",
+    "category": "Природа",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОЛОБОК",
+    "hint": "Румяное хлебобулочное изделие, которое ушло от бабушки и дедушки.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ТЕРЕМОК",
+    "hint": "Небольшой сказочный домик, в котором поместилось много лесных зверей.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РЕПКА",
+    "hint": "Огромный овощ, который дед не смог вытянуть без помощи всей семьи и мышки.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СНЕГУРОЧКА",
+    "hint": "Девочка, слепленная из снега, растаявшая при прыжке через костер.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БУРАТИНО",
+    "hint": "Деревянный мальчик с длинным носом, вырезанный папой Карло.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МАЛЬВИНА",
+    "hint": "Девочка с голубыми волосами, которая пыталась учить Буратино.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ПЬЕРО",
+    "hint": "Грустный поэт с белым лицом, влюбленный в Мальвину.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАРАБАС",
+    "hint": "Злой директор кукольного театра с длинной бородой.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ДУРЕМАР",
+    "hint": "Продавец лечебных пиявок из сказки про Золотой Ключик.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЧЕБУРАШКА",
+    "hint": "Неизвестный науке зверек с большими ушами, друг крокодила Гены.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ШАПОКЛЯК",
+    "hint": "Вредная старуха, которая любила делать пакости и носила крысу в сумочке.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЗОЛУШКА",
+    "hint": "Трудолюбивая девушка, потерявшая хрустальную туфельку на балу.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БЕЛОСНЕЖКА",
+    "hint": "Прекрасная принцесса, жившая в лесу с семью гномами.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РУСАЛОЧКА",
+    "hint": "Дочь морского царя, обменявшая свой голос на человеческие ноги.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ДЮЙМОВОЧКА",
+    "hint": "Крошечная девочка, родившаяся в цветке и вышедшая замуж за эльфа.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЩЕЛКУНЧИК",
+    "hint": "Деревянная игрушка для колки орехов, победившая Мышиного короля.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "АЛЛАДИН",
+    "hint": "Юноша из арабских сказок, нашедший волшебную лампу с джинном.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ДЖИНН",
+    "hint": "Могущественный дух, живущий в лампе и исполняющий три желания.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МАУГЛИ",
+    "hint": "Человеческий детеныш, воспитанный волками в джунглях.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БАЛУ",
+    "hint": "Мудрый медведь, обучавший Маугли Закону Джунглей.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БАГИРА",
+    "hint": "Грациозная черная пантера, защитница и наставница Маугли.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ШЕРХАН",
+    "hint": "Злой и хромой тигр, главный враг Маугли в джунглях.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАА",
+    "hint": "Огромный старый питон, обладающий гипнотическим взглядом.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БАРМАЛЕЙ",
+    "hint": "Злой разбойник из Африки, который любил кушать маленьких детей.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АЙБОЛИТ",
+    "hint": "Добрый доктор, который понимал язык зверей и лечил их в Африке.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МОЙДОДЫР",
+    "hint": "Великий умывальник, начальник мочалок и командир мыла.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МУХА",
+    "hint": "Цокотуха, купившая самовар на найденную денежку.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОМАР",
+    "hint": "Маленький герой с фонариком, спасший Муху-Цокотуху от паука.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КЕНТАВР",
+    "hint": "Мифическое существо с головой и торсом человека на теле лошади.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПЕГАС",
+    "hint": "Мифический крылатый белый конь.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЕДИНОРОГ",
+    "hint": "Мифический конь с одним рогом во лбу.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ДРАКОН",
+    "hint": "Огромный сказочный ящер, извергающий пламя.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГОРЫНЫЧ",
+    "hint": "Змей о трех головах, из русских народных сказок.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОЩЕЙ",
+    "hint": "Бессмертный злодей русских сказок, чья смерть спрятана на конце иглы.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЯГА",
+    "hint": "Злая старуха, живущая в лесу в избушке на курьих ножках.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕСШИЙ",
+    "hint": "Дух-хозяин леса, способный запутать дорогу путнику.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВОДЯНОЙ",
+    "hint": "Сказочный хозяин рек и озер, живущий в омуте.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КИКИМОРА",
+    "hint": "Злой болотный или домашний дух в виде маленькой старушки.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ДОМОВОЙ",
+    "hint": "Добрый дух, хранитель домашнего очага.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГНОМ",
+    "hint": "Маленький бородатый человечек, добывающий сокровища в подземельях.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЭЛЬФ",
+    "hint": "Светлый волшебный дух природы с заостренными ушами.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ФЕЯ",
+    "hint": "Добрая волшебница с крылышками, крестная Золушки.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВЕДЬМА",
+    "hint": "Злая колдунья, летающая на метле.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОЛДУН",
+    "hint": "Злой волшебник, обладающий магической силой.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЧАРОДЕЙ",
+    "hint": "Добрый или злой маг, совершающий чудеса.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МАГ",
+    "hint": "Человек, владеющий искусством магии и волшебства.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "БОГАТЫРЬ",
+    "hint": "Сильный и храбрый воин из русских былин.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ИЛЬЯ",
+    "hint": "Муромец, могучий русский богатырь, просидевший на печи 33 года.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ДОБРЫНЯ",
+    "hint": "Никитич, богатырь, победивший Змея Горыныча.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АЛЕША",
+    "hint": "Попович, самый молодой и смекалистый из трех богатырей.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СВЯТОГОР",
+    "hint": "Огромный богатырь-великан, которого с трудом носила земля-матушка.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МИКУЛА",
+    "hint": "Селянинович, богатырь-пахарь недюжинной силы.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "САДКО",
+    "hint": "Новгородский гусляр, побывавший на дне морском у Морского царя.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РУСЛАН",
+    "hint": "Храбрый витязь, отправившийся спасать Людмилу от Черномора.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛЮДМИЛА",
+    "hint": "Прекрасная княжна, похищенная злым карликом Черномором.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЧЕРНОМОР",
+    "hint": "Злой колдун с невероятно длинной бородой.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "БАЛДА",
+    "hint": "Работник, нанятый попом за три щелчка по лбу.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "САЛТАН",
+    "hint": "Славный царь, отец князя Гвидона.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГВИДОН",
+    "hint": "Князь, который превращался в комара, муху и шмеля, чтобы навестить отца.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РАПУНЦЕЛЬ",
+    "hint": "Девушка с невероятно длинными волшебными волосами, заточенная в башне.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ШРЕК",
+    "hint": "Большой зеленый огр, живший на болоте.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ФИОНА",
+    "hint": "Принцесса, по ночам превращавшаяся в огра.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ОСЕЛ",
+    "hint": "Говорливый друг Шрека, женившийся на Драконихе.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГАРИК",
+    "hint": "Мальчик со шрамом на лбу, узнавший, что он волшебник.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "РОН",
+    "hint": "Рыжеволосый друг Гарри Поттера из большой семьи.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГЕРМИОНА",
+    "hint": "Умная и прилежная волшебница, подруга Гарри Поттера.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ДАМБЛДОР",
+    "hint": "Мудрый директор школы волшебства Хогвартс.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ХАГРИД",
+    "hint": "Огромный добрый лесничий, любящий опасных магических существ.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВОЛАНД",
+    "hint": "Тот, кого нельзя называть, злой темный маг.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ХОББИТ",
+    "hint": "Маленький человечек с мохнатыми ногами, живущий в уютной норе.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БИЛЬБО",
+    "hint": "Хоббит, нашедший Кольцо Всевластья в пещере Голлума.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ФРОДО",
+    "hint": "Хоббит, которому поручили отнести и уничтожить Кольцо.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГЭНДАЛЬФ",
+    "hint": "Серый, а затем Белый маг с длинной бородой и посохом.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГОЛЛУМ",
+    "hint": "Существо, называвшее кольцо 'моя прелесть'.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "НЕЗНАЙКА",
+    "hint": "Коротышка в голубой шляпе, который ничего не знал и не умел.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЗНАЙКА",
+    "hint": "Умный коротышка в очках, который придумал построить воздушный шар.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВИНТИК",
+    "hint": "И Шпунтик - коротышки-механики из Цветочного города.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПИЛЮЛЬКИН",
+    "hint": "Доктор из Цветочного города, любивший лечить касторкой.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТЮБИК",
+    "hint": "Художник из Цветочного города.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГУСЛЯ",
+    "hint": "Музыкант из Цветочного города.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПУХ",
+    "hint": "Плюшевый медвежонок, который очень любил мед и сочинял пыхтелки.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ПЯТАЧОК",
+    "hint": "Маленький поросенок, лучший друг медвежонка Винни-Пуха.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ИА",
+    "hint": "Грустный ослик, потерявший свой хвост.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СОВА",
+    "hint": "Мудрая птица, которая умела писать свое имя.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КРОЛИК",
+    "hint": "Умный и воспитанный друг Винни-Пуха, который любил порядок.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАРЛСОН",
+    "hint": "В меру упитанный мужчина в самом расцвете сил с пропеллером на спине.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МАЛЫШ",
+    "hint": "Одинокий мальчик семи лет, лучший друг Карлсона.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ФРЕКЕН",
+    "hint": "Бок, строгая домомучительница, нанятая родителями Малыша.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПИТЕР",
+    "hint": "Пэн, мальчик, который не хотел взрослеть и умел летать.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВЕНДИ",
+    "hint": "Девочка, которую Питер Пэн забрал в Нетландию.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАПИТАН",
+    "hint": "Крюк, злой пират, заклятый враг Питера Пэна.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "АЛИСА",
+    "hint": "Девочка, провалившаяся в кроличью нору и попавшая в Страну Чудес.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ШЛЯПНИК",
+    "hint": "Безумный персонаж, любивший устраивать бесконечные чаепития.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОТ",
+    "hint": "Чеширский, умеющий растворяться в воздухе, оставляя только улыбку.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОРОЛЕВА",
+    "hint": "Красная или Червонная, которая любила рубить всем головы.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АЛИБАБА",
+    "hint": "Бедный дровосек, узнавший секрет пещеры сорока разбойников.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СИМБАД",
+    "hint": "Мореход, совершивший семь удивительных путешествий.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ХОТТАБЫЧ",
+    "hint": "Старый советский джинн, вылезший из кувшина, найденного пионером Волькой.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛУКОВИЦА",
+    "hint": "Чиполлино, мальчик-луковка, боровшийся со злым сеньором Помидором.",
+    "category": "Сказки",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЩУКА",
+    "hint": "Волшебная рыба, исполнявшая желания Емели по его велению.",
+    "category": "Сказки",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЕЛЕСКОП",
+    "hint": "Оптический прибор для наблюдения за удаленными объектами, в первую очередь небесными телами.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ТЕЛЕФОН",
+    "hint": "Устройство для передачи звука и речи на большие расстояния.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОЛЕСО",
+    "hint": "Одно из древнейших и важнейших изобретений человечества, круглый диск, способный вращаться на оси.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОМПАС",
+    "hint": "Навигационный прибор, указывающий направление на магнитные полюса Земли.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БУМАГА",
+    "hint": "Материал для письма и печати, изобретенный в Древнем Китае.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОРОХ",
+    "hint": "Многокомпонентная твердая взрывчатая смесь, придуманная в Китае.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КОМПЬЮТЕР",
+    "hint": "Электронная вычислительная машина для обработки информации.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ИНТЕРНЕТ",
+    "hint": "Всемирная система объединенных компьютерных сетей.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РАДИО",
+    "hint": "Способ передачи информации на расстояние с помощью электромагнитных волн.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЕЛЕВИЗОР",
+    "hint": "Устройство для приема и отображения телевизионного сигнала со звуком.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МИКРОСКОП",
+    "hint": "Прибор для получения увеличенных изображений невидимых глазу объектов.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "АВТОМОБИЛЬ",
+    "hint": "Самоходное транспортное средство с двигателем для перевозки пассажиров и грузов.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "САМОЛЕТ",
+    "hint": "Воздушное судно тяжелее воздуха, предназначенное для полетов в атмосфере.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ВЕРТОЛЕТ",
+    "hint": "Винтокрылый летательный аппарат, способный взлетать вертикально.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОЕЗД",
+    "hint": "Состав сцепленных вагонов, приводимый в движение локомотивом.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПАРОВОЗ",
+    "hint": "Локомотив, использующий в качестве двигателя паровую машину.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ТЕПЛОВОЗ",
+    "hint": "Локомотив с двигателем внутреннего сгорания.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЭЛЕКТРОВОЗ",
+    "hint": "Локомотив, получающий энергию от внешней электрической сети.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТРАМВАЙ",
+    "hint": "Уличный рельсовый общественный транспорт на электрической тяге.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТРОЛЛЕЙБУС",
+    "hint": "Безрельсовый уличный транспорт, питающийся электричеством по контактной сети.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МЕТРО",
+    "hint": "Городская внеуличная железная дорога, обычно проложенная под землей.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВЕЛОСИПЕД",
+    "hint": "Колесное транспортное средство, приводимое в движение мускульной силой человека.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МОТОЦИКЛ",
+    "hint": "Двухколесное транспортное средство с двигателем внутреннего сгорания.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТРАКТОР",
+    "hint": "Самоходная машина для выполнения сельскохозяйственных и строительных работ.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОМБАЙН",
+    "hint": "Сложная сельскохозяйственная машина, выполняющая несколько операций одновременно.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЭКСКАВАТОР",
+    "hint": "Землеройная машина, оснащенная ковшом.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "БУДИЛЬНИК",
+    "hint": "Часы, подающие звуковой сигнал в заданное время для пробуждения.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЧАСЫ",
+    "hint": "Прибор для определения текущего времени суток и измерения продолжительности временных интервалов.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЕРМОМЕТР",
+    "hint": "Прибор для измерения температуры воздуха, почвы, воды и так далее.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БАРОМЕТР",
+    "hint": "Прибор для измерения атмосферного давления.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СПИЧКА",
+    "hint": "Палочка из горючего материала с зажигательной головкой на конце.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЗАЖИГАЛКА",
+    "hint": "Компактное устройство для получения огня.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НОЖНИЦЫ",
+    "hint": "Инструмент для разрезания материалов, состоящий из двух лезвий на шарнире.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ИГЛА",
+    "hint": "Длинный тонкий заостренный инструмент для сшивания материалов нитью.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПУГОВИЦА",
+    "hint": "Застежка на одежде, продеваемая в петлю.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МОЛНИЯ",
+    "hint": "Вид быстрой застежки, состоящей из двух лент со звеньями и замка.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ОЧКИ",
+    "hint": "Оптический прибор для коррекции зрения или защиты глаз от света.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛУПА",
+    "hint": "Оптическая система из одной или нескольких линз для увеличения мелких деталей.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БИНОКЛЬ",
+    "hint": "Оптический прибор из двух параллельных зрительных труб для наблюдения удаленных предметов.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ФОТОАППАРАТ",
+    "hint": "Устройство для получения и фиксации неподвижных изображений объектов.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ВИДЕОКАМЕРА",
+    "hint": "Устройство для записи движущегося изображения со звуком.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "КИНО",
+    "hint": "Вид искусства и технология создания движущихся изображений.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛАМПОЧКА",
+    "hint": "Искусственный источник света, в котором свет испускается телом накала.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БАТАРЕЙКА",
+    "hint": "Одиночный гальванический элемент, портативный источник электроэнергии.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АККУМУЛЯТОР",
+    "hint": "Устройство для накопления энергии с целью ее последующего использования.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГЕНЕРАТОР",
+    "hint": "Устройство, вырабатывающее электроэнергию из механической или другой формы энергии.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ДВИГАТЕЛЬ",
+    "hint": "Устройство, преобразующее какой-либо вид энергии в механическую работу.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НАСОС",
+    "hint": "Устройство для напора и перемещения жидкостей и газов.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВЕНТИЛЯТОР",
+    "hint": "Устройство для перемещения воздуха с целью охлаждения или вентиляции.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОНДИЦИОНЕР",
+    "hint": "Устройство для поддержания оптимальных климатических условий в помещении.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ХОЛОДИЛЬНИК",
+    "hint": "Аппарат для охлаждения и хранения продуктов питания при низкой температуре.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ПЛИТА",
+    "hint": "Кухонный нагревательный прибор, предназначенный для приготовления пищи.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МИКРОВОЛНОВКА",
+    "hint": "Печь, использующая электромагнитные волны для быстрого разогрева пищи.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПЫЛЕСОС",
+    "hint": "Уборный агрегат для всасывания пыли и грязи потоком воздуха.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "УТЮГ",
+    "hint": "Прибор для разглаживания складок на одежде горячей поверхностью.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СТИРАЛКА",
+    "hint": "Машина для автоматической стирки одежды и белья.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МЯСОРУБКА",
+    "hint": "Механическое или электромеханическое устройство для измельчения мяса.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МИКСЕР",
+    "hint": "Прибор для перемешивания и взбивания жидких и сыпучих пищевых продуктов.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БЛЕНДЕР",
+    "hint": "Электроприбор для измельчения пищи, приготовления пюре и смузи.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЧАЙНИК",
+    "hint": "Сосуд для кипячения воды, часто электрический.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТЕРМОС",
+    "hint": "Посуда с двойными стенками, сохраняющая температуру налитой в нее жидкости.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "НОЖ",
+    "hint": "Режущий инструмент, состоящий из клинка и рукояти.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ВИЛКА",
+    "hint": "Столовый прибор с несколькими зубьями для накалывания пищи.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛОЖКА",
+    "hint": "Столовый прибор с черпалом на длинной ручке для жидкой и сыпучей пищи.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ТАРЕЛКА",
+    "hint": "Плоская столовая посуда, на которую кладут пищу перед едой.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КАСТРЮЛЯ",
+    "hint": "Глубокая кухонная посуда с ручками и крышкой для варки пищи.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СКОВОРОДА",
+    "hint": "Плоская кухонная посуда для жарки пищи.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КРУЖКА",
+    "hint": "Большая чашка цилиндрической формы с ручкой для питья.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СТАКАН",
+    "hint": "Стеклянный сосуд для питья без ручки, цилиндрической или конической формы.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЫЛО",
+    "hint": "Жидкий или твердый продукт для мытья тела и стирки.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ШАМПУНЬ",
+    "hint": "Жидкое моющее средство для мытья волос.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЗУБНАЯ ЩЕТКА",
+    "hint": "Инструмент для чистки зубов и массажа десен.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПАСТА",
+    "hint": "Желеобразная масса для чистки зубов, используемая вместе со щеткой.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛОТЕНЦЕ",
+    "hint": "Кусок впитывающей ткани для вытирания тела или рук.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЗЕРКАЛО",
+    "hint": "Гладкая поверхность, отражающая свет и позволяющая видеть свое отражение.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РАСЧЕСКА",
+    "hint": "Инструмент с зубьями для распутывания и укладки волос.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "НОСОВОЙ ПЛАТОК",
+    "hint": "Небольшой кусок ткани для высмаркивания или вытирания лица.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЗОНТ",
+    "hint": "Приспособление для защиты от дождя или солнечных лучей в виде складного навеса.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПАЛАТКА",
+    "hint": "Временное разборное жилище из ткани, используемое туристами.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РЮКЗАК",
+    "hint": "Заплечная сумка для переноски вещей в походе или в городе.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОМПАС",
+    "hint": "Прибор, позволяющий ориентироваться на местности и находить север.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КАРТА",
+    "hint": "Уменьшенное изображение земной поверхности на плоскости.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГЛОБУС",
+    "hint": "Трехмерная модель Земли, передающая ее форму.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КНИГА",
+    "hint": "Сброшюрованные листы бумаги с напечатанным текстом.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГАЗЕТА",
+    "hint": "Периодическое издание в виде больших листов с новостями.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЖУРНАЛ",
+    "hint": "Периодическое многостраничное издание, скрепленное в корешке.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ПИСЬМО",
+    "hint": "Написанное на бумаге сообщение, отправляемое в конверте по почте.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МАРКА",
+    "hint": "Маленький бумажный знак, подтверждающий оплату почтовых услуг.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОНВЕРТ",
+    "hint": "Пакет из бумаги для пересылки писем по почте.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РУЧКА",
+    "hint": "Письменная принадлежность с чернилами внутри.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КАРАНДАШ",
+    "hint": "Стержень из графита в деревянной оболочке для рисования и письма.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЛАСТИК",
+    "hint": "Кусочек резины для стирания карандашных надписей.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЛИНЕЙКА",
+    "hint": "Инструмент с прямым краем и делениями для черчения прямых линий и измерений.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЦИРКУЛЬ",
+    "hint": "Инструмент для черчения окружностей и дуг.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КАЛЬКУЛЯТОР",
+    "hint": "Электронное устройство для выполнения математических вычислений.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КЛАВИАТУРА",
+    "hint": "Устройство ввода информации в компьютер с помощью кнопок-клавиш.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "МЫШЬ",
+    "hint": "Координатное устройство для управления курсором на экране компьютера.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПРИНТЕР",
+    "hint": "Устройство для вывода текстовой и графической информации с компьютера на бумагу.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СКАНЕР",
+    "hint": "Устройство, создающее цифровую копию изображения на бумаге.",
+    "category": "Изобретения",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МОНИТОР",
+    "hint": "Устройство для визуального отображения информации, получаемой от компьютера.",
+    "category": "Изобретения",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СОЛНЦЕ",
+    "hint": "Центральная звезда нашей планетной системы, раскаленный плазменный шар.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЛУНА",
+    "hint": "Единственный естественный спутник Земли, на который высаживались люди.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗЕМЛЯ",
+    "hint": "Третья планета от Солнца, единственная известная планета, на которой есть жизнь.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕРКУРИЙ",
+    "hint": "Самая маленькая и самая близкая к Солнцу планета нашей системы.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ВЕНЕРА",
+    "hint": "Самая горячая планета Солнечной системы с плотной атмосферой.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МАРС",
+    "hint": "Красная планета, названная в честь древнеримского бога войны.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЮПИТЕР",
+    "hint": "Самая большая планета Солнечной системы, газовый гигант.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "САТУРН",
+    "hint": "Газовый гигант, знаменитый своими широкими яркими кольцами.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "УРАН",
+    "hint": "Ледяной гигант, вращающийся вокруг Солнца, как бы лежа на боку.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "НЕПТУН",
+    "hint": "Самая дальняя от Солнца планета, названная в честь бога морей.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЛУТОН",
+    "hint": "Карликовая планета на окраине Солнечной системы, ранее считавшаяся девятой планетой.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ЗВЕЗДА",
+    "hint": "Массивный газовый шар, излучающий свет за счет термоядерных реакций внутри.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГАЛАКТИКА",
+    "hint": "Гигантское скопление звезд, газа и пыли, удерживаемое гравитацией.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ВСЕЛЕННАЯ",
+    "hint": "Весь существующий материальный мир, безграничный во времени и пространстве.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОСМОС",
+    "hint": "Пустое пространство Вселенной, находящееся за пределами атмосфер планет.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ОРБИТА",
+    "hint": "Путь, по которому одно небесное тело движется вокруг другого.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "СПУТНИК",
+    "hint": "Небесное тело, вращающееся вокруг планеты или звезды.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АСТЕРОИД",
+    "hint": "Небольшое каменистое небесное тело, вращающееся вокруг Солнца.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОМЕТА",
+    "hint": "Небольшое ледяное небесное тело с ярким светящимся газовым хвостом.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕТЕОР",
+    "hint": "Светящийся след в атмосфере от сгоревшего космического осколка, 'падающая звезда'.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕТЕОРИТ",
+    "hint": "Каменное или металлическое космическое тело, упавшее на поверхность Земли.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "НЕВЕСОМОСТЬ",
+    "hint": "Состояние, при котором предметы теряют вес и могут свободно парить.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ВАКУУМ",
+    "hint": "Пространство, свободное от вещества, в котором невозможно дыхание и не распространяется звук.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГРАВИТАЦИЯ",
+    "hint": "Сила притяжения между всеми телами во Вселенной.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СКАФАНДР",
+    "hint": "Специальный защитный костюм для выхода космонавта в открытый космос.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "РАКЕТА",
+    "hint": "Летательный аппарат, способный преодолеть земное притяжение и выйти в космос.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "КОСМОДРОМ",
+    "hint": "Комплекс сооружений для запуска космических аппаратов в космос.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "БАЙКОНУР",
+    "hint": "Первый и крупнейший в мире космодром, с которого стартовал Юрий Гагарин.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛУНОХОД",
+    "hint": "Космический самоходный аппарат для исследования поверхности Луны.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МАРСОХОД",
+    "hint": "Автоматический аппарат, передвигающийся по поверхности Марса и изучающий его.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТЕЛЕСКОП",
+    "hint": "Астрономический прибор для наблюдения за удаленными космическими объектами.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ОБСЕРВАТОРИЯ",
+    "hint": "Научное учреждение с телескопами для астрономических наблюдений.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СОЗВЕЗДИЕ",
+    "hint": "Участок звездного неба с характерной фигурой из ярких звезд.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МЛЕЧНЫЙ",
+    "hint": "Путь - наша Галактика, видимая на ночном небе как светящаяся полоса.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СВЕРХНОВАЯ",
+    "hint": "Звезда, которая взрывается в конце своей жизни с огромной яркостью.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КВАЗАР",
+    "hint": "Один из самых ярких объектов во Вселенной, находящийся в центре далекой галактики.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ПУЛЬСАР",
+    "hint": "Нейтронная звезда, испускающая строго периодические импульсы излучения.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЗАТМЕНИЕ",
+    "hint": "Астрономическое явление, при котором одно небесное тело заслоняет свет от другого.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АСТРОНОМ",
+    "hint": "Ученый, занимающийся изучением звезд, планет и Вселенной в целом.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОСМОНАВТ",
+    "hint": "Человек, совершивший полет в космическое пространство.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АСТРОНАВТ",
+    "hint": "Название космонавта в США и некоторых других странах.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ГАГАРИН",
+    "hint": "Первый человек в мировой истории, совершивший полет в космическое пространство.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТЕРЕШКОВА",
+    "hint": "Первая в мире женщина-космонавт, совершившая полет в одиночку.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛЕОНОВ",
+    "hint": "Первый космонавт, совершивший выход в открытое космическое пространство.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОРОЛЕВ",
+    "hint": "Главный конструктор первых советских ракет и космических кораблей.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЦИОЛКОВСКИЙ",
+    "hint": "Ученый, основоположник теоретической космонавтики, обосновавший использование ракет.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СХИАПАРЕЛЛИ",
+    "hint": "Астроном, открывший на Марсе сеть линий, названных им 'каналами'.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ГАЛИЛЕЙ",
+    "hint": "Ученый, впервые направивший телескоп в небо и открывший спутники Юпитера.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КОПЕРНИК",
+    "hint": "Астроном, доказавший, что Земля и другие планеты вращаются вокруг Солнца.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КЕПЛЕР",
+    "hint": "Астроном, открывший законы движения планет вокруг Солнца.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ХАББЛ",
+    "hint": "Знаменитый космический телескоп, названный в честь американского астронома.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВОСТОК",
+    "hint": "Название советского космического корабля, на котором совершил полет Юрий Гагарин.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "АПОЛЛОН",
+    "hint": "Американская космическая программа, в ходе которой люди высадились на Луну.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МИР",
+    "hint": "Советская и российская орбитальная станция, проработавшая в космосе 15 лет.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СОЮЗ",
+    "hint": "Серия советских и российских многоместных космических кораблей.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "БУРАН",
+    "hint": "Советский орбитальный корабль-ракетоплан многоразового использования.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ШАТТЛ",
+    "hint": "Американский многоразовый транспортный космический корабль.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СПЕЙС",
+    "hint": "Икс - частная космическая компания, создавшая ракеты Falcon и корабли Dragon.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "СТАРШИП",
+    "hint": "Сверхтяжелая космическая система для полетов на Марс и другие планеты.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МКС",
+    "hint": "Международная космическая станция, крупнейший искусственный объект на орбите Земли.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЗОНД",
+    "hint": "Беспилотный космический аппарат, отправляемый для исследования других планет.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "ВОЯДЖЕР",
+    "hint": "Американский космический зонд, покинувший пределы Солнечной системы.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СПУТНИК",
+    "hint": "Первый в мире искусственный аппарат, выведенный на орбиту Земли в 1957 году.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АТМОСФЕРА",
+    "hint": "Газовая оболочка, окружающая планету и удерживаемая ее гравитацией.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ТРОПОСФЕРА",
+    "hint": "Нижний слой атмосферы Земли, в котором формируется погода.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СТРАТОСФЕРА",
+    "hint": "Слой атмосферы, в котором находится озоновый слой, защищающий от ультрафиолета.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ИОНОСФЕРА",
+    "hint": "Верхний слой атмосферы Земли, состоящий из ионизированного газа.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЭКЗОСФЕРА",
+    "hint": "Самый внешний слой атмосферы, переходящий в межпланетное пространство.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "МЕСЯЦ",
+    "hint": "Видимая с Земли фаза Луны или ее народное название.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛНОЛУНИЕ",
+    "hint": "Фаза Луны, при которой она видна как полностью освещенный диск.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "НОВОЛУНИЕ",
+    "hint": "Фаза Луны, когда она находится между Землей и Солнцем и не видна на небе.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "ЗЕНИТ",
+    "hint": "Наивысшая точка небесной сферы, находящаяся прямо над головой наблюдателя.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ГОРИЗОНТ",
+    "hint": "Воображаемая линия, где, как кажется наблюдателю, небо сходится с землей.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЭКВАТОР",
+    "hint": "Воображаемая линия, делящая планету на Северное и Южное полушария.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПОЛЮС",
+    "hint": "Точка пересечения оси вращения планеты с ее поверхностью.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "МЕРИДИАН",
+    "hint": "Воображаемая линия на поверхности Земли, проходящая через оба полюса.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "СВЕТОВОЙ",
+    "hint": "Год - единица измерения расстояний в астрономии, равная пути света за один год.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПАРСЕК",
+    "hint": "Астрономическая единица измерения расстояний, равная примерно 3,26 светового года.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "АНТИМАТЕРИЯ",
+    "hint": "Вещество, состоящее из античастиц, аннигилирующее при контакте с обычной материей.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "СИНГУЛЯРНОСТЬ",
+    "hint": "Точка в центре черной дыры, где плотность вещества стремится к бесконечности.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "КРАТЕР",
+    "hint": "Чашеобразное углубление на поверхности планеты или луны от падения метеорита.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "РЕГОЛИТ",
+    "hint": "Рыхлый грунт, покрывающий поверхность Луны и других безатмосферных тел.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПАРНИКОВЫЙ",
+    "hint": "Эффект - разогрев нижних слоев атмосферы, особенно сильно выраженный на Венере.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АВРОРА",
+    "hint": "Научное название полярного сияния, свечения верхних слоев атмосферы.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "КОРОНА",
+    "hint": "Внешняя часть атмосферы Солнца, видимая только во время полного солнечного затмения.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЛАЗМА",
+    "hint": "Четвертое агрегатное состояние вещества, из которого состоят звезды.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": true
+  },
+  {
+    "word": "СВЕТ",
+    "hint": "Электромагнитное излучение, которое делает Вселенную видимой для нас.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ФОТОН",
+    "hint": "Элементарная частица, квант электромагнитного излучения, частица света.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "НЕЙТРИНО",
+    "hint": "Легчайшая элементарная частица, способная свободно пролетать сквозь планеты.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "АПОГЕЙ",
+    "hint": "Точка орбиты Луны или искусственного спутника Земли, наиболее удаленная от нее.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЕРИГЕЙ",
+    "hint": "Точка орбиты Луны или искусственного спутника Земли, ближайшая к ней.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "АФЕЛИЙ",
+    "hint": "Наиболее удаленная от Солнца точка орбиты планеты или другого небесного тела.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЕРИГЕЛИЙ",
+    "hint": "Ближайшая к Солнцу точка орбиты планеты или другого небесного тела.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ОСЬ",
+    "hint": "Воображаемая прямая, вокруг которой вращается небесное тело.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ЦЕНТРИФУГА",
+    "hint": "Тренажер для подготовки космонавтов к перегрузкам при старте и посадке.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ПЕРЕГРУЗКА",
+    "hint": "Увеличение веса тела космонавта во время разгона или торможения корабля.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": true
+  },
+  {
+    "word": "РАДАР",
+    "hint": "Радиолокационная станция для обнаружения объектов на расстоянии.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЕЛЕНГ",
+    "hint": "Угол между направлением на север и направлением на какой-либо объект.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  },
+  {
+    "word": "ПЕРИСКОП",
+    "hint": "Оптический прибор для наблюдения из укрытия, используемый и на космических кораблях.",
+    "category": "Космос",
+    "difficulty": 2,
+    "superGame": false
+  },
+  {
+    "word": "ЛЮК",
+    "hint": "Герметичная дверь в космическом корабле для перехода между отсеками или выхода в космос.",
+    "category": "Космос",
+    "difficulty": 1,
+    "superGame": false
+  }
 ]
