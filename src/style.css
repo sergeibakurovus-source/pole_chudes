@@ -7,13 +7,14 @@
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-panel: rgba(26, 26, 46, 0.75);
     --glass-border: rgba(255, 255, 255, 0.2);
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family: 'Inter', sans-serif;
+    --font-display: 'Russo One', sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: radial-gradient(ellipse at 20% 50%, #1a0a2e 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #0a1628 0%, transparent 60%), linear-gradient(135deg, #0d0d1a 0%, #0d0d2e 50%, #0a1628 100%);
     color: var(--text-color);
     font-family: var(--font-family);
     min-height: 100vh;
@@ -73,6 +74,7 @@ body {
     margin: 0;
     font-size: 1.3rem;
     font-weight: 800;
+    font-family: var(--font-display);
     background: linear-gradient(90deg, #fff, #ffd700);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -125,11 +127,20 @@ body {
     text-align: center;
     font-size: 1.3rem;
     font-weight: bold;
+    font-family: var(--font-display);
     min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffd700;
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.status-animate {
+    animation: fadeSlideUp 0.25s ease forwards;
 }
 
 .host-container {
@@ -183,6 +194,7 @@ body {
     justify-content: center;
     font-size: 2.2rem;
     font-weight: bold;
+    font-family: var(--font-display);
     text-transform: uppercase;
     transition: transform 0.4s ease-in-out, background 0.3s;
 }
@@ -243,11 +255,20 @@ body {
     transition: all 0.3s;
 }
 
+@keyframes breathingGold {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.08);
+    }
+    to {
+        box-shadow: 0 0 28px rgba(255, 215, 0, 0.55), 0 0 45px rgba(255, 215, 0, 0.22);
+    }
+}
+
 .player-card.active {
     border-color: var(--accent-gold);
     background: rgba(255, 215, 0, 0.15);
     transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    animation: breathingGold 3s ease-in-out infinite alternate;
 }
 
 .player-card.eliminated {
@@ -276,6 +297,7 @@ body {
     font-size: 1.3rem;
     color: var(--accent-gold);
     font-weight: bold;
+    font-family: var(--font-display);
 }
 
 /* Wheel */
@@ -290,8 +312,8 @@ body {
 
 .wheel-container {
     position: relative;
-    width: 240px;
-    height: 240px;
+    width: 300px;
+    height: 300px;
 }
 
 .wheel {
@@ -302,21 +324,30 @@ body {
     position: relative;
     overflow: hidden;
     background: conic-gradient(
-        #ff9a9e 0deg 30deg,
-        #fecfef 30deg 60deg,
-        #a1c4fd 60deg 90deg,
-        #c2e9fb 90deg 120deg,
-        #d4fc79 120deg 150deg,
-        #96e6a1 150deg 180deg,
-        #ffecd2 180deg 210deg,
-        #fcb69f 210deg 240deg,
-        #ff9a9e 240deg 270deg,
-        #fecfef 270deg 300deg,
-        #a1c4fd 300deg 330deg,
-        #c2e9fb 330deg 360deg
+        #1a3a5c 0deg 30deg,
+        #0f2740 30deg 60deg,
+        #c0392b 60deg 90deg,
+        #1a3a5c 90deg 120deg,
+        #455a64 120deg 150deg,
+        #0f2740 150deg 180deg,
+        #1a3a5c 180deg 210deg,
+        #f39c12 210deg 240deg,
+        #0f2740 240deg 270deg,
+        #1a3a5c 270deg 300deg,
+        #27ae60 300deg 330deg,
+        #0f2740 330deg 360deg
     );
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
     transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wheel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: repeating-conic-gradient(rgba(0,0,0,0.4) 0deg 1deg, transparent 1deg 30deg);
+    pointer-events: none;
 }
 
 .sector {
@@ -334,9 +365,11 @@ body {
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    font-weight: 800;
-    color: #111;
+    font-weight: 900;
+    color: #ffffff;
     font-size: 1.15rem;
+    font-family: var(--font-display);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
 }
 
 .wheel-pointer {
@@ -390,6 +423,17 @@ body {
     box-shadow: none;
 }
 
+@keyframes spinPulse {
+    0%, 100% { box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4), 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4), 0 0 0 14px rgba(255, 215, 0, 0); }
+}
+#btn-spin:not(:disabled) {
+    animation: spinPulse 1.8s infinite;
+}
+#btn-spin:disabled {
+    animation: none;
+}
+
 .keyboard {
     display: flex;
     flex-wrap: wrap;
@@ -417,6 +461,9 @@ body {
 
 .key:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    transform: scale(1.08);
+    border-color: rgba(255, 215, 0, 0.6);
 }
 
 .key:active:not(:disabled) {
@@ -796,7 +843,23 @@ body {
 .stat-value {
     font-size: 1.4rem;
     font-weight: bold;
+    font-family: var(--font-display);
     color: var(--accent-gold);
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes modalScaleIn {
+    from { transform: scale(0.92) translateY(10px); }
+    to { transform: scale(1) translateY(0); }
+}
+.modal-overlay.modal-entering {
+    animation: modalFadeIn 0.2s ease forwards;
+}
+.modal-overlay.modal-entering .modal {
+    animation: modalScaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .stat-label {

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Капитал-шоу Поле Чудес: Premium Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=8.0.5">
 </head>
 <body>
@@ -18,7 +21,7 @@
                 <span class="edition-badge">Museum Edition v8.0</span>
             </div>
             <div class="header-actions">
-                <button id="btn-open-museum" class="btn btn-museum" onclick="try{ if(window.openMuseum) window.openMuseum(); else document.getElementById('modal-museum').classList.remove('hidden'); }catch(e){ document.getElementById('modal-museum').classList.remove('hidden'); }">
+                <button id="btn-open-museum" class="btn btn-museum" onclick="try{ if(window.openMuseum) window.openMuseum(); else (function(){var m=document.getElementById('modal-museum');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }catch(e){ (function(){var m=document.getElementById('modal-museum');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }">
                     🏛️ Музей <span id="museum-badge" class="museum-badge">(0/16)</span>
                 </button>
             </div>
@@ -71,8 +74,8 @@
                     <div class="wheel-pointer"></div>
                 </div>
                 <div class="wheel-controls">
-                    <button id="btn-spin" class="btn primary-btn" disabled>Вращать барабан</button>
-                    <button id="btn-guess-word" class="btn primary-btn" disabled>Назвать слово</button>
+                    <button id="btn-spin" class="btn primary-btn" disabled>🎰 Вращать барабан</button>
+                    <button id="btn-guess-word" class="btn primary-btn" disabled>💬 Назвать слово</button>
                 </div>
             </div>
         </div>
@@ -184,7 +187,7 @@
         <div class="modal modal-wide glass-panel museum-modal-content">
             <div class="museum-header">
                 <h2>🏛️ Зал Славы и Музей Поле Чудес</h2>
-                <button id="btn-close-museum-top" class="btn-icon-close" onclick="document.getElementById('modal-museum').classList.add('hidden');">✕</button>
+                <button id="btn-close-museum-top" class="btn-icon-close" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden');})();">✕</button>
             </div>
 
             <!-- Дашборд статистики -->
@@ -238,7 +241,7 @@
 
             <div class="museum-footer">
                 <button id="btn-reset-museum" class="btn btn-reset">Сбросить коллекцию</button>
-                <button id="btn-close-museum" class="btn primary-btn" onclick="document.getElementById('modal-museum').classList.add('hidden');">Вернуться к игре</button>
+                <button id="btn-close-museum" class="btn primary-btn" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden');})();">Вернуться к игре</button>
             </div>
 
         </div>

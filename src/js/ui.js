@@ -1,3 +1,17 @@
+function showModal(el) {
+    el.classList.remove('hidden');
+    el.classList.remove('modal-entering');
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            el.classList.add('modal-entering');
+        });
+    });
+}
+function hideModal(el) {
+    el.classList.remove('modal-entering');
+    el.classList.add('hidden');
+}
+
 export class UI {
     constructor(game) {
         this.game = game;
@@ -230,7 +244,11 @@ export class UI {
 
     updateStatus(message) {
         if (this.statusElement) {
-            this.statusElement.textContent = message;
+            const statusEl = this.statusElement;
+            statusEl.classList.remove('status-animate');
+            void statusEl.offsetWidth; // force reflow
+            statusEl.textContent = message;
+            statusEl.classList.add('status-animate');
         }
     }
 
@@ -289,11 +307,11 @@ export class UI {
         
         const handler = () => {
             if (btn) btn.removeEventListener('click', handler);
-            if (this.modalOverlay) this.modalOverlay.classList.add('hidden');
+            if (this.modalOverlay) hideModal(this.modalOverlay);
             if (onAction) onAction();
         };
         if (btn) btn.addEventListener('click', handler);
-        if (this.modalOverlay) this.modalOverlay.classList.remove('hidden');
+        if (this.modalOverlay) showModal(this.modalOverlay);
     }
 
     showPrizeModal(onTakePrize, onTakePoints) {
@@ -303,21 +321,21 @@ export class UI {
         const prizeHandler = () => {
             if (btnPrize) btnPrize.removeEventListener('click', prizeHandler);
             if (btnPoints) btnPoints.removeEventListener('click', pointsHandler);
-            if (this.modalPrize) this.modalPrize.classList.add('hidden');
+            if (this.modalPrize) hideModal(this.modalPrize);
             if (onTakePrize) onTakePrize();
         };
 
         const pointsHandler = () => {
             if (btnPrize) btnPrize.removeEventListener('click', prizeHandler);
             if (btnPoints) btnPoints.removeEventListener('click', pointsHandler);
-            if (this.modalPrize) this.modalPrize.classList.add('hidden');
+            if (this.modalPrize) hideModal(this.modalPrize);
             if (onTakePoints) onTakePoints();
         };
 
         if (btnPrize) btnPrize.addEventListener('click', prizeHandler);
         if (btnPoints) btnPoints.addEventListener('click', pointsHandler);
         
-        if (this.modalPrize) this.modalPrize.classList.remove('hidden');
+        if (this.modalPrize) showModal(this.modalPrize);
     }
 
     showPrizeReveal(trophy, onAction) {
@@ -341,11 +359,11 @@ export class UI {
 
         const handler = () => {
             if (btn) btn.removeEventListener('click', handler);
-            this.modalPrizeReveal.classList.add('hidden');
+            hideModal(this.modalPrizeReveal);
             if (onAction) onAction();
         };
         if (btn) btn.addEventListener('click', handler);
-        this.modalPrizeReveal.classList.remove('hidden');
+        showModal(this.modalPrizeReveal);
     }
 
     showGuessWordModal(onSubmit, onCancel) {
@@ -370,13 +388,13 @@ export class UI {
         const cleanup = () => {
             if (btnSubmit) btnSubmit.removeEventListener('click', submitHandler);
             if (btnCancel) btnCancel.removeEventListener('click', cancelHandler);
-            if (this.modalGuessWord) this.modalGuessWord.classList.add('hidden');
+            if (this.modalGuessWord) hideModal(this.modalGuessWord);
         };
 
         if (btnSubmit) btnSubmit.addEventListener('click', submitHandler);
         if (btnCancel) btnCancel.addEventListener('click', cancelHandler);
 
-        if (this.modalGuessWord) this.modalGuessWord.classList.remove('hidden');
+        if (this.modalGuessWord) showModal(this.modalGuessWord);
         if (input) input.focus();
     }
 
@@ -389,7 +407,7 @@ export class UI {
         const makeSelection = (selected) => {
             if (btn1) btn1.removeEventListener('click', handler1);
             if (btn2) btn2.removeEventListener('click', handler2);
-            if (this.modalCaskets) this.modalCaskets.classList.add('hidden');
+            if (this.modalCaskets) hideModal(this.modalCaskets);
             if (selected === winningCasket) {
                 onWin();
             } else {
@@ -403,7 +421,7 @@ export class UI {
         if (btn1) btn1.addEventListener('click', handler1);
         if (btn2) btn2.addEventListener('click', handler2);
 
-        if (this.modalCaskets) this.modalCaskets.classList.remove('hidden');
+        if (this.modalCaskets) showModal(this.modalCaskets);
     }
 
     showSuperGameOffer(onAccept, onDecline) {
@@ -422,13 +440,13 @@ export class UI {
         const cleanup = () => {
             if (btnYes) btnYes.removeEventListener('click', yesHandler);
             if (btnNo) btnNo.removeEventListener('click', noHandler);
-            if (this.modalSuperOffer) this.modalSuperOffer.classList.add('hidden');
+            if (this.modalSuperOffer) hideModal(this.modalSuperOffer);
         };
 
         if (btnYes) btnYes.addEventListener('click', yesHandler);
         if (btnNo) btnNo.addEventListener('click', noHandler);
 
-        if (this.modalSuperOffer) this.modalSuperOffer.classList.remove('hidden');
+        if (this.modalSuperOffer) showModal(this.modalSuperOffer);
     }
 
     showPrizeShop(player, onFinish) {
@@ -508,7 +526,7 @@ export class UI {
 
         const finishHandler = () => {
             if (btnFinish) btnFinish.removeEventListener('click', finishHandler);
-            this.modalPrizeShop.classList.add('hidden');
+            hideModal(this.modalPrizeShop);
             if (onFinish) onFinish();
         };
 
@@ -517,7 +535,7 @@ export class UI {
             btnFinish.addEventListener('click', finishHandler);
         }
 
-        this.modalPrizeShop.classList.remove('hidden');
+        showModal(this.modalPrizeShop);
     }
 
     showMuseumModal() {
@@ -526,7 +544,7 @@ export class UI {
         }
         if (!this.modalMuseum) return;
 
-        this.modalMuseum.classList.remove('hidden');
+        showModal(this.modalMuseum);
 
         try {
             const stats = this.game.museumManager.getStats();
@@ -632,7 +650,7 @@ export class UI {
         const btnClose = document.getElementById('btn-close-museum');
         const btnCloseTop = document.getElementById('btn-close-museum-top');
         const closeHandler = () => {
-            this.modalMuseum.classList.add('hidden');
+            hideModal(this.modalMuseum);
         };
         if (btnClose) btnClose.onclick = closeHandler;
         if (btnCloseTop) btnCloseTop.onclick = closeHandler;
