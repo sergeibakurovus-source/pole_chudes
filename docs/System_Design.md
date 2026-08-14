@@ -1,17 +1,98 @@
 # System Design: Капитал-шоу "Поле Чудес: Premium Edition"
 
 ## 1. Implementation Approach
-Проект реализуется в формате **Compact Mode (Hot-Seat Multiplayer)**. Поскольку игра предназначена для игры за одним экраном (локальный мультиплеер, передача хода), бэкенд не требуется.
-Вся бизнес-логика и управление состоянием реализуются на **Pure HTML5, CSS3, JS ES6+ (Vanilla JS)**.
-Для обеспечения Premium Visual Experience (Glassmorphism, микро-анимации, pop-in эффекты) используются современные возможности CSS (backdrop-filter, CSS-переменные, transitions, keyframes).
-Управление стейтом построено на базе строгого **конечного автомата (State Machine)**, что гарантирует защиту от гонки состояний (Race Conditions) и невалидных переходов. Компоненты UI взаимодействуют с логикой через событийную модель (CustomEvent), изолируя отображение от ядра игры. Интеграция Ведущего (Якубович) и вывод подсказок реализованы как подписчики на события начала раунда и смены хода в слое UI.
+Проект реализуется в формате **Compact Mode (Hot-Seat Multiplayer + Persistent Meta-Progression)**.
+Приложение полностью функционирует на стороне клиента (Client-Side Only) без выделенного бэкенда. Вся бизнес-логика, хранение коллекций и управление состояниями реализованы на **Pure HTML5, CSS3, JS ES6+ (Vanilla JS)** в виде модульной ES-архитектуры (`type="module"`).
 
-## 2. Data Structures & Interface Definitions
+### 1.1 Архитектурный подход для «Витрины подарков и Музея Капитал-шоу» (v8.0.0)
+1. **Модуль каталога и персистентности (`prizes.js`):**
+   - Выделен отдельный изолированный сервис `MuseumManager`, выступающий единым источником правды (Single Source of Truth) для каталога товаров, разблокированных трофеев и мета-статистики игрока.
+   - Каталог включает 16 культовых призов телешоу с четкой иерархией редкостей (`common`, `rare`, `epic`, `legendary`), стоимостями, категориями и описаниями.
+   - Хранилище использует браузерный `localStorage`:
+     - `pole_chudes_museum` — массив записей трофеев `TrophyRecord[]`.
+     - `pole_chudes_stats` — агрегированный объект мета-статистики `MuseumStats`.
+     - `pole_chudes_cache` — кэш сыгранных слов раунда.
+   - Все операции чтения/записи обернуты в безопасный слой `try/catch` с автоматической валидацией структуры и fallback-значениями по умолчанию при повреждении кэша.
+
+2. **Интеграция со State Machine (`state.js`):**
+   - Добавлены новые полноправные состояния жизненного цикла: `PRIZE_SHOP`, `SUPER_GAME_OFFER`, `SUPER_GAME_SETUP`, `SUPER_GAME_PLAYING`, `SUPER_GAME_WIN`.
+   - Исключены любые состояния гонки (Race Conditions): доступ к Витрине подарков открывается строго после завершения раунда или супер-игры.
+   - Сектор «Приз» (П): при согласии игрока взять приз генерируется случайный подарок из каталога с немедленной записью в Музей, после чего игрок помечается как `isEliminated = true`.
+
+3. **Слой представления и Glassmorphism UI (`ui.js`, `style.css`, `index.html`):**
+   - Реализованы два независимых модальных экрана в стиле Premium Glassmorphism (`backdrop-filter: blur(16px)`):
+     - **Витрина подарков (Prize Shop Modal):** Интерактивная витрина товаров, динамический индикатор очков победителя, кнопки покупки с валидацией баланса, бейджи "В коллекции" и "Не хватает очков".
+     - **Музей Капитал-шоу (Trophy Room Modal):** Постоянный Зал Славы, доступный по кнопке `🏛️ Музей` в Header в любой момент игры. Содержит дашборд статистики (игры, победы, супер-игры, очки, % коллекции), табы-фильтры по редкости (`Все`, `Обычные`, `Редкие`, `Эпические`, `Легендарные`), карточки открытых экспонатов и силуэты закрытых с замком 🔒.
+   - Неоновые акцентные свечения редкостей: Common (серый/бронза), Rare (изумруд/бирюза), Epic (фиолетовый неон), Legendary (золотой ореол с анимацией пульсации).
+
+4. **Аудио-движок (Web Audio API):**
+   - Синтез звуков в реальном времени без внешних медиафайлов: `playTick()` (вращение барабана, открытие ячеек), `playWin()` (фанфары триумфа), `playPurchase()` (звук кассового аппарата / звенящей монеты при покупке на витрине).
+
+---
+
+## 2. Data Structures & Interface Definitions (TypeScript/ES6 notation)
 
 ```typescript
-// Основные типы данных (Концептуальные)
+// ==========================================
+// 1. Редкости, категории и источники призов
+// ==========================================
+export type RarityType = 'common' | 'rare' | 'epic' | 'legendary';
 
-enum GameState {
+export type PrizeCategory = 
+    | 'Памятное'
+    | 'Продукты'
+    | 'Бытовая техника'
+    | 'Посуда'
+    | 'Традиции'
+    | 'Уют'
+    | 'Развлечения'
+    | 'Электроника'
+    | 'Технологии'
+    | 'Престиж'
+    | 'Транспорт'
+    | 'Недвижимость'
+    | 'Зал Славы';
+
+export type PrizeSource = 'shop' | 'prize_sector' | 'super_game';
+
+// ==========================================
+// 2. Каталог призов и трофеев
+// ==========================================
+export interface PrizeItem {
+    id: string;               // Уникальный ключ (например, 'prize_pickles', 'prize_car')
+    name: string;             // Отображаемое название
+    rarity: RarityType;       // Градация ценности
+    price: number;            // Стоимость в очках (0 для утешительного подарка)
+    icon: string;             // Символ/эмодзи экспоната ('🥒', '🚗', '📺')
+    description: string;      // Атмосферное юмористическое описание
+    category: PrizeCategory;  // Категория экспоната
+    sourcePool: PrizeSource[];// Допустимые способы получения
+}
+
+export interface TrophyRecord {
+    id: string;               // UUID записи в музее (`${prizeId}_${timestamp}`)
+    prizeId: string;          // Внешний ключ на PrizeItem.id
+    unlockedAt: string;       // ISO дата получения ('2026-08-14T20:00:00.000Z')
+    costPaid: number;         // Фактически уплаченные очки (0 при подарке)
+    source: PrizeSource;      // Источник ('shop' | 'prize_sector' | 'super_game')
+    playerName: string;       // Имя победителя, добавившего экспонат
+}
+
+// ==========================================
+// 3. Мета-статистика Музея
+// ==========================================
+export interface MuseumStats {
+    gamesPlayed: number;        // Всего сыграно игр
+    roundsWon: number;          // Побед в основных турах
+    superGameWins: number;      // Побед в супер-играх
+    totalPointsEarned: number;  // Суммарно набрано очков за историю профиля
+    prizesCollected: number;    // Количество уникальных собранных экспонатов
+}
+
+// ==========================================
+// 4. Стейт-машина и раунд
+// ==========================================
+export enum GameState {
     INIT = 'INIT',
     NEXT_PLAYER_ANNOUNCE = 'NEXT_PLAYER_ANNOUNCE',
     WAITING_FOR_SPIN = 'WAITING_FOR_SPIN',
@@ -21,13 +102,20 @@ enum GameState {
     WAITING_FOR_CELL = 'WAITING_FOR_CELL',
     PRIZE_BARGAIN = 'PRIZE_BARGAIN',
     GUESSING_WORD = 'GUESSING_WORD',
+    CHECK_MATCH = 'CHECK_MATCH',
     PASSING_TURN = 'PASSING_TURN',
     CHECK_WIN = 'CHECK_WIN',
     ROUND_WIN = 'ROUND_WIN',
+    CASKET_GAME = 'CASKET_GAME',
+    SUPER_GAME_OFFER = 'SUPER_GAME_OFFER',
+    SUPER_GAME_SETUP = 'SUPER_GAME_SETUP',
+    SUPER_GAME_PLAYING = 'SUPER_GAME_PLAYING',
+    SUPER_GAME_WIN = 'SUPER_GAME_WIN',
+    PRIZE_SHOP = 'PRIZE_SHOP',
     GAME_OVER = 'GAME_OVER'
 }
 
-enum SectorType {
+export enum SectorType {
     POINTS = 'POINTS',
     BANKRUPT = 'BANKRUPT',
     ZERO = 'ZERO',
@@ -35,147 +123,245 @@ enum SectorType {
     PRIZE = 'PRIZE'
 }
 
-interface Player {
+export interface Player {
     id: number;
     name: string;
-    avatar: string; // URL или класс для отображения аватара (Гарри, Гермиона, Рон)
+    avatar: string;
     score: number;
     isEliminated: boolean;
 }
 
-type CategoryType = 'Животные' | 'Природа' | 'Сказки' | 'Изобретения' | 'Космос';
+export type WordCategoryType = 'Животные' | 'Природа' | 'Сказки' | 'Изобретения' | 'Космос';
 
-interface WordData {
-    word: string;           // uppercase string (само загаданное слово)
-    hint: string;           // trivia question/fact string (факт-подсказка)
-    category: CategoryType; // Категория слова
-    difficulty: 1 | 2;      // Уровень сложности (1 или 2)
-    superGame: boolean;     // Подходит ли слово для Суперигры
+export interface WordData {
+    word: string;               // Загаданное слово (UPPERCASE)
+    hint: string;               // Подсказка/факт Ведущего
+    category: WordCategoryType; // Категория слова
+    difficulty: 1 | 2;          // Сложность
+    superGame: boolean;         // Подходит ли для супер-игры
 }
 
-interface GameContext {
+export interface GameContext {
     players: Player[];
     activePlayerIndex: number;
-    dictionary: WordData[]; // Хранение массива словарей
-    currentWord: WordData; // Текущее загаданное слово и подсказка
+    secretWord: string;
+    hint: string;
     revealedLetters: Set<string>;
-    consecutiveGuesses: number; // Для мини-игры "две шкатулки"
-    currentSector: SectorType | null;
-    playedWordsCache: Set<string>; // Хранение сыгранных слов (синхронизируется с localStorage)
+    currentSectorValue: string | number;
+    consecutiveGuesses: number;
+    isSuperGame: boolean;
+    superGameSetupLettersLeft: number;
+    superGameTimer: ReturnType<typeof setInterval> | null;
+    playedWordsCache: Set<string>;
+}
+
+// ==========================================
+// 5. Интерфейс менеджера Музея и Призов
+// ==========================================
+export interface IMuseumManager {
+    readonly catalog: PrizeItem[];
+    getCollection(): TrophyRecord[];
+    getStats(): MuseumStats;
+    isPrizeOwned(prizeId: string): boolean;
+    buyPrize(prizeId: string, player: Player): { success: boolean; error?: string; trophy?: TrophyRecord };
+    grantPrize(prizeId: string, source: PrizeSource, playerName: string, costPaid?: number): TrophyRecord;
+    grantRandomPrize(source: PrizeSource, playerName: string): TrophyRecord;
+    recordGamePlayed(): void;
+    recordRoundWin(points: number): void;
+    recordSuperGameWin(): void;
+    resetProgress(): void;
 }
 ```
 
-### Session Caching (localStorage)
-Для исключения повторений слов между сессиями/раундами используется `localStorage` браузера.
-Поле `playedWordsCache` инициализируется сохраненными данными из `localStorage` при старте. При выборе нового слова оно добавляется в `playedWordsCache`, и изменения синхронно сохраняются в `localStorage`. Если словарь исчерпан (все слова находятся в кэше), кэш автоматически очищается для возможности повторного использования слов.
+### 2.1 Каталог 16 призов телешоу (`PRIZES_CATALOG`)
+Каталог зафиксирован в [`src/js/prizes.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/prizes.js):
 
-### Dictionary Distribution & Selection Rules
-Образовательный словарь состоит из 500 реальных слов, адаптированных для учеников 4-го класса. 
-Словарь строго сбалансирован: 5 категорий ровно по 100 слов ('Животные', 'Природа', 'Сказки', 'Изобретения', 'Космос').
+| ID | Название | Редкость | Цена | Категория | Иконка |
+|---|---|---|---|---|---|
+| `prize_postcard` | Открытка с автографом Якубовича | `common` | 0 | Памятное | ✉️ |
+| `prize_pickles` | Банка соленых огурцов | `common` | 100 | Продукты | 🥒 |
+| `prize_tea` | Пачка чая "Со слоном" | `common` | 250 | Продукты | 🫖 |
+| `prize_iron` | Утюг с отпаривателем "Малютка" | `common` | 500 | Бытовая техника | 👔 |
+| `prize_glasses` | Набор хрустальных бокалов | `rare` | 750 | Посуда | 🥂 |
+| `prize_samovar` | Расписной электросамовар | `rare` | 1000 | Традиции | 🫖 |
+| `prize_vacuum` | Пылесос "Тайфун-М" | `rare` | 1500 | Бытовая техника | 🧹 |
+| `prize_carpet` | Настенный ковёр с оленями | `rare` | 2000 | Уют | 🧶 |
+| `prize_dendy` | Игровая приставка Dendy 8-bit | `epic` | 2500 | Развлечения | 🎮 |
+| `prize_videotv` | Видеодвойка Funai | `epic` | 3500 | Электроника | 📼 |
+| `prize_tv_rubin` | Телевизор "Рубин Ц-208" | `epic` | 5000 | Электроника | 📺 |
+| `prize_computer` | Персональный компьютер "БК-0010" | `epic` | 7000 | Технологии | 💻 |
+| `prize_fur_coat` | Норковая шуба в пол | `epic` | 9000 | Престиж | 🧥 |
+| `prize_car` | А-А-АВТОМОБИЛЬ "Жигули" (ВАЗ-2109) | `legendary` | 15000 | Транспорт | 🚗 |
+| `prize_flat` | Ключи от квартиры в Москве | `legendary` | 25000 | Недвижимость | 🏢 |
+| `prize_gold_cup` | Золотой кубок победителя Капитал-шоу | `legendary` | 30000 | Зал Славы | 🏆 |
 
-**Правила выборки (Selection Rules):**
-1. **Обычный тур (Regular Round):** Выбирается случайное несыгранное слово (отсутствующее в `playedWordsCache`) из любой категории. Флаг `superGame` не учитывается.
-2. **Суперигра (Super Game):** Для финала из словаря выбираются 3 случайных несыгранных слова (1 основное и 2 дополнительных) **строго с флагом `superGame: true`**. Это гарантирует, что для финального и самого сложного испытания будут использованы только слова, прошедшие проверку на соответствие формату Суперигры.
+---
 
 ## 3. State Machine Diagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> INIT
-    INIT --> NEXT_PLAYER_ANNOUNCE : Start Game (Init Host & Hints)
+    [*] --> INIT : Запуск приложения
+    INIT --> NEXT_PLAYER_ANNOUNCE : Словарь & Музей загружены
     
-    NEXT_PLAYER_ANNOUNCE --> WAITING_FOR_SPIN : NEXT_TURN_CLICK (Подтверждение)
+    NEXT_PLAYER_ANNOUNCE --> WAITING_FOR_SPIN : NEXT_TURN_CLICK (Готовность)
     
-    WAITING_FOR_SPIN --> SPINNING : SPIN_CLICK
-    WAITING_FOR_SPIN --> GUESSING_WORD : GUESS_WORD_CLICK
+    WAITING_FOR_SPIN --> SPINNING : Клик "Вращать барабан"
+    WAITING_FOR_SPIN --> GUESSING_WORD : Клик "Назвать слово"
     
-    SPINNING --> EVALUATE_SECTOR : SPIN_END
+    SPINNING --> EVALUATE_SECTOR : Барабан остановился
     
-    EVALUATE_SECTOR --> WAITING_FOR_LETTER : Sector = POINTS
-    EVALUATE_SECTOR --> WAITING_FOR_CELL : Sector = PLUS
-    EVALUATE_SECTOR --> PRIZE_BARGAIN : Sector = PRIZE
-    EVALUATE_SECTOR --> PASSING_TURN : Sector = ZERO / BANKRUPT
+    EVALUATE_SECTOR --> WAITING_FOR_LETTER : Сектор = Очки (100–1000)
+    EVALUATE_SECTOR --> WAITING_FOR_CELL : Сектор = "+"
+    EVALUATE_SECTOR --> PRIZE_BARGAIN : Сектор = "П" (Приз)
+    EVALUATE_SECTOR --> PASSING_TURN : Сектор = "0" / "Б" (Банкрот)
     
-    WAITING_FOR_LETTER --> CHECK_MATCH : LETTER_SELECTED
-    CHECK_MATCH --> CHECK_WIN : Успех (буква есть)
-    CHECK_MATCH --> PASSING_TURN : Ошибка (буквы нет)
+    WAITING_FOR_LETTER --> CHECK_MATCH : Игрок выбрал букву
+    CHECK_MATCH --> CHECK_WIN : Буква есть в слове
+    CHECK_MATCH --> PASSING_TURN : Буквы нет (Ошибка)
     
-    WAITING_FOR_CELL --> CHECK_WIN : CELL_SELECTED
+    WAITING_FOR_CELL --> CHECK_WIN : Буква на табло открыта
     
-    PRIZE_BARGAIN --> WAITING_FOR_SPIN : PRIZE_DECLINED (Взял очки)
-    PRIZE_BARGAIN --> ELIMINATE_PLAYER : PRIZE_ACCEPTED (Взял приз)
+    PRIZE_BARGAIN --> WAITING_FOR_SPIN : Отказ от приза (+1000 очков)
+    PRIZE_BARGAIN --> PASSING_TURN : Взял приз (Случайный трофей в Музей, Выбывание)
     
-    GUESSING_WORD --> CHECK_WIN : WORD_SUBMITTED (Верно)
-    GUESSING_WORD --> ELIMINATE_PLAYER : WORD_SUBMITTED (Неверно)
+    GUESSING_WORD --> CHECK_WIN : Введено верное слово
+    GUESSING_WORD --> PASSING_TURN : Ошибка (Выбывание игрока)
     
-    CHECK_WIN --> WAITING_FOR_SPIN : Слово не открыто (Игрок сохраняет ход)
-    CHECK_WIN --> ROUND_WIN : Слово полностью открыто
-    
-    ELIMINATE_PLAYER --> PASSING_TURN
+    CHECK_WIN --> CASKET_GAME : 3 согласные подряд (Мини-игра)
+    CASKET_GAME --> WAITING_FOR_SPIN : Шкатулка выбрана
+    CHECK_WIN --> WAITING_FOR_SPIN : Слово не открыто полностью
+    CHECK_WIN --> ROUND_WIN : Слово полностью отгадано
     
     PASSING_TURN --> NEXT_PLAYER_ANNOUNCE : Есть активные игроки
     PASSING_TURN --> GAME_OVER : Все игроки выбыли
     
-    ROUND_WIN --> [*]
-    GAME_OVER --> [*]
+    ROUND_WIN --> SUPER_GAME_OFFER : Триумф раунда (+статистика)
+    
+    SUPER_GAME_OFFER --> SUPER_GAME_SETUP : Согласие на Супер-игру
+    SUPER_GAME_OFFER --> PRIZE_SHOP : Отказ от Супер-игры
+    
+    SUPER_GAME_SETUP --> SUPER_GAME_PLAYING : Выбрано 3 буквы (Старт 60с)
+    
+    SUPER_GAME_PLAYING --> SUPER_GAME_WIN : Слово отгадано вовремя
+    SUPER_GAME_PLAYING --> PRIZE_SHOP : Время вышло / Неверное слово
+    
+    SUPER_GAME_WIN --> PRIZE_SHOP : Авто-награда "АВТОМОБИЛЬ" в Музей
+    
+    PRIZE_SHOP --> GAME_OVER : Завершить шопинг / В Зал Славы
+    GAME_OVER --> [*] : Перезапуск / Новая игра
 ```
+
+---
 
 ## 4. Program Call Flow / Component Interaction
 
+### 4.1 Флоу покупки на Витрине подарков и просмотр Музея
 ```mermaid
 sequenceDiagram
-    participant UI as UI Layer (DOM)
-    participant Host as Host UI (Yakubovich)
-    participant SM as State Machine (Core)
-    participant Audio as Audio Engine
-    participant Logic as Game Logic Context
+    autonumber
+    actor Player as Победитель тура
+    participant UI as UI Layer (ui.js)
+    participant SM as StateMachine (state.js)
+    participant Game as Game Controller (game.js)
+    participant MM as MuseumManager (prizes.js)
+    participant Storage as localStorage
+    participant Audio as Web Audio API
 
-    UI->>SM: dispatch('START_ROUND')
-    SM->>Logic: init/load playedWordsCache (localStorage)
-    SM->>Logic: selectWordFromDictionary(playedWordsCache)
-    Logic-->>SM: {word, hint}
-    SM->>Logic: update playedWordsCache & save to localStorage
-    SM->>UI: dispatch('ROUND_STARTED', hint)
-    UI->>Host: updateHint(hint)
+    Note over SM,Game: Состояние: GameState.PRIZE_SHOP
+    SM->>UI: showPrizeShop(player, activeScore)
+    UI->>MM: getCollection()
+    MM->>Storage: getItem('pole_chudes_museum')
+    Storage-->>MM: [TrophyRecord...]
+    MM-->>UI: trophiesList
+    UI->>UI: Рендер карточек призов (статусы: "Купить", "В коллекции", "Не хватает")
     
-    UI->>SM: dispatch('SPIN_CLICK')
-    SM->>SM: Validate State (WAITING_FOR_SPIN)
-    SM->>UI: lockControls()
-    SM->>Logic: determineRandomSector()
-    SM->>UI: playSpinAnimation(sector)
-    SM->>Audio: play('spin_sound')
+    Player->>UI: Клик "Купить" (например, 'prize_dendy' за 2500 очков)
+    UI->>Game: handleBuyPrize('prize_dendy')
+    Game->>MM: buyPrize('prize_dendy', activePlayer)
     
-    Note over UI,SM: Waiting for spin animation to end
+    alt Достаточно очков (player.score >= price)
+        MM->>MM: Списание очков игрока (player.score -= price)
+        MM->>Storage: setItem('pole_chudes_museum', updatedCollection)
+        MM->>Storage: setItem('pole_chudes_stats', updatedStats)
+        MM-->>Game: { success: true, trophy }
+        Game-->>UI: updateShopAfterPurchase(trophy, remainingScore)
+        UI->>Audio: playPurchase() (дзынь кассы)
+        UI->>UI: Анимация баланса + замена кнопки на "✓ В коллекции"
+    else Очков недостаточно
+        MM-->>Game: { success: false, error: 'Insufficient score' }
+        Game-->>UI: shakeCard('prize_dendy')
+    end
     
-    UI->>SM: dispatch('SPIN_END')
-    SM->>SM: Transition to EVALUATE_SECTOR
-    
-    alt Sector is Points
-        SM->>UI: promptLetterSelection()
-        SM->>SM: Transition to WAITING_FOR_LETTER
-    else Sector is Bankrupt
-        SM->>Logic: setPlayerScore(0)
-        SM->>Audio: play('bankrupt_sound')
-        SM->>SM: Transition to PASSING_TURN
+    Player->>UI: Клик "Забрать призы и в Зал Славы"
+    UI->>SM: transition(GameState.GAME_OVER)
+    UI->>UI: openMuseumModal()
+```
+
+### 4.2 Флоу сектора «Приз» (П) и триумфа Супер-игры
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Player as Активный игрок
+    participant UI as UI Layer (ui.js)
+    participant SM as StateMachine (state.js)
+    participant Game as Game Controller (game.js)
+    participant MM as MuseumManager (prizes.js)
+    participant Storage as localStorage
+
+    alt Сектор "П" (Приз): Игрок выбрал "Взять ПРИЗ"
+        Player->>UI: Клик "Взять ПРИЗ"
+        UI->>Game: acceptPrizeBargain()
+        Game->>MM: grantRandomPrize('prize_sector', player.name)
+        MM->>Storage: setItem('pole_chudes_museum', updatedCollection)
+        MM-->>Game: trophyRecord (напр. "Банка соленых огурцов")
+        Game->>UI: showPrizeReveal(trophyRecord)
+        Game->>Game: eliminateCurrentPlayer()
+        Game->>SM: transition(GameState.PASSING_TURN)
+    else Триумф в Супер-игре (SUPER_GAME_WIN)
+        SM->>Game: awardSuperGamePrize()
+        Game->>MM: grantPrize('prize_car', 'super_game', player.name, 0)
+        MM->>MM: recordSuperGameWin()
+        MM->>Storage: setItem('pole_chudes_museum', updatedCollection)
+        MM->>Storage: setItem('pole_chudes_stats', updatedStats)
+        Game->>UI: playWin() + triggerConfetti()
+        Game->>SM: transition(GameState.PRIZE_SHOP)
     end
 ```
 
-## 5. Directory Structure (Strict File List)
-*Вся директория исходников:* `src/` и `tests/`
-Никакие другие файлы не должны создаваться.
+---
 
-### Strict Diff & Git Workflow Rule
-**Абсолютное правило для Оркестратора и Субагентов (Files Changed Protocol):**
-Ни один существующий файл не должен перезаписываться целиком (write_to_file с Overwrite). Для всех модификаций существующих файлов СТРОГО использовать инструмент `multi_replace_file_content` (или `replace_file_content`). Это гарантирует чистый, построчный diff в UI (Files Changed) и предотвращает потерю истории. Любые "зеленые" полотна вместо diff-ов считаются критической ошибкой рабочего процесса.
+## 5. Strict File List
 
-- `src/index.html` - Главная разметка, подключение стилей, скриптов, аватаров и интерфейса Ведущего.
-- `src/style.css` - Стили с использованием CSS-переменных, Glassmorphism, центрирование барабана, Pop-in анимации.
-- `src/js/main.js` - Точка входа, инициализация игры и привязка событий.
-- `src/js/state.js` - Реализация строгой стейт-машины (Конечный автомат).
-- `src/js/game.js` - Управление контекстом (Игроки с аватарами, Очки, Массив словарей {word, hint, category, difficulty, superGame}). Асинхронная инициализация словаря (`async fetch`), управление `localStorage` и `playedWordsCache`.
-- `src/js/ui.js` - Управление DOM, анимациями, интерфейсом Ведущего, карточками игроков. Интеграция Loader-а.
-- `src/js/audio.js` - Менеджер звуков и эффектов.
-- `tests/game.test.js` - Юнит-тесты логики контекста и стейт-машины (Node Test Runner).
-- `package.json` - Описание скриптов запуска `npm start` (через `serve`) и `npm test`.
+Все файлы проекта расположены строго в `src/`, `tests/` и корне проекта:
+
+- [`src/index.html`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/index.html):
+  - Разметка Header с кнопкой `🏛️ Музей` и бейджем количества собранных экспонатов.
+  - Полноэкранные модальные окна: `modal-prize-shop` (Витрина подарков) и `modal-museum` (Музей Капитал-шоу с табами фильтрации и панелью статистики).
+  - Секции Ведущего, табло букв, игроков Hot-Seat, барабана и клавиатуры.
+- [`src/style.css`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/style.css):
+  - Glassmorphism стилизация (`backdrop-filter: blur(16px)`).
+  - CSS Grid для адаптивной витрины товаров и галереи музея.
+  - Неоновые бейджи редкостей: бронзовый/серый (`rarity-common`), изумрудный (`rarity-rare`), фиолетовый (`rarity-epic`), золотой пульсирующий (`rarity-legendary`).
+  - Микро-анимации карточек, shake-эффект при нехватке очков и pop-in ячеек.
+- [`src/js/main.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/main.js):
+  - Главная точка входа.
+  - Инициализация `Game`, скрытие Loader-а, биндинг кнопки `🏛️ Музей` в Header для открытия Зала Славы в любой момент.
+- [`src/js/prizes.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/prizes.js):
+  - Каталог 16 экспонатов `PRIZES_CATALOG`.
+  - Класс `MuseumManager` для управления покупками, выдачей случайных призов, подсчетом статистики и безопасной синхронизацией с `localStorage` (`pole_chudes_museum`, `pole_chudes_stats`).
+- [`src/js/state.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/state.js):
+  - Реализация конечного автомата `StateMachine` с поддержкой всех состояний v8.0.0 (`PRIZE_SHOP`, `SUPER_GAME_OFFER`, `SUPER_GAME_SETUP`, `SUPER_GAME_PLAYING`, `SUPER_GAME_WIN`, `PRIZE_BARGAIN`).
+- [`src/js/game.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/game.js):
+  - Ядро игровой логики и контекста (`GameContext`).
+  - Управление покупками на витрине, обработка сектора «Приз», начисление очков, выбор слов из словаря с фильтрацией `superGame`.
+- [`src/js/ui.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/ui.js):
+  - Рендеринг Витрины подарков и Музея с табами фильтрации.
+  - Синтез Web Audio API (`playPurchase`, `playTick`, `playWin`).
+  - Управление модальными окнами, анимации конфетти и обновление дашборда статистики.
+- [`tests/game.test.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/tests/game.test.js):
+  - Модульные тесты Node.js: проверка каталога призов, покупок за очки, защиты от овердрафта, добавления трофеев сектора "П" и победы в супер-игре, персистентности `localStorage`.
+- [`package.json`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/package.json):
+  - Конфигурация проекта, скрипты `npm test` и `npm start` (`serve src`).
 
 
