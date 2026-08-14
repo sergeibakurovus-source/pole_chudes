@@ -958,6 +958,13 @@ body {
     z-index: 1000;
     color: var(--text-color);
     font-size: 1.4rem;
+    transition: opacity 0.3s ease;
+}
+
+.loader-overlay.hidden {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .loader-spinner {
@@ -973,4 +980,5 @@ body {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
 

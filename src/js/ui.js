@@ -657,8 +657,13 @@ export class UI {
     hideLoader() {
         const loader = document.getElementById('loader');
         if (loader) {
+            loader.classList.add('hidden');
             loader.style.display = 'none';
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
         }
     }
 }
+
 
