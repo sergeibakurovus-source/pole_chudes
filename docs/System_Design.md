@@ -364,4 +364,22 @@ sequenceDiagram
 - [`package.json`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/package.json):
   - Конфигурация проекта, скрипты `npm test` и `npm start` (`serve src`).
 
+## Increment v8.1.0 - UI/UX Premium Refresh: Architecture
 
+A1. BACKGROUND (style.css): Replace body background with: radial-gradient(ellipse at 20% 50%, #1a0a2e 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #0a1628 0%, transparent 60%), linear-gradient(135deg, #0d0d1a 0%, #0d0d2e 50%, #0a1628 100%)
+
+A2. FONTS (index.html + style.css): Add Google Fonts preconnect + link for Russo One:400 and Inter:400,600,700,800 in head. Update --font-family to Inter,sans-serif. Add --font-display CSS var = Russo One,sans-serif. Apply --font-display to: .logo-title, .status-bar, .scoreboard .cell, .player-score, .sector span, .stat-value
+
+A3. WHEEL 3.0 (style.css): Change .wheel-container to 300x300px. Change .wheel conic-gradient to saturated colors: sector i=0 #1a3a5c (100), i=1 #0f2740 (250), i=2 #c0392b (BANKRUPT), i=3 #1a3a5c (500), i=4 #455a64 (zero-dark), i=5 #0f2740 (750), i=6 #1a3a5c (1000), i=7 #f39c12 (PRIZE-P), i=8 #0f2740 (350), i=9 #1a3a5c (500), i=10 #27ae60 (PLUS), i=11 #0f2740 (800). Add .wheel::after with repeating-conic-gradient dividers. Change .sector span color to #fff with text-shadow.
+
+A4. KEYBOARD GLOW (style.css): Update .key:hover:not(:disabled) to add box-shadow: 0 0 12px rgba(255,215,0,0.5) and transform: scale(1.08) and border-color: rgba(255,215,0,0.6)
+
+B1. STATUS BAR ANIMATION (style.css + ui.js): Add @keyframes fadeSlideUp and .status-animate class. In ui.js find the function that updates the status bar text (likely sets textContent of #status-bar) and wrap it with: el.classList.remove('status-animate'); void el.offsetWidth; el.textContent = msg; el.classList.add('status-animate');
+
+B2. MODAL ANIMATIONS (style.css + ui.js + index.html): Add CSS: @keyframes modalFadeIn {from {opacity:0; backdrop-filter:blur(0px);} to {opacity:1; backdrop-filter:blur(8px);}} and @keyframes modalScaleIn {from {transform:scale(0.92) translateY(10px);} to {transform:scale(1) translateY(0);}}. Add class .modal-entering {animation: modalFadeIn 0.2s ease forwards;} and .modal-entering .modal {animation: modalScaleIn 0.25s cubic-bezier(0.34,1.56,0.64,1) forwards;}. In ui.js create helper functions showModal(el) and hideModal(el) that: showModal removes 'hidden', triggers requestAnimationFrame to add 'modal-entering'; hideModal removes 'modal-entering' then adds 'hidden' after a 0ms timeout. Replace all modal open/close calls in ui.js and inline onclick in index.html with these helpers (or direct classList manipulation adding modal-entering).
+
+B3. SPIN BUTTON PULSE (style.css): Add @keyframes spinPulse {0%,100%{box-shadow:0 4px 12px rgba(233,69,96,0.4),0 0 0 0 rgba(255,215,0,0.7);} 70%{box-shadow:0 4px 12px rgba(233,69,96,0.4),0 0 0 14px rgba(255,215,0,0);}} and apply to #btn-spin:not(:disabled) {animation: spinPulse 1.8s infinite;} and #btn-spin:disabled {animation:none;}
+
+B4. AURORA GLOW PLAYER CARD (style.css): Add @keyframes breathingGold {from{box-shadow:0 0 10px rgba(255,215,0,0.2),0 0 15px rgba(255,215,0,0.1);} to{box-shadow:0 0 25px rgba(255,215,0,0.55),0 0 40px rgba(255,215,0,0.2);}} and update .player-card.active to use this animation: animation: breathingGold 3s ease-in-out infinite alternate;
+
+C1. BUTTON ICONS (index.html): Change btn-spin text to '🎰 Вращать барабан' and btn-guess-word text to '💬 Назвать слово'
