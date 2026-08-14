@@ -1,4 +1,4 @@
-import { Game } from './game.js';
+import { Game } from './game.js?v=8.0.2';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const game = new Game();
@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const btnMuseum = document.getElementById('btn-open-museum');
     if (btnMuseum) {
-        btnMuseum.addEventListener('click', () => {
+        btnMuseum.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             game.ui.showMuseumModal();
         });
     }
 
     game.start();
 });
+
 

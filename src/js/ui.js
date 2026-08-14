@@ -526,10 +526,13 @@ export class UI {
         }
         if (!this.modalMuseum) return;
 
+        this.modalMuseum.classList.remove('hidden');
 
-        const stats = this.game.museumManager.getStats();
-        const totalCatalog = this.game.museumManager.catalog.length;
-        const percent = Math.round((stats.prizesCollected / (totalCatalog || 1)) * 100);
+        try {
+            const stats = this.game.museumManager.getStats();
+            const totalCatalog = this.game.museumManager.catalog.length;
+            const percent = Math.round((stats.prizesCollected / (totalCatalog || 1)) * 100);
+
 
         // Обновление дашборда статистики
         const elGames = document.getElementById('stat-games');
@@ -644,10 +647,12 @@ export class UI {
                     this.showMuseumModal();
                 }
             };
+            }
+        } catch (error) {
+            console.error('Error rendering Museum modal:', error);
         }
-
-        this.modalMuseum.classList.remove('hidden');
     }
+
 
     hideLoader() {
         const loader = document.getElementById('loader');
