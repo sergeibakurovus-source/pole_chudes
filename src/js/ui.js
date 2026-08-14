@@ -19,6 +19,7 @@ export class UI {
         this.modalPrizeShop = document.getElementById('modal-prize-shop');
         this.modalMuseum = document.getElementById('modal-museum');
         this.museumBadge = document.getElementById('museum-badge');
+        this.btnMuseum = document.getElementById('btn-open-museum');
         
         this.hostHintElement = document.getElementById('host-hint');
         
@@ -41,7 +42,16 @@ export class UI {
                 this.game.handleGuessWordClick();
             });
         }
+        if (this.btnMuseum) {
+            this.btnMuseum.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.initAudio();
+                this.showMuseumModal();
+            });
+        }
     }
+
 
     initAudio() {
         if (!this.audioCtx) {
@@ -511,7 +521,11 @@ export class UI {
     }
 
     showMuseumModal() {
+        if (!this.modalMuseum) {
+            this.modalMuseum = document.getElementById('modal-museum');
+        }
         if (!this.modalMuseum) return;
+
 
         const stats = this.game.museumManager.getStats();
         const totalCatalog = this.game.museumManager.catalog.length;
