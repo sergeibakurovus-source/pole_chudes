@@ -1,6 +1,7 @@
-import { Game } from './game.js';
+import { Game } from './game.js?v=8.0.5';
 
 async function bootstrap() {
+
     let game;
     try {
         game = new Game();
@@ -30,6 +31,10 @@ async function bootstrap() {
                 e.stopPropagation();
                 game.ui.showMuseumModal();
             });
+        }
+
+        if (window.location.search.includes('openMuseum')) {
+            game.ui.showMuseumModal();
         }
 
         game.start();

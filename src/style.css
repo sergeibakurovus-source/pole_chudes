@@ -474,7 +474,10 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     text-align: left;
+    background: rgba(22, 33, 62, 0.98) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 215, 0, 0.25) !important;
 }
+
 
 .modal-buttons-row {
     display: flex;
@@ -742,7 +745,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background: rgba(22, 33, 62, 0.96) !important;
+    border: 1px solid rgba(255, 215, 0, 0.4) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 215, 0, 0.2) !important;
 }
+
 
 .museum-header {
     display: flex;

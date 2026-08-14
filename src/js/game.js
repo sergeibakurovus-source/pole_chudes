@@ -1,8 +1,9 @@
-import { StateMachine, GameState } from './state.js';
-import { UI } from './ui.js';
-import { MuseumManager } from './prizes.js';
+import { StateMachine, GameState } from './state.js?v=8.0.5';
+import { UI } from './ui.js?v=8.0.5';
+import { MuseumManager } from './prizes.js?v=8.0.5';
 
 export class Game {
+
     constructor() {
         this.wordList = [];
         this.playedWordsCache = new Set();
