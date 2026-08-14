@@ -77,8 +77,9 @@ export class Game {
         this.ui.initBoard(this.context.secretWord, this.context.hint);
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
         this.ui.updateMuseumBadge();
-        this.stateMachine.transition(GameState.NEXT_PLAYER_ANNOUNCE);
+        this.stateMachine.transition(GameState.WAITING_FOR_SPIN);
     }
+
 
     handleSpinClick() {
         if (this.stateMachine.state === GameState.WAITING_FOR_SPIN) {
