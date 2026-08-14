@@ -1,10 +1,12 @@
 import { StateMachine, GameState } from './state.js';
 import { UI } from './ui.js';
+import { MuseumManager } from './prizes.js';
 
 export class Game {
     constructor() {
         this.wordList = [];
         this.playedWordsCache = new Set();
+        this.museumManager = new MuseumManager();
 
         this.context = {
             players: [
@@ -71,8 +73,10 @@ export class Game {
     }
 
     start() {
+        this.museumManager.recordGamePlayed();
         this.ui.initBoard(this.context.secretWord, this.context.hint);
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+        this.ui.updateMuseumBadge();
         this.stateMachine.transition(GameState.NEXT_PLAYER_ANNOUNCE);
     }
 
@@ -119,6 +123,36 @@ export class Game {
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
     }
 
+    buyPrize(prizeId) {
+        const activePlayer = this.context.players[this.context.activePlayerIndex];
+        const res = this.museumManager.buyPrize(prizeId, activePlayer);
+        if (res.success) {
+            this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+        }
+        return res;
+    }
+
+    acceptPrizeBargain() {
+        const activePlayer = this.context.players[this.context.activePlayerIndex];
+        const trophy = this.museumManager.grantRandomPrize('prize_sector', activePlayer.name);
+        this.eliminateCurrentPlayer();
+        this.ui.updateMuseumBadge();
+        return trophy;
+    }
+
+    awardSuperGamePrize() {
+        const activePlayer = this.context.players[this.context.activePlayerIndex];
+        const trophy = this.museumManager.grantPrize('prize_car', 'super_game', activePlayer.name, 0);
+        this.museumManager.recordSuperGameWin();
+        this.ui.updateMuseumBadge();
+        return trophy;
+    }
+
+    recordRoundWin(points = 0) {
+        this.museumManager.recordRoundWin(points);
+        this.ui.updateMuseumBadge();
+    }
+
     isWordFullyRevealed() {
         for (const char of this.context.secretWord) {
             if (!this.context.revealedLetters.has(char)) {
@@ -163,3 +197,4 @@ export class Game {
         this.ui.updateStatus(`Супер-игра: выберите 3 буквы для открытия.`);
     }
 }
+

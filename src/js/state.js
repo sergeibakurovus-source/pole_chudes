@@ -17,7 +17,8 @@ export const GameState = {
     SUPER_GAME_OFFER: 'SUPER_GAME_OFFER',
     SUPER_GAME_SETUP: 'SUPER_GAME_SETUP',
     SUPER_GAME_PLAYING: 'SUPER_GAME_PLAYING',
-    SUPER_GAME_WIN: 'SUPER_GAME_WIN'
+    SUPER_GAME_WIN: 'SUPER_GAME_WIN',
+    PRIZE_SHOP: 'PRIZE_SHOP'
 };
 
 export class StateMachine {
@@ -79,9 +80,10 @@ export class StateMachine {
             case GameState.PRIZE_BARGAIN:
                 this.game.ui.showPrizeModal(
                     () => { 
-                        this.game.eliminateCurrentPlayer();
-                        this.game.ui.updateStatus('Вы взяли приз и покидаете игру!');
-                        setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
+                        const trophy = this.game.acceptPrizeBargain();
+                        this.game.ui.showPrizeReveal(trophy, () => {
+                            this.transition(GameState.PASSING_TURN);
+                        });
                     },
                     () => { 
                         this.game.addPoints(1000);
@@ -95,11 +97,25 @@ export class StateMachine {
                     (word) => {
                         if (word.toUpperCase() === this.game.context.secretWord) {
                             this.game.context.secretWord.split('').forEach(l => this.game.revealLetter(l));
-                            this.transition(GameState.ROUND_WIN);
+                            if (this.game.context.isSuperGame) {
+                                this.transition(GameState.SUPER_GAME_WIN);
+                            } else {
+                                this.transition(GameState.ROUND_WIN);
+                            }
                         } else {
-                            this.game.eliminateCurrentPlayer();
-                            this.game.ui.updateStatus(`Слово названо неверно! Вы выбываете.`);
-                            setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
+                            if (this.game.context.isSuperGame) {
+                                if (this.game.context.superGameTimer) clearInterval(this.game.context.superGameTimer);
+                                this.game.ui.showModal(
+                                    'Неверно',
+                                    'Слово названо неверно! Вы переходите к витрине наград.',
+                                    'К Витрине призов',
+                                    () => this.transition(GameState.PRIZE_SHOP)
+                                );
+                            } else {
+                                this.game.eliminateCurrentPlayer();
+                                this.game.ui.updateStatus(`Слово названо неверно! Вы выбываете.`);
+                                setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
+                            }
                         }
                     },
                     () => {
@@ -174,6 +190,8 @@ export class StateMachine {
             case GameState.ROUND_WIN:
                 this.game.ui.playWin();
                 this.game.ui.triggerConfetti();
+                const activeWinner = this.game.context.players[this.game.context.activePlayerIndex];
+                this.game.recordRoundWin(activeWinner ? activeWinner.score : 0);
                 setTimeout(() => {
                     this.transition(GameState.SUPER_GAME_OFFER);
                 }, 4000);
@@ -193,7 +211,7 @@ export class StateMachine {
                     () => {
                         this.game.addPoints(5000);
                         this.game.ui.updateStatus('Вы угадали! Получаете 5000 очков!');
-                        this.game.context.consecutiveGuesses = 0; // reset after playing
+                        this.game.context.consecutiveGuesses = 0;
                         setTimeout(() => this.transition(GameState.WAITING_FOR_SPIN), 2000);
                     },
                     () => {
@@ -207,14 +225,7 @@ export class StateMachine {
             case GameState.SUPER_GAME_OFFER:
                 this.game.ui.showSuperGameOffer(
                     () => this.transition(GameState.SUPER_GAME_SETUP),
-                    () => {
-                        this.game.ui.showModal(
-                            'Конец игры',
-                            `Игра окончена! Победитель уходит с призами и ${this.game.context.players[this.game.context.activePlayerIndex].score} очками!`,
-                            'Играть снова',
-                            () => location.reload()
-                        );
-                    }
+                    () => this.transition(GameState.PRIZE_SHOP)
                 );
                 break;
             
@@ -233,7 +244,12 @@ export class StateMachine {
                     this.game.ui.updateStatus(`Супер-игра началась! У вас 60 секунд. Оставшееся время: ${timeLeft}`);
                     if (timeLeft <= 0) {
                         clearInterval(this.game.context.superGameTimer);
-                        this.game.ui.showModal('Время вышло', 'К сожалению, вы не успели угадать слово.', 'В главное меню', () => location.reload());
+                        this.game.ui.showModal(
+                            'Время вышло',
+                            'К сожалению, вы не успели угадать слово. Переходим к Витрине подарков!',
+                            'К Витрине призов',
+                            () => this.transition(GameState.PRIZE_SHOP)
+                        );
                     }
                 }, 1000);
                 
@@ -245,26 +261,42 @@ export class StateMachine {
                                 this.game.context.secretWord.split('').forEach(l => this.game.revealLetter(l));
                                 this.transition(GameState.SUPER_GAME_WIN);
                             } else {
-                                this.game.ui.showModal('Неверно', 'Слово названо неверно! Вы проиграли супер-игру.', 'В главное меню', () => location.reload());
+                                this.game.ui.showModal(
+                                    'Неверно',
+                                    'Слово названо неверно! Переходим к Витрине призов.',
+                                    'К Витрине призов',
+                                    () => this.transition(GameState.PRIZE_SHOP)
+                                );
                             }
                         },
-                        () => {
-                            // Cancelled typing word
-                        }
+                        () => {}
                     );
                 };
                 break;
 
             case GameState.SUPER_GAME_WIN:
+                if (this.game.context.superGameTimer) clearInterval(this.game.context.superGameTimer);
+                this.game.awardSuperGamePrize();
                 this.game.ui.playWin();
                 this.game.ui.triggerConfetti();
                 this.game.ui.showModal(
                     'Супер-победа!',
-                    'Вы выиграли Супер-игру и забираете АВТОМОБИЛЬ!',
-                    'В главное меню',
-                    () => location.reload()
+                    'Вы выиграли Супер-игру! Легендарный АВТОМОБИЛЬ добавлен в ваш Музей!',
+                    'К Витрине призов',
+                    () => this.transition(GameState.PRIZE_SHOP)
+                );
+                break;
+
+            case GameState.PRIZE_SHOP:
+                const winner = this.game.context.players[this.game.context.activePlayerIndex];
+                this.game.ui.showPrizeShop(
+                    winner,
+                    () => {
+                        this.game.ui.showMuseumModal();
+                    }
                 );
                 break;
         }
     }
 }
+

@@ -10,11 +10,15 @@ export class UI {
         this.wheel = document.getElementById('wheel');
         this.modalOverlay = document.getElementById('modal-overlay');
 
-        // New modals
+        // Modals
         this.modalGuessWord = document.getElementById('modal-guess-word');
         this.modalPrize = document.getElementById('modal-prize');
+        this.modalPrizeReveal = document.getElementById('modal-prize-reveal');
         this.modalCaskets = document.getElementById('modal-caskets');
         this.modalSuperOffer = document.getElementById('modal-super-offer');
+        this.modalPrizeShop = document.getElementById('modal-prize-shop');
+        this.modalMuseum = document.getElementById('modal-museum');
+        this.museumBadge = document.getElementById('museum-badge');
         
         this.hostHintElement = document.getElementById('host-hint');
         
@@ -22,16 +26,21 @@ export class UI {
         this.wheelSectors = [100, 250, 'Б', 500, '0', 750, 1000, 'П', 350, 500, '+', 800];
         
         this.audioCtx = null;
+        this.currentMuseumFilter = 'all';
         
         this.setupKeyboard();
-        this.spinBtn.addEventListener('click', () => {
-            this.initAudio();
-            this.game.handleSpinClick();
-        });
-        this.guessBtn.addEventListener('click', () => {
-            this.initAudio();
-            this.game.handleGuessWordClick();
-        });
+        if (this.spinBtn) {
+            this.spinBtn.addEventListener('click', () => {
+                this.initAudio();
+                this.game.handleSpinClick();
+            });
+        }
+        if (this.guessBtn) {
+            this.guessBtn.addEventListener('click', () => {
+                this.initAudio();
+                this.game.handleGuessWordClick();
+            });
+        }
     }
 
     initAudio() {
@@ -41,7 +50,7 @@ export class UI {
     }
 
     playTick() {
-        if(!this.audioCtx) return;
+        if (!this.audioCtx) return;
         const osc = this.audioCtx.createOscillator();
         const gain = this.audioCtx.createGain();
         osc.connect(gain);
@@ -55,7 +64,7 @@ export class UI {
     }
 
     playWin() {
-        if(!this.audioCtx) return;
+        if (!this.audioCtx) return;
         const osc = this.audioCtx.createOscillator();
         const gain = this.audioCtx.createGain();
         osc.connect(gain);
@@ -68,6 +77,39 @@ export class UI {
         osc.start();
         gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 1);
         osc.stop(this.audioCtx.currentTime + 1);
+    }
+
+    playPurchase() {
+        if (!this.audioCtx) return;
+        const now = this.audioCtx.currentTime;
+        const osc1 = this.audioCtx.createOscillator();
+        const osc2 = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+
+        osc1.type = 'sine';
+        osc2.type = 'triangle';
+        osc1.frequency.setValueAtTime(987.77, now); // B5
+        osc1.frequency.setValueAtTime(1318.51, now + 0.08); // E6
+        osc2.frequency.setValueAtTime(1975.53, now + 0.16); // B6
+
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(this.audioCtx.destination);
+
+        osc1.start(now);
+        osc2.start(now + 0.08);
+        osc1.stop(now + 0.45);
+        osc2.stop(now + 0.45);
+    }
+
+    updateMuseumBadge() {
+        if (!this.museumBadge) return;
+        const stats = this.game.museumManager.getStats();
+        const total = this.game.museumManager.catalog.length;
+        this.museumBadge.textContent = `(${stats.prizesCollected}/${total})`;
     }
 
     triggerConfetti() {
@@ -97,14 +139,13 @@ export class UI {
 
     setupKeyboard() {
         const alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+        if (!this.keyboardElement) return;
         this.keyboardElement.innerHTML = '';
         alphabet.forEach(letter => {
             const btn = document.createElement('button');
             btn.className = 'key';
             btn.textContent = letter;
             btn.dataset.letter = letter;
-            
-            // Increment 3: Vowels unlocked. (They will just reveal without points, logic handled in Game)
             
             btn.addEventListener('click', () => {
                 this.initAudio();
@@ -116,6 +157,7 @@ export class UI {
     }
 
     initBoard(word, hint) {
+        if (!this.boardElement) return;
         this.boardElement.innerHTML = '';
         if (hint && this.hostHintElement) {
             this.hostHintElement.textContent = `Задание: ${hint}`;
@@ -129,9 +171,10 @@ export class UI {
     }
 
     updateBoard(word, revealedLetters) {
+        if (!this.boardElement) return;
         for (let i = 0; i < word.length; i++) {
             const cell = this.boardElement.children[i];
-            if (revealedLetters.has(word[i]) && !cell.classList.contains('revealed')) {
+            if (cell && revealedLetters.has(word[i]) && !cell.classList.contains('revealed')) {
                 cell.classList.add('revealed', 'pop-in');
                 cell.textContent = word[i];
                 this.playTick();
@@ -140,6 +183,7 @@ export class UI {
     }
 
     enableCellClick(callback) {
+        if (!this.boardElement) return;
         Array.from(this.boardElement.children).forEach(cell => {
             if (!cell.classList.contains('revealed')) {
                 cell.classList.add('clickable');
@@ -157,50 +201,55 @@ export class UI {
     }
 
     updatePlayers(players, activeIndex) {
+        if (!this.playersElement) return;
         this.playersElement.innerHTML = '';
         players.forEach((p, index) => {
             const div = document.createElement('div');
             div.className = `player-card ${index === activeIndex ? 'active' : ''} ${p.isEliminated ? 'eliminated' : ''}`;
-            const avatarHtml = p.avatar ? `<img src="${p.avatar}" alt="${p.name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.3);">` : '';
+            const avatarHtml = p.avatar ? `<img src="${p.avatar}" alt="${p.name}" class="player-avatar">` : '';
             div.innerHTML = `
                 ${avatarHtml}
-                <div class="player-name">${p.name}</div>
-                <div class="player-score">${p.score}</div>
+                <div class="player-info">
+                    <div class="player-name">${p.name}</div>
+                    <div class="player-score">${p.score} ⭐</div>
+                </div>
             `;
             this.playersElement.appendChild(div);
         });
     }
 
     updateStatus(message) {
-        this.statusElement.textContent = message;
+        if (this.statusElement) {
+            this.statusElement.textContent = message;
+        }
     }
 
     enableSpinAndGuessButtons() {
-        this.spinBtn.disabled = false;
-        this.guessBtn.disabled = false;
+        if (this.spinBtn) this.spinBtn.disabled = false;
+        if (this.guessBtn) this.guessBtn.disabled = false;
     }
 
     disableControls() {
-        this.spinBtn.disabled = true;
-        this.guessBtn.disabled = true;
+        if (this.spinBtn) this.spinBtn.disabled = true;
+        if (this.guessBtn) this.guessBtn.disabled = true;
         this.disableKeyboard();
     }
 
     enableKeyboard() {
-        this.keyboardElement.classList.remove('disabled');
+        if (this.keyboardElement) this.keyboardElement.classList.remove('disabled');
     }
 
     disableKeyboard() {
-        this.keyboardElement.classList.add('disabled');
+        if (this.keyboardElement) this.keyboardElement.classList.add('disabled');
     }
 
     spinWheel(callback) {
+        if (!this.wheel) return;
         const spins = 3;
         const randomSectorIndex = Math.floor(Math.random() * this.wheelSectors.length);
         const sectorValue = this.wheelSectors[randomSectorIndex];
         
         const sectorAngle = 30;
-        // - (sectorAngle / 2) центрирует стрелку ровно посередине сектора
         const targetDeg = (spins * 360) - (randomSectorIndex * sectorAngle) - (sectorAngle / 2); 
         
         this.wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
@@ -220,18 +269,21 @@ export class UI {
     }
 
     showModal(title, text, btnText, onAction) {
-        document.getElementById('modal-title').textContent = title;
-        document.getElementById('modal-text').textContent = text;
+        const titleEl = document.getElementById('modal-title');
+        const textEl = document.getElementById('modal-text');
         const btn = document.getElementById('btn-modal-action');
-        btn.textContent = btnText;
+
+        if (titleEl) titleEl.textContent = title;
+        if (textEl) textEl.textContent = text;
+        if (btn) btn.textContent = btnText;
         
         const handler = () => {
-            btn.removeEventListener('click', handler);
-            this.modalOverlay.classList.add('hidden');
-            onAction();
+            if (btn) btn.removeEventListener('click', handler);
+            if (this.modalOverlay) this.modalOverlay.classList.add('hidden');
+            if (onAction) onAction();
         };
-        btn.addEventListener('click', handler);
-        this.modalOverlay.classList.remove('hidden');
+        if (btn) btn.addEventListener('click', handler);
+        if (this.modalOverlay) this.modalOverlay.classList.remove('hidden');
     }
 
     showPrizeModal(onTakePrize, onTakePoints) {
@@ -239,23 +291,51 @@ export class UI {
         const btnPoints = document.getElementById('btn-take-points');
         
         const prizeHandler = () => {
-            btnPrize.removeEventListener('click', prizeHandler);
-            btnPoints.removeEventListener('click', pointsHandler);
-            this.modalPrize.classList.add('hidden');
-            onTakePrize();
+            if (btnPrize) btnPrize.removeEventListener('click', prizeHandler);
+            if (btnPoints) btnPoints.removeEventListener('click', pointsHandler);
+            if (this.modalPrize) this.modalPrize.classList.add('hidden');
+            if (onTakePrize) onTakePrize();
         };
 
         const pointsHandler = () => {
-            btnPrize.removeEventListener('click', prizeHandler);
-            btnPoints.removeEventListener('click', pointsHandler);
-            this.modalPrize.classList.add('hidden');
-            onTakePoints();
+            if (btnPrize) btnPrize.removeEventListener('click', prizeHandler);
+            if (btnPoints) btnPoints.removeEventListener('click', pointsHandler);
+            if (this.modalPrize) this.modalPrize.classList.add('hidden');
+            if (onTakePoints) onTakePoints();
         };
 
-        btnPrize.addEventListener('click', prizeHandler);
-        btnPoints.addEventListener('click', pointsHandler);
+        if (btnPrize) btnPrize.addEventListener('click', prizeHandler);
+        if (btnPoints) btnPoints.addEventListener('click', pointsHandler);
         
-        this.modalPrize.classList.remove('hidden');
+        if (this.modalPrize) this.modalPrize.classList.remove('hidden');
+    }
+
+    showPrizeReveal(trophy, onAction) {
+        if (!this.modalPrizeReveal) {
+            if (onAction) onAction();
+            return;
+        }
+
+        const prize = this.game.museumManager.catalog.find(p => p.id === (trophy ? trophy.prizeId : ''));
+        const iconEl = document.getElementById('reveal-icon');
+        const titleEl = document.getElementById('reveal-title');
+        const descEl = document.getElementById('reveal-desc');
+        const btn = document.getElementById('btn-reveal-ok');
+
+        if (iconEl && prize) iconEl.textContent = prize.icon;
+        if (titleEl && prize) titleEl.textContent = prize.name;
+        if (descEl && prize) descEl.textContent = prize.description;
+
+        this.playWin();
+        this.triggerConfetti();
+
+        const handler = () => {
+            if (btn) btn.removeEventListener('click', handler);
+            this.modalPrizeReveal.classList.add('hidden');
+            if (onAction) onAction();
+        };
+        if (btn) btn.addEventListener('click', handler);
+        this.modalPrizeReveal.classList.remove('hidden');
     }
 
     showGuessWordModal(onSubmit, onCancel) {
@@ -263,10 +343,10 @@ export class UI {
         const btnSubmit = document.getElementById('btn-submit-word');
         const btnCancel = document.getElementById('btn-cancel-word');
 
-        input.value = '';
+        if (input) input.value = '';
 
         const submitHandler = () => {
-            const word = input.value.trim();
+            const word = input ? input.value.trim() : '';
             if (!word) return;
             cleanup();
             onSubmit(word);
@@ -278,16 +358,16 @@ export class UI {
         };
 
         const cleanup = () => {
-            btnSubmit.removeEventListener('click', submitHandler);
-            btnCancel.removeEventListener('click', cancelHandler);
-            this.modalGuessWord.classList.add('hidden');
+            if (btnSubmit) btnSubmit.removeEventListener('click', submitHandler);
+            if (btnCancel) btnCancel.removeEventListener('click', cancelHandler);
+            if (this.modalGuessWord) this.modalGuessWord.classList.add('hidden');
         };
 
-        btnSubmit.addEventListener('click', submitHandler);
-        btnCancel.addEventListener('click', cancelHandler);
+        if (btnSubmit) btnSubmit.addEventListener('click', submitHandler);
+        if (btnCancel) btnCancel.addEventListener('click', cancelHandler);
 
-        this.modalGuessWord.classList.remove('hidden');
-        input.focus();
+        if (this.modalGuessWord) this.modalGuessWord.classList.remove('hidden');
+        if (input) input.focus();
     }
 
     showCasketsModal(onWin, onLose) {
@@ -297,9 +377,9 @@ export class UI {
         const winningCasket = Math.random() < 0.5 ? 1 : 2;
 
         const makeSelection = (selected) => {
-            btn1.removeEventListener('click', handler1);
-            btn2.removeEventListener('click', handler2);
-            this.modalCaskets.classList.add('hidden');
+            if (btn1) btn1.removeEventListener('click', handler1);
+            if (btn2) btn2.removeEventListener('click', handler2);
+            if (this.modalCaskets) this.modalCaskets.classList.add('hidden');
             if (selected === winningCasket) {
                 onWin();
             } else {
@@ -310,10 +390,10 @@ export class UI {
         const handler1 = () => makeSelection(1);
         const handler2 = () => makeSelection(2);
 
-        btn1.addEventListener('click', handler1);
-        btn2.addEventListener('click', handler2);
+        if (btn1) btn1.addEventListener('click', handler1);
+        if (btn2) btn2.addEventListener('click', handler2);
 
-        this.modalCaskets.classList.remove('hidden');
+        if (this.modalCaskets) this.modalCaskets.classList.remove('hidden');
     }
 
     showSuperGameOffer(onAccept, onDecline) {
@@ -330,15 +410,229 @@ export class UI {
         };
 
         const cleanup = () => {
-            btnYes.removeEventListener('click', yesHandler);
-            btnNo.removeEventListener('click', noHandler);
-            this.modalSuperOffer.classList.add('hidden');
+            if (btnYes) btnYes.removeEventListener('click', yesHandler);
+            if (btnNo) btnNo.removeEventListener('click', noHandler);
+            if (this.modalSuperOffer) this.modalSuperOffer.classList.add('hidden');
         };
 
-        btnYes.addEventListener('click', yesHandler);
-        btnNo.addEventListener('click', noHandler);
+        if (btnYes) btnYes.addEventListener('click', yesHandler);
+        if (btnNo) btnNo.addEventListener('click', noHandler);
 
-        this.modalSuperOffer.classList.remove('hidden');
+        if (this.modalSuperOffer) this.modalSuperOffer.classList.remove('hidden');
+    }
+
+    showPrizeShop(player, onFinish) {
+        if (!this.modalPrizeShop) return;
+
+        const shopScoreEl = document.getElementById('shop-player-score');
+        const shopPlayerNameEl = document.getElementById('shop-player-name');
+        const shopAvatarEl = document.getElementById('shop-player-avatar');
+        const gridEl = document.getElementById('shop-prizes-grid');
+        const btnFinish = document.getElementById('btn-shop-finish');
+
+        const renderShop = () => {
+            if (shopScoreEl) shopScoreEl.textContent = `${player.score} ⭐`;
+            if (shopPlayerNameEl) shopPlayerNameEl.textContent = player.name;
+            if (shopAvatarEl && player.avatar) shopAvatarEl.src = player.avatar;
+
+            if (gridEl) {
+                gridEl.innerHTML = '';
+                this.game.museumManager.catalog.forEach(item => {
+                    const isOwned = this.game.museumManager.isPrizeOwned(item.id);
+                    const canAfford = player.score >= item.price;
+                    
+                    const card = document.createElement('div');
+                    card.className = `prize-card rarity-${item.rarity} ${isOwned ? 'owned' : ''}`;
+                    card.dataset.prizeId = item.id;
+
+                    const rarityNameMap = {
+                        common: 'Обычный',
+                        rare: 'Редкий',
+                        epic: 'Эпический',
+                        legendary: 'Легендарный'
+                    };
+
+                    let btnHtml = '';
+                    if (isOwned) {
+                        btnHtml = `<button class="btn btn-shop-action btn-owned" disabled>✓ В коллекции</button>`;
+                    } else if (canAfford) {
+                        btnHtml = `<button class="btn btn-shop-action primary-btn btn-buy">Купить за ${item.price} ⭐</button>`;
+                    } else {
+                        btnHtml = `<button class="btn btn-shop-action btn-insufficient" disabled>Не хватает очков (${item.price} ⭐)</button>`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="prize-rarity-badge badge-${item.rarity}">${rarityNameMap[item.rarity] || item.rarity}</div>
+                        <div class="prize-icon">${item.icon}</div>
+                        <h4 class="prize-title">${item.name}</h4>
+                        <div class="prize-category">${item.category}</div>
+                        <p class="prize-desc">${item.description}</p>
+                        <div class="prize-footer">
+                            <div class="prize-price">${item.price === 0 ? 'Бесплатно' : item.price + ' ⭐'}</div>
+                            ${btnHtml}
+                        </div>
+                    `;
+
+                    const buyBtn = card.querySelector('.btn-buy');
+                    if (buyBtn) {
+                        buyBtn.addEventListener('click', () => {
+                            this.initAudio();
+                            const res = this.game.buyPrize(item.id);
+                            if (res.success) {
+                                this.playPurchase();
+                                renderShop();
+                                this.updateMuseumBadge();
+                            } else {
+                                card.classList.add('shake');
+                                setTimeout(() => card.classList.remove('shake'), 600);
+                            }
+                        });
+                    }
+
+                    gridEl.appendChild(card);
+                });
+            }
+        };
+
+        renderShop();
+
+        const finishHandler = () => {
+            if (btnFinish) btnFinish.removeEventListener('click', finishHandler);
+            this.modalPrizeShop.classList.add('hidden');
+            if (onFinish) onFinish();
+        };
+
+        if (btnFinish) {
+            btnFinish.removeEventListener('click', finishHandler);
+            btnFinish.addEventListener('click', finishHandler);
+        }
+
+        this.modalPrizeShop.classList.remove('hidden');
+    }
+
+    showMuseumModal() {
+        if (!this.modalMuseum) return;
+
+        const stats = this.game.museumManager.getStats();
+        const totalCatalog = this.game.museumManager.catalog.length;
+        const percent = Math.round((stats.prizesCollected / (totalCatalog || 1)) * 100);
+
+        // Обновление дашборда статистики
+        const elGames = document.getElementById('stat-games');
+        const elRounds = document.getElementById('stat-rounds');
+        const elSuper = document.getElementById('stat-super');
+        const elPoints = document.getElementById('stat-points');
+        const elPrizes = document.getElementById('stat-prizes');
+        const elProgress = document.getElementById('stat-progress-bar');
+        const elPercent = document.getElementById('stat-percent');
+
+        if (elGames) elGames.textContent = stats.gamesPlayed;
+        if (elRounds) elRounds.textContent = stats.roundsWon;
+        if (elSuper) elSuper.textContent = stats.superGameWins;
+        if (elPoints) elPoints.textContent = stats.totalPointsEarned;
+        if (elPrizes) elPrizes.textContent = `${stats.prizesCollected} из ${totalCatalog}`;
+        if (elProgress) elProgress.style.width = `${percent}%`;
+        if (elPercent) elPercent.textContent = `${percent}%`;
+
+        // Рендер грида трофеев
+        const trophyGrid = document.getElementById('museum-trophies-grid');
+        const renderTrophies = () => {
+            if (!trophyGrid) return;
+            trophyGrid.innerHTML = '';
+
+            const filtered = this.game.museumManager.catalog.filter(p => {
+                if (this.currentMuseumFilter === 'all') return true;
+                return p.rarity === this.currentMuseumFilter;
+            });
+
+            const collection = this.game.museumManager.getCollection();
+
+            filtered.forEach(item => {
+                const trophyRecord = collection.find(t => t.prizeId === item.id);
+                const isOwned = !!trophyRecord;
+
+                const card = document.createElement('div');
+                card.className = `trophy-card rarity-${item.rarity} ${isOwned ? 'unlocked' : 'locked'}`;
+
+                const rarityNameMap = {
+                    common: 'Обычный',
+                    rare: 'Редкий',
+                    epic: 'Эпический',
+                    legendary: 'Легендарный'
+                };
+
+                const sourceNameMap = {
+                    shop: 'Витрина подарков',
+                    prize_sector: 'Сектор «Приз»',
+                    super_game: 'Супер-игра'
+                };
+
+                if (isOwned) {
+                    const dateStr = new Date(trophyRecord.unlockedAt).toLocaleDateString('ru-RU');
+                    card.innerHTML = `
+                        <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
+                        <div class="trophy-icon">${item.icon}</div>
+                        <h4 class="trophy-name">${item.name}</h4>
+                        <div class="trophy-category">${item.category}</div>
+                        <p class="trophy-desc">${item.description}</p>
+                        <div class="trophy-meta">
+                            <span>📅 ${dateStr}</span>
+                            <span>🎯 ${sourceNameMap[trophyRecord.source] || trophyRecord.source}</span>
+                            <span>👤 ${trophyRecord.playerName}</span>
+                        </div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
+                        <div class="trophy-icon">🔒</div>
+                        <h4 class="trophy-name">???</h4>
+                        <div class="trophy-category">${item.category}</div>
+                        <p class="trophy-desc">Экспонат еще не открыт. Заработайте очки на витрине или выиграйте в супер-игре!</p>
+                        <div class="trophy-meta">
+                            <span>⭐ Цена: ${item.price} очков</span>
+                        </div>
+                    `;
+                }
+
+                trophyGrid.appendChild(card);
+            });
+        };
+
+        renderTrophies();
+
+        // Фильтры табов
+        const tabBtns = document.querySelectorAll('.museum-tab-btn');
+        tabBtns.forEach(btn => {
+            btn.onclick = () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.currentMuseumFilter = btn.dataset.filter || 'all';
+                renderTrophies();
+            };
+        });
+
+        // Кнопка закрытия
+        const btnClose = document.getElementById('btn-close-museum');
+        const btnCloseTop = document.getElementById('btn-close-museum-top');
+        const closeHandler = () => {
+            this.modalMuseum.classList.add('hidden');
+        };
+        if (btnClose) btnClose.onclick = closeHandler;
+        if (btnCloseTop) btnCloseTop.onclick = closeHandler;
+
+        // Кнопка сброса прогресса
+        const btnReset = document.getElementById('btn-reset-museum');
+        if (btnReset) {
+            btnReset.onclick = () => {
+                if (confirm('Вы действительно хотите очистить коллекцию Музея и обнулить статистику?')) {
+                    this.game.museumManager.resetProgress();
+                    this.updateMuseumBadge();
+                    this.showMuseumModal();
+                }
+            };
+        }
+
+        this.modalMuseum.classList.remove('hidden');
     }
 
     hideLoader() {
@@ -348,3 +642,4 @@ export class UI {
         }
     }
 }
+

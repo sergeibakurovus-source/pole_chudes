@@ -6,5 +6,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (game.ui.hideLoader) {
         game.ui.hideLoader();
     }
+
+    const btnMuseum = document.getElementById('btn-open-museum');
+    if (btnMuseum) {
+        btnMuseum.addEventListener('click', () => {
+            game.ui.showMuseumModal();
+        });
+    }
+
     game.start();
 });
+

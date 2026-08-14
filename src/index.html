@@ -10,27 +10,43 @@
     <!-- Экран загрузки -->
     <div id="loader" class="loader-overlay">
         <div class="loader-spinner"></div>
-        <p>Загрузка вопросов...</p>
+        <p>Загрузка вопросов и экспонатов Музея...</p>
     </div>
 
     <div class="app-container">
+        <!-- Стеклянный Header -->
+        <header class="app-header glass-panel">
+            <div class="header-logo">
+                <span class="logo-star">⭐</span>
+                <h1 class="logo-title">Поле Чудес: Premium Edition</h1>
+            </div>
+            <div class="header-edition">
+                <span class="edition-badge">Museum Edition v8.0</span>
+            </div>
+            <div class="header-actions">
+                <button id="btn-open-museum" class="btn btn-museum">
+                    🏛️ Музей <span id="museum-badge" class="museum-badge">(0/16)</span>
+                </button>
+            </div>
+        </header>
+
         <!-- Уведомления/Статус -->
         <div id="status-bar" class="glass-panel status-bar">
-            Добро пожаловать!
+            Добро пожаловать в Капитал-шоу Поле Чудес!
         </div>
 
         <!-- Ведущий -->
-        <div id="host-container" class="glass-panel host-container" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="assets/avatar_yakubovich.png" alt="Ведущий" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.3);">
-            <div style="flex-grow: 1;">
-                <h3 style="margin: 0 0 5px 0;">Леонид Якубович</h3>
-                <p id="host-hint" style="margin: 0; font-style: italic;">Задание: </p>
+        <div id="host-container" class="glass-panel host-container">
+            <img src="assets/avatar_yakubovich.png" alt="Ведущий" class="host-avatar">
+            <div class="host-details">
+                <h3 class="host-name">Леонид Якубович</h3>
+                <p id="host-hint" class="host-hint">Задание: </p>
             </div>
         </div>
 
         <!-- Табло с буквами -->
         <div id="scoreboard" class="glass-panel scoreboard">
-            <!-- Буквы будут добавляться сюда динамически -->
+            <!-- Буквы добавляются динамически -->
         </div>
 
         <div class="main-content">
@@ -58,7 +74,7 @@
                     </div>
                     <div class="wheel-pointer"></div>
                 </div>
-                <div class="wheel-controls" style="display: flex; gap: 10px; margin-top: 10px; align-items: center; justify-content: center;">
+                <div class="wheel-controls">
                     <button id="btn-spin" class="btn primary-btn" disabled>Вращать барабан</button>
                     <button id="btn-guess-word" class="btn primary-btn" disabled>Назвать слово</button>
                 </div>
@@ -75,7 +91,7 @@
     <div id="modal-overlay" class="modal-overlay hidden">
         <div class="modal glass-panel">
             <h2 id="modal-title">Переход хода</h2>
-            <p id="modal-text">Ход переходит к Игроку 2</p>
+            <p id="modal-text">Ход переходит к следующему игроку</p>
             <button id="btn-modal-action" class="btn primary-btn">Начать ход</button>
         </div>
     </div>
@@ -84,8 +100,8 @@
     <div id="modal-guess-word" class="modal-overlay hidden">
         <div class="modal glass-panel">
             <h2>Назовите слово</h2>
-            <input type="text" id="input-guess-word" class="input-text" style="width: 80%; padding: 10px; margin-bottom: 15px; font-size: 1.2rem; text-align: center;" placeholder="Ваше слово">
-            <div style="display: flex; gap: 10px; justify-content: center;">
+            <input type="text" id="input-guess-word" class="input-text" placeholder="Ваше слово">
+            <div class="modal-buttons-row">
                 <button id="btn-submit-word" class="btn primary-btn">Подтвердить</button>
                 <button id="btn-cancel-word" class="btn">Отмена</button>
             </div>
@@ -95,12 +111,24 @@
     <!-- Модалка Сектор Приз -->
     <div id="modal-prize" class="modal-overlay hidden">
         <div class="modal glass-panel">
-            <h2>Сектор ПРИЗ!</h2>
-            <p style="margin-bottom: 15px;">Вы можете взять приз и покинуть игру, или отказаться от приза, получить 1000 очков и продолжить ход!</p>
-            <div style="display: flex; gap: 10px; justify-content: center;">
+            <h2>🎁 Сектор ПРИЗ!</h2>
+            <p>Вы можете взять приз в Черном Ящике и пополнить Музей, или отказаться от приза, забрать 1000 очков и продолжить ход!</p>
+            <div class="modal-buttons-row">
                 <button id="btn-take-prize" class="btn primary-btn">Взять ПРИЗ</button>
                 <button id="btn-take-points" class="btn">1000 очков</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Модалка открытия приза сектора "П" -->
+    <div id="modal-prize-reveal" class="modal-overlay hidden">
+        <div class="modal glass-panel prize-reveal-card">
+            <h2>🎉 Приз в студию!</h2>
+            <div id="reveal-icon" class="reveal-icon">🎁</div>
+            <h3 id="reveal-title" class="reveal-title">Приз</h3>
+            <p id="reveal-desc" class="reveal-desc">Описание приза</p>
+            <p class="reveal-status">Приз отправлен в ваш постоянный Музей!</p>
+            <button id="btn-reveal-ok" class="btn primary-btn">Забрать в Музей</button>
         </div>
     </div>
 
@@ -108,10 +136,10 @@
     <div id="modal-caskets" class="modal-overlay hidden">
         <div class="modal glass-panel">
             <h2>Две шкатулки</h2>
-            <p>Вы угадали 3 буквы подряд! Выберите шкатулку.</p>
-            <div style="display: flex; gap: 20px; justify-content: center; margin: 20px 0;">
-                <button id="btn-casket-1" class="btn primary-btn" style="width: 100px; height: 100px; font-size: 2rem;">1</button>
-                <button id="btn-casket-2" class="btn primary-btn" style="width: 100px; height: 100px; font-size: 2rem;">2</button>
+            <p>Вы угадали 3 буквы подряд! Выберите шкатулку с деньгами.</p>
+            <div class="caskets-row">
+                <button id="btn-casket-1" class="btn casket-btn">1</button>
+                <button id="btn-casket-2" class="btn casket-btn">2</button>
             </div>
         </div>
     </div>
@@ -119,11 +147,102 @@
     <!-- Модалка Супер-игра Offer -->
     <div id="modal-super-offer" class="modal-overlay hidden">
         <div class="modal glass-panel">
-            <h2>Супер-игра!</h2>
-            <p>Желаете сыграть в супер-игру?</p>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button id="btn-super-yes" class="btn primary-btn">Да</button>
-                <button id="btn-super-no" class="btn">Нет</button>
+            <h2>🚗 Супер-игра!</h2>
+            <p>Желаете сыграть в супер-игру за главный приз — АВТОМОБИЛЬ?</p>
+            <div class="modal-buttons-row">
+                <button id="btn-super-yes" class="btn primary-btn">Да, играть!</button>
+                <button id="btn-super-no" class="btn">Нет, к Витрине</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка Витрины подарков (Prize Shop) -->
+    <div id="modal-prize-shop" class="modal-overlay hidden">
+        <div class="modal modal-wide glass-panel shop-modal-content">
+            <div class="shop-header">
+                <div class="shop-winner-info">
+                    <img id="shop-player-avatar" src="assets/avatar_harry.png" alt="Avatar" class="shop-avatar">
+                    <div>
+                        <h2 class="shop-title">Витрина подарков Капитал-шоу</h2>
+                        <p class="shop-subtitle">Победитель: <strong id="shop-player-name">Игрок</strong></p>
+                    </div>
+                </div>
+                <div class="shop-balance-badge">
+                    <span>Доступно:</span>
+                    <span id="shop-player-score" class="shop-score">0 ⭐</span>
+                </div>
+            </div>
+
+            <div id="shop-prizes-grid" class="shop-grid">
+                <!-- Карточки товаров генерируются динамически -->
+            </div>
+
+            <div class="shop-footer">
+                <button id="btn-shop-finish" class="btn primary-btn btn-finish-shop">Завершить шопинг и в Зал Славы ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка Музея Капитал-шоу (Trophy Room) -->
+    <div id="modal-museum" class="modal-overlay hidden">
+        <div class="modal modal-wide glass-panel museum-modal-content">
+            <div class="museum-header">
+                <h2>🏛️ Зал Славы и Музей Поле Чудес</h2>
+                <button id="btn-close-museum-top" class="btn-icon-close">✕</button>
+            </div>
+
+            <!-- Дашборд статистики -->
+            <div class="stats-dashboard">
+                <div class="stat-card">
+                    <div id="stat-games" class="stat-value">0</div>
+                    <div class="stat-label">🎮 Игр сыграно</div>
+                </div>
+                <div class="stat-card">
+                    <div id="stat-rounds" class="stat-value">0</div>
+                    <div class="stat-label">🏆 Побед в турах</div>
+                </div>
+                <div class="stat-card">
+                    <div id="stat-super" class="stat-value">0</div>
+                    <div class="stat-label">🚗 Супер-игры</div>
+                </div>
+                <div class="stat-card">
+                    <div id="stat-points" class="stat-value">0</div>
+                    <div class="stat-label">⭐ Всего очков</div>
+                </div>
+                <div class="stat-card">
+                    <div id="stat-prizes" class="stat-value">0 из 16</div>
+                    <div class="stat-label">📦 Экспонатов</div>
+                </div>
+            </div>
+
+            <!-- Прогресс-бар коллекции -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>Заполнение коллекции:</span>
+                    <strong id="stat-percent">0%</strong>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="stat-progress-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Фильтры редкостей -->
+            <div class="museum-tabs">
+                <button class="btn museum-tab-btn active" data-filter="all">Все (16)</button>
+                <button class="btn museum-tab-btn" data-filter="common">Обычные (4)</button>
+                <button class="btn museum-tab-btn" data-filter="rare">Редкие (4)</button>
+                <button class="btn museum-tab-btn" data-filter="epic">Эпические (5)</button>
+                <button class="btn museum-tab-btn" data-filter="legendary">Легендарные (3)</button>
+            </div>
+
+            <!-- Сетка экспонатов -->
+            <div id="museum-trophies-grid" class="museum-grid">
+                <!-- Экспонаты генерируются динамически -->
+            </div>
+
+            <div class="museum-footer">
+                <button id="btn-reset-museum" class="btn btn-reset">Сбросить коллекцию</button>
+                <button id="btn-close-museum" class="btn primary-btn">Вернуться к игре</button>
             </div>
         </div>
     </div>
@@ -131,3 +250,4 @@
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
