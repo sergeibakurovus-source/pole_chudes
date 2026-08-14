@@ -20,6 +20,9 @@ async function bootstrap() {
     }
 
     if (game) {
+        window.game = game;
+        window.openMuseum = () => game.ui.showMuseumModal();
+
         const btnMuseum = document.getElementById('btn-open-museum');
         if (btnMuseum) {
             btnMuseum.addEventListener('click', (e) => {
