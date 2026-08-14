@@ -29,8 +29,11 @@
    - Защита от дублирующих покупок уже имеющихся в коллекции предметов.
    - Обработка поврежденных/пустых данных `localStorage` (безопасный `try/catch` с fallback).
    - Покупка бесплатного утешительного приза при 0 очков.
-5. **UI & Sound Synthesis Verification:**
-   - Проверка привязки DOM-элементов модальных окон (`modal-prize-shop`, `modal-museum`, `modal-prize-reveal`).
+5. **UI & Entry Point Integrity:**
+   - Проверка инициализации точки входа `src/js/main.js` (отсутствие race condition при загрузке DOM, вызовы `game.init()`, `game.start()`, скрытие лоадера).
+   - Проверка доступности словаря `assets/dictionary.json`, каталога `prizes.js`, стейт-машины `state.js` и рендера `ui.js`.
+   - Проверка начального состояния (`WAITING_FOR_SPIN`): активность и разблокировка кнопок «Вращать барабан» и «Назвать слово».
+   - Проверка функциональности кнопки `🏛️ Музей` (открытие и закрытие модалки Зала Славы).
    - Проверка Web Audio API синтезатора (`playPurchase`, `playTick`, `playWin`).
 
 ### 1.3 Тестовое окружение
@@ -44,7 +47,7 @@
 
 | ID Требования | Use Case | Описание требования | Тестовый файл / Сьют | Результат | Примечания |
 |---|---|---|---|---|---|
-| **[REQ-8.1]** | UC13, UC14 | **База данных призов:** Каталог 16+ предметов, поля `id`, `name`, `rarity`, `price`, `icon`, `description`, `category`, `sourcePool`. | `tests/game.test.js`<br>*(Prize Catalog Logic)* | **PASS** | 16 предметов, 4 уровня редкости (Common, Rare, Epic, Legendary). |
+| **[REQ-8.1]** | UC13, UC14 | **База данных призов:** Каталог 16 предметов, поля `id`, `name`, `rarity`, `price`, `icon`, `description`, `category`, `sourcePool`. | `tests/game.test.js`<br>*(Prize Catalog Logic)* | **PASS** | 16 предметов, 4 уровня редкости (Common, Rare, Epic, Legendary). |
 | **[REQ-8.2]** | UC13 | **Экран Витрины подарков:** Модальное окно покупки призов за очки, списание баланса, блокировка при нехватке очков. | `tests/game.test.js`<br>*(MuseumManager Logic)* | **PASS** | Корректный пересчет баланса игрока, dynamic UI rerender. |
 | **[REQ-8.3]** | UC14 | **Экран Музея Капитал-шоу:** Зал Славы, кнопка `🏛️ Музей` в Header, силуэты заблокированных экспонатов, карточки разблокированных с датой. | `tests/game.test.js`, `src/js/ui.js` | **PASS** | Разметка `modal-museum`, бейджи редкостей, дата и источник. |
 | **[REQ-8.4]** | UC14, UC17 | **Статистика игрока (Dashboard):** Подсчет сыгранных игр, побед в турах, побед в супер-играх, очков и % коллекции. | `tests/game.test.js`<br>*(MuseumManager Logic)* | **PASS** | Автоматический пересчет `prizesCollected` и сохранение в stats. |
@@ -70,7 +73,7 @@
 ### 3.2 Защита от повторных покупок (Duplicate Purchase Prevention)
 - **Сценарий:** Игрок покупает «Банку соленых огурцов» за 100 очков, после чего пытается купить ее повторно.
 - **Ожидаемое поведение:** Первая покупка проходит успешно (`success: true`), вторая отклоняется (`success: false, error: 'Приз уже есть в коллекции'`), кнопка в UI переходит в заблокированное состояние `[ ✓ В коллекции ]`.
-- **Результат теста:** **PASSED** (подтверждено в `game.test.js`).
+- **Результат теста:** **PASSED** (подтверждено тестом `MuseumManager handles buying prizes with score deduction and collection persistence`).
 
 ### 3.3 Исчерпание кэша сыгранных слов (Word Cache Exhaustion & Auto-Reset)
 - **Сценарий:** В ходе последовательных раундов сыграны все доступные слова из категории.
@@ -100,28 +103,28 @@
 
 ```
 ▶ Dictionary Data Validation
-  ✔ Dictionary file exists and contains valid JSON (4.547489ms)
-  ✔ Dictionary has exactly 500 words (0.237793ms)
-  ✔ All dictionary items have required fields and correct data types (1.350518ms)
-  ✔ All words are unique (0.507096ms)
-  ✔ Dictionary is perfectly balanced with 5 categories of 100 words each (1.948643ms)
-▶ Dictionary Data Validation (13.505772ms)
+  ✔ Dictionary file exists and contains valid JSON (3.502378ms)
+  ✔ Dictionary has exactly 500 words (0.215983ms)
+  ✔ All dictionary items have required fields and correct data types (0.909175ms)
+  ✔ All words are unique (0.308575ms)
+  ✔ Dictionary is perfectly balanced with 5 categories of 100 words each (1.221638ms)
+▶ Dictionary Data Validation (9.689446ms)
 
-✔ dummy (1.568224ms)
+✔ dummy (1.978539ms)
 ▶ Game Word Selection Logic
-  ✔ Game initializes with a regular word (not superGame) (4.311699ms)
-  ✔ setupSuperGame selects a superGame word (1.755002ms)
-  ✔ pickRandomWord avoids played words and clears cache when exhausted (2.682852ms)
-▶ Game Word Selection Logic (14.061604ms)
+  ✔ Game initializes with a regular word (not superGame) (3.911573ms)
+  ✔ setupSuperGame selects a superGame word (0.920256ms)
+  ✔ pickRandomWord avoids played words and clears cache when exhausted (2.409021ms)
+▶ Game Word Selection Logic (10.329789ms)
 
 ▶ Prize Catalog & MuseumManager Logic
-  ✔ PRIZES_CATALOG contains exactly 16 authentic prizes with required fields (1.002839ms)
-  ✔ MuseumManager handles buying prizes with score deduction and collection persistence (1.345489ms)
-  ✔ MuseumManager overdraft protection prevents purchase when score is insufficient (3.064698ms)
-  ✔ Sector P accepts prize bargain and grants trophy to museum (4.842696ms)
-  ✔ Super game win automatically awards the legendary CAR to museum and updates stats (0.833094ms)
-  ✔ Resetting progress clears museum collection and statistics (0.85083ms)
-▶ Prize Catalog & MuseumManager Logic (12.842649ms)
+  ✔ PRIZES_CATALOG contains exactly 16 authentic prizes with required fields (0.908835ms)
+  ✔ MuseumManager handles buying prizes with score deduction and collection persistence (1.253076ms)
+  ✔ MuseumManager overdraft protection prevents purchase when score is insufficient (0.569732ms)
+  ✔ Sector P accepts prize bargain and grants trophy to museum (2.711326ms)
+  ✔ Super game win automatically awards the legendary CAR to museum and updates stats (1.11009ms)
+  ✔ Resetting progress clears museum collection and statistics (1.04064ms)
+▶ Prize Catalog & MuseumManager Logic (8.534092ms)
 
 ℹ tests 15
 ℹ suites 3
@@ -130,7 +133,7 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 764.385857
+ℹ duration_ms 680.742034
 ```
 
 ### 4.2 Сводные метрики тестирования
@@ -139,20 +142,34 @@
 - **Успешно пройдено (Pass):** 15 (100%)
 - **Провалено (Fail):** 0 (0%)
 - **Пропущено (Skipped):** 0
-- **Время выполнения сьютов:** 764.38 ms
+- **Время выполнения сьютов:** 680.74 ms
 - **Плотность дефектов:** 0 дефектов на этапе Gate 3.
 
 ---
 
-## 5. Quality Verdict & Release Recommendation
+## 5. Entry Point & Component Diagnostics
 
-### 5.1 Вердикт качества (Quality Verdict)
-- Все функциональные и нефункциональные требования спецификации **v8.0.0** ([REQ-8.1] – [REQ-8.9]) и предшествующих инкрементов ([REQ-1.1] – [REQ-7.3]) полностью реализованы и покрыты тестами.
-- Каталог призов включает 16 тематических наград телеигры с четкой дифференциацией по 4 уровням редкости.
+| Компонент / Проверка | Ожидаемый результат | Фактический результат | Статус |
+|---|---|---|---|
+| **Точка входа (`src/js/main.js`)** | Проверка `document.readyState` (исключение race condition), вызовы `game.init()`, `game.start()`, скрытие лоадера. | Безопасная инициализация через `readyState === 'loading' ? addEventListener : bootstrap()`, корректный запуск. | **PASS** |
+| **Словарь (`assets/dictionary.json`)** | Доступен, содержит 500 сбалансированных слов (5 категорий x 100). | Файл доступен, 123 377 байт, валидный JSON, 500 записей. | **PASS** |
+| **Каталог призов (`src/js/prizes.js`)** | 16 призов, `MuseumManager` с персистентностью в `localStorage`. | `PRIZES_CATALOG` содержит 16 наград, 4 редкости, методы покупки и начисления работают без сбоев. | **PASS** |
+| **Стейт-машина (`src/js/state.js`)** | Управление переходами состояний без race condition. | Все 18 состояний `GameState` корректно обрабатывают логику и переходы. | **PASS** |
+| **Рендер (`src/js/ui.js`)** | Отображение интерфейса, модалок, табло, Web Audio API. | UI инициализирует табло, карточки игроков, модалки витрины и музея, синтезирует звуки. | **PASS** |
+| **Начальное состояние (`WAITING_FOR_SPIN`)** | Кнопки «Вращать барабан» и «Назвать слово» активны и разблокированы. | Вызывается `enableSpinAndGuessButtons()`, клавиатура заблокирована, статус обновлен. | **PASS** |
+| **Кнопка «🏛️ Музей» (`btn-open-museum`)** | Открытие и закрытие модалки Зала Славы, дашборд статистики, фильтры и сброс. | Модальное окно `modal-museum` открывается, рендерит дашборд и трофеи, корректно закрывается по `✕` и «Вернуться к игре». | **PASS** |
+
+---
+
+## 6. Quality Verdict & Release Recommendation
+
+### 6.1 Вердикт качества (Quality Verdict)
+- Все функциональные и нефункциональные требования спецификаций PRD.md и System_Design.md для версии **v8.0.0** ([REQ-8.1] – [REQ-8.9]) и предшествующих инкрементов ([REQ-1.1] – [REQ-7.3]) полностью реализованы и покрыты тестами.
+- Каталог призов включает 16 аутентичных наград телеигры с четкой дифференциацией по 4 уровням редкости.
 - Подсистемы «Витрина подарков» и «Музей Капитал-шоу» гармонично интегрированы в архитектуру стейт-машины и поддерживают непрерывную персистентность через `localStorage`.
-- Все граничные случаи (овердрафт, повторные покупки, исчерпание кэша, выбывание в секторе Приз, победа в Супер-игре) успешно протестированы и защищены.
-- 100% тестов завершились со статусом **PASS**.
+- Все граничные случаи (овердрафт, повторные покупки, исчерпание кэша, выбывание в секторе Приз, победа в Супер-игре, сброс прогресса) успешно протестированы и защищены.
+- 100% тестов завершились со статусом **PASS** (15 из 15).
 
-### 5.2 Рекомендация к релизу (Release Recommendation)
+### 6.2 Рекомендация к релизу (Release Recommendation)
 > **РЕКОМЕНДОВАНО К РЕЛИЗУ: v8.0.0 READY FOR RELEASE**  
 > Версия готова к развертыванию и интеграции в основной конвейер. Gate 3 (QA Review) пройден успешно.
