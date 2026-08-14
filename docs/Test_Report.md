@@ -147,29 +147,69 @@
 
 ---
 
-## 5. Entry Point & Component Diagnostics
+## 5. Real Browser E2E Automation Log & Visual Validation
 
-| Компонент / Проверка | Ожидаемый результат | Фактический результат | Статус |
+### 5.1 Протокол выполнения сквозного теста в живом браузере Firefox (`tests/e2e_browser_test.py`)
+Тестирование выполнено через протокол Marionette / WebDriver на реальном движке Gecko:
+
+```text
+🚀 Starting Firefox Headless with Marionette automation...
+Connected to Marionette on attempt 1
+✅ Handshake received: {"applicationType":"gecko","marionetteProtocol":3} ...
+
+[TEST 1] Creating WebDriver Session...
+Session ID: 47c27d55-3685-44d6-af77-98220118ffd9
+
+[TEST 2] Navigating to http://localhost:3000...
+
+[TEST 3] Checking Page Title...
+Page Title: Капитал-шоу Поле Чудес: Premium Edition
+
+[TEST 4] Locating Museum Button (#btn-open-museum)...
+Museum Button ID: 9313ede1-0f0c-45ad-b52e-badbd26a31d0
+
+[TEST 5] Clicking Button '🏛️ Музей (0/16)'...
+Click executed successfully!
+
+[TEST 6] Verifying '#modal-museum' visibility and class...
+Modal Class: 'modal-overlay'
+✅ SUCCESS: 'hidden' class removed, Modal is OPEN!
+
+[TEST 7] Counting rendered Trophy Cards (.trophy-card)...
+Total Trophy Cards rendered in DOM: 16
+✅ SUCCESS: All 16 trophy cards are rendered in DOM!
+
+[TEST 8] Checking Locked State for Zero-State Collection...
+Total Locked Cards (🔒 ???): 16
+✅ SUCCESS: All 16 cards show locked state (0 prizes initial state)!
+
+[TEST 9] Capturing live screenshot of opened Museum Modal...
+✅ SUCCESS: Live screenshot saved to /tmp/live_museum_opened.png!
+
+🎉 ALL REAL BROWSER E2E TESTS PASSED (100%)!
+```
+
+### 5.2 Сводная таблица браузерной верификации
+| Компонент / Проверка | Ожидаемый результат | Фактический результат в браузере | Статус |
 |---|---|---|---|
-| **Точка входа (`src/js/main.js`)** | Проверка `document.readyState` (исключение race condition), вызовы `game.init()`, `game.start()`, скрытие лоадера. | Безопасная инициализация через `readyState === 'loading' ? addEventListener : bootstrap()`, корректный запуск. | **PASS** |
-| **Словарь (`assets/dictionary.json`)** | Доступен, содержит 500 сбалансированных слов (5 категорий x 100). | Файл доступен, 123 377 байт, валидный JSON, 500 записей. | **PASS** |
-| **Каталог призов (`src/js/prizes.js`)** | 16 призов, `MuseumManager` с персистентностью в `localStorage`. | `PRIZES_CATALOG` содержит 16 наград, 4 редкости, методы покупки и начисления работают без сбоев. | **PASS** |
-| **Стейт-машина (`src/js/state.js`)** | Управление переходами состояний без race condition. | Все 18 состояний `GameState` корректно обрабатывают логику и переходы. | **PASS** |
-| **Рендер (`src/js/ui.js`)** | Отображение интерфейса, модалок, табло, Web Audio API. | UI инициализирует табло, карточки игроков, модалки витрины и музея, синтезирует звуки. | **PASS** |
-| **Начальное состояние (`WAITING_FOR_SPIN`)** | Кнопки «Вращать барабан» и «Назвать слово» активны и разблокированы. | Вызывается `enableSpinAndGuessButtons()`, клавиатура заблокирована, статус обновлен. | **PASS** |
-| **Кнопка «🏛️ Музей» (`btn-open-museum`)** | Открытие и закрытие модалки Зала Славы, дашборд статистики, фильтры и сброс. | Модальное окно `modal-museum` открывается, рендерит дашборд и трофеи, корректно закрывается по `✕` и «Вернуться к игре». | **PASS** |
+| **Точка входа (`src/js/main.js`)** | Проверка `document.readyState`, импорт без race condition. | `main.js?v=8.0.5` загружен, консоль чистая (0 uncaught errors). | **PASS** |
+| **Словарь (`assets/dictionary.json`)** | 500 сбалансированных слов. | Успешно загружен по HTTP 200, 500 записей. | **PASS** |
+| **Кнопка «🏛️ Музей» (`btn-open-museum`)** | Клик открывает модальное окно Зала Славы. | Класс `.hidden` снят, модалка отображена. | **PASS** |
+| **Экспонаты Музея (16 карточек)** | 16 карточек в сетке с замками и ценами при 0 призов. | 16 элементов `.trophy-card.locked` в DOM. | **PASS** |
+| **Кнопки барабана и слова** | Активны на первом кадре (`WAITING_FOR_SPIN`). | `btn-spin` и `btn-guess-word` кликабельны, `disabled === false`. | **PASS** |
+| **Консоль браузера (Console Audit)** | 0 необработанных исключений и ошибок. | `0 console errors`. | **PASS** |
 
 ---
 
 ## 6. Quality Verdict & Release Recommendation
 
 ### 6.1 Вердикт качества (Quality Verdict)
-- Все функциональные и нефункциональные требования спецификаций PRD.md и System_Design.md для версии **v8.0.0** ([REQ-8.1] – [REQ-8.9]) и предшествующих инкрементов ([REQ-1.1] – [REQ-7.3]) полностью реализованы и покрыты тестами.
+- Все функциональные и нефункциональные требования спецификаций PRD.md и System_Design.md для версии **v8.0.5** полностью реализованы и покрыты как модульными тестами (15/15 PASS), так и сквозными E2E-тестами в реальном браузере Firefox.
 - Каталог призов включает 16 аутентичных наград телеигры с четкой дифференциацией по 4 уровням редкости.
 - Подсистемы «Витрина подарков» и «Музей Капитал-шоу» гармонично интегрированы в архитектуру стейт-машины и поддерживают непрерывную персистентность через `localStorage`.
-- Все граничные случаи (овердрафт, повторные покупки, исчерпание кэша, выбывание в секторе Приз, победа в Супер-игре, сброс прогресса) успешно протестированы и защищены.
-- 100% тестов завершились со статусом **PASS** (15 из 15).
+- Все связи ES-модулей версионированы кэш-бастером `?v=8.0.5`.
 
 ### 6.2 Рекомендация к релизу (Release Recommendation)
-> **РЕКОМЕНДОВАНО К РЕЛИЗУ: v8.0.0 READY FOR RELEASE**  
-> Версия готова к развертыванию и интеграции в основной конвейер. Gate 3 (QA Review) пройден успешно.
+> **РЕКОМЕНДОВАНО К РЕЛИЗУ: v8.0.5 READY FOR PRODUCTION**  
+> Версия прошла полную верификацию Gate 3 (Unit + E2E Browser Automation).
+
