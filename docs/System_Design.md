@@ -383,3 +383,45 @@ B3. SPIN BUTTON PULSE (style.css): Add @keyframes spinPulse {0%,100%{box-shadow:
 B4. AURORA GLOW PLAYER CARD (style.css): Add @keyframes breathingGold {from{box-shadow:0 0 10px rgba(255,215,0,0.2),0 0 15px rgba(255,215,0,0.1);} to{box-shadow:0 0 25px rgba(255,215,0,0.55),0 0 40px rgba(255,215,0,0.2);}} and update .player-card.active to use this animation: animation: breathingGold 3s ease-in-out infinite alternate;
 
 C1. BUTTON ICONS (index.html): Change btn-spin text to '🎰 Вращать барабан' and btn-guess-word text to '💬 Назвать слово'
+
+---
+
+## 6. Increment v8.2.0 - Continuous Game Loop & In-Game Reset: Architecture
+
+### 6.1 `Game.prototype.restartNewGame()` (src/js/game.js)
+- **Clear Super Game Timers:** `clearInterval(this.context.superGameTimer)` to ensure no overlapping execution.
+- **Reset Game Context:** Set flags to initial state: `isSuperGame = false`, `superGameSetupLettersLeft = 3`, `consecutiveGuesses = 0`, `currentSectorValue = 0`.
+- **Reset Revealed Letters:** `this.context.revealedLetters.clear()`.
+- **Restore Players:** Iterate over all 3 players and reset their status: `this.context.players.forEach(p => { p.isEliminated = false; p.score = 0; })`.
+- **Select Starting Player:** Randomize start: `this.context.activePlayerIndex = Math.floor(Math.random() * this.context.players.length)`.
+- **Pick New Word:** Draw a new normal word: `const item = this.pickRandomWord(false); this.context.secretWord = item.word.toUpperCase(); this.context.hint = item.hint;`.
+- **Museum Integration:** Call `this.museumManager.recordGamePlayed()` to track stats.
+- **Reinitialize UI:** Call `this.ui.initBoard(this.context.secretWord, this.context.hint)`, reset all player cards `this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex)`, and unlock keyboard keys.
+- **State Transition:** Set the state machine to `WAITING_FOR_SPIN` via `this.stateMachine.transition(GameState.WAITING_FOR_SPIN)`.
+
+### 6.2 UI Integration (src/js/ui.js & src/index.html)
+- **Museum Modal Updates:** Add a "🎮 Новая игра" button (`#btn-new-game-museum`) in the footer of the Museum modal (`index.html`). Attach an event listener in `ui.js` that closes the Museum modal and invokes `game.restartNewGame()`.
+- **Prize Shop Conclusion:** Upon completing the shopping experience in `showPrizeShop` (when clicking "Завершить шопинг"), offer an option "🎮 Начать новую игру" or route to the Museum with the "New Game" button active. Automatically invoke `game.restartNewGame()` when the Museum is closed post-game.
+
+### 6.3 Updated Sequence Diagram (Continuous Loop)
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Player
+    participant UI as UI Layer (ui.js)
+    participant SM as StateMachine (state.js)
+    participant Game as Game Controller (game.js)
+
+    Note over SM,Game: GameState.PRIZE_SHOP / GAME_OVER
+    Player->>UI: Click "🎮 Новая игра" (in Museum/Shop)
+    UI->>Game: restartNewGame()
+    Game->>Game: Clear timers, reset variables (isSuperGame=false)
+    Game->>Game: Restore 3 players (isEliminated=false, score=0)
+    Game->>Game: Randomize activePlayerIndex
+    Game->>Game: Pick new regular word (pickRandomWord)
+    Game->>UI: initBoard(word, hint) & updatePlayers()
+    UI->>UI: Reset keyboard UI and status bar
+    Game->>SM: transition(GameState.WAITING_FOR_SPIN)
+    SM-->>UI: Update status "Новая игра! Вращайте барабан"
+```
+
