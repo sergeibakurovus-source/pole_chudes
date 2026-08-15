@@ -180,6 +180,15 @@ export class UI {
         });
     }
 
+    resetKeyboard() {
+        if (this.keyboardElement) {
+            this.keyboardElement.classList.remove('disabled');
+            Array.from(this.keyboardElement.children).forEach(key => {
+                key.disabled = false;
+            });
+        }
+    }
+
     initBoard(word, hint) {
         if (!this.boardElement) return;
         this.boardElement.innerHTML = '';
@@ -651,9 +660,21 @@ export class UI {
         const btnCloseTop = document.getElementById('btn-close-museum-top');
         const closeHandler = () => {
             hideModal(this.modalMuseum);
+            if (this.game && this.game.stateMachine && this.game.stateMachine.state === 'PRIZE_SHOP') {
+                this.game.restartNewGame();
+            }
         };
         if (btnClose) btnClose.onclick = closeHandler;
         if (btnCloseTop) btnCloseTop.onclick = closeHandler;
+
+        // Кнопка новой игры
+        const btnNewGame = document.getElementById('btn-new-game-museum');
+        if (btnNewGame) {
+            btnNewGame.onclick = () => {
+                hideModal(this.modalMuseum);
+                this.game.restartNewGame();
+            };
+        }
 
         // Кнопка сброса прогресса
         const btnReset = document.getElementById('btn-reset-museum');

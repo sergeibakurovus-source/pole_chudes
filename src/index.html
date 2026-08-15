@@ -241,7 +241,8 @@
 
             <div class="museum-footer">
                 <button id="btn-reset-museum" class="btn btn-reset">Сбросить коллекцию</button>
-                <button id="btn-close-museum" class="btn primary-btn" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden');})();">Вернуться к игре</button>
+                <button id="btn-new-game-museum" class="btn primary-btn btn-new-game">🎮 Новая игра</button>
+                <button id="btn-close-museum" class="btn" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden'); if(window.game && window.game.stateMachine && window.game.stateMachine.state==='PRIZE_SHOP') window.game.restartNewGame();})();">Вернуться к игре</button>
             </div>
 
         </div>

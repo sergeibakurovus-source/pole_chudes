@@ -52,6 +52,7 @@ global.fetch = async () => ({
 });
 
 import { Game } from '../src/js/game.js';
+import { GameState } from '../src/js/state.js';
 import { PRIZES_CATALOG, MuseumManager } from '../src/js/prizes.js';
 
 describe('Game Word Selection Logic', () => {
@@ -192,6 +193,35 @@ describe('Prize Catalog & MuseumManager Logic', () => {
         assert.strictEqual(stats.gamesPlayed, 0);
         assert.strictEqual(stats.roundsWon, 0);
         assert.strictEqual(stats.prizesCollected, 0);
+    });
+});
+
+describe('Continuous Game Loop (restartNewGame)', () => {
+    beforeEach(() => {
+        global.localStorage.clear();
+    });
+
+    test('restartNewGame resets game state properly', async () => {
+        const game = new Game();
+        await game.init();
+        
+        game.context.isSuperGame = true;
+        game.context.revealedLetters.add('А');
+        game.context.players[0].score = 5000;
+        game.context.players[1].isEliminated = true;
+        game.stateMachine.state = GameState.GAME_OVER;
+        
+        game.restartNewGame();
+        
+        assert.strictEqual(game.context.isSuperGame, false, 'isSuperGame should be false');
+        assert.strictEqual(game.context.revealedLetters.size, 0, 'revealedLetters should be empty');
+        
+        game.context.players.forEach((p, idx) => {
+            assert.strictEqual(p.isEliminated, false, `Player ${idx} should not be eliminated`);
+            assert.strictEqual(p.score, 0, `Player ${idx} score should be 0`);
+        });
+        
+        assert.strictEqual(game.stateMachine.state, GameState.WAITING_FOR_SPIN, 'State should be WAITING_FOR_SPIN');
     });
 });
 

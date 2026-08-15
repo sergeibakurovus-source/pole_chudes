@@ -198,5 +198,36 @@ export class Game {
         this.ui.enableKeyboard();
         this.ui.updateStatus(`Супер-игра: выберите 3 буквы для открытия.`);
     }
+
+    restartNewGame() {
+        if (this.context.superGameTimer) {
+            clearInterval(this.context.superGameTimer);
+            this.context.superGameTimer = null;
+        }
+        this.context.isSuperGame = false;
+        this.context.superGameSetupLettersLeft = 3;
+        this.context.consecutiveGuesses = 0;
+        this.context.currentSectorValue = 0;
+        this.context.revealedLetters = new Set();
+        
+        this.context.players.forEach(p => {
+            p.isEliminated = false;
+            p.score = 0;
+        });
+        
+        this.context.activePlayerIndex = Math.floor(Math.random() * this.context.players.length);
+        
+        const randomItem = this.pickRandomWord(false);
+        this.context.secretWord = randomItem.word.toUpperCase();
+        this.context.hint = randomItem.hint;
+        
+        this.museumManager.recordGamePlayed();
+        this.ui.initBoard(this.context.secretWord, this.context.hint);
+        this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+        this.ui.resetKeyboard();
+        this.ui.updateMuseumBadge();
+        
+        this.stateMachine.transition(GameState.WAITING_FOR_SPIN);
+    }
 }
 
