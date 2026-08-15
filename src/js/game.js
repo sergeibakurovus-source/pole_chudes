@@ -1,6 +1,6 @@
-import { StateMachine, GameState } from './state.js?v=8.1.0';
-import { UI } from './ui.js?v=8.1.0';
-import { MuseumManager } from './prizes.js?v=8.1.0';
+import { StateMachine, GameState } from './state.js?v=8.2.0';
+import { UI } from './ui.js?v=8.2.0';
+import { MuseumManager } from './prizes.js?v=8.2.0';
 
 export class Game {
 

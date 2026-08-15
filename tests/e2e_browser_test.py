@@ -42,6 +42,8 @@ def run_e2e_test():
     print("🚀 Starting Firefox Headless with Marionette automation...")
     env = os.environ.copy()
     env["DISPLAY"] = ":1"
+    env["MOZ_DISABLE_CONTENT_SANDBOX"] = "1"
+    env["MOZ_HEADLESS"] = "1"
     
     proc = subprocess.Popen(
         ["/usr/bin/firefox", "--headless", "--marionette"],
