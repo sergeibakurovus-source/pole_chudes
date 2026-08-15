@@ -1,4 +1,4 @@
-import { Game } from './game.js?v=8.0.5';
+import { Game } from './game.js?v=8.1.0';
 
 async function bootstrap() {
 
