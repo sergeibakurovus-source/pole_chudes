@@ -35,7 +35,7 @@ server {
     location = /healthz {
         access_log off;
         default_type application/json;
-        return 200 '{"status":"healthy","version":"v9.0.0"}';
+        return 200 '{"status":"healthy","version":"v9.1.0"}';
     }
 
     # ---------------------------------------------------------

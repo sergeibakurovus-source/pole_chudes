@@ -40,10 +40,9 @@ def send_marionette(sock, msg_id, command, params=None):
         return res_list[3]
     return res_list
 
-def run_e2e_test():
+def main():
     print("🚀 Starting Firefox Headless with Marionette automation (v9.0.0)...")
-    
-    # Kill any stale firefox processes
+    marionette_port = 2828  # Kill any stale firefox processes
     subprocess.run(["pkill", "-9", "-f", "firefox"], capture_output=True)
     time.sleep(1)
 
@@ -107,7 +106,26 @@ def run_e2e_test():
         msg_id += 1
         title_val = res.get('value') if isinstance(res, dict) else res
         print("Page Title:", title_val)
-        assert "Поле Чудес" in str(title_val), "Title mismatch!"
+        assert ("Крути Барабан" in str(title_val) or "Поле Чудес" in str(title_val) or "Капитал-шоу" in str(title_val)), "Title mismatch!"
+
+        # 3b. Verify Host Avatar is SVG
+        print("\n[TEST 3b] Verifying Host Avatar is SVG vector...")
+        res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
+            "using": "id",
+            "value": "host-avatar"
+        })
+        msg_id += 1
+        host_elem = res.get('value') if isinstance(res, dict) else res
+        host_elem_id = list(host_elem.values())[0] if isinstance(host_elem, dict) else host_elem
+        res = send_marionette(sock, msg_id, "WebDriver:GetElementAttribute", {
+            "id": host_elem_id,
+            "name": "src"
+        })
+        msg_id += 1
+        host_src = res.get('value', '') if isinstance(res, dict) else str(res)
+        print("Host Avatar Src:", host_src)
+        assert host_src.endswith(".svg"), f"Host avatar must be SVG, got {host_src}"
+        assert "avatar_yakvadratish_" in host_src, f"Host avatar path invalid: {host_src}"
 
         # 4. Check Three Bogatyrs Player Cards
         print("\n[TEST 4] Verifying Three Bogatyrs player cards...")
@@ -119,7 +137,28 @@ def run_e2e_test():
         player_cards = res if isinstance(res, list) else res.get('value', [])
         print(f"Total Player Cards: {len(player_cards)}")
         assert len(player_cards) == 3, f"Expected 3 player cards, got {len(player_cards)}"
-        print("✅ SUCCESS: 3 Bogatyrs players rendered in DOM!")
+
+        # Verify Player Avatars are Bogatyr SVGs
+        res = send_marionette(sock, msg_id, "WebDriver:FindElements", {
+            "using": "css selector",
+            "value": ".player-avatar"
+        })
+        msg_id += 1
+        p_avatars = res if isinstance(res, list) else res.get('value', [])
+        assert len(p_avatars) == 3, f"Expected 3 player avatars, got {len(p_avatars)}"
+        for pa in p_avatars:
+            pa_id = list(pa.values())[0] if isinstance(pa, dict) else pa
+            res = send_marionette(sock, msg_id, "WebDriver:GetElementAttribute", {
+                "id": pa_id,
+                "name": "src"
+            })
+            msg_id += 1
+            pa_src = res.get('value', '') if isinstance(res, dict) else str(res)
+            print("Player Avatar Src:", pa_src)
+            assert pa_src.endswith(".svg"), f"Player avatar must be SVG, got {pa_src}"
+            assert "avatar_bogatyr_" in pa_src, f"Player avatar must be bogatyr SVG, got {pa_src}"
+
+        print("✅ SUCCESS: 3 Bogatyrs players and SVG vector avatars rendered in DOM!")
 
         # 5. Open Wardrobe Modal
         print("\n[TEST 5] Opening Yakvadratish Wardrobe Modal (#btn-open-wardrobe)...")

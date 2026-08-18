@@ -210,6 +210,11 @@ export class UI {
         if (this.hostAvatarEl && outfit.avatarSrc) {
             this.hostAvatarEl.src = outfit.avatarSrc;
             this.hostAvatarEl.alt = `Леонид Яквадратиш (${outfit.name})`;
+
+            // Trigger visual avatar transformation flash animation
+            this.hostAvatarEl.classList.remove('avatar-transform-flash');
+            void this.hostAvatarEl.offsetWidth; // Force DOM reflow
+            this.hostAvatarEl.classList.add('avatar-transform-flash');
         }
         if (this.hostNameEl) {
             this.hostNameEl.textContent = `Леонид Яквадратиш`;
@@ -829,7 +834,9 @@ export class UI {
 
                     card.innerHTML = `
                         <div class="wardrobe-rarity-badge badge-${item.rarity}">${rarityNameMap[item.rarity] || item.rarity}</div>
-                        <div class="wardrobe-icon">${item.icon}</div>
+                        <div class="wardrobe-icon">
+                            <img src="${item.avatarSrc}" alt="${item.name}" class="wardrobe-thumb-img">
+                        </div>
                         <h4 class="wardrobe-title">${item.name}</h4>
                         <p class="wardrobe-desc">${item.description}</p>
                         <blockquote class="wardrobe-quote">${item.quote}</blockquote>

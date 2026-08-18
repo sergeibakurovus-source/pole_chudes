@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-yak-bogatyr" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="60%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </radialGradient>
+    <linearGradient id="helm-steel-y" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="45%" stop-color="#94a3b8"/>
+      <stop offset="85%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="gold-yak-b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+    <linearGradient id="skin-yak-b" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="60%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba868"/>
+    </linearGradient>
+    <linearGradient id="armor-mail-y" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow-yak-b" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg-yak-bogatyr)" stroke="url(#gold-yak-b)" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#94a3b8" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Chainmail Armor Body -->
+  <path d="M 22 116 C 22 90 36 80 60 80 C 84 80 98 90 98 116 Z" fill="url(#armor-mail-y)" filter="url(#shadow-yak-b)"/>
+  <!-- Gold Armor Collar -->
+  <path d="M 44 82 Q 60 90 76 82 Q 60 94 44 82 Z" fill="url(#gold-yak-b)"/>
+  <!-- Chainmail Rings Texture -->
+  <path d="M 32 94 Q 60 102 88 94 M 30 102 Q 60 110 90 102 M 34 110 Q 60 118 86 110" stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.4"/>
+
+  <!-- Neck Chainmail (Aventail behind head) -->
+  <path d="M 40 54 L 34 82 L 86 82 L 80 54 Z" fill="url(#helm-steel-y)"/>
+  <path d="M 38 62 Q 60 70 82 62 M 36 70 Q 60 78 84 70" stroke="#334155" stroke-width="1.2" fill="none"/>
+
+  <!-- Face Base (Yakvadratish smiling) -->
+  <path d="M 42 44 C 42 62 48 74 60 74 C 72 74 78 62 78 44 C 78 32 72 28 60 28 C 48 28 42 32 42 44 Z" fill="url(#skin-yak-b)"/>
+
+  <!-- Eyebrows -->
+  <path d="M 46 43 Q 52 39 57 43" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 74 43 Q 68 39 63 43" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twinkling Eyes with Crow's Feet -->
+  <ellipse cx="51.5" cy="47.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="52" cy="47.5" r="1.6" fill="#1e293b"/>
+  <circle cx="52.5" cy="46.8" r="0.6" fill="#fff"/>
+  <ellipse cx="68.5" cy="47.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="68" cy="47.5" r="1.6" fill="#1e293b"/>
+  <circle cx="67.5" cy="46.8" r="0.6" fill="#fff"/>
+  <path d="M 45 47 Q 43 48 44 50" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+  <path d="M 75 47 Q 77 48 76 50" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+
+  <!-- Rosy Cheeks -->
+  <circle cx="45" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+  <circle cx="75" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+
+  <!-- Nose -->
+  <path d="M 59 45 L 57 55 L 63 55 Z" fill="#ea580c" opacity="0.25"/>
+  <path d="M 57 54.5 Q 60 57 63 54.5" stroke="#c2410c" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+  <!-- Broad Warm Smile -->
+  <path d="M 52 61 Q 60 69 68 61" stroke="#991b1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 53 61.5 Q 60 67 67 61.5 Q 60 64 53 61.5 Z" fill="#ffffff"/>
+
+  <!-- MAGNIFICENT SIGNATURE MUSTACHE -->
+  <path d="M 60 56 C 54 50 40 54 36 62 C 44 65 53 60 60 58.5 C 67 60 76 65 84 62 C 80 54 66 50 60 56 Z" fill="#0f172a" stroke="#1e293b" stroke-width="1" filter="url(#shadow-yak-b)"/>
+  <path d="M 44 60 Q 52 57 59 57.5 M 76 60 Q 68 57 61 57.5" stroke="#334155" stroke-width="1" fill="none"/>
+
+  <!-- Steel Bogatyr Helmet (Шелом) with Gold Trim -->
+  <path d="M 38 40 C 38 22 50 8 60 4 C 70 8 82 22 82 40 C 76 41 68 42 60 42 C 52 42 44 41 38 40 Z" fill="url(#helm-steel-y)" filter="url(#shadow-yak-b)"/>
+  <!-- Helmet Spire -->
+  <path d="M 58 4 L 60 0 L 62 4 Z" fill="url(#gold-yak-b)"/>
+  <circle cx="60" cy="0.5" r="1.5" fill="#fef08a"/>
+  <!-- Center Rib -->
+  <path d="M 60 4 L 60 42" stroke="url(#gold-yak-b)" stroke-width="1.8"/>
+  <!-- Helmet Brow Band -->
+  <path d="M 37 38 Q 60 44 83 38 L 83 42 Q 60 48 37 42 Z" fill="url(#gold-yak-b)"/>
+  <!-- Nasal Guard -->
+  <path d="M 58 40 L 58 50 L 60 52 L 62 50 L 62 40 Z" fill="url(#gold-yak-b)"/>
+</svg>

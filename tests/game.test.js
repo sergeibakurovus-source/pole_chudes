@@ -65,8 +65,11 @@ describe('Game Word Selection Logic & Three Bogatyrs', () => {
         const game = new Game();
         assert.strictEqual(game.context.players.length, 3);
         assert.strictEqual(game.context.players[0].name, 'Илья Муромец');
+        assert.strictEqual(game.context.players[0].avatar, 'assets/avatar_bogatyr_ilya.svg');
         assert.strictEqual(game.context.players[1].name, 'Добрыня Никитич');
+        assert.strictEqual(game.context.players[1].avatar, 'assets/avatar_bogatyr_dobrynya.svg');
         assert.strictEqual(game.context.players[2].name, 'Алёша Попович');
+        assert.strictEqual(game.context.players[2].avatar, 'assets/avatar_bogatyr_alesha.svg');
     });
 
     test('Game initializes with a regular word (not superGame)', async () => {

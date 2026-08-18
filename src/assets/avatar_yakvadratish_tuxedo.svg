@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-tux" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="60%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </radialGradient>
+    <linearGradient id="tux-suit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="60%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="tux-lapel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3f3f46"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="skin-yak" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="60%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba868"/>
+    </linearGradient>
+    <linearGradient id="hair-yak" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="30%" stop-color="#1e293b"/>
+      <stop offset="85%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="mic-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="gold-yak" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+    <filter id="shadow-yak" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg-tux)" stroke="url(#gold-yak)" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#fde047" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Tuxedo Jacket Body -->
+  <path d="M 20 116 C 20 90 34 80 60 80 C 86 80 100 90 100 116 Z" fill="url(#tux-suit)" filter="url(#shadow-yak)"/>
+
+  <!-- White Pleated Shirt -->
+  <path d="M 46 80 L 60 116 L 74 80 Z" fill="#ffffff"/>
+  <!-- Gold Shirt Studs -->
+  <circle cx="60" cy="94" r="1.2" fill="#eab308"/>
+  <circle cx="60" cy="102" r="1.2" fill="#eab308"/>
+  <circle cx="60" cy="110" r="1.2" fill="#eab308"/>
+
+  <!-- Tuxedo Silk Lapels -->
+  <path d="M 38 80 L 52 116 L 46 116 L 28 86 Z" fill="url(#tux-lapel)"/>
+  <path d="M 82 80 L 68 116 L 74 116 L 92 86 Z" fill="url(#tux-lapel)"/>
+
+  <!-- Black Bowtie -->
+  <path d="M 52 78 L 68 84 L 68 78 L 52 84 Z" fill="#09090b" filter="url(#shadow-yak)"/>
+  <circle cx="60" cy="81" r="2.5" fill="#18181b"/>
+
+  <!-- Neck -->
+  <path d="M 50 62 L 50 82 L 70 82 L 70 62 Z" fill="url(#skin-yak)"/>
+
+  <!-- Hair Base (Sideburns & Back) -->
+  <path d="M 36 42 C 36 22 46 16 60 16 C 74 16 84 22 84 42 C 84 56 80 66 78 68 C 76 56 74 46 72 42 C 68 38 52 38 48 42 C 46 46 44 56 42 68 C 40 66 36 56 36 42 Z" fill="url(#hair-yak)"/>
+
+  <!-- Face Base (Charismatic, Warm) -->
+  <path d="M 42 42 C 42 62 48 74 60 74 C 72 74 78 62 78 42 C 78 30 72 26 60 26 C 48 26 42 30 42 42 Z" fill="url(#skin-yak)" filter="url(#shadow-yak)"/>
+
+  <!-- Hair Top & Styling Waves (Neat with silver touches at temples) -->
+  <path d="M 38 34 C 40 22 50 16 60 16 C 72 16 82 22 82 34 C 78 28 70 24 60 25 C 48 26 42 30 38 34 Z" fill="url(#hair-yak)"/>
+  <!-- Silver streaks at temples -->
+  <path d="M 38 36 Q 42 32 46 33" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <path d="M 82 36 Q 78 32 74 33" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+
+  <!-- Eyebrows (Expressive & Friendly) -->
+  <path d="M 46 41 Q 52 37 57 41" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 74 41 Q 68 37 63 41" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twinkling Eyes with Crow's Feet -->
+  <ellipse cx="51.5" cy="46.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="52" cy="46.5" r="1.6" fill="#1e293b"/>
+  <circle cx="52.5" cy="45.8" r="0.6" fill="#fff"/>
+  <!-- Wrinkles of Joy / Smile lines -->
+  <path d="M 46 46 Q 44 47 45 49 M 46 45 Q 44 44 45 43" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+
+  <ellipse cx="68.5" cy="46.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="68" cy="46.5" r="1.6" fill="#1e293b"/>
+  <circle cx="67.5" cy="45.8" r="0.6" fill="#fff"/>
+  <!-- Wrinkles of Joy -->
+  <path d="M 74 46 Q 76 47 75 49 M 74 45 Q 76 44 75 43" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+
+  <!-- Cheeks -->
+  <circle cx="45" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+  <circle cx="75" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+
+  <!-- Nose -->
+  <path d="M 59 44 L 57 55 L 63 55 Z" fill="#ea580c" opacity="0.25"/>
+  <path d="M 57 54 Q 60 56.5 63 54" stroke="#c2410c" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+  <!-- Broad Radiant Smile -->
+  <path d="M 52 61 Q 60 69 68 61" stroke="#991b1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 53 61.5 Q 60 67 67 61.5 Q 60 64 53 61.5 Z" fill="#ffffff"/>
+
+  <!-- MAGNIFICENT SIGNATURE LUSH DARK MUSTACHE -->
+  <path d="M 60 56 C 54 50 40 54 36 62 C 44 65 53 60 60 58.5 C 67 60 76 65 84 62 C 80 54 66 50 60 56 Z" fill="#0f172a" stroke="#1e293b" stroke-width="1" filter="url(#shadow-yak)"/>
+  <!-- Mustache highlights/strands -->
+  <path d="M 44 60 Q 52 57 59 57.5 M 76 60 Q 68 57 61 57.5" stroke="#334155" stroke-width="1" fill="none"/>
+
+  <!-- Vintage Chrome & Gold Broadcast Microphone (Lower Right) -->
+  <g transform="translate(80, 72)" filter="url(#shadow-yak)">
+    <!-- Stand/Handle -->
+    <rect x="10" y="24" width="4" height="24" rx="2" fill="#334155"/>
+    <rect x="7" y="44" width="10" height="4" rx="2" fill="url(#gold-yak)"/>
+    <!-- U-Mount -->
+    <path d="M 6 12 C 6 22 18 22 18 12" stroke="url(#gold-yak)" stroke-width="2" fill="none"/>
+    <!-- Capsule -->
+    <rect x="8" y="2" width="8" height="15" rx="4" fill="url(#mic-metal)" stroke="url(#gold-yak)" stroke-width="1"/>
+    <!-- Mesh lines -->
+    <line x1="8" y1="6" x2="16" y2="6" stroke="#475569" stroke-width="0.8"/>
+    <line x1="8" y1="10" x2="16" y2="10" stroke="#475569" stroke-width="0.8"/>
+    <line x1="8" y1="14" x2="16" y2="14" stroke="#475569" stroke-width="0.8"/>
+  </g>
+</svg>

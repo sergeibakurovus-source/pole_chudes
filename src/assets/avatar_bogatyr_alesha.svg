@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-alesha" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6b21a8"/>
+      <stop offset="70%" stop-color="#4c1d95"/>
+      <stop offset="100%" stop-color="#1e1035"/>
+    </radialGradient>
+    <linearGradient id="helm-bronze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="40%" stop-color="#ea580c"/>
+      <stop offset="85%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+    <linearGradient id="armor-leather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="60%" stop-color="#7c2d12"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <linearGradient id="skin-alesha" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="chub-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <filter id="shadow-a" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg-alesha)" stroke="#f97316" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#fdba74" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.65"/>
+
+  <!-- Quiver and Archer Arrow Feathers over left shoulder -->
+  <path d="M 86 64 L 102 44 L 108 50 L 92 70 Z" fill="#78350f"/>
+  <!-- Feather 1 (Teal) -->
+  <path d="M 102 44 L 108 34 C 108 30 114 36 109 42 Z" fill="#06b6d4"/>
+  <path d="M 104 40 L 109 35" stroke="#fff" stroke-width="0.7"/>
+  <!-- Feather 2 (Orange) -->
+  <path d="M 98 48 L 106 38 C 108 34 112 40 104 46 Z" fill="#f97316"/>
+
+  <!-- Leather & Bronze Armor Body -->
+  <path d="M 22 116 C 22 90 36 78 60 78 C 84 78 98 90 98 116 Z" fill="url(#armor-leather)" filter="url(#shadow-a)"/>
+  <!-- Bronze Chest Studs / Rivets -->
+  <circle cx="44" cy="92" r="2.5" fill="url(#helm-bronze)"/>
+  <circle cx="60" cy="94" r="3" fill="url(#helm-bronze)"/>
+  <circle cx="76" cy="92" r="2.5" fill="url(#helm-bronze)"/>
+  <circle cx="48" cy="106" r="2.5" fill="url(#helm-bronze)"/>
+  <circle cx="72" cy="106" r="2.5" fill="url(#helm-bronze)"/>
+  <!-- Leather Straps -->
+  <path d="M 38 80 L 82 116" stroke="#431407" stroke-width="3" opacity="0.6"/>
+
+  <!-- Neck -->
+  <path d="M 50 64 L 50 82 L 70 82 L 70 64 Z" fill="url(#skin-alesha)"/>
+
+  <!-- Youthful Face Base -->
+  <path d="M 44 46 C 44 64 50 74 60 74 C 70 74 76 64 76 46 C 76 36 70 32 60 32 C 50 32 44 36 44 46 Z" fill="url(#skin-alesha)"/>
+
+  <!-- Cheerful Eyebrows & Eyes -->
+  <path d="M 47 46 Q 52 42 57 45" stroke="#9a3412" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 73 46 Q 68 42 63 45" stroke="#9a3412" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Lively Green-Hazel Eyes with Cheerful Wink/Gaze -->
+  <ellipse cx="52" cy="49.5" rx="3.2" ry="2.2" fill="#fff"/>
+  <circle cx="52.5" cy="49.5" r="1.5" fill="#15803d"/>
+  <circle cx="53" cy="48.8" r="0.6" fill="#fff"/>
+  <ellipse cx="68" cy="49.5" rx="3.2" ry="2.2" fill="#fff"/>
+  <circle cx="67.5" cy="49.5" r="1.5" fill="#15803d"/>
+  <circle cx="67" cy="48.8" r="0.6" fill="#fff"/>
+  <!-- Rosy Cheeks -->
+  <circle cx="45" cy="56" r="3.5" fill="#f87171" opacity="0.35"/>
+  <circle cx="75" cy="56" r="3.5" fill="#f87171" opacity="0.35"/>
+  <!-- Nose -->
+  <path d="M 59 47 L 58 55 L 62 55 Z" fill="#ea580c" opacity="0.3"/>
+  <path d="M 58 54 Q 60 56 62 54" stroke="#c2410c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Cheerful Youthful Smile -->
+  <path d="M 53 61 Q 60 67 67 61" stroke="#991b1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 55 61 Q 60 65 65 61" fill="#fff"/>
+
+  <!-- Light Youthful Mustache / Stubble Hint -->
+  <path d="M 56 58 Q 58 59 60 58 Q 62 59 64 58" stroke="#ca8a04" stroke-width="1" fill="none"/>
+
+  <!-- Archer Helmet (Leather & Bronze with Ear Flaps) -->
+  <path d="M 40 40 C 40 22 50 10 60 6 C 70 10 80 22 80 40 C 74 41 66 42 60 42 C 54 42 46 41 40 40 Z" fill="url(#helm-bronze)" filter="url(#shadow-a)"/>
+  <!-- Helmet Spire -->
+  <path d="M 58 6 L 60 1 L 62 6 Z" fill="url(#helm-bronze)"/>
+  <!-- Leather Ear Flaps -->
+  <path d="M 39 38 C 37 46 38 56 42 60 L 44 44 Z" fill="#7c2d12"/>
+  <path d="M 81 38 C 83 46 82 56 78 60 L 76 44 Z" fill="#7c2d12"/>
+  <!-- Helmet Bronze Band -->
+  <path d="M 39 38 Q 60 44 81 38 L 81 42 Q 60 48 39 42 Z" fill="#7c2d12"/>
+  <circle cx="44" cy="40.5" r="1.5" fill="#fef08a"/>
+  <circle cx="52" cy="41.5" r="1.5" fill="#fef08a"/>
+  <circle cx="60" cy="42" r="1.8" fill="#fef08a"/>
+  <circle cx="68" cy="41.5" r="1.5" fill="#fef08a"/>
+  <circle cx="76" cy="40.5" r="1.5" fill="#fef08a"/>
+
+  <!-- Golden Forelock (Чуб) Spilling out from Helmet -->
+  <path d="M 47 40 C 45 46 48 52 53 49 C 55 46 51 43 51 40 Z" fill="url(#chub-gold)" filter="url(#shadow-a)"/>
+  <path d="M 52 41 C 52 46 56 50 60 46 C 58 43 55 42 54 41 Z" fill="url(#chub-gold)"/>
+</svg>

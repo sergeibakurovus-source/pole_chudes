@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-ilya" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2a4365"/>
+      <stop offset="70%" stop-color="#1a202c"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+    <linearGradient id="helm-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="45%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="gold-trim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+    <linearGradient id="skin-ilya" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba868"/>
+    </linearGradient>
+    <linearGradient id="beard-gray" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="armor-mail" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg-ilya)" stroke="#d69e2e" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#d69e2e" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Shield behind shoulder -->
+  <circle cx="22" cy="78" r="18" fill="url(#armor-mail)" stroke="url(#gold-trim)" stroke-width="2"/>
+  <circle cx="22" cy="78" r="7" fill="url(#gold-trim)"/>
+  <circle cx="22" cy="78" r="2" fill="#713f12"/>
+
+  <!-- Shoulders & Chainmail Armor -->
+  <path d="M 24 116 C 24 92 38 82 60 82 C 82 82 96 92 96 116 Z" fill="url(#armor-mail)" filter="url(#shadow)"/>
+  <!-- Chainmail texture lines -->
+  <path d="M 32 94 Q 60 102 88 94 M 30 102 Q 60 110 90 102 M 34 110 Q 60 118 86 110" stroke="#94a3b8" stroke-width="1.2" fill="none" opacity="0.4"/>
+  <!-- Armor Gold Collar -->
+  <path d="M 44 84 Q 60 92 76 84 Q 60 96 44 84 Z" fill="url(#gold-trim)"/>
+
+  <!-- Neck/Aventail (Chainmail behind head) -->
+  <path d="M 40 54 L 34 84 L 86 84 L 80 54 Z" fill="url(#helm-steel)"/>
+  <path d="M 38 60 Q 60 68 82 60 M 36 68 Q 60 76 84 68 M 34 76 Q 60 84 86 76" stroke="#475569" stroke-width="1.2" fill="none"/>
+
+  <!-- Face Base -->
+  <path d="M 42 46 C 42 62 48 74 60 74 C 72 74 78 62 78 46 C 78 36 72 32 60 32 C 48 32 42 36 42 46 Z" fill="url(#skin-ilya)"/>
+
+  <!-- Eyes & Eyebrows (Wise, Resolute) -->
+  <!-- Bushy Gray Eyebrows -->
+  <path d="M 45 45 Q 52 42 57 46" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M 75 45 Q 68 42 63 46" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Eyes -->
+  <ellipse cx="51" cy="50" rx="3.5" ry="2.2" fill="#fff"/>
+  <circle cx="51.5" cy="50" r="1.6" fill="#1e293b"/>
+  <circle cx="52" cy="49.3" r="0.6" fill="#fff"/>
+  <ellipse cx="69" cy="50" rx="3.5" ry="2.2" fill="#fff"/>
+  <circle cx="68.5" cy="50" r="1.6" fill="#1e293b"/>
+  <circle cx="68" cy="49.3" r="0.6" fill="#fff"/>
+  <!-- Nose -->
+  <path d="M 59 47 L 57 58 L 63 58 Z" fill="#ea580c" opacity="0.35"/>
+  <path d="M 57 57 Q 60 59 63 57" stroke="#c2410c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Magnificent Silver Beard & Mustache -->
+  <!-- Main Beard -->
+  <path d="M 40 56 C 36 75 40 106 60 108 C 80 106 84 75 80 56 C 74 62 68 64 60 64 C 52 64 46 62 40 56 Z" fill="url(#beard-gray)" filter="url(#shadow)"/>
+  <!-- Beard Strands -->
+  <path d="M 52 68 Q 50 90 58 106 M 68 68 Q 70 90 62 106 M 60 66 L 60 107" stroke="#cbd5e1" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <!-- Mustache -->
+  <path d="M 60 58 C 52 54 42 60 38 66 C 46 68 54 64 60 62 C 66 64 74 68 82 66 C 78 60 68 54 60 58 Z" fill="url(#beard-gray)" stroke="#cbd5e1" stroke-width="0.8"/>
+
+  <!-- Steel Helmet (Шелом) -->
+  <path d="M 38 42 C 38 24 50 10 60 6 C 70 10 82 24 82 42 C 76 43 68 44 60 44 C 52 44 44 43 38 42 Z" fill="url(#helm-steel)" filter="url(#shadow)"/>
+  <!-- Helmet Spire & Gold Finial -->
+  <path d="M 58 6 L 60 1 L 62 6 Z" fill="url(#gold-trim)"/>
+  <circle cx="60" cy="1" r="1.5" fill="#fef08a"/>
+  <!-- Helmet Center Rib -->
+  <path d="M 60 6 L 60 44" stroke="url(#gold-trim)" stroke-width="2"/>
+  <!-- Helmet Brow Band -->
+  <path d="M 37 40 Q 60 46 83 40 L 83 44 Q 60 50 37 44 Z" fill="url(#gold-trim)"/>
+  <!-- Nasal Guard (Наносник) -->
+  <path d="M 58 42 L 58 53 L 60 55 L 62 53 L 62 42 Z" fill="url(#gold-trim)"/>
+</svg>

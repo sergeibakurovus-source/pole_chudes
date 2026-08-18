@@ -1,7 +1,7 @@
-import { StateMachine, GameState } from './state.js?v=9.0.0';
-import { UI } from './ui.js?v=9.0.0';
-import { MuseumManager } from './prizes.js?v=9.0.0';
-import { WardrobeManager } from './wardrobe.js?v=9.0.0';
+import { StateMachine, GameState } from './state.js?v=9.1.0';
+import { UI } from './ui.js?v=9.1.0';
+import { MuseumManager } from './prizes.js?v=9.1.0';
+import { WardrobeManager } from './wardrobe.js?v=9.1.0';
 
 export class Game {
     constructor() {
@@ -12,9 +12,9 @@ export class Game {
 
         this.context = {
             players: [
-                { id: 1, name: 'Илья Муромец', title: 'Старший богатырь', avatar: 'assets/avatar_harry.png', score: 0, isEliminated: false },
-                { id: 2, name: 'Добрыня Никитич', title: 'Богатырь-дипломат', avatar: 'assets/avatar_hermione.png', score: 0, isEliminated: false },
-                { id: 3, name: 'Алёша Попович', title: 'Младший богатырь', avatar: 'assets/avatar_ron.png', score: 0, isEliminated: false }
+                { id: 1, name: 'Илья Муромец', title: 'Старший богатырь', avatar: 'assets/avatar_bogatyr_ilya.svg', score: 0, isEliminated: false },
+                { id: 2, name: 'Добрыня Никитич', title: 'Богатырь-дипломат', avatar: 'assets/avatar_bogatyr_dobrynya.svg', score: 0, isEliminated: false },
+                { id: 3, name: 'Алёша Попович', title: 'Младший богатырь', avatar: 'assets/avatar_bogatyr_alesha.svg', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
             secretWord: '',

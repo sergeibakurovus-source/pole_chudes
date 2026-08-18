@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Капитал-шоу Поле Чудес: Premium Edition v9.0</title>
+    <title>Капитал-шоу: Крути Барабан! v9.1.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=9.0.0">
+    <link rel="stylesheet" href="style.css?v=9.1.0">
 </head>
 <body>
     <div class="app-container">
@@ -15,10 +15,10 @@
         <header class="app-header glass-panel">
             <div class="header-logo">
                 <span class="logo-star">⭐</span>
-                <h1 class="logo-title">Капитал-шоу Поле Чудес</h1>
+                <h1 class="logo-title">Капитал-шоу: Крути Барабан!</h1>
             </div>
             <div class="header-edition">
-                <span class="edition-badge">Leonid Yakvadratish & Bogatyrs Edition v9.0.0</span>
+                <span class="edition-badge">«Леонид Яквадратиш и Три Богатыря v9.1.0»</span>
             </div>
             <div class="header-actions">
                 <button id="btn-open-wardrobe-header" class="btn btn-wardrobe-header" onclick="try{ if(window.openWardrobe) window.openWardrobe(); else (function(){var m=document.getElementById('modal-wardrobe');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }catch(e){}">
@@ -32,12 +32,12 @@
 
         <!-- Уведомления/Статус -->
         <div id="status-bar" class="glass-panel status-bar">
-            Добро пожаловать в Капитал-шоу Поле Чудес!
+            Добро пожаловать в Капитал-шоу: Крути Барабан!
         </div>
 
         <!-- Ведущий -->
         <div id="host-container" class="glass-panel host-container">
-            <img id="host-avatar" src="assets/avatar_yakubovich.png" alt="Леонид Яквадратиш" class="host-avatar">
+            <img id="host-avatar" src="assets/avatar_yakvadratish_tuxedo.svg" alt="Леонид Яквадратиш" class="host-avatar">
             <div class="host-details">
                 <div class="host-title-row">
                     <h3 id="host-name" class="host-name">Леонид Яквадратиш</h3>
@@ -164,7 +164,7 @@
         <div class="modal modal-wide glass-panel shop-modal-content">
             <div class="shop-header">
                 <div class="shop-winner-info">
-                    <img id="shop-player-avatar" src="assets/avatar_harry.png" alt="Avatar" class="shop-avatar">
+                    <img id="shop-player-avatar" src="assets/avatar_bogatyr_ilya.svg" alt="Avatar" class="shop-avatar">
                     <div>
                         <h2 class="shop-title">Витрина подарков Капитал-шоу</h2>
                         <p class="shop-subtitle">Победитель тура: <strong id="shop-player-name">Богатырь</strong></p>
@@ -271,6 +271,6 @@
         </div>
     </div>
 
-    <script type="module" src="js/main.js?v=9.0.0"></script>
+    <script type="module" src="js/main.js?v=9.1.0"></script>
 </body>
 </html>

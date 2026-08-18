@@ -32,11 +32,19 @@ describe('Yakvadratish Wardrobe Catalog Validation', () => {
         });
     });
 
+    test('All 5 outfits map to clean room SVG vector assets', () => {
+        YAKVADRATISH_WARDROBE.forEach(outfit => {
+            assert.ok(outfit.avatarSrc.endsWith('.svg'), `Avatar src must be .svg: ${outfit.avatarSrc}`);
+            assert.ok(outfit.avatarSrc.startsWith('assets/avatar_yakvadratish_'), `Avatar path must follow clean room naming: ${outfit.avatarSrc}`);
+        });
+    });
+
     test('Contains classic tuxedo as common default outfit', () => {
         const tuxedo = YAKVADRATISH_WARDROBE.find(o => o.id === 'outfit_tuxedo');
         assert.ok(tuxedo, 'Tuxedo must exist in catalog');
         assert.strictEqual(tuxedo.rarity, 'common');
         assert.strictEqual(tuxedo.unlockType, 'default');
+        assert.strictEqual(tuxedo.avatarSrc, 'assets/avatar_yakvadratish_tuxedo.svg');
     });
 
     test('Contains legendary cosmonaut helmet outfit for super game winner', () => {
@@ -44,6 +52,25 @@ describe('Yakvadratish Wardrobe Catalog Validation', () => {
         assert.ok(cosmonaut, 'Cosmonaut outfit must exist');
         assert.strictEqual(cosmonaut.rarity, 'legendary');
         assert.strictEqual(cosmonaut.unlockType, 'super_game_win');
+        assert.strictEqual(cosmonaut.avatarSrc, 'assets/avatar_yakvadratish_cosmonaut.svg');
+    });
+});
+
+describe('Wardrobe Cache Migration & Normalization', () => {
+    beforeEach(() => {
+        global.localStorage.clear();
+    });
+
+    test('getWardrobeState normalizes corrupted/legacy state with .png paths or invalid IDs', () => {
+        global.localStorage.setItem('pole_chudes_wardrobe', JSON.stringify({
+            equippedOutfit: 'assets/avatar_yakubovich.png',
+            unlockedOutfits: ['assets/avatar_yakubovich.png', 'invalid_id']
+        }));
+
+        const wm = new WardrobeManager();
+        const state = wm.getWardrobeState();
+        assert.strictEqual(state.equippedOutfit, 'outfit_tuxedo');
+        assert.deepStrictEqual(state.unlockedOutfits, ['outfit_tuxedo']);
     });
 });
 

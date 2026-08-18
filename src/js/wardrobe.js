@@ -7,7 +7,7 @@ export const YAKVADRATISH_WARDROBE = [
         unlockConditionText: 'Доступен сразу',
         unlockType: 'default',
         unlockThreshold: 0,
-        avatarSrc: 'assets/avatar_yakubovich.png',
+        avatarSrc: 'assets/avatar_yakvadratish_tuxedo.svg',
         quote: '«Классика не стареет, господа эрудиты!»',
         description: 'Элегантный черный смокинг с шелковыми лацканами, бабочкой и золотыми запонками. Фирменный образ Леонида Яквадратиша.'
     },
@@ -19,7 +19,7 @@ export const YAKVADRATISH_WARDROBE = [
         unlockConditionText: 'Выиграть 1 тур (подарок от Ильи Муромца)',
         unlockType: 'round_win',
         unlockThreshold: 1,
-        avatarSrc: 'assets/avatar_yakubovich.png',
+        avatarSrc: 'assets/avatar_yakvadratish_bogatyr.svg',
         quote: '«Ну держись, супостат! С таким нарядом ни один сектор Банкрот не страшен!»',
         description: 'Кованая стальная кольчуга и островерхий богатырский шлем с бармицей. Защищает от нулей и банкротов.'
     },
@@ -31,7 +31,7 @@ export const YAKVADRATISH_WARDROBE = [
         unlockConditionText: 'Собрать 4 экспоната в Музее',
         unlockType: 'museum_count',
         unlockThreshold: 4,
-        avatarSrc: 'assets/avatar_yakubovich.png',
+        avatarSrc: 'assets/avatar_yakvadratish_boyar.svg',
         quote: '«Чувствую себя настоящим главой Посольского приказа!»',
         description: 'Тяжелый парчовый кафтан с золотым шитьем, жемчужными пуговицами и высокой собольей горлатной шапкой.'
     },
@@ -43,7 +43,7 @@ export const YAKVADRATISH_WARDROBE = [
         unlockConditionText: 'Набрать 7500 очков за историю',
         unlockType: 'total_points',
         unlockThreshold: 7500,
-        avatarSrc: 'assets/avatar_yakubovich.png',
+        avatarSrc: 'assets/avatar_yakvadratish_folk.svg',
         quote: '«Чай, сладости и восточное гостеприимство прямо в нашей студии!»',
         description: 'Шелковый халат ручной работы с затейливыми узорами и бархатная тюбетейка. Подарок от заморских купцов.'
     },
@@ -55,7 +55,7 @@ export const YAKVADRATISH_WARDROBE = [
         unlockConditionText: 'Победить в Супер-игре',
         unlockType: 'super_game_win',
         unlockThreshold: 1,
-        avatarSrc: 'assets/avatar_yakubovich.png',
+        avatarSrc: 'assets/avatar_yakvadratish_cosmonaut.svg',
         quote: '«Поехали! Капитал-шоу выходит на космическую орбиту!»',
         description: 'Легендарный гермошлем и герметичный скафандр для покорения космических просторов и сложнейших супер-игр.'
     }
@@ -77,14 +77,31 @@ export class WardrobeManager {
             const raw = localStorage.getItem(this.storageKey);
             if (!raw) return defaultState;
             const parsed = JSON.parse(raw);
-            const state = {
-                equippedOutfit: parsed.equippedOutfit || 'outfit_tuxedo',
-                unlockedOutfits: Array.isArray(parsed.unlockedOutfits) ? parsed.unlockedOutfits : ['outfit_tuxedo']
-            };
-            if (!state.unlockedOutfits.includes('outfit_tuxedo')) {
-                state.unlockedOutfits.push('outfit_tuxedo');
+            
+            const validOutfitIds = this.catalog.map(o => o.id);
+            let equipped = parsed.equippedOutfit;
+            if (!validOutfitIds.includes(equipped)) {
+                equipped = 'outfit_tuxedo';
             }
-            return state;
+            
+            let unlocked = Array.isArray(parsed.unlockedOutfits)
+                ? parsed.unlockedOutfits.filter(id => validOutfitIds.includes(id))
+                : ['outfit_tuxedo'];
+                
+            if (!unlocked.includes('outfit_tuxedo')) {
+                unlocked.push('outfit_tuxedo');
+            }
+            
+            const cleanState = {
+                equippedOutfit: equipped,
+                unlockedOutfits: unlocked
+            };
+            
+            if (raw !== JSON.stringify(cleanState)) {
+                this._saveState(cleanState);
+            }
+            
+            return cleanState;
         } catch (e) {
             console.error('Failed to parse wardrobe state from localStorage:', e);
             return defaultState;

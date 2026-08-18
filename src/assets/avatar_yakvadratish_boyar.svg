@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-yak-boyar" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="60%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#1c0404"/>
+    </radialGradient>
+    <linearGradient id="fur-sable" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#543310"/>
+      <stop offset="40%" stop-color="#382109"/>
+      <stop offset="85%" stop-color="#241405"/>
+      <stop offset="100%" stop-color="#120a02"/>
+    </linearGradient>
+    <linearGradient id="caftan-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#d97706"/>
+      <stop offset="70%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <linearGradient id="gold-yak-by" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+    <linearGradient id="skin-yak-by" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="60%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba868"/>
+    </linearGradient>
+    <filter id="shadow-yak-by" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg-yak-boyar)" stroke="url(#gold-yak-by)" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#fbbf24" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.65"/>
+
+  <!-- Gold Brocade Caftan Body -->
+  <path d="M 20 116 C 20 88 34 78 60 78 C 86 78 100 88 100 116 Z" fill="url(#caftan-gold)" filter="url(#shadow-yak-by)"/>
+  <!-- Caftan Center Opening & Golden Frogs/Buttons (Пуговицы-гирьки) -->
+  <path d="M 60 80 L 60 116" stroke="#78350f" stroke-width="2"/>
+  <!-- Gold Frogs -->
+  <path d="M 50 90 L 70 90 M 50 100 L 70 100 M 50 110 L 70 110" stroke="url(#gold-yak-by)" stroke-width="2.5"/>
+  <circle cx="60" cy="90" r="2.5" fill="url(#gold-yak-by)"/>
+  <circle cx="60" cy="100" r="2.5" fill="url(#gold-yak-by)"/>
+  <circle cx="60" cy="110" r="2.5" fill="url(#gold-yak-by)"/>
+
+  <!-- High Standing Fur Collar (Воротник-козырь) -->
+  <path d="M 36 78 C 36 60 44 58 60 58 C 76 58 84 60 84 78 C 76 84 68 86 60 86 C 52 86 44 84 36 78 Z" fill="url(#fur-sable)" filter="url(#shadow-yak-by)"/>
+  <path d="M 40 76 Q 60 82 80 76" stroke="#78350f" stroke-width="1.5" fill="none"/>
+
+  <!-- Face Base (Yakvadratish smiling) -->
+  <path d="M 42 42 C 42 60 48 72 60 72 C 72 72 78 60 78 42 C 78 30 72 26 60 26 C 48 26 42 30 42 42 Z" fill="url(#skin-yak-by)"/>
+
+  <!-- Eyebrows -->
+  <path d="M 46 41 Q 52 37 57 41" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 74 41 Q 68 37 63 41" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twinkling Eyes with Crow's Feet -->
+  <ellipse cx="51.5" cy="46.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="52" cy="46.5" r="1.6" fill="#1e293b"/>
+  <circle cx="52.5" cy="45.8" r="0.6" fill="#fff"/>
+  <ellipse cx="68.5" cy="46.5" rx="3.5" ry="2.3" fill="#fff"/>
+  <circle cx="68" cy="46.5" r="1.6" fill="#1e293b"/>
+  <circle cx="67.5" cy="45.8" r="0.6" fill="#fff"/>
+  <path d="M 45 46 Q 43 47 44 49" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+  <path d="M 75 46 Q 77 47 76 49" stroke="#ea580c" stroke-width="0.8" opacity="0.4" fill="none"/>
+
+  <!-- Rosy Cheeks -->
+  <circle cx="45" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+  <circle cx="75" cy="54" r="4" fill="#f87171" opacity="0.3"/>
+
+  <!-- Nose -->
+  <path d="M 59 44 L 57 55 L 63 55 Z" fill="#ea580c" opacity="0.25"/>
+  <path d="M 57 54 Q 60 56.5 63 54" stroke="#c2410c" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+  <!-- Broad Warm Smile -->
+  <path d="M 52 61 Q 60 69 68 61" stroke="#991b1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 53 61.5 Q 60 67 67 61.5 Q 60 64 53 61.5 Z" fill="#ffffff"/>
+
+  <!-- MAGNIFICENT SIGNATURE DARK MUSTACHE -->
+  <path d="M 60 56 C 54 50 40 54 36 62 C 44 65 53 60 60 58.5 C 67 60 76 65 84 62 C 80 54 66 50 60 56 Z" fill="#0f172a" stroke="#1e293b" stroke-width="1" filter="url(#shadow-yak-by)"/>
+  <path d="M 44 60 Q 52 57 59 57.5 M 76 60 Q 68 57 61 57.5" stroke="#334155" stroke-width="1" fill="none"/>
+
+  <!-- Tall Sable Boyar Hat (Горлатная шапка) -->
+  <path d="M 38 34 C 36 14 42 4 60 4 C 78 4 84 14 82 34 C 76 36 68 37 60 37 C 52 37 44 36 38 34 Z" fill="url(#fur-sable)" filter="url(#shadow-yak-by)"/>
+  <!-- Velvet/Silk Crown Top of Hat -->
+  <ellipse cx="60" cy="6" rx="16" ry="4" fill="#991b1b" stroke="url(#gold-yak-by)" stroke-width="1"/>
+  <!-- Gold Brooch with Emerald on Hat -->
+  <circle cx="60" cy="24" r="5" fill="url(#gold-yak-by)" filter="url(#shadow-yak-by)"/>
+  <circle cx="60" cy="24" r="2.5" fill="#059669"/>
+  <circle cx="60" cy="24" r="0.8" fill="#a7f3d0"/>
+  <!-- Pearl drops below brooch -->
+  <circle cx="60" cy="30" r="1.5" fill="#ffffff"/>
+</svg>
