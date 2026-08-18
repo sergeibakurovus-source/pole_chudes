@@ -1,5 +1,5 @@
 # System Design: Капитал-шоу "Поле Чудес: Premium Edition"
-**Version:** v9.0.0 (Clean Room Rebranding, Three Bogatyrs, Yakvadratish Wardrobe Edition & Google Cloud Run Architecture)  
+**Version:** v9.1.0 (Authentic Vector Avatars, Visual Wardrobe Transformation & Russian Header Edition)  
 **Mode:** Compact Mode (Hot-Seat Multiplayer + Persistent Meta-Progression + Wardrobe Customization + Cloud Native)  
 **Author:** System Architect (MetaGPT Pipeline)  
 **Target Platform:** Pure HTML5 / CSS3 / ES6+ Modules + Google Cloud Run (Containerized Nginx Alpine)  
@@ -8,17 +8,18 @@
 
 ## 1. Implementation Approach & Architectural Philosophy
 
-Проект реализуется в формате **Clean Room Enterprise SPA & Cloud Native Micro-Service**. Приложение полностью функционирует на стороне клиента (Client-Side Only) в браузере, а для высокопроизводительной доставки статических ресурсов и бессерверного масштабирования упаковано в легковесный Docker-контейнер на базе Nginx Alpine.
+Проект реализуется в формате **Clean Room Enterprise SPA & Cloud Native Micro-Service**. Архитектура версии **v9.1.0** всецело ориентирована на обеспечение **100% визуальной аутентичности и масштабируемости графики (Clean Room Vector Graphics)**, полное устранение диссонанса между нарративом и графикой, а также реализацию **динамического реактивного преображения ведущего (Leonid Yakvadratish Dynamic Visual Wardrobe)** в реальном времени.
 
-### 1.1 Архитектурные столпы релиза v9.0.0
+### 1.1 Архитектурные столпы релиза v9.1.0
 
 ```
 +---------------------------------------------------------------------------------------+
 |                                    Google Cloud Run                                   |
 |  +---------------------------------------------------------------------------------+  |
 |  |                  Nginx Alpine Web Server (Dynamic $PORT via envsubst)           |  |
-|  |  - Gzip Compression     - ES6 MIME Types     - Security Headers                 |  |
-|  |  - SPA Routing Fallback - /healthz Endpoint  - Static Caching Strategy          |  |
+|  |  - Gzip (text/css, app/js, image/svg+xml)  - ES6 Strict MIME Types              |  |
+|  |  - SPA Routing Fallback                    - /healthz Endpoint (v9.1.0)         |  |
+|  |  - Immutable Asset Caching                 - Security & Isolation Headers       |  |
 |  +---------------------------------------------------------------------------------+  |
 +-------------------------------------------+-------------------------------------------+
                                             | (HTTP/2, HTTPS)
@@ -28,43 +29,54 @@
 |                                                                                       |
 |  +--------------------------------+   +---------------------------------------------+ |
 |  |       Presentation Layer       |   |              Core Game Engine               | |
-|  |  - Glassmorphism UI (ui.js)    |   |  - Game Controller (game.js)                | |
-|  |  - Web Audio API Sound Synthesizer |  - State Machine (state.js, 20 States)      | |
-|  |  - Wardrobe Modal & Avatar Host|   |  - Dictionary & Round Cache Engine          | |
-|  |  - Trophy Museum & Prize Shop  |   +---------------------------------------------+ |
+|  |  - Russian Header & Branding   |   |  - Game Controller (game.js)                | |
+|  |  - Reactive Host Transformation|   |  - State Machine (state.js, 20 States)      | |
+|  |  - Glassmorphism Studio UI     |   |  - Dictionary & Round Cache Engine          | |
+|  |  - Web Audio Sound Synthesizer |   |  - Migration & Validation Engine            | |
+|  |  - Modal Manager & Animations  |   +---------------------------------------------+ |
 |  +--------------------------------+                          ^                        |
 |                  ^                                           |                        |
 |                  +---------------------+---------------------+                        |
 |                                        v                                              |
 |  +---------------------------------------------------------------------------------+  |
+|  |                   Clean Room SVG Vector Graphics Engine                         |  |
+|  |  - 3 Bogatyrs Vectors: ilya.svg, dobrynya.svg, alesha.svg (viewBox 0 0 120 120) |  |
+|  |  - 5 Yakvadratish Outfits: tuxedo, bogatyr, boyar, folk, cosmonaut (.svg)       |  |
+|  +---------------------------------------------------------------------------------+  |
+|                                        ^                                              |
+|                                        v                                              |
+|  +---------------------------------------------------------------------------------+  |
 |  |                      Persistent Meta-Progression Services                       |  |
 |  |  - MuseumManager (prizes.js): 16 Folklore Prizes, Stats, Trophy Collection      |  |
-|  |  - WardrobeManager (wardrobe.js): 5 Yakvadratish Outfits, Auto-Unlocks, Outfits |  |
-|  |  - LocalStorage Engine: 'pole_chudes_museum', 'pole_chudes_wardrobe', etc.      |  |
+|  |  - WardrobeManager (wardrobe.js): 5 SVG Outfits, Auto-Unlocks, Dynamic Equipping|  |
+|  |  - LocalStorage Engine: 'pole_chudes_museum', 'pole_chudes_wardrobe' (Cleaned)  |  |
 |  +---------------------------------------------------------------------------------+  |
 +---------------------------------------------------------------------------------------+
 ```
 
-1. **100% Legal Clean Room IP:**
-   - Полная замена ведущего на оригинального колоритного персонажа: **Леонид Яквадратиш** — харизматичный усатый шоумен в смокинге с искрометным народным юмором.
-   - Замена участников первой тройки на богатырей из славянского эпоса (Public Domain): **Илья Муромец** (Старший богатырь), **Добрыня Никитич** (Богатырь-дипломат), **Алёша Попович** (Младший богатырь).
-   - Полная зачистка всех устаревших копирайт-ссылок (*"Harry", "Hermione", "Ron", "Якубович", "VID", "Dendy", "Funai", "Рубин"*).
+1. **Russian Header & Authentic Branding:**
+   - Фирменный главный заголовок студии: `⭐ Капитал-шоу Поле Чудес`.
+   - Подзаголовок и бейдж издания: `«Леонид Яквадратиш и Три Богатыря» v9.1.0`.
+   - Панель управления с кнопками быстрого доступа к мета-системам: `🏛️ Музей`, `👔 Гардероб`.
 
-2. **Yakvadratish Wardrobe Engine (`WardrobeManager`):**
-   - Выделенный изолированный сервис управления гардеробом ведущего с каталогом из 5 аутентичных костюмов.
-   - Механизм авторазблокировки по игровым триггерам (победа в 1 туре, сбор 4 экспонатов в Музее, накопление 7500 очков, победа в Супер-игре).
-   - Реактивная смена аватара ведущего на сцене, в карточке ведущего и модальных окнах без перезагрузки страницы.
-   - Персистентное хранение состояния в `localStorage` (`pole_chudes_wardrobe`).
+2. **100% Clean Room SVG Vector Engine:**
+   - Полная ликвидация растровых изображений сторонней интеллектуальной собственности (`avatar_harry.png`, `avatar_hermione.png`, `avatar_ron.png`, `avatar_yakubovich.png`).
+   - Разработка 8 оригинальных чистых векторных SVG-иллюстраций высокого разрешения:
+     * **3 Былинных богатыря:** Илья Муромец (`avatar_bogatyr_ilya.svg`), Добрыня Никитич (`avatar_bogatyr_dobrynya.svg`), Алёша Попович (`avatar_bogatyr_alesha.svg`).
+     * **5 Нарядов ведущего:** Классический смокинг (`avatar_yakvadratish_tuxedo.svg`), Богатырский шлем (`avatar_yakvadratish_bogatyr.svg`), Боярский кафтан (`avatar_yakvadratish_boyar.svg`), Расшитый халат (`avatar_yakvadratish_folk.svg`), Шлем космонавта (`avatar_yakvadratish_cosmonaut.svg`).
 
-3. **Фольклорно-былинный каталог призов (`MuseumManager`):**
-   - 16 колоритных предметов славянского фольклора и ретро-традиций с 4 градациями ценности (`common`, `rare`, `epic`, `legendary`) от банки соленых рыжиков до коня Бурушки и Ковра-самолета.
-   - Безопасное хранение трофеев и мета-статистики игрока в `localStorage` (`pole_chudes_museum`, `pole_chudes_stats`).
+3. **Dynamic Reactive Wardrobe Visual Binding:**
+   - Внедрение сквозной реактивной модели связывания наряда ведущего: при клике «Надеть» в Гардеробной происходит синхронное обновление DOM-элемента `#host-avatar`, модальных превью и реплик ведущего с запуском физической CSS-микроанимации `avatar-transform-flash` (`avatarPop`).
+   - Автоматическая валидация и миграция устаревших растровых путей (`.png`) в `localStorage` к актуальным SVG-идентификаторам.
 
-4. **Google Cloud Run Readiness & Containerization:**
-   - Легковесный промышленный образ `Dockerfile` на базе `nginx:alpine` (< 30 МБ).
-   - Поддержка динамического порта `$PORT` через шаблонизатор `nginx.conf.template` и стандартный `docker-entrypoint.d/20-envsubst-on-templates.sh`.
-   - Эндпоинт проверки здоровья `/healthz` (`HTTP 200 OK` с телом `{"status":"healthy","version":"v9.0.0"}`).
-   - Gzip-сжатие, строгие MIME-типы для ES6-модулей (`application/javascript`), SPA-fallback и защитные HTTP-заголовки.
+4. **Slavic Folklore & Retro Meta-Progression:**
+   - Каталог из 16 предметов славянского фольклора и народных ремесел без нарушения чужих торговых марок.
+   - Персистентное сохранение наград, надетых костюмов и статистики побед.
+
+5. **Google Cloud Run Ready Architecture:**
+   - Минималистичный Docker-контейнер `nginx:alpine` (< 30 МБ) с поддержкой динамического порта `$PORT`.
+   - Оптимизированная отдача `image/svg+xml` со сжатием Gzip и строгими заголовками кэширования.
+   - Эндпоинт проверки работоспособности `/healthz` возвращает `HTTP 200 OK` с версией `v9.1.0`.
 
 ---
 
@@ -95,14 +107,14 @@ export type PrizeSource = 'shop' | 'prize_sector' | 'super_game';
 // 2. Структуры Каталога Призов (Folklore & Retro)
 // ========================================================
 export interface PrizeItem {
-    id: string;               // Уникальный ID ('prize_pickles', 'prize_horse')
-    name: string;             // Отображаемое былинное название
+    id: string;               // 'prize_pickles', 'prize_horse', etc.
+    name: string;             // Былинное наименование
     rarity: RarityType;       // Градация ценности
-    price: number;            // Стоимость в очках (0 для памятного подарка)
+    price: number;            // Стоимость в очках
     icon: string;             // Символ/эмодзи экспоната ('🍄', '🐎', '🪕')
     description: string;      // Атмосферное описание
     category: PrizeCategory;  // Категория экспоната
-    sourcePool: PrizeSource[];// Допустимые способы получения
+    sourcePool: PrizeSource[];// Способы получения
 }
 
 export interface TrophyRecord {
@@ -127,31 +139,31 @@ export interface MuseumStats {
 // ========================================================
 export type UnlockConditionType = 
     | 'default'          // Доступен сразу
-    | 'round_win'        // Победа в туре (>= count)
-    | 'museum_count'     // Количество экспонатов в Музее (>= count)
-    | 'total_points'     // Суммарно очков (>= points)
-    | 'super_game_win';  // Победа в Супер-игре (>= count)
+    | 'round_win'        // Победа в туре (>= threshold)
+    | 'museum_count'     // Экспонатов в Музее (>= threshold)
+    | 'total_points'     // Суммарно очков (>= threshold)
+    | 'super_game_win';  // Победа в Супер-игре (>= threshold)
 
 export interface OutfitItem {
     id: string;                      // 'outfit_tuxedo', 'outfit_bogatyr', etc.
     name: string;                    // Название наряда
-    rarity: RarityType;              // Редкость
+    rarity: RarityType;              // Редкость наряда
     icon: string;                    // Эмодзи костюма ('🤵', '🛡️', '👑', '🪔', '🧑‍🚀')
-    unlockConditionText: string;     // Текстовое описание условия открытия для UI
+    unlockConditionText: string;     // Текстовое описание условия для UI
     unlockType: UnlockConditionType; // Тип программного триггера
-    unlockThreshold: number;         // Пороговое значение для авторазблокировки
-    avatarSrc: string;               // Путь к изображению аватара
+    unlockThreshold: number;         // Пороговое значение для разблокировки
+    avatarSrc: string;               // Путь к SVG-файлу ('assets/avatar_yakvadratish_*.svg')
     quote: string;                   // Реплика Яквадратиша при примерке
     description: string;             // Художественное описание наряда
 }
 
 export interface WardrobeState {
-    equippedOutfit: string;          // ID текущего надетого костюма
-    unlockedOutfits: string[];       // Массив ID разблокированных костюмов
+    equippedOutfit: string;          // ID активного костюма ('outfit_tuxedo')
+    unlockedOutfits: string[];       // Массив разблокированных ID
 }
 
 // ========================================================
-// 4. Стейт-машина и раунд (20 Состояний)
+// 4. Стейт-машина, игроки и контекст игры
 // ========================================================
 export enum GameState {
     INIT = 'INIT',
@@ -188,7 +200,7 @@ export interface Player {
     id: number;
     name: string;       // 'Илья Муромец', 'Добрыня Никитич', 'Алёша Попович'
     title: string;      // 'Старший богатырь', 'Богатырь-дипломат', 'Младший богатырь'
-    avatar: string;     // Путь к былинному аватару
+    avatar: string;     // SVG-ассет ('assets/avatar_bogatyr_*.svg')
     score: number;      // Очки текущего раунда
     isEliminated: boolean;
 }
@@ -208,7 +220,7 @@ export interface GameContext {
 }
 
 // ========================================================
-// 5. Интерфейсы Менеджеров (Museum & Wardrobe)
+// 5. Интерфейсы Менеджеров и Контроллеров
 // ========================================================
 export interface IMuseumManager {
     readonly catalog: PrizeItem[];
@@ -238,48 +250,175 @@ export interface IWardrobeManager {
 
 ---
 
-## 3. Catalogs Specification
+## 3. Clean Room SVG Vector Specifications & Asset Catalogs
 
-### 3.1 Фольклорно-ретроспективный каталог призов (`PRIZES_CATALOG`)
-
-Каталог состоит из 16 сбалансированных предметов без нарушений авторских прав:
-
-| ID | Название | Редкость | Цена | Категория | Иконка | Описание |
-|---|---|---|---|---|---|---|
-| `prize_postcard` | Фирменная открытка от Яквадратиша | `common` | 0 | Памятное | ✉️ | Красочная открытка с теплой дарственной надписью и улыбкой Леонида Яквадратиша. |
-| `prize_pickles` | Банка соленых рыжиков | `common` | 100 | Угощения | 🍄 | Хрустящие лесные рыжики в пряном рассоле с укропом и чесночком по старинному рецепту. |
-| `prize_tea` | Пачка душистого иван-чая | `common` | 250 | Угощения | 🫖 | Отборный ферментированный кипрей с таежными ягодами. Богатырское здоровье в каждой чашке! |
-| `prize_pryanik` | Тульский пряник-великан | `common` | 500 | Угощения | 🥮 | Печатный медовый пряник с яблочным повидлом весом в целый пуд! |
-| `prize_glasses` | Набор хрустальных кубков | `rare` | 750 | Посуда | 🥂 | Звонкие граненые кубки для ключевой воды и праздничного кваса. |
-| `prize_samovar` | Расписной электросамовар | `rare` | 1000 | Традиции | 🫖 | Золоченый тульский самовар с хохломской росписью. Душа любой богатырской беседы. |
-| `prize_gusli` | Гусли-самогуды | `rare` | 1500 | Музыка | 🪕 | Звончатые яровчатые гусли: сами играют, сами плясать заставляют! |
-| `prize_carpet` | Настенный ковер со сказочными оленями | `rare` | 2000 | Уют | 🧶 | Теплый шерстяной ковер с пушистым ворсом для богатырской опочивальни. |
-| `prize_boots` | Сапоги-скороходы сафьяновые | `epic` | 2500 | Артефакты | 👢 | Сафьяновые сапоги на мягком ходу: шаг шагнул — семь верст отмерил! |
-| `prize_feather` | Перо Жар-птицы сияющее | `epic` | 3500 | Артефакты | 🪶 | Волшебное перо, освещающее даже самую темную ночь ярче тысячи свечей. |
-| `prize_tablecloth` | Скатерть-самобранка шелковая | `epic` | 5000 | Артефакты | 📜 | Стоит расстелить — и на столе яства сахарные, пироги пышные да напитки медвяные! |
-| `prize_sword` | Меч-кладенец булатный | `epic` | 7000 | Вооружение | ⚔️ | Кованый булатный клинок работы древних мастеров, сокрушающий любые преграды. |
-| `prize_fur_coat` | Соболья шуба до пят | `epic` | 9000 | Престиж | 🧥 | Бархатная шуба на отборных сибирских соболях. Подарок достойный великих князей! |
-| `prize_horse` | Богатырский конь Бурушка | `legendary` | 15000 | Транспорт | 🐎 | Верный былинный скакун: из копыт искры сыплются, ветру в поле не угнаться! |
-| `prize_carpet_plane` | Сказочный Ковер-самолет | `legendary` | 25000 | Транспорт | 🛸 | Роскошный ковер ручной вязки для беспосадочных полетов над тридевятым царством. |
-| `prize_gold_cup` | Золотая Медаль Леонида Яквадратиша | `legendary` | 30000 | Зал Славы | 🏅 | Высшая награда Капитал-шоу из чистого золота для истинных чемпионов народной эрудиции. |
+### 3.1 Стандарт проектирования векторных SVG-ассетов (SVG Standards)
+1. **Единая координатная сетка:** `viewBox="0 0 120 120"`, `width="100%"`, `height="100%"`.
+2. **Семантическая послойная структура:**
+   - Слой 1: Фон / ореол (Circle / Linear/Radial Gradient).
+   - Слой 2: Тело и наряд (Кольчуга, смокинг, кафтан, халат, скафандр).
+   - Слой 3: Голова, лицо, глаза, прическа.
+   - Слой 4: Фирменные атрибуты (Усы, шлемы, головные уборы, соболья оторочка, микрофон, гермошлем).
+   - Слой 5: Светотень и блики (Highlights, Drop Shadows).
+3. **Совместимость с Glassmorphism:** Чистые векторные градиенты, полупрозрачные заливки, отсутствие тяжелых внешних растровых фильтров, микроскопический размер (< 10 КБ на ассет).
 
 ---
 
-### 3.2 Каталог Гардеробной Леонида Яквадратиша (`YAKVADRATISH_WARDROBE`)
+### 3.2 Спецификация векторных аватаров Трёх Богатырей
 
-| ID Костюма | Название наряда | Иконка | Редкость | Условие открытия (Trigger) | Цитата Леонида Яквадратиша |
+| Файл ассета | Персонаж & Роль | Визуальное описание и ключевые элементы SVG | Палитра & Градиенты |
+|---|---|---|---|
+| `assets/avatar_bogatyr_ilya.svg` | **Илья Муромец**<br>*(Старший богатырь)* | Кованый стальной шелом с заостренным верхом и кольчужной бармицей, чешуйчатая кольчужная броня, массивная окладистая седая борода, мудрый непоколебимый взгляд, массивный стальной щит за плечом. | Сталь (`#718096` -> `#2d3748`), Золото (`#d69e2e`), Седина (`#e2e8f0`), Фон (`#1a365d` глубокий индиго). |
+| `assets/avatar_bogatyr_dobrynya.svg` | **Добрыня Никитич**<br>*(Богатырь-дипломат)* | Золоченый княжеский шлем с филигранной чеканкой, алый бархатный плащ с золотой фибулой, аккуратные русые усы и ухоженная бородка, открытый благородный и дипломатичный взгляд. | Золото (`#ecc94b` -> `#b7791f`), Рубин (`#9b2c2c` -> `#c53030`), Русый (`#744210`), Фон (`#22543d` изумрудный). |
+| `assets/avatar_bogatyr_alesha.svg` | **Алёша Попович**<br>*(Младший богатырь)* | Легкий кожано-металлический шлем лучника с наушами, задорный соломенный чуб, молодая открытая улыбка, соколиный зоркий прищур, колчан со стрелами за спиной. | Бронза (`#dd6b20`), Кожа (`#805ad5` / `#7b341e`), Золотистый чуб (`#f6e05e`), Фон (`#553c9a` аметистовый). |
+
+---
+
+### 3.3 Спецификация 5 SVG-костюмов Гардеробной Леонида Яквадратиша
+
+| ID Костюма | Файл ассета | Название наряда | Редкость | Условие открытия | Визуальная спецификация SVG |
 |---|---|---|---|---|---|
-| `outfit_tuxedo` | Классический смокинг | 🤵 | `common` | Доступен сразу (`default`) | *«Классика не стареет, господа эрудиты!»* |
-| `outfit_bogatyr` | Богатырский шлем и кольчуга | 🛡️ | `rare` | Выиграть 1 тур (`round_win >= 1`) | *«Ну держись, супостат! С таким нарядом ни один сектор Банкрот не страшен!»* |
-| `outfit_boyar` | Боярский кафтан и соболья шапка | 👑 | `rare` | Собрать 4 экспоната в Музее (`museum_count >= 4`) | *«Чувствую себя настоящим главой Посольского приказа!»* |
-| `outfit_folk_robe` | Расшитый халат и тюбетейка | 🪔 | `epic` | Набрать 7500 очков (`total_points >= 7500`) | *«Чай, сладости и восточное гостеприимство прямо в нашей студии!»* |
-| `outfit_cosmonaut` | Шлем космонавта | 🧑‍🚀 | `legendary` | Победить в Супер-игре (`super_game_win >= 1`) | *«Поехали! Капитал-шоу выходит на космическую орбиту!»* |
+| `outfit_tuxedo` | `assets/avatar_yakvadratish_tuxedo.svg` | Классический смокинг | `common` | Доступен сразу (`default`) | Элегантный черный фрак с шелковыми лацканами, галстук-бабочка, белоснежная манишка, фирменный ретро-микрофон в руке, пышные харизматичные черные усы и озорной прищур. |
+| `outfit_bogatyr` | `assets/avatar_yakvadratish_bogatyr.svg` | Богатырский шлем и кольчуга | `rare` | Выиграть 1 тур (`round_win >= 1`) | Стальной островерхий былинный шлем с наносником, кольчужная рубаха с золотыми заклепками, задорно топорщащиеся из-под шлема фирменные усы. |
+| `outfit_boyar` | `assets/avatar_yakvadratish_boyar.svg` | Боярский кафтан и соболья шапка | `rare` | Собрать 4 экспоната в Музее (`museum_count >= 4`) | Высокая горлатная шапка из драгоценного соболя с золотой пряжкой, парчовый узорчатый кафтан с золотыми пуговицами-гирьками и стоячим воротником-козырем. |
+| `outfit_folk_robe` | `assets/avatar_yakvadratish_folk.svg` | Расшитый халат и тюбетейка | `epic` | Набрать 7500 очков (`total_points >= 7500`) | Бархатная тюбетейка с тончайшей золотой вышивкой, разноцветный шелковый халат с традиционным восточным орнаментом и пиала с чаем. |
+| `outfit_cosmonaut` | `assets/avatar_yakvadratish_cosmonaut.svg` | Шлем космонавта | `legendary` | Победить в Супер-игре (`super_game_win >= 1`) | Футуристический гермошлем с зеркальным золотистым забралом (отражающим звезды), световые индикаторы, белый скафандр с ретро-воротником. |
 
 ---
 
-## 4. Google Cloud Run Deployment & Container Architecture
+### 3.4 Славянско-фольклорный каталог призов (`PRIZES_CATALOG`)
 
-### 4.1 Топология развертывания
+```javascript
+export const PRIZES_CATALOG = [
+  { id: 'prize_postcard', name: 'Фирменная открытка от Яквадратиша', rarity: 'common', price: 0, category: 'Памятное', icon: '✉️', description: 'Красочная открытка с теплой дарственной надписью и улыбкой Леонида Яквадратиша.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_pickles', name: 'Банка соленых рыжиков', rarity: 'common', price: 100, category: 'Угощения', icon: '🍄', description: 'Хрустящие лесные рыжики в пряном рассоле с укропом и чесночком по старинному рецепту.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_tea', name: 'Пачка душистого иван-чая', rarity: 'common', price: 250, category: 'Угощения', icon: '🫖', description: 'Отборный ферментированный кипрей с таежными ягодами. Богатырское здоровье в каждой чашке!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_pryanik', name: 'Тульский пряник-великан', rarity: 'common', price: 500, category: 'Угощения', icon: '🥮', description: 'Печатный медовый пряник с яблочным повидлом весом в целый пуд!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_glasses', name: 'Набор хрустальных кубков', rarity: 'rare', price: 750, category: 'Посуда', icon: '🥂', description: 'Звонкие граненые кубки для ключевой воды и праздничного кваса.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_samovar', name: 'Расписной электросамовар', rarity: 'rare', price: 1000, category: 'Традиции', icon: '🫖', description: 'Золоченый тульский самовар с хохломской росписью. Душа любой богатырской беседы.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_gusli', name: 'Гусли-самогуды', rarity: 'rare', price: 1500, category: 'Музыка', icon: '🪕', description: 'Звончатые яровчатые гусли: сами играют, сами плясать заставляют!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_carpet', name: 'Настенный ковер со сказочными оленями', rarity: 'rare', price: 2000, category: 'Уют', icon: '🧶', description: 'Теплый шерстяной ковер с пушистым ворсом для богатырской опочивальни.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_boots', name: 'Сапоги-скороходы сафьяновые', rarity: 'epic', price: 2500, category: 'Артефакты', icon: '👢', description: 'Сафьяновые сапоги на мягком ходу: шаг шагнул — семь верст отмерил!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_feather', name: 'Перо Жар-птицы сияющее', rarity: 'epic', price: 3500, category: 'Артефакты', icon: '🪶', description: 'Волшебное перо, освещающее даже самую темную ночь ярче тысячи свечей.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_tablecloth', name: 'Скатерть-самобранка шелковая', rarity: 'epic', price: 5000, category: 'Артефакты', icon: '📜', description: 'Стоит расстелить — и на столе яства сахарные, пироги пышные да напитки медвяные!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_sword', name: 'Меч-кладенец булатный', rarity: 'epic', price: 7000, category: 'Вооружение', icon: '⚔️', description: 'Кованый булатный клинок работы древних мастеров, сокрушающий любые преграды.', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_fur_coat', name: 'Соболья шуба до пят', rarity: 'epic', price: 9000, category: 'Престиж', icon: '🧥', description: 'Бархатная шуба на отборных сибирских соболях. Подарок достойный великих князей!', sourcePool: ['shop', 'prize_sector'] },
+  { id: 'prize_horse', name: 'Богатырский конь Бурушка', rarity: 'legendary', price: 15000, category: 'Транспорт', icon: '🐎', description: 'Верный былинный скакун: из копыт искры сыплются, ветру в поле не угнаться!', sourcePool: ['shop', 'prize_sector', 'super_game'] },
+  { id: 'prize_carpet_plane', name: 'Сказочный Ковер-самолет', rarity: 'legendary', price: 25000, category: 'Транспорт', icon: '🛸', description: 'Роскошный ковер ручной вязки для беспосадочных полетов над тридевятым царством.', sourcePool: ['shop', 'super_game'] },
+  { id: 'prize_gold_cup', name: 'Золотая Медаль Леонида Яквадратиша', rarity: 'legendary', price: 30000, category: 'Зал Славы', icon: '🏅', description: 'Высшая награда Капитал-шоу из чистого золота для истинных чемпионов народной эрудиции.', sourcePool: ['shop', 'super_game'] }
+];
+```
+
+---
+
+## 4. Dynamic Wardrobe Visual Binding & UI Architecture
+
+### 4.1 Архитектура реактивного преображения ведущего
+
+```
+                                Wardrobe Customization Pipeline
+                                
+  +---------------------------------------------------------------------------------------+
+  | 1. User Interaction: Click "[ Надеть ]" in modal-wardrobe                             |
+  +---------------------------------------------------------------------------------------+
+                                             |
+                                             v
+  +---------------------------------------------------------------------------------------+
+  | 2. WardrobeManager.equipOutfit(outfitId):                                             |
+  |    - Validates outfit is unlocked                                                     |
+  |    - Updates equippedOutfit state                                                     |
+  |    - Writes clean payload to localStorage['pole_chudes_wardrobe']                     |
+  |    - Returns OutfitItem with avatarSrc ('assets/avatar_yakvadratish_*.svg')           |
+  +---------------------------------------------------------------------------------------+
+                                             |
+                                             v
+  +---------------------------------------------------------------------------------------+
+  | 3. UI Controller Reactive Dispatch:                                                   |
+  |    - UI.updateHostAvatar(outfit)                                                      |
+  |    - Audio.playWardrobeEquip() (rich fitting audio feedback)                          |
+  |    - DOM Mutation: hostAvatarImg.src = outfit.avatarSrc                               |
+  |    - CSS Animation: hostAvatarImg.classList.add('avatar-transform-flash')             |
+  |    - Updates Host Dialogue Bubble with outfit.quote                                   |
+  |    - Re-renders Wardrobe Modal cards ('[ ✓ Надет ]' badge with neon glow)             |
+  +---------------------------------------------------------------------------------------+
+```
+
+### 4.2 Спецификация CSS-микроанимации трансформации (`avatar-transform-flash`)
+
+```css
+/* Плавный переход и вспышка преображения аватара ведущего */
+.host-avatar-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.avatar-transform-flash {
+    animation: avatarPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes avatarPop {
+    0% {
+        transform: scale(0.8) rotate(-6deg);
+        filter: brightness(2) drop-shadow(0 0 25px #ffd700);
+    }
+    50% {
+        transform: scale(1.18) rotate(4deg);
+        filter: brightness(1.4) drop-shadow(0 0 15px #ffd700);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1) drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+    }
+}
+```
+
+### 4.3 Спецификация миграции устаревшего кэша хранилища (`WardrobeManager.getWardrobeState()`)
+
+Для исключения ошибок 404 и битых картинок у пользователей с данными предыдущих версий в `wardrobe.js` закладывается алгоритм авто-нормализации:
+
+```javascript
+getWardrobeState() {
+    try {
+        const raw = localStorage.getItem(this.storageKey);
+        if (!raw) return this.getDefaultState();
+        
+        const parsed = JSON.parse(raw);
+        let equipped = parsed.equippedOutfit;
+        
+        // Автомиграция: если сохранился старый ID или растровый путь
+        const validOutfitIds = this.catalog.map(o => o.id);
+        if (!validOutfitIds.includes(equipped)) {
+            equipped = 'outfit_tuxedo';
+        }
+        
+        const unlocked = Array.isArray(parsed.unlockedOutfits) 
+            ? parsed.unlockedOutfits.filter(id => validOutfitIds.includes(id))
+            : ['outfit_tuxedo'];
+            
+        if (!unlocked.includes('outfit_tuxedo')) {
+            unlocked.push('outfit_tuxedo');
+        }
+        
+        const cleanState = { equippedOutfit: equipped, unlockedOutfits: unlocked };
+        localStorage.setItem(this.storageKey, JSON.stringify(cleanState));
+        return cleanState;
+    } catch (e) {
+        console.warn('Wardrobe state parse error, falling back to default:', e);
+        return this.getDefaultState();
+    }
+}
+```
+
+---
+
+## 5. Google Cloud Run Deployment & Container Architecture
+
+### 5.1 Топология и доставка векторных ассетов
 
 ```
                                  Google Cloud Platform
@@ -289,51 +428,43 @@ export interface IWardrobeManager {
     HTTPS User Traffic  |    +-----------------------------+    |
     ------------------->|--->|   Container: Nginx Alpine   |    |
     (Port 443 / SSL)    |    |   - Listening on $PORT      |    |
-                        |    |   - Static SPA assets       |    |
-                        |    |   - Gzip compression        |    |
+                        |    |   - Static SPA assets & SVGs|    |
+                        |    |   - Gzip (image/svg+xml)    |    |
                         |    |   - /healthz -> 200 OK      |    |
                         |    +-----------------------------+    |
                         +---------------------------------------+
 ```
 
-### 4.2 Спецификация `Dockerfile`
-Контейнер создается на базе минималистичного `nginx:alpine` с передачей статических файлов и шаблона виртуального хоста:
+### 5.2 Спецификация `Dockerfile`
 
 ```dockerfile
 # -------------------------------------------------------------
-# Google Cloud Run Optimized Dockerfile
+# Google Cloud Run Optimized Dockerfile (v9.1.0)
 # Base: nginx:alpine (lightweight, secure, < 30MB)
 # -------------------------------------------------------------
 FROM nginx:alpine
 
-# Set working directory for static assets
 WORKDIR /usr/share/nginx/html
 
-# Remove default nginx static assets
+# Clean default assets
 RUN rm -rf ./*
 
-# Copy project static assets
+# Copy clean web application assets (including pure SVG vectors)
 COPY src/ .
 
 # Copy Nginx template for dynamic $PORT substitution by envsubst
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 
-# Default fallback PORT if not provided by Cloud Run
 ENV PORT=8080
-
-# Expose standard Cloud Run port
 EXPOSE 8080
 
-# Health check instruction for local docker verification
 HEALTHCHECK --interval=30s --timeout=3s --start-period=2s --retries=3 \
   CMD wget --quiet --tries=1 --spider http://127.0.0.1:${PORT}/healthz || exit 1
 
-# Standard Nginx startup (envsubst runs automatically on /etc/nginx/templates/*.template)
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### 4.3 Спецификация `nginx.conf.template`
-Конфигурация включает автоматическую подстановку `${PORT}`, сжатие Gzip, строгие MIME-типы для ES6-модулей, защитные HTTP-заголовки и эндпоинт `/healthz`:
+### 5.3 Спецификация `nginx.conf.template`
 
 ```nginx
 server {
@@ -343,9 +474,7 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
-    # ---------------------------------------------------------
-    # Gzip Compression Optimization
-    # ---------------------------------------------------------
+    # Gzip Compression Optimization (включая SVG векторы)
     gzip on;
     gzip_vary on;
     gzip_min_length 256;
@@ -359,26 +488,20 @@ server {
         application/xml
         image/svg+xml;
 
-    # ---------------------------------------------------------
     # Security Headers
-    # ---------------------------------------------------------
     add_header X-Frame-Options "SAMEORIGIN" always;
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-    # ---------------------------------------------------------
     # Healthcheck Endpoint for Cloud Run Probes
-    # ---------------------------------------------------------
     location = /healthz {
         access_log off;
         default_type application/json;
-        return 200 '{"status":"healthy","version":"v9.0.0"}';
+        return 200 '{"status":"healthy","version":"v9.1.0"}';
     }
 
-    # ---------------------------------------------------------
-    # Static Assets Caching & Correct MIME types for ES6 modules
-    # ---------------------------------------------------------
+    # Static Assets Caching & Correct MIME types
     location ~* \.(js|mjs)$ {
         types {
             application/javascript js mjs;
@@ -388,14 +511,12 @@ server {
         try_files $uri =404;
     }
 
-    location ~* \.(css|png|jpg|jpeg|gif|svg|ico|json)$ {
+    location ~* \.(css|svg|png|jpg|jpeg|gif|ico|json)$ {
         add_header Cache-Control "public, max-age=31536000, immutable";
         try_files $uri =404;
     }
 
-    # ---------------------------------------------------------
-    # SPA Fallback for index.html (No-Cache for Entry Point)
-    # ---------------------------------------------------------
+    # SPA Fallback for index.html
     location / {
         add_header Cache-Control "no-cache, no-store, must-revalidate";
         try_files $uri $uri/ /index.html;
@@ -405,7 +526,7 @@ server {
 
 ---
 
-## 5. Class Diagram (Mermaid)
+## 6. Class Diagram (Mermaid)
 
 ```mermaid
 classDiagram
@@ -499,9 +620,9 @@ classDiagram
 
 ---
 
-## 6. Sequence Diagrams
+## 7. Sequence Diagrams
 
-### 6.1 Yakvadratish Wardrobe Customization Flow
+### 7.1 Dynamic Wardrobe Transformation & Reactive SVG Visual Binding
 
 ```mermaid
 sequenceDiagram
@@ -511,29 +632,60 @@ sequenceDiagram
     participant WM as WardrobeManager (wardrobe.js)
     participant Storage as localStorage
     participant Audio as Web Audio API
+    participant DOM as Browser DOM (#host-avatar)
 
-    Player->>UI: Клик "👔 Гардеробная" (в Header или у Ведущего)
+    Player->>UI: Клик "👔 Гардероб" (Header / Блок ведущего)
     UI->>WM: getWardrobeState()
     WM->>Storage: getItem('pole_chudes_wardrobe')
     Storage-->>WM: { equippedOutfit: 'outfit_tuxedo', unlockedOutfits: [...] }
     WM-->>UI: WardrobeState
-    UI->>UI: Рендер карточек костюмов со статусами ("Надет", "Надеть", "🔒 Заблокировано")
-    UI->>UI: Показ модального окна Гардеробной
+    UI->>UI: Рендер карточек с SVG-превью и статусами
+    UI->>UI: Открытие модального окна Гардеробной
 
-    Player->>UI: Клик "Надеть" на разблокированном костюме ('outfit_bogatyr')
-    UI->>WM: equipOutfit('outfit_bogatyr')
-    WM->>Storage: setItem('pole_chudes_wardrobe', updatedState)
+    Player->>UI: Клик "Надеть" на костюме 'outfit_boyar'
+    UI->>WM: equipOutfit('outfit_boyar')
+    WM->>Storage: setItem('pole_chudes_wardrobe', state)
     WM-->>UI: { success: true, outfit: OutfitItem }
     
-    UI->>Audio: playWardrobeEquip() (звук шуршания кольчуги/ткани)
-    UI->>UI: Обновление аватара ведущего на сцене (host-avatar -> avatarSrc)
-    UI->>UI: Обновление цитаты Яквадратиша ("Ну держись, супостат!..")
-    UI->>UI: Обновление бейджей в модалке ("✓ Надет")
+    UI->>Audio: playWardrobeEquip() (звук царской примерки)
+    UI->>DOM: #host-avatar.src = "assets/avatar_yakvadratish_boyar.svg"
+    UI->>DOM: #host-avatar.classList.add('avatar-transform-flash')
+    UI->>UI: Обновление цитаты Яквадратиша ("Чувствую себя главой Посольского приказа!")
+    UI->>UI: Обновление бейджей в модалке ("✓ Надет" с золотым свечением)
 ```
 
 ---
 
-### 6.2 Google Cloud Run Startup & Health Probe Execution
+### 7.2 Three Bogatyrs Player Resolution & Startup Cache Migration
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Browser as Браузер при старте
+    participant Game as Game Engine (game.js)
+    participant WM as WardrobeManager (wardrobe.js)
+    participant Storage as localStorage
+    participant UI as UI Layer (ui.js)
+
+    Browser->>Game: Game.init()
+    Game->>WM: getWardrobeState()
+    WM->>Storage: Чтение 'pole_chudes_wardrobe'
+    Note over WM,Storage: Авто-миграция: очистка .png и валидация SVG-путей
+    Storage-->>WM: Валидированное состояние { equippedOutfit: 'outfit_tuxedo' }
+    WM-->>Game: cleanWardrobeState
+    
+    Game->>Game: Инициализация Трёх Богатырей:
+    Note over Game: 1. Илья Муромец (avatar_bogatyr_ilya.svg)<br>2. Добрыня Никитич (avatar_bogatyr_dobrynya.svg)<br>3. Алёша Попович (avatar_bogatyr_alesha.svg)
+    
+    Game->>UI: initBoard & updatePlayers(players, 0)
+    UI->>UI: Рендер богатырских подиумов с четкими SVG-векторами
+    UI->>UI: Установка host-avatar.src на надетый SVG-костюм
+    UI-->>Browser: Первый кадр готов (Zero-Flicker, High DPI)
+```
+
+---
+
+### 7.3 Google Cloud Run Startup & Health Probe Execution (v9.1.0)
 
 ```mermaid
 sequenceDiagram
@@ -544,23 +696,23 @@ sequenceDiagram
     participant Probe as Cloud Run Health Checker
     actor User as Браузер пользователя
 
-    CloudRun->>Entrypoint: Запуск контейнера (передача ENV: PORT=8080)
+    CloudRun->>Entrypoint: Запуск контейнера (ENV: PORT=8080)
     Entrypoint->>Entrypoint: envsubst < default.conf.template > default.conf
     Entrypoint->>Nginx: nginx -g "daemon off;"
-    Nginx-->>CloudRun: Порт 8080 открыт и слушает входящие соединения
+    Nginx-->>CloudRun: Порт 8080 слушает входящие запросы
 
-    CloudRun->>Probe: Выполнение Health Check
+    CloudRun->>Probe: Health Check Probe
     Probe->>Nginx: GET http://localhost:8080/healthz
-    Nginx-->>Probe: HTTP 200 OK {"status":"healthy","version":"v9.0.0"}
-    Probe-->>CloudRun: Revision Status: READY (100% Traffic Allowed)
+    Nginx-->>Probe: HTTP 200 OK {"status":"healthy","version":"v9.1.0"}
+    Probe-->>CloudRun: Revision Status: READY (100% Traffic Routed)
 
-    User->>Nginx: HTTPS GET / (Запрос веб-игры)
-    Nginx-->>User: HTTP 200 (index.html, JS Modules, CSS, Dictionary, Assets)
+    User->>Nginx: HTTPS GET /
+    Nginx-->>User: HTTP 200 (index.html, JS Modules, SVG Vectors with Gzip)
 ```
 
 ---
 
-### 6.3 Auto-Unlock Costumes upon Round Win & Meta-Progression
+### 7.4 Auto-Unlock Costumes upon Round Win & Meta-Progression
 
 ```mermaid
 sequenceDiagram
@@ -577,78 +729,98 @@ sequenceDiagram
     MM-->>Game: updatedStats (roundsWon=1, totalPoints=1500)
     
     Game->>WM: checkAutoUnlocks(updatedStats)
-    WM->>WM: Проверка условий: roundsWon >= 1 -> outfit_bogatyr
+    WM->>WM: roundsWon >= 1 -> разблокировать outfit_bogatyr
     WM->>WM: unlockOutfit('outfit_bogatyr')
     WM-->>Game: newlyUnlocked = ['outfit_bogatyr']
     
     Game->>UI: showUnlockNotification('outfit_bogatyr')
-    UI->>UI: Показ всплывающего бейджа "Новый наряд в Гардеробной!"
-    Game->>UI: updateWardrobeBadge()
+    UI->>UI: Всплывающее уведомление: "Разблокирован Богатырский шлем в Гардеробной!"
 ```
 
 ---
 
-## 7. Strict File List & Change Plan
+## 8. Deprecation & Asset Cleanup Plan
 
-| Файл | Назначение | Характер изменений в v9.0.0 |
+Для обеспечения 100% юридической чистоты и оптимизации размера контейнера растровые файлы устаревших персонажей подлежат полному удалению:
+
+| Удаляемый файл | Причина удаления | Заменяющий ассет v9.1.0 |
 |---|---|---|
-| [`Dockerfile`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/Dockerfile) | Сборка контейнера Cloud Run | **Новый файл:** `nginx:alpine`, поддержка `$PORT`, статика, healthcheck. |
-| [`nginx.conf.template`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/nginx.conf.template) | Шаблон веб-сервера Nginx | **Новый файл:** `${PORT}` envsubst, `/healthz` 200 OK JSON, Gzip, MIME types, SPA. |
-| [`.dockerignore`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/.dockerignore) | Исключения сборки Docker | **Новый файл:** Исключение `node_modules`, `tests`, `docs`, `git`. |
-| [`src/index.html`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/index.html) | Главная страница | Ребрендинг Яквадратиша, Три Богатыря, модальное окно Гардеробной, кнопка `👔` в Header, скрипты `?v=9.0.0`. |
-| [`src/style.css`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/style.css) | Стили Glassmorphism | Стили для сетки Гардеробной, карточек костюмов, анимаций примерки, бейджей редкости. |
-| [`src/js/wardrobe.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/wardrobe.js) | Движок Гардеробной | **Новый модуль:** Каталог `YAKVADRATISH_WARDROBE`, класс `WardrobeManager`, авторазблокировка, персистентность. |
-| [`src/js/prizes.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/prizes.js) | Каталог призов и Музей | Обновление `PRIZES_CATALOG` на 16 фольклорных призов, 100% Clean Room IP. |
-| [`src/js/game.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/game.js) | Ядро игры | Инициализация Трёх Богатырей, подключение `WardrobeManager`, проверка авторазблокировок. |
-| [`src/js/state.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/state.js) | Конечный автомат | Замена реплик на реплики Леонида Яквадратиша, Clean Room IP. |
-| [`src/js/ui.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/ui.js) | Слой представления | Рендеринг Гардеробной, динамическое обновление аватара ведущего, звук `playWardrobeEquip()`. |
-| [`src/js/main.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/main.js) | Точка входа | Биндинг кнопки Гардеробной `👔`, инициализация `?v=9.0.0`. |
-| [`tests/game.test.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/tests/game.test.js) | Unit-тесты Node.js | Тесты 16 фольклорных призов, 5 костюмов гардероба, авторазблокировки и Трёх Богатырей. |
-| [`tests/e2e_browser_test.py`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/tests/e2e_browser_test.py) | E2E Marionette тесты | E2E верификация гардероба, смены аватара, открытия Музея и первого кадра игры. |
+| `src/assets/avatar_harry.png` | Ликвидация сторонней IP / Растровый артефакт | `src/assets/avatar_bogatyr_ilya.svg` |
+| `src/assets/avatar_hermione.png` | Ликвидация сторонней IP / Растровый артефакт | `src/assets/avatar_bogatyr_dobrynya.svg` |
+| `src/assets/avatar_ron.png` | Ликвидация сторонней IP / Растровый артефакт | `src/assets/avatar_bogatyr_alesha.svg` |
+| `src/assets/avatar_yakubovich.png` | Ликвидация растрового портрета стороннего лица | `src/assets/avatar_yakvadratish_tuxedo.svg` (и 4 других SVG-костюма) |
 
 ---
 
-## 8. Implementation Roadmap
+## 9. Strict File List & Change Plan (v9.1.0)
 
-```
-                                  v9.0.0 Implementation Timeline
-  +-----------------------------------------------------------------------------------------------+
-  | Phase 1: Clean Room Rebranding & Folklore Catalog (prizes.js, game.js, state.js, index.html)  |
-  +-----------------------------------------------------------------------------------------------+
-                                                 |
-                                                 v
-  +-----------------------------------------------------------------------------------------------+
-  | Phase 2: Yakvadratish Wardrobe Engine (wardrobe.js, ui.js, style.css, index.html)            |
-  +-----------------------------------------------------------------------------------------------+
-                                                 |
-                                                 v
-  +-----------------------------------------------------------------------------------------------+
-  | Phase 3: Cloud Run Container Infrastructure (Dockerfile, nginx.conf.template, .dockerignore)  |
-  +-----------------------------------------------------------------------------------------------+
-                                                 |
-                                                 v
-  +-----------------------------------------------------------------------------------------------+
-  | Phase 4: Full QA Verification (Unit Tests, E2E Browser Test, Local Docker Health Check)       |
-  +-----------------------------------------------------------------------------------------------+
-```
-
-1. **Этап 1: Clean Room IP & Былинный каталог:**
-   - Обновить `prizes.js`: заменить каталог на 16 фольклорных призов.
-   - Обновить состав игроков в `game.js`: Илья Муромец, Добрыня Никитич, Алёша Попович.
-   - Обновить реплики в `state.js` и заголовок в `index.html`.
-2. **Этап 2: Движок Гардеробной Яквадратиша:**
-   - Создать `src/js/wardrobe.js` с каталогом `YAKVADRATISH_WARDROBE` и классом `WardrobeManager`.
-   - Внедрить модальное окно Гардеробной в `index.html` и стили в `style.css`.
-   - Добавить методы рендеринга и примерки костюмов в `ui.js`.
-   - Связать авторазблокировку костюмов в `game.js` при победе в туре / супер-игре.
-3. **Этап 3: Google Cloud Run Infrastructure:**
-   - Создать `Dockerfile` на базе `nginx:alpine` с `EXPOSE 8080`.
-   - Создать `nginx.conf.template` с динамическим `${PORT}` и эндпоинтом `/healthz`.
-   - Добавить `.dockerignore`.
-4. **Этап 4: Тестирование и приемка:**
-   - Обновить и запустить модульные тесты `npm test` (`tests/game.test.js`).
-   - Прогнать E2E тестирование в браузере `python3 tests/e2e_browser_test.py`.
-   - Проверить сборку Docker и отклик `/healthz`.
+| Файл | Назначение | Характер изменений в v9.1.0 |
+|---|---|---|
+| [`src/assets/avatar_bogatyr_ilya.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_bogatyr_ilya.svg) | Аватар Ильи Муромца | **Новый файл:** Векторный SVG (стальной шлем, кольчуга, борода, мудрый взгляд). |
+| [`src/assets/avatar_bogatyr_dobrynya.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_bogatyr_dobrynya.svg) | Аватар Добрыни Никитича | **Новый файл:** Векторный SVG (золоченый шлем, княжеский плащ, русые усы). |
+| [`src/assets/avatar_bogatyr_alesha.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_bogatyr_alesha.svg) | Аватар Алёши Поповича | **Новый файл:** Векторный SVG (шлем лучника, чуб, задорная улыбка). |
+| [`src/assets/avatar_yakvadratish_tuxedo.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_yakvadratish_tuxedo.svg) | Костюм: Смокинг | **Новый файл:** Векторный SVG (черный смокинг, бабочка, микрофон, усы). |
+| [`src/assets/avatar_yakvadratish_bogatyr.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_yakvadratish_bogatyr.svg) | Костюм: Богатырь | **Новый файл:** Векторный SVG (островерхий шлем, кольчуга, усы). |
+| [`src/assets/avatar_yakvadratish_boyar.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_yakvadratish_boyar.svg) | Костюм: Боярин | **Новый файл:** Векторный SVG (высокая соболья шапка, парчовый кафтан). |
+| [`src/assets/avatar_yakvadratish_folk.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_yakvadratish_folk.svg) | Костюм: Халат | **Новый файл:** Векторный SVG (вышитая тюбетейка, восточный шелковый халат). |
+| [`src/assets/avatar_yakvadratish_cosmonaut.svg`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/assets/avatar_yakvadratish_cosmonaut.svg) | Костюм: Космонавт | **Новый файл:** Векторный SVG (гермошлем с золотым забралом, скафандр). |
+| [`src/index.html`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/index.html) | Главная страница SPA | Заголовок `⭐ Капитал-шоу Поле Чудес`, бейдж `v9.1.0`, SVG-аватар `#host-avatar`, скрипты `?v=9.1.0`. |
+| [`src/style.css`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/style.css) | Стили интерфейса | CSS-анимация `avatar-transform-flash` (`avatarPop`), стили для SVG-подиумов. |
+| [`src/js/wardrobe.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/wardrobe.js) | Гардероб ведущего | Каталог `YAKVADRATISH_WARDROBE` со связями к SVG, авто-миграция кэша в `getWardrobeState()`. |
+| [`src/js/game.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/game.js) | Ядро игры | Инициализация Трёх Богатырей с SVG-путями, связывание смены аватара. |
+| [`src/js/ui.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/ui.js) | Слой представления | `updateHostAvatar()` с реактивной подменой `.src` и классом `avatar-transform-flash`. |
+| [`src/js/main.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/src/js/main.js) | Точка входа | Версионирование `v9.1.0`, инициализация гардероба при старте. |
+| [`nginx.conf.template`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/nginx.conf.template) | Шаблон Nginx | Версия `/healthz` -> `v9.1.0`, Gzip для `image/svg+xml`. |
+| [`tests/game.test.js`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/tests/game.test.js) | Unit-тесты | Тесты валидности SVG-путей гардероба, богатырей, миграции кэша. |
+| [`tests/e2e_browser_test.py`](file:///workspaces/antigravity20/5_MetaGPT/projects/pole_chudes_capital/tests/e2e_browser_test.py) | E2E Marionette тесты | Браузерные тесты реактивной смены костюма ведущего, рендера богатырей и отсутствия 404. |
 
 ---
-*Документ System Design v9.0.0 готов и передается на шлюз Gate 1B Review.*
+
+## 10. Implementation Roadmap
+
+```
+                                  v9.1.0 Implementation Timeline
+  +-----------------------------------------------------------------------------------------------+
+  | Phase 1: Clean Room SVG Vector Asset Creation (3 Bogatyrs + 5 Yakvadratish Outfits)           |
+  +-----------------------------------------------------------------------------------------------+
+                                                 |
+                                                 v
+  +-----------------------------------------------------------------------------------------------+
+  | Phase 2: Dynamic Visual Binding & Animation (wardrobe.js, ui.js, style.css, index.html)       |
+  +-----------------------------------------------------------------------------------------------+
+                                                 |
+                                                 v
+  +-----------------------------------------------------------------------------------------------+
+  | Phase 3: Legacy Cleanup & Cache Migration (Delete 4 PNGs, normalize localStorage)            |
+  +-----------------------------------------------------------------------------------------------+
+                                                 |
+                                                 v
+  +-----------------------------------------------------------------------------------------------+
+  | Phase 4: Container & Health Probe Update (nginx.conf.template -> v9.1.0)                      |
+  +-----------------------------------------------------------------------------------------------+
+                                                 |
+                                                 v
+  +-----------------------------------------------------------------------------------------------+
+  | Phase 5: Verification & Quality Assurance (Node.js Unit Tests + Python Marionette E2E)        |
+  +-----------------------------------------------------------------------------------------------+
+```
+
+1. **Этап 1: Создание векторных ассетов (Clean Room SVG):**
+   - Сгенерировать 3 аутентичных SVG-файла былинных богатырей в `src/assets/`.
+   - Сгенерировать 5 аутентичных SVG-файлов костюмов Леонида Яквадратиша в `src/assets/`.
+2. **Этап 2: Реактивное связывание и визуальное преображение:**
+   - Обновить `wardrobe.js`: привязать каждый костюм к уникальному SVG, внедрить безопасную миграцию кэша.
+   - Обновить `game.js`: привязать богатырей к новым SVG-аватарам.
+   - Обновить `ui.js`: поддержать реактивную смену `#host-avatar`, вспышку `avatar-transform-flash` и звуковой эффект `playWardrobeEquip()`.
+   - Добавить стили анимации в `style.css` и обновить заголовок студии в `index.html`.
+3. **Этап 3: Зачистка устаревших PNG-ассетов:**
+   - Удалить `avatar_harry.png`, `avatar_hermione.png`, `avatar_ron.png`, `avatar_yakubovich.png`.
+4. **Этап 4: Обновление конфигурации и контейнеризации:**
+   - Обновить `nginx.conf.template` для выдачи версии `v9.1.0` в `/healthz`.
+5. **Этап 5: Верификация и регрессионное тестирование:**
+   - Запустить модульные тесты `npm test` (`tests/game.test.js`).
+   - Запустить браузерные тесты `python3 tests/e2e_browser_test.py`.
+   - Проверить нулевое количество 404 ошибок и безупречную четкость векторной графики.
+
+---
+*Документ System Design v9.1.0 полностью сформирован и готов к передаче на шлюз Gate 1B (Architecture Review).*
