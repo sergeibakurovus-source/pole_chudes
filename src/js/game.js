@@ -1,19 +1,20 @@
-import { StateMachine, GameState } from './state.js?v=8.2.0';
-import { UI } from './ui.js?v=8.2.0';
-import { MuseumManager } from './prizes.js?v=8.2.0';
+import { StateMachine, GameState } from './state.js?v=9.0.0';
+import { UI } from './ui.js?v=9.0.0';
+import { MuseumManager } from './prizes.js?v=9.0.0';
+import { WardrobeManager } from './wardrobe.js?v=9.0.0';
 
 export class Game {
-
     constructor() {
         this.wordList = [];
         this.playedWordsCache = new Set();
         this.museumManager = new MuseumManager();
+        this.wardrobeManager = new WardrobeManager();
 
         this.context = {
             players: [
-                { id: 1, name: 'Гарри', avatar: 'assets/avatar_harry.png', score: 0, isEliminated: false },
-                { id: 2, name: 'Гермиона', avatar: 'assets/avatar_hermione.png', score: 0, isEliminated: false },
-                { id: 3, name: 'Рон', avatar: 'assets/avatar_ron.png', score: 0, isEliminated: false }
+                { id: 1, name: 'Илья Муромец', title: 'Старший богатырь', avatar: 'assets/avatar_harry.png', score: 0, isEliminated: false },
+                { id: 2, name: 'Добрыня Никитич', title: 'Богатырь-дипломат', avatar: 'assets/avatar_hermione.png', score: 0, isEliminated: false },
+                { id: 3, name: 'Алёша Попович', title: 'Младший богатырь', avatar: 'assets/avatar_ron.png', score: 0, isEliminated: false }
             ],
             activePlayerIndex: 0,
             secretWord: '',
@@ -37,7 +38,7 @@ export class Game {
             this.wordList = await response.json();
         } catch (error) {
             console.error("Failed to load dictionary:", error);
-            this.wordList = [{word: "ОШИБКА", hint: "Словарь не загружен", superGame: false}];
+            this.wordList = [{ word: "ОШИБКА", hint: "Словарь не загружен", superGame: false }];
         }
 
         const cache = localStorage.getItem('pole_chudes_cache');
@@ -49,8 +50,9 @@ export class Game {
             }
         }
 
-        const randomItem = this.pickRandomWord(false);
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
 
+        const randomItem = this.pickRandomWord(false);
         this.context.secretWord = randomItem.word.toUpperCase();
         this.context.hint = randomItem.hint;
     }
@@ -75,12 +77,13 @@ export class Game {
 
     start() {
         this.museumManager.recordGamePlayed();
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
         this.ui.initBoard(this.context.secretWord, this.context.hint);
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
         this.ui.updateMuseumBadge();
+        this.ui.updateHostAvatar(this.wardrobeManager.getEquippedOutfit());
         this.stateMachine.transition(GameState.WAITING_FOR_SPIN);
     }
-
 
     handleSpinClick() {
         if (this.stateMachine.state === GameState.WAITING_FOR_SPIN) {
@@ -130,6 +133,7 @@ export class Game {
         const res = this.museumManager.buyPrize(prizeId, activePlayer);
         if (res.success) {
             this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
+            this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
         }
         return res;
     }
@@ -138,20 +142,23 @@ export class Game {
         const activePlayer = this.context.players[this.context.activePlayerIndex];
         const trophy = this.museumManager.grantRandomPrize('prize_sector', activePlayer.name);
         this.eliminateCurrentPlayer();
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
         this.ui.updateMuseumBadge();
         return trophy;
     }
 
     awardSuperGamePrize() {
         const activePlayer = this.context.players[this.context.activePlayerIndex];
-        const trophy = this.museumManager.grantPrize('prize_car', 'super_game', activePlayer.name, 0);
+        const trophy = this.museumManager.grantPrize('prize_horse', 'super_game', activePlayer.name, 0);
         this.museumManager.recordSuperGameWin();
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection(), true);
         this.ui.updateMuseumBadge();
         return trophy;
     }
 
     recordRoundWin(points = 0) {
         this.museumManager.recordRoundWin(points);
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
         this.ui.updateMuseumBadge();
     }
 
@@ -222,12 +229,13 @@ export class Game {
         this.context.hint = randomItem.hint;
         
         this.museumManager.recordGamePlayed();
+        this.wardrobeManager.checkAutoUnlocks(this.museumManager.getStats(), this.museumManager.getCollection());
         this.ui.initBoard(this.context.secretWord, this.context.hint);
         this.ui.updatePlayers(this.context.players, this.context.activePlayerIndex);
         this.ui.resetKeyboard();
         this.ui.updateMuseumBadge();
+        this.ui.updateHostAvatar(this.wardrobeManager.getEquippedOutfit());
         
         this.stateMachine.transition(GameState.WAITING_FOR_SPIN);
     }
 }
-

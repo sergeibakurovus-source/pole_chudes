@@ -10,28 +10,30 @@
 
 ---
 
-## MANDATORY REVIEW GATES — HARD BLOCK RULES (Added after v8.1.0 incident)
+## MANDATORY REVIEW GATES — HARD BLOCK RULES & UNIFIED FILES CHANGED FORMAT
+ 
+ИНЦИДЕНТ v9.0.0 (18 августа 2026): Оркестратор не зарегистрировал все созданные субагентом файлы в основном диалоге, из-за чего виджет Files Changed содержал неполный список.
+ 
+### ЕДИНЫЙ СТАНДАРТ ДЛЯ ВСЕХ 4 ФАЗ КОНВЕЙЕРА:
 
-**ИНЦИДЕНТ v8.1.0 (14 августа 2026):** Оркестратор обошёл все три шлюза ревью, приняв комментарии к плану за явный аппрув. Это НАРУШЕНИЕ SOP.
+1. **Фаза 1 / Gate 1A — PRD Review (блокировка до явного подтверждения):**
+   - Оркестратор ОБЯЗАН вызвать `write_to_file` / `replace_file_content` для `PRD.md` в основном диалоге;
+   - Загорается виджет `Files Changed (1)`;
+   - Запрос аппрува у Сергея Николаевича: `«Сергей Николаевич, прошу ознакомиться с PRD.md в Files Changed и подтвердить»`.
 
-### Gate 1A — PRD Review (блокировка до явного «Approve PRD»)
-- После завершения PM-субагента и применения `PRD.md` через main context:
-- Оркестратор ОБЯЗАН написать: *«Сергей Николаевич, прошу ознакомиться с PRD.md в Files Changed и подтвердить: `Approve PRD`»*
-- **СТОП.** Продолжение ЗАПРЕЩЕНО до получения точной фразы `Approve PRD` от Сергея Николаевича.
-- Комментарии к плану, ответы «да», «продолжай», «Continue» — НЕ являются аппрувом Gate 1A.
+2. **Фаза 2 / Gate 1B — System Design Review (блокировка до явного подтверждения):**
+   - Оркестратор ОБЯЗАН вызвать `write_to_file` / `replace_file_content` для `System_Design.md` в основном диалоге;
+   - Загорается виджет `Files Changed (1)`;
+   - Запрос аппрува у Никоглая: `«Никоглай, прошу ознакомиться с System_Design.md в Files Changed и подтвердить: Approve Architecture»`.
 
-### Gate 1B — System Design Review (блокировка до явного «Approve Architecture»)
-- После завершения Architect-субагента и применения `System_Design.md`:
-- Оркестратор ОБЯЗАН написать: *«Никоглай, прошу ознакомиться с System_Design.md в Files Changed и подтвердить: `Approve Architecture`»*
-- **СТОП.** Продолжение ЗАПРЕЩЕНО до получения точной фразы `Approve Architecture`.
+3. **Фаза 3 / Gate 2 — Code Review (блокировка до явного подтверждения):**
+   - Оркестратор ОБЯЗАН вызвать `write_to_file` / `replace_file_content` в основном диалоге для **КАЖДОГО** файла из дельты кода (`src/js/*.js`, `src/index.html`, `src/style.css`, `Dockerfile`, `nginx.conf.template`, `.dockerignore`, `tests/*.js` и др.);
+   - Загорается виджет `Files Changed (N)` со 100% файлов релиза;
+   - Запрос аппрува у Никоглая: `«Никоглай, прошу ознакомиться с полным diff в Files Changed и подтвердить: Approve»`.
 
-### Gate 2 — Code Review (блокировка до явного «Approve»)
-- После завершения Engineer-субагента и применения diff через main context:
-- Оркестратор ОБЯЗАН написать: *«Никоглай, прошу ознакомиться с полным diff в Files Changed и подтвердить: `Approve`»*
-- **СТОП.** Продолжение ЗАПРЕЩЕНО до получения явного «Approve» от Никоглая.
-- «Continue» от пользователя — НЕ является аппрувом Gate 2.
-
-### КЛЮЧЕВОЕ ПРАВИЛО
-> Пользовательский комментарий к `implementation_plan.md` (фаза планирования) ≠ Gate 1A PRD Approve.
-> Любой ответ, кроме точной фразы-ключа, не снимает блокировку шлюза.
+4. **Фаза 4 / Gate 3 — QA & Release (блокировка до прохождения тестов):**
+   - Оркестратор ОБЯЗАН вызвать `write_to_file` / `replace_file_content` для `Test_Report.md` в основном диалоге;
+   - Прогон unit-тестов и E2E Marionette в Firefox;
+   - Запуск и проверка локального сервера на `http://localhost:3000`;
+   - Фиксация коммита, git push и релизный тег.
 

@@ -35,7 +35,7 @@ export class StateMachine {
             case GameState.NEXT_PLAYER_ANNOUNCE:
                 this.game.ui.showModal(
                     'Переход хода',
-                    `Ход переходит к игроку: ${this.game.context.players[this.game.context.activePlayerIndex].name}`,
+                    `Ход переходит к богатырю: ${this.game.context.players[this.game.context.activePlayerIndex].name}`,
                     'Начать ход',
                     () => this.transition(GameState.WAITING_FOR_SPIN)
                 );
@@ -43,7 +43,7 @@ export class StateMachine {
             case GameState.WAITING_FOR_SPIN:
                 this.game.ui.enableSpinAndGuessButtons();
                 this.game.ui.disableKeyboard();
-                this.game.ui.updateStatus(`Ход игрока: ${this.game.context.players[this.game.context.activePlayerIndex].name}. Крутите барабан или назовите слово!`);
+                this.game.ui.updateStatus(`Ход богатыря: ${this.game.context.players[this.game.context.activePlayerIndex].name}. Крутите барабан или назовите слово!`);
                 break;
             case GameState.SPINNING:
                 this.game.ui.disableControls();
@@ -56,10 +56,10 @@ export class StateMachine {
                 if (payload === 'Б') {
                     this.game.context.players[this.game.context.activePlayerIndex].score = 0;
                     this.game.ui.updatePlayers(this.game.context.players, this.game.context.activePlayerIndex);
-                    this.game.ui.updateStatus('Банкрот! Ваши очки сгорают. Ход переходит дальше.');
+                    this.game.ui.updateStatus('Банкрот! Все богатырские очки сгорают! Ход переходит дальше.');
                     setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
                 } else if (payload === '0') {
-                    this.game.ui.updateStatus('Сектор НОЛЬ! Вы теряете ход.');
+                    this.game.ui.updateStatus('Сектор НОЛЬ! Переход хода к следующему богатырю.');
                     setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
                 } else if (payload === '+') {
                     this.transition(GameState.WAITING_FOR_CELL);
@@ -107,13 +107,13 @@ export class StateMachine {
                                 if (this.game.context.superGameTimer) clearInterval(this.game.context.superGameTimer);
                                 this.game.ui.showModal(
                                     'Неверно',
-                                    'Слово названо неверно! Вы переходите к витрине наград.',
+                                    'Слово названо неверно! Переходим к Витрине подарков.',
                                     'К Витрине призов',
                                     () => this.transition(GameState.PRIZE_SHOP)
                                 );
                             } else {
                                 this.game.eliminateCurrentPlayer();
-                                this.game.ui.updateStatus(`Слово названо неверно! Вы выбываете.`);
+                                this.game.ui.updateStatus(`Слово названо неверно! Вы выбываете из текущего тура.`);
                                 setTimeout(() => this.transition(GameState.PASSING_TURN), 2000);
                             }
                         }
@@ -146,7 +146,7 @@ export class StateMachine {
                     
                     this.transition(GameState.CHECK_WIN, { keepTurn: true, justGuessedRight: true, isVowel });
                 } else {
-                    this.game.ui.updateStatus(`Буквы "${letter}" нет в слове!`);
+                    this.game.ui.updateStatus(`Буквы "${letter}" нет в слове! Переход хода.`);
                     this.game.context.consecutiveGuesses = 0;
                     setTimeout(() => {
                         this.transition(GameState.PASSING_TURN);
@@ -180,7 +180,7 @@ export class StateMachine {
                 } else {
                     const activePlayers = this.game.context.players.filter(p => !p.isEliminated);
                     if (activePlayers.length === 1 && activePlayers[0] === this.game.context.players[this.game.context.activePlayerIndex]) {
-                        this.game.ui.updateStatus('Остался один игрок! Продолжайте игру.');
+                        this.game.ui.updateStatus('Остался один богатырь! Продолжайте игру.');
                         setTimeout(() => this.transition(GameState.WAITING_FOR_SPIN), 1500);
                     } else {
                         this.transition(GameState.NEXT_PLAYER_ANNOUNCE);
@@ -199,14 +199,16 @@ export class StateMachine {
             case GameState.GAME_OVER:
                 this.game.ui.showModal(
                     'Игра окончена',
-                    'Все игроки выбыли. Победителя нет.',
+                    'Все богатыри выбыли. Победителя нет.',
                     'Начать заново',
-                    () => location.reload()
+                    () => {
+                        this.game.restartNewGame();
+                    }
                 );
                 break;
             
             case GameState.CASKET_GAME:
-                this.game.ui.updateStatus('Две шкатулки! Выберите одну из них.');
+                this.game.ui.updateStatus('Две шкатулки от Яквадратиша! Выберите одну из них.');
                 this.game.ui.showCasketsModal(
                     () => {
                         this.game.addPoints(5000);
@@ -281,7 +283,7 @@ export class StateMachine {
                 this.game.ui.triggerConfetti();
                 this.game.ui.showModal(
                     'Супер-победа!',
-                    'Вы выиграли Супер-игру! Легендарный АВТОМОБИЛЬ добавлен в ваш Музей!',
+                    'Вы выиграли Супер-игру! Легендарный богатырский конь Бурушка добавлен в ваш Музей!',
                     'К Витрине призов',
                     () => this.transition(GameState.PRIZE_SHOP)
                 );
@@ -299,4 +301,3 @@ export class StateMachine {
         }
     }
 }
-

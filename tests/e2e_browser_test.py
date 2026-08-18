@@ -4,6 +4,8 @@ import json
 import time
 import base64
 import os
+import tempfile
+import shutil
 
 def send_marionette(sock, msg_id, command, params=None):
     if params is None:
@@ -39,21 +41,28 @@ def send_marionette(sock, msg_id, command, params=None):
     return res_list
 
 def run_e2e_test():
-    print("🚀 Starting Firefox Headless with Marionette automation...")
+    print("🚀 Starting Firefox Headless with Marionette automation (v9.0.0)...")
+    
+    # Kill any stale firefox processes
+    subprocess.run(["pkill", "-9", "-f", "firefox"], capture_output=True)
+    time.sleep(1)
+
+    profile_dir = tempfile.mkdtemp(prefix="firefox_marionette_")
+    
     env = os.environ.copy()
     env["DISPLAY"] = ":1"
     env["MOZ_DISABLE_CONTENT_SANDBOX"] = "1"
     env["MOZ_HEADLESS"] = "1"
     
     proc = subprocess.Popen(
-        ["/usr/bin/firefox", "--headless", "--marionette"],
+        ["/usr/bin/firefox", "--headless", "--marionette", "--profile", profile_dir, "--no-remote"],
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
     
     sock = None
-    for attempt in range(15):
+    for attempt in range(20):
         time.sleep(1)
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -65,6 +74,7 @@ def run_e2e_test():
             
     if not sock:
         proc.kill()
+        shutil.rmtree(profile_dir, ignore_errors=True)
         raise RuntimeError("Failed to connect to Marionette port 2828")
         
     # Handshake
@@ -91,16 +101,84 @@ def run_e2e_test():
         msg_id += 1
         time.sleep(2)
         
-        # 3. Check Initial Page Title
+        # 3. Check Initial Page Title & Rebranding
         print("\n[TEST 3] Checking Page Title...")
         res = send_marionette(sock, msg_id, "WebDriver:GetTitle", {})
         msg_id += 1
         title_val = res.get('value') if isinstance(res, dict) else res
         print("Page Title:", title_val)
         assert "Поле Чудес" in str(title_val), "Title mismatch!"
+
+        # 4. Check Three Bogatyrs Player Cards
+        print("\n[TEST 4] Verifying Three Bogatyrs player cards...")
+        res = send_marionette(sock, msg_id, "WebDriver:FindElements", {
+            "using": "css selector",
+            "value": ".player-card"
+        })
+        msg_id += 1
+        player_cards = res if isinstance(res, list) else res.get('value', [])
+        print(f"Total Player Cards: {len(player_cards)}")
+        assert len(player_cards) == 3, f"Expected 3 player cards, got {len(player_cards)}"
+        print("✅ SUCCESS: 3 Bogatyrs players rendered in DOM!")
+
+        # 5. Open Wardrobe Modal
+        print("\n[TEST 5] Opening Yakvadratish Wardrobe Modal (#btn-open-wardrobe)...")
+        res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
+            "using": "id",
+            "value": "btn-open-wardrobe"
+        })
+        msg_id += 1
+        wardrobe_btn_elem = res.get('value') if isinstance(res, dict) else res
+        wardrobe_btn_id = list(wardrobe_btn_elem.values())[0] if isinstance(wardrobe_btn_elem, dict) else wardrobe_btn_elem
         
-        # 4. Find Button 'btn-open-museum'
-        print("\n[TEST 4] Locating Museum Button (#btn-open-museum)...")
+        send_marionette(sock, msg_id, "WebDriver:ElementClick", {
+            "id": wardrobe_btn_id
+        })
+        msg_id += 1
+        time.sleep(1)
+
+        # 6. Verify Wardrobe Modal is visible & has 5 outfits
+        print("\n[TEST 6] Verifying Wardrobe Modal and 5 outfits...")
+        res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
+            "using": "id",
+            "value": "modal-wardrobe"
+        })
+        msg_id += 1
+        modal_w_elem = res.get('value') if isinstance(res, dict) else res
+        modal_w_id = list(modal_w_elem.values())[0] if isinstance(modal_w_elem, dict) else modal_w_elem
+
+        res = send_marionette(sock, msg_id, "WebDriver:GetElementAttribute", {
+            "id": modal_w_id,
+            "name": "class"
+        })
+        msg_id += 1
+        modal_classes = res.get('value', '') if isinstance(res, dict) else str(res)
+        assert "hidden" not in modal_classes, f"FAIL: modal-wardrobe still has hidden class! ({modal_classes})"
+
+        res = send_marionette(sock, msg_id, "WebDriver:FindElements", {
+            "using": "css selector",
+            "value": ".wardrobe-card"
+        })
+        msg_id += 1
+        wardrobe_cards = res if isinstance(res, list) else res.get('value', [])
+        print(f"Total Wardrobe Cards rendered: {len(wardrobe_cards)}")
+        assert len(wardrobe_cards) == 5, f"Expected 5 wardrobe cards, got {len(wardrobe_cards)}"
+        print("✅ SUCCESS: Wardrobe Modal is open with 5 outfits rendered!")
+
+        # Close Wardrobe Modal
+        res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
+            "using": "id",
+            "value": "btn-close-wardrobe-top"
+        })
+        msg_id += 1
+        close_w_elem = res.get('value') if isinstance(res, dict) else res
+        close_w_id = list(close_w_elem.values())[0] if isinstance(close_w_elem, dict) else close_w_elem
+        send_marionette(sock, msg_id, "WebDriver:ElementClick", {"id": close_w_id})
+        msg_id += 1
+        time.sleep(1)
+        
+        # 7. Find Button 'btn-open-museum'
+        print("\n[TEST 7] Locating Museum Button (#btn-open-museum)...")
         res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
             "using": "id",
             "value": "btn-open-museum"
@@ -110,8 +188,8 @@ def run_e2e_test():
         raw_id = list(elem_id.values())[0] if isinstance(elem_id, dict) else elem_id
         print("Museum Button ID:", raw_id)
         
-        # 5. Click Button
-        print("\n[TEST 5] Clicking Button '🏛️ Музей (0/16)'...")
+        # 8. Click Button
+        print("\n[TEST 8] Clicking Button '🏛️ Музей (0/16)'...")
         res = send_marionette(sock, msg_id, "WebDriver:ElementClick", {
             "id": raw_id
         })
@@ -119,8 +197,8 @@ def run_e2e_test():
         print("Click executed successfully!")
         time.sleep(1)
         
-        # 6. Verify Museum Modal is visible
-        print("\n[TEST 6] Verifying '#modal-museum' visibility and class...")
+        # 9. Verify Museum Modal is visible
+        print("\n[TEST 9] Verifying '#modal-museum' visibility and class...")
         res = send_marionette(sock, msg_id, "WebDriver:FindElement", {
             "using": "id",
             "value": "modal-museum"
@@ -139,8 +217,8 @@ def run_e2e_test():
         assert "hidden" not in modal_classes, f"FAIL: modal-museum still has hidden class! ({modal_classes})"
         print("✅ SUCCESS: 'hidden' class removed, Modal is OPEN!")
         
-        # 7. Count Trophy Cards
-        print("\n[TEST 7] Counting rendered Trophy Cards (.trophy-card)...")
+        # 10. Count Trophy Cards
+        print("\n[TEST 10] Counting rendered Folklore Trophy Cards (.trophy-card)...")
         res = send_marionette(sock, msg_id, "WebDriver:FindElements", {
             "using": "css selector",
             "value": ".trophy-card"
@@ -149,9 +227,9 @@ def run_e2e_test():
         cards = res if isinstance(res, list) else res.get('value', [])
         print(f"Total Trophy Cards rendered in DOM: {len(cards)}")
         assert len(cards) == 16, f"Expected 16 trophy cards, got {len(cards)}"
-        print("✅ SUCCESS: All 16 trophy cards are rendered in DOM!")
+        print("✅ SUCCESS: All 16 folklore trophy cards are rendered in DOM!")
         
-        # 8. Check Locked Status
+        # 11. Check Locked Status
         res = send_marionette(sock, msg_id, "WebDriver:FindElements", {
             "using": "css selector",
             "value": ".trophy-card.locked"
@@ -162,8 +240,8 @@ def run_e2e_test():
         assert len(locked_cards) == 16, f"Expected 16 locked cards, got {len(locked_cards)}"
         print("✅ SUCCESS: All 16 cards show locked state (0 prizes initial state)!")
         
-        # 9. Take Screenshot of live opened Museum Modal
-        print("\n[TEST 9] Capturing live screenshot of opened Museum Modal...")
+        # 12. Take Screenshot of live opened Museum Modal
+        print("\n[TEST 12] Capturing live screenshot of opened Museum Modal...")
         res = send_marionette(sock, msg_id, "WebDriver:TakeScreenshot", {
             "full": False
         })
@@ -174,12 +252,14 @@ def run_e2e_test():
                 f.write(base64.b64decode(img_b64))
             print("✅ SUCCESS: Live screenshot saved to /tmp/live_museum_opened.png!")
             
-        # 10. Close Session
+        # 13. Close Session
         send_marionette(sock, msg_id, "WebDriver:DeleteSession", {})
         print("\n🎉 ALL REAL BROWSER E2E TESTS PASSED (100%)!")
     finally:
-        sock.close()
+        if sock:
+            sock.close()
         proc.kill()
+        shutil.rmtree(profile_dir, ignore_errors=True)
 
 if __name__ == "__main__":
     run_e2e_test()

@@ -1,4 +1,5 @@
 function showModal(el) {
+    if (!el) return;
     el.classList.remove('hidden');
     el.classList.remove('modal-entering');
     requestAnimationFrame(() => {
@@ -7,7 +8,9 @@ function showModal(el) {
         });
     });
 }
+
 function hideModal(el) {
+    if (!el) return;
     el.classList.remove('modal-entering');
     el.classList.add('hidden');
 }
@@ -32,10 +35,20 @@ export class UI {
         this.modalSuperOffer = document.getElementById('modal-super-offer');
         this.modalPrizeShop = document.getElementById('modal-prize-shop');
         this.modalMuseum = document.getElementById('modal-museum');
+        this.modalWardrobe = document.getElementById('modal-wardrobe');
+        
         this.museumBadge = document.getElementById('museum-badge');
         this.btnMuseum = document.getElementById('btn-open-museum');
+        this.btnWardrobe = document.getElementById('btn-open-wardrobe');
+        this.btnWardrobeHeader = document.getElementById('btn-open-wardrobe-header');
         
+        this.hostAvatarEl = document.getElementById('host-avatar');
+        this.hostNameEl = document.getElementById('host-name');
         this.hostHintElement = document.getElementById('host-hint');
+        
+        if (this.hostNameEl) {
+            this.hostNameEl.textContent = 'Леонид Яквадратиш';
+        }
         
         this.vowels = ['А', 'Е', 'Ё', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я'];
         this.wheelSectors = [100, 250, 'Б', 500, '0', 750, 1000, 'П', 350, 500, '+', 800];
@@ -44,6 +57,7 @@ export class UI {
         this.currentMuseumFilter = 'all';
         
         this.setupKeyboard();
+        
         if (this.spinBtn) {
             this.spinBtn.addEventListener('click', () => {
                 this.initAudio();
@@ -64,79 +78,156 @@ export class UI {
                 this.showMuseumModal();
             });
         }
+        if (this.btnWardrobe) {
+            this.btnWardrobe.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.initAudio();
+                this.showWardrobeModal();
+            });
+        }
+        if (this.btnWardrobeHeader) {
+            this.btnWardrobeHeader.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.initAudio();
+                this.showWardrobeModal();
+            });
+        }
     }
 
-
     initAudio() {
-        if (!this.audioCtx) {
-            this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (!this.audioCtx && typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext)) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            this.audioCtx = new AudioContextClass();
         }
     }
 
     playTick() {
         if (!this.audioCtx) return;
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(800, this.audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.1, this.audioCtx.currentTime);
-        osc.start();
-        gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 0.1);
-        osc.stop(this.audioCtx.currentTime + 0.1);
+        try {
+            const osc = this.audioCtx.createOscillator();
+            const gain = this.audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(this.audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, this.audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.1, this.audioCtx.currentTime);
+            osc.start();
+            gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 0.1);
+            osc.stop(this.audioCtx.currentTime + 0.1);
+        } catch (e) {}
     }
 
     playWin() {
         if (!this.audioCtx) return;
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(400, this.audioCtx.currentTime);
-        osc.frequency.setValueAtTime(600, this.audioCtx.currentTime + 0.1);
-        osc.frequency.setValueAtTime(800, this.audioCtx.currentTime + 0.2);
-        gain.gain.setValueAtTime(0.2, this.audioCtx.currentTime);
-        osc.start();
-        gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 1);
-        osc.stop(this.audioCtx.currentTime + 1);
+        try {
+            const osc = this.audioCtx.createOscillator();
+            const gain = this.audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(this.audioCtx.destination);
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(400, this.audioCtx.currentTime);
+            osc.frequency.setValueAtTime(600, this.audioCtx.currentTime + 0.1);
+            osc.frequency.setValueAtTime(800, this.audioCtx.currentTime + 0.2);
+            gain.gain.setValueAtTime(0.2, this.audioCtx.currentTime);
+            osc.start();
+            gain.gain.exponentialRampToValueAtTime(0.00001, this.audioCtx.currentTime + 1);
+            osc.stop(this.audioCtx.currentTime + 1);
+        } catch (e) {}
     }
 
     playPurchase() {
         if (!this.audioCtx) return;
-        const now = this.audioCtx.currentTime;
-        const osc1 = this.audioCtx.createOscillator();
-        const osc2 = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
+        try {
+            const now = this.audioCtx.currentTime;
+            const osc1 = this.audioCtx.createOscillator();
+            const osc2 = this.audioCtx.createOscillator();
+            const gain = this.audioCtx.createGain();
 
-        osc1.type = 'sine';
-        osc2.type = 'triangle';
-        osc1.frequency.setValueAtTime(987.77, now); // B5
-        osc1.frequency.setValueAtTime(1318.51, now + 0.08); // E6
-        osc2.frequency.setValueAtTime(1975.53, now + 0.16); // B6
+            osc1.type = 'sine';
+            osc2.type = 'triangle';
+            osc1.frequency.setValueAtTime(987.77, now); // B5
+            osc1.frequency.setValueAtTime(1318.51, now + 0.08); // E6
+            osc2.frequency.setValueAtTime(1975.53, now + 0.16); // B6
 
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
 
-        osc1.connect(gain);
-        osc2.connect(gain);
-        gain.connect(this.audioCtx.destination);
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(this.audioCtx.destination);
 
-        osc1.start(now);
-        osc2.start(now + 0.08);
-        osc1.stop(now + 0.45);
-        osc2.stop(now + 0.45);
+            osc1.start(now);
+            osc2.start(now + 0.08);
+            osc1.stop(now + 0.45);
+            osc2.stop(now + 0.45);
+        } catch (e) {}
+    }
+
+    playWardrobeEquip() {
+        if (!this.audioCtx) return;
+        try {
+            const now = this.audioCtx.currentTime;
+            const osc1 = this.audioCtx.createOscillator();
+            const osc2 = this.audioCtx.createOscillator();
+            const gain = this.audioCtx.createGain();
+
+            osc1.type = 'sine';
+            osc2.type = 'sine';
+            osc1.frequency.setValueAtTime(523.25, now); // C5
+            osc1.frequency.setValueAtTime(659.25, now + 0.1); // E5
+            osc2.frequency.setValueAtTime(783.99, now + 0.2); // G5
+            osc2.frequency.setValueAtTime(1046.50, now + 0.3); // C6
+
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(this.audioCtx.destination);
+
+            osc1.start(now);
+            osc2.start(now + 0.15);
+            osc1.stop(now + 0.6);
+            osc2.stop(now + 0.6);
+        } catch (e) {}
+    }
+
+    updateHostAvatar(outfit) {
+        if (!outfit && this.game && this.game.wardrobeManager) {
+            outfit = this.game.wardrobeManager.getEquippedOutfit();
+        }
+        if (!outfit) return;
+
+        if (!this.hostAvatarEl) {
+            this.hostAvatarEl = document.getElementById('host-avatar');
+        }
+        if (!this.hostNameEl) {
+            this.hostNameEl = document.getElementById('host-name');
+        }
+
+        if (this.hostAvatarEl && outfit.avatarSrc) {
+            this.hostAvatarEl.src = outfit.avatarSrc;
+            this.hostAvatarEl.alt = `Леонид Яквадратиш (${outfit.name})`;
+        }
+        if (this.hostNameEl) {
+            this.hostNameEl.textContent = `Леонид Яквадратиш`;
+        }
     }
 
     updateMuseumBadge() {
-        if (!this.museumBadge) return;
+        if (!this.museumBadge) {
+            this.museumBadge = document.getElementById('museum-badge');
+        }
+        if (!this.museumBadge || !this.game || !this.game.museumManager) return;
         const stats = this.game.museumManager.getStats();
         const total = this.game.museumManager.catalog.length;
         this.museumBadge.textContent = `(${stats.prizesCollected}/${total})`;
     }
 
     triggerConfetti() {
+        if (typeof document === 'undefined' || !document.createElement) return;
         for (let i = 0; i < 100; i++) {
             const confetti = document.createElement('div');
             confetti.style.position = 'fixed';
@@ -148,7 +239,9 @@ export class UI {
             confetti.style.zIndex = '9999';
             confetti.style.borderRadius = '50%';
             confetti.style.transition = `transform ${Math.random() * 2 + 2}s linear, top ${Math.random() * 2 + 2}s linear`;
-            document.body.appendChild(confetti);
+            if (document.body) {
+                document.body.appendChild(confetti);
+            }
             
             setTimeout(() => {
                 confetti.style.top = '100vh';
@@ -156,7 +249,9 @@ export class UI {
             }, 50);
 
             setTimeout(() => {
-                confetti.remove();
+                if (confetti.parentNode) {
+                    confetti.parentNode.removeChild(confetti);
+                }
             }, 4050);
         }
     }
@@ -244,6 +339,7 @@ export class UI {
                 ${avatarHtml}
                 <div class="player-info">
                     <div class="player-name">${p.name}</div>
+                    <div class="player-title" style="font-size:0.75rem;opacity:0.8;">${p.title || ''}</div>
                     <div class="player-score">${p.score} ⭐</div>
                 </div>
             `;
@@ -560,43 +656,153 @@ export class UI {
             const totalCatalog = this.game.museumManager.catalog.length;
             const percent = Math.round((stats.prizesCollected / (totalCatalog || 1)) * 100);
 
+            // Обновление дашборда статистики
+            const elGames = document.getElementById('stat-games');
+            const elRounds = document.getElementById('stat-rounds');
+            const elSuper = document.getElementById('stat-super');
+            const elPoints = document.getElementById('stat-points');
+            const elPrizes = document.getElementById('stat-prizes');
+            const elProgress = document.getElementById('stat-progress-bar');
+            const elPercent = document.getElementById('stat-percent');
 
-        // Обновление дашборда статистики
-        const elGames = document.getElementById('stat-games');
-        const elRounds = document.getElementById('stat-rounds');
-        const elSuper = document.getElementById('stat-super');
-        const elPoints = document.getElementById('stat-points');
-        const elPrizes = document.getElementById('stat-prizes');
-        const elProgress = document.getElementById('stat-progress-bar');
-        const elPercent = document.getElementById('stat-percent');
+            if (elGames) elGames.textContent = stats.gamesPlayed;
+            if (elRounds) elRounds.textContent = stats.roundsWon;
+            if (elSuper) elSuper.textContent = stats.superGameWins;
+            if (elPoints) elPoints.textContent = stats.totalPointsEarned;
+            if (elPrizes) elPrizes.textContent = `${stats.prizesCollected} из ${totalCatalog}`;
+            if (elProgress) elProgress.style.width = `${percent}%`;
+            if (elPercent) elPercent.textContent = `${percent}%`;
 
-        if (elGames) elGames.textContent = stats.gamesPlayed;
-        if (elRounds) elRounds.textContent = stats.roundsWon;
-        if (elSuper) elSuper.textContent = stats.superGameWins;
-        if (elPoints) elPoints.textContent = stats.totalPointsEarned;
-        if (elPrizes) elPrizes.textContent = `${stats.prizesCollected} из ${totalCatalog}`;
-        if (elProgress) elProgress.style.width = `${percent}%`;
-        if (elPercent) elPercent.textContent = `${percent}%`;
+            // Рендер грида трофеев
+            const trophyGrid = document.getElementById('museum-trophies-grid');
+            const renderTrophies = () => {
+                if (!trophyGrid) return;
+                trophyGrid.innerHTML = '';
 
-        // Рендер грида трофеев
-        const trophyGrid = document.getElementById('museum-trophies-grid');
-        const renderTrophies = () => {
-            if (!trophyGrid) return;
-            trophyGrid.innerHTML = '';
+                const filtered = this.game.museumManager.catalog.filter(p => {
+                    if (this.currentMuseumFilter === 'all') return true;
+                    return p.rarity === this.currentMuseumFilter;
+                });
 
-            const filtered = this.game.museumManager.catalog.filter(p => {
-                if (this.currentMuseumFilter === 'all') return true;
-                return p.rarity === this.currentMuseumFilter;
+                const collection = this.game.museumManager.getCollection();
+
+                filtered.forEach(item => {
+                    const trophyRecord = collection.find(t => t.prizeId === item.id);
+                    const isOwned = !!trophyRecord;
+
+                    const card = document.createElement('div');
+                    card.className = `trophy-card rarity-${item.rarity} ${isOwned ? 'unlocked' : 'locked'}`;
+
+                    const rarityNameMap = {
+                        common: 'Обычный',
+                        rare: 'Редкий',
+                        epic: 'Эпический',
+                        legendary: 'Легендарный'
+                    };
+
+                    const sourceNameMap = {
+                        shop: 'Витрина подарков',
+                        prize_sector: 'Сектор «Приз»',
+                        super_game: 'Супер-игра'
+                    };
+
+                    if (isOwned) {
+                        const dateStr = new Date(trophyRecord.unlockedAt).toLocaleDateString('ru-RU');
+                        card.innerHTML = `
+                            <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
+                            <div class="trophy-icon">${item.icon}</div>
+                            <h4 class="trophy-name">${item.name}</h4>
+                            <div class="trophy-category">${item.category}</div>
+                            <p class="trophy-desc">${item.description}</p>
+                            <div class="trophy-meta">
+                                <span>📅 ${dateStr}</span>
+                                <span>🎯 ${sourceNameMap[trophyRecord.source] || trophyRecord.source}</span>
+                                <span>👤 ${trophyRecord.playerName}</span>
+                            </div>
+                        `;
+                    } else {
+                        card.innerHTML = `
+                            <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
+                            <div class="trophy-icon">🔒</div>
+                            <h4 class="trophy-name">???</h4>
+                            <div class="trophy-category">${item.category}</div>
+                            <p class="trophy-desc">Экспонат еще не открыт. Заработайте очки на витрине или выиграйте в супер-игре!</p>
+                            <div class="trophy-meta">
+                                <span>⭐ Цена: ${item.price} очков</span>
+                            </div>
+                        `;
+                    }
+
+                    trophyGrid.appendChild(card);
+                });
+            };
+
+            renderTrophies();
+
+            // Фильтры табов
+            const tabBtns = document.querySelectorAll('.museum-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.onclick = () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    this.currentMuseumFilter = btn.dataset.filter || 'all';
+                    renderTrophies();
+                };
             });
 
-            const collection = this.game.museumManager.getCollection();
+            // Кнопка закрытия
+            const btnClose = document.getElementById('btn-close-museum');
+            const btnCloseTop = document.getElementById('btn-close-museum-top');
+            const closeHandler = () => {
+                hideModal(this.modalMuseum);
+                if (this.game && this.game.stateMachine && this.game.stateMachine.state === 'PRIZE_SHOP') {
+                    this.game.restartNewGame();
+                }
+            };
+            if (btnClose) btnClose.onclick = closeHandler;
+            if (btnCloseTop) btnCloseTop.onclick = closeHandler;
 
-            filtered.forEach(item => {
-                const trophyRecord = collection.find(t => t.prizeId === item.id);
-                const isOwned = !!trophyRecord;
+            // Кнопка новой игры
+            const btnNewGame = document.getElementById('btn-new-game-museum');
+            if (btnNewGame) {
+                btnNewGame.onclick = () => {
+                    hideModal(this.modalMuseum);
+                    this.game.restartNewGame();
+                };
+            }
 
-                const card = document.createElement('div');
-                card.className = `trophy-card rarity-${item.rarity} ${isOwned ? 'unlocked' : 'locked'}`;
+            // Кнопка сброса прогресса
+            const btnReset = document.getElementById('btn-reset-museum');
+            if (btnReset) {
+                btnReset.onclick = () => {
+                    if (confirm('Вы действительно хотите очистить коллекцию Музея и обнулить статистику?')) {
+                        this.game.museumManager.resetProgress();
+                        this.updateMuseumBadge();
+                        this.showMuseumModal();
+                    }
+                };
+            }
+        } catch (error) {
+            console.error('Error rendering Museum modal:', error);
+        }
+    }
+
+    showWardrobeModal() {
+        if (!this.modalWardrobe) {
+            this.modalWardrobe = document.getElementById('modal-wardrobe');
+        }
+        if (!this.modalWardrobe) return;
+
+        showModal(this.modalWardrobe);
+
+        try {
+            const gridEl = document.getElementById('wardrobe-outfits-grid');
+            if (!gridEl || !this.game || !this.game.wardrobeManager) return;
+
+            const renderWardrobe = () => {
+                gridEl.innerHTML = '';
+                const wm = this.game.wardrobeManager;
+                const equipped = wm.getEquippedOutfit();
 
                 const rarityNameMap = {
                     common: 'Обычный',
@@ -605,93 +811,66 @@ export class UI {
                     legendary: 'Легендарный'
                 };
 
-                const sourceNameMap = {
-                    shop: 'Витрина подарков',
-                    prize_sector: 'Сектор «Приз»',
-                    super_game: 'Супер-игра'
-                };
+                wm.catalog.forEach(item => {
+                    const isUnlocked = wm.isUnlocked(item.id);
+                    const isEquipped = equipped.id === item.id;
 
-                if (isOwned) {
-                    const dateStr = new Date(trophyRecord.unlockedAt).toLocaleDateString('ru-RU');
+                    const card = document.createElement('div');
+                    card.className = `wardrobe-card rarity-${item.rarity} ${isEquipped ? 'equipped' : (isUnlocked ? 'unlocked' : 'locked')}`;
+
+                    let actionBtnHtml = '';
+                    if (isEquipped) {
+                        actionBtnHtml = `<button class="btn btn-wardrobe-action btn-equipped" disabled>✓ Надет</button>`;
+                    } else if (isUnlocked) {
+                        actionBtnHtml = `<button class="btn btn-wardrobe-action primary-btn btn-equip-outfit">Надеть</button>`;
+                    } else {
+                        actionBtnHtml = `<button class="btn btn-wardrobe-action btn-locked-outfit" disabled>🔒 ${item.unlockConditionText}</button>`;
+                    }
+
                     card.innerHTML = `
-                        <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
-                        <div class="trophy-icon">${item.icon}</div>
-                        <h4 class="trophy-name">${item.name}</h4>
-                        <div class="trophy-category">${item.category}</div>
-                        <p class="trophy-desc">${item.description}</p>
-                        <div class="trophy-meta">
-                            <span>📅 ${dateStr}</span>
-                            <span>🎯 ${sourceNameMap[trophyRecord.source] || trophyRecord.source}</span>
-                            <span>👤 ${trophyRecord.playerName}</span>
+                        <div class="wardrobe-rarity-badge badge-${item.rarity}">${rarityNameMap[item.rarity] || item.rarity}</div>
+                        <div class="wardrobe-icon">${item.icon}</div>
+                        <h4 class="wardrobe-title">${item.name}</h4>
+                        <p class="wardrobe-desc">${item.description}</p>
+                        <blockquote class="wardrobe-quote">${item.quote}</blockquote>
+                        <div class="wardrobe-footer">
+                            ${actionBtnHtml}
                         </div>
                     `;
-                } else {
-                    card.innerHTML = `
-                        <div class="trophy-badge badge-${item.rarity}">${rarityNameMap[item.rarity]}</div>
-                        <div class="trophy-icon">🔒</div>
-                        <h4 class="trophy-name">???</h4>
-                        <div class="trophy-category">${item.category}</div>
-                        <p class="trophy-desc">Экспонат еще не открыт. Заработайте очки на витрине или выиграйте в супер-игре!</p>
-                        <div class="trophy-meta">
-                            <span>⭐ Цена: ${item.price} очков</span>
-                        </div>
-                    `;
-                }
 
-                trophyGrid.appendChild(card);
-            });
-        };
+                    const equipBtn = card.querySelector('.btn-equip-outfit');
+                    if (equipBtn) {
+                        equipBtn.addEventListener('click', () => {
+                            this.initAudio();
+                            const res = wm.equipOutfit(item.id);
+                            if (res.success) {
+                                this.playWardrobeEquip();
+                                this.updateHostAvatar(item);
+                                this.updateStatus(item.quote);
+                                renderWardrobe();
+                            }
+                        });
+                    }
 
-        renderTrophies();
-
-        // Фильтры табов
-        const tabBtns = document.querySelectorAll('.museum-tab-btn');
-        tabBtns.forEach(btn => {
-            btn.onclick = () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                this.currentMuseumFilter = btn.dataset.filter || 'all';
-                renderTrophies();
+                    gridEl.appendChild(card);
+                });
             };
-        });
 
-        // Кнопка закрытия
-        const btnClose = document.getElementById('btn-close-museum');
-        const btnCloseTop = document.getElementById('btn-close-museum-top');
-        const closeHandler = () => {
-            hideModal(this.modalMuseum);
-            if (this.game && this.game.stateMachine && this.game.stateMachine.state === 'PRIZE_SHOP') {
-                this.game.restartNewGame();
-            }
-        };
-        if (btnClose) btnClose.onclick = closeHandler;
-        if (btnCloseTop) btnCloseTop.onclick = closeHandler;
+            renderWardrobe();
 
-        // Кнопка новой игры
-        const btnNewGame = document.getElementById('btn-new-game-museum');
-        if (btnNewGame) {
-            btnNewGame.onclick = () => {
-                hideModal(this.modalMuseum);
-                this.game.restartNewGame();
+            // Close button handlers
+            const btnClose = document.getElementById('btn-close-wardrobe');
+            const btnCloseTop = document.getElementById('btn-close-wardrobe-top');
+            const closeHandler = () => {
+                hideModal(this.modalWardrobe);
             };
-        }
+            if (btnClose) btnClose.onclick = closeHandler;
+            if (btnCloseTop) btnCloseTop.onclick = closeHandler;
 
-        // Кнопка сброса прогресса
-        const btnReset = document.getElementById('btn-reset-museum');
-        if (btnReset) {
-            btnReset.onclick = () => {
-                if (confirm('Вы действительно хотите очистить коллекцию Музея и обнулить статистику?')) {
-                    this.game.museumManager.resetProgress();
-                    this.updateMuseumBadge();
-                    this.showMuseumModal();
-                }
-            };
-            }
         } catch (error) {
-            console.error('Error rendering Museum modal:', error);
+            console.error('Error rendering Wardrobe modal:', error);
         }
     }
-
 
     hideLoader() {
         const loader = document.getElementById('loader');
@@ -704,5 +883,3 @@ export class UI {
         }
     }
 }
-
-

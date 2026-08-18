@@ -1,7 +1,6 @@
-import { Game } from './game.js?v=8.2.0';
+import { Game } from './game.js?v=9.0.0';
 
 async function bootstrap() {
-
     let game;
     try {
         game = new Game();
@@ -23,6 +22,7 @@ async function bootstrap() {
     if (game) {
         window.game = game;
         window.openMuseum = () => game.ui.showMuseumModal();
+        window.openWardrobe = () => game.ui.showWardrobeModal();
 
         const btnMuseum = document.getElementById('btn-open-museum');
         if (btnMuseum) {
@@ -33,8 +33,29 @@ async function bootstrap() {
             });
         }
 
+        const btnWardrobe = document.getElementById('btn-open-wardrobe');
+        if (btnWardrobe) {
+            btnWardrobe.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                game.ui.showWardrobeModal();
+            });
+        }
+
+        const btnWardrobeHeader = document.getElementById('btn-open-wardrobe-header');
+        if (btnWardrobeHeader) {
+            btnWardrobeHeader.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                game.ui.showWardrobeModal();
+            });
+        }
+
         if (window.location.search.includes('openMuseum')) {
             game.ui.showMuseumModal();
+        }
+        if (window.location.search.includes('openWardrobe')) {
+            game.ui.showWardrobeModal();
         }
 
         game.start();
@@ -46,7 +67,3 @@ if (document.readyState === 'loading') {
 } else {
     bootstrap();
 }
-
-
-
-

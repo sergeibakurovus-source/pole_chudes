@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Капитал-шоу Поле Чудес: Premium Edition</title>
+    <title>Капитал-шоу Поле Чудес: Premium Edition v9.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8.2.0">
+    <link rel="stylesheet" href="style.css?v=9.0.0">
 </head>
 <body>
     <div class="app-container">
@@ -15,18 +15,19 @@
         <header class="app-header glass-panel">
             <div class="header-logo">
                 <span class="logo-star">⭐</span>
-                <h1 class="logo-title">Поле Чудес: Premium Edition</h1>
+                <h1 class="logo-title">Капитал-шоу Поле Чудес</h1>
             </div>
             <div class="header-edition">
-                <span class="edition-badge">Premium Edition v8.2</span>
+                <span class="edition-badge">Leonid Yakvadratish & Bogatyrs Edition v9.0.0</span>
             </div>
             <div class="header-actions">
+                <button id="btn-open-wardrobe-header" class="btn btn-wardrobe-header" onclick="try{ if(window.openWardrobe) window.openWardrobe(); else (function(){var m=document.getElementById('modal-wardrobe');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }catch(e){}">
+                    👔 Гардероб
+                </button>
                 <button id="btn-open-museum" class="btn btn-museum" onclick="try{ if(window.openMuseum) window.openMuseum(); else (function(){var m=document.getElementById('modal-museum');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }catch(e){ (function(){var m=document.getElementById('modal-museum');m.classList.remove('hidden');m.classList.remove('modal-entering');requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('modal-entering');});});})(); }">
                     🏛️ Музей <span id="museum-badge" class="museum-badge">(0/16)</span>
                 </button>
             </div>
-
-
         </header>
 
         <!-- Уведомления/Статус -->
@@ -36,9 +37,12 @@
 
         <!-- Ведущий -->
         <div id="host-container" class="glass-panel host-container">
-            <img src="assets/avatar_yakubovich.png" alt="Ведущий" class="host-avatar">
+            <img id="host-avatar" src="assets/avatar_yakubovich.png" alt="Леонид Яквадратиш" class="host-avatar">
             <div class="host-details">
-                <h3 class="host-name">Леонид Якубович</h3>
+                <div class="host-title-row">
+                    <h3 id="host-name" class="host-name">Леонид Яквадратиш</h3>
+                    <button id="btn-open-wardrobe" class="btn btn-small btn-wardrobe-inline">👔 Гардероб</button>
+                </div>
                 <p id="host-hint" class="host-hint">Задание: </p>
             </div>
         </div>
@@ -49,9 +53,9 @@
         </div>
 
         <div class="main-content">
-            <!-- Игроки (Hot-Seat) -->
+            <!-- Игроки (Hot-Seat: Три Богатыря) -->
             <div id="players-container" class="glass-panel players-container">
-                <!-- Карточки игроков -->
+                <!-- Карточки богатырей -->
             </div>
 
             <!-- Барабан -->
@@ -90,7 +94,7 @@
     <div id="modal-overlay" class="modal-overlay hidden">
         <div class="modal glass-panel">
             <h2 id="modal-title">Переход хода</h2>
-            <p id="modal-text">Ход переходит к следующему игроку</p>
+            <p id="modal-text">Ход переходит к следующему богатырю</p>
             <button id="btn-modal-action" class="btn primary-btn">Начать ход</button>
         </div>
     </div>
@@ -98,7 +102,7 @@
     <!-- Модалка ввода слова -->
     <div id="modal-guess-word" class="modal-overlay hidden">
         <div class="modal glass-panel">
-            <h2>Назовите слово</h2>
+            <h2>Назовите слово целиком</h2>
             <input type="text" id="input-guess-word" class="input-text" placeholder="Ваше слово">
             <div class="modal-buttons-row">
                 <button id="btn-submit-word" class="btn primary-btn">Подтвердить</button>
@@ -111,7 +115,7 @@
     <div id="modal-prize" class="modal-overlay hidden">
         <div class="modal glass-panel">
             <h2>🎁 Сектор ПРИЗ!</h2>
-            <p>Вы можете взять приз в Черном Ящике и пополнить Музей, или отказаться от приза, забрать 1000 очков и продолжить ход!</p>
+            <p>Вы можете забрать сказочный приз в Черном Ящике и пополнить Музей, или отказаться от приза, взять 1000 очков и продолжить ход!</p>
             <div class="modal-buttons-row">
                 <button id="btn-take-prize" class="btn primary-btn">Взять ПРИЗ</button>
                 <button id="btn-take-points" class="btn">1000 очков</button>
@@ -134,8 +138,8 @@
     <!-- Модалка Две шкатулки -->
     <div id="modal-caskets" class="modal-overlay hidden">
         <div class="modal glass-panel">
-            <h2>Две шкатулки</h2>
-            <p>Вы угадали 3 буквы подряд! Выберите шкатулку с деньгами.</p>
+            <h2>Две шкатулки от Яквадратиша</h2>
+            <p>Вы угадали 3 согласные буквы подряд! Выберите шкатулку с 5000 очками.</p>
             <div class="caskets-row">
                 <button id="btn-casket-1" class="btn casket-btn">1</button>
                 <button id="btn-casket-2" class="btn casket-btn">2</button>
@@ -146,8 +150,8 @@
     <!-- Модалка Супер-игра Offer -->
     <div id="modal-super-offer" class="modal-overlay hidden">
         <div class="modal glass-panel">
-            <h2>🚗 Супер-игра!</h2>
-            <p>Желаете сыграть в супер-игру за главный приз — АВТОМОБИЛЬ?</p>
+            <h2>🐎 Супер-игра!</h2>
+            <p>Желаете сыграть в супер-игру за главный былинный приз — легендарного коня Бурушку?</p>
             <div class="modal-buttons-row">
                 <button id="btn-super-yes" class="btn primary-btn">Да, играть!</button>
                 <button id="btn-super-no" class="btn">Нет, к Витрине</button>
@@ -155,7 +159,7 @@
         </div>
     </div>
 
-    <!-- Модалка Витрины подарков (Prize Shop) -->
+    <!-- Модалка Витрины подарков (Slavic & Retro Prize Shop) -->
     <div id="modal-prize-shop" class="modal-overlay hidden">
         <div class="modal modal-wide glass-panel shop-modal-content">
             <div class="shop-header">
@@ -163,7 +167,7 @@
                     <img id="shop-player-avatar" src="assets/avatar_harry.png" alt="Avatar" class="shop-avatar">
                     <div>
                         <h2 class="shop-title">Витрина подарков Капитал-шоу</h2>
-                        <p class="shop-subtitle">Победитель: <strong id="shop-player-name">Игрок</strong></p>
+                        <p class="shop-subtitle">Победитель тура: <strong id="shop-player-name">Богатырь</strong></p>
                     </div>
                 </div>
                 <div class="shop-balance-badge">
@@ -186,7 +190,7 @@
     <div id="modal-museum" class="modal-overlay hidden">
         <div class="modal modal-wide glass-panel museum-modal-content">
             <div class="museum-header">
-                <h2>🏛️ Зал Славы и Музей Поле Чудес</h2>
+                <h2>🏛️ Зал Славы и Музей Капитал-шоу</h2>
                 <button id="btn-close-museum-top" class="btn-icon-close" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden');})();">✕</button>
             </div>
 
@@ -202,7 +206,7 @@
                 </div>
                 <div class="stat-card">
                     <div id="stat-super" class="stat-value">0</div>
-                    <div class="stat-label">🚗 Супер-игры</div>
+                    <div class="stat-label">🐎 Супер-игры</div>
                 </div>
                 <div class="stat-card">
                     <div id="stat-points" class="stat-value">0</div>
@@ -244,16 +248,29 @@
                 <button id="btn-new-game-museum" class="btn primary-btn btn-new-game">🎮 Новая игра</button>
                 <button id="btn-close-museum" class="btn" onclick="(function(){var m=document.getElementById('modal-museum');m.classList.remove('modal-entering');m.classList.add('hidden'); if(window.game && window.game.stateMachine && window.game.stateMachine.state==='PRIZE_SHOP') window.game.restartNewGame();})();">Вернуться к игре</button>
             </div>
-
         </div>
     </div>
 
-    <script type="module" src="js/main.js?v=8.2.0"></script>
+    <!-- Модалка Гардеробной Леонида Яквадратиша -->
+    <div id="modal-wardrobe" class="modal-overlay hidden">
+        <div class="modal modal-wide glass-panel wardrobe-modal-content">
+            <div class="wardrobe-header">
+                <h2>👔 Гардеробная Леонида Яквадратиша</h2>
+                <button id="btn-close-wardrobe-top" class="btn-icon-close" onclick="(function(){var m=document.getElementById('modal-wardrobe');m.classList.remove('modal-entering');m.classList.add('hidden');})();">✕</button>
+            </div>
+            <p class="wardrobe-subtitle">Примеряйте аутентичные наряды для ведущего! Костюмы открываются за победы в турах, экспонаты в Музее и очки.</p>
+
+            <!-- Сетка костюмов -->
+            <div id="wardrobe-outfits-grid" class="wardrobe-grid">
+                <!-- Карточки костюмов генерируются динамически -->
+            </div>
+
+            <div class="wardrobe-footer">
+                <button id="btn-close-wardrobe" class="btn primary-btn" onclick="(function(){var m=document.getElementById('modal-wardrobe');m.classList.remove('modal-entering');m.classList.add('hidden');})();">Закрыть гардеробную</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js?v=9.0.0"></script>
 </body>
 </html>
-
-
-
-
-
-

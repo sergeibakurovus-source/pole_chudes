@@ -54,10 +54,19 @@ global.fetch = async () => ({
 import { Game } from '../src/js/game.js';
 import { GameState } from '../src/js/state.js';
 import { PRIZES_CATALOG, MuseumManager } from '../src/js/prizes.js';
+import { WardrobeManager } from '../src/js/wardrobe.js';
 
-describe('Game Word Selection Logic', () => {
+describe('Game Word Selection Logic & Three Bogatyrs', () => {
     beforeEach(() => {
         global.localStorage.clear();
+    });
+
+    test('Game initializes with Three Bogatyrs (Public Domain / Clean Room IP)', () => {
+        const game = new Game();
+        assert.strictEqual(game.context.players.length, 3);
+        assert.strictEqual(game.context.players[0].name, 'Илья Муромец');
+        assert.strictEqual(game.context.players[1].name, 'Добрыня Никитич');
+        assert.strictEqual(game.context.players[2].name, 'Алёша Попович');
     });
 
     test('Game initializes with a regular word (not superGame)', async () => {
@@ -104,12 +113,12 @@ describe('Game Word Selection Logic', () => {
     });
 });
 
-describe('Prize Catalog & MuseumManager Logic', () => {
+describe('Slavic Folklore Prize Catalog & MuseumManager Logic', () => {
     beforeEach(() => {
         global.localStorage.clear();
     });
 
-    test('PRIZES_CATALOG contains exactly 16 authentic prizes with required fields', () => {
+    test('PRIZES_CATALOG contains exactly 16 authentic Slavic folklore prizes with required fields', () => {
         assert.strictEqual(PRIZES_CATALOG.length, 16, 'Catalog must contain 16 items');
         const validRarities = ['common', 'rare', 'epic', 'legendary'];
         
@@ -125,9 +134,9 @@ describe('Prize Catalog & MuseumManager Logic', () => {
         });
     });
 
-    test('MuseumManager handles buying prizes with score deduction and collection persistence', () => {
+    test('MuseumManager handles buying folklore prizes with score deduction and collection persistence', () => {
         const mm = new MuseumManager();
-        const player = { id: 1, name: 'Гарри', score: 3000 };
+        const player = { id: 1, name: 'Илья Муромец', score: 3000 };
 
         const res = mm.buyPrize('prize_pickles', player);
         assert.strictEqual(res.success, true, 'Purchase should succeed');
@@ -137,7 +146,7 @@ describe('Prize Catalog & MuseumManager Logic', () => {
         const collection = mm.getCollection();
         assert.strictEqual(collection.length, 1);
         assert.strictEqual(collection[0].prizeId, 'prize_pickles');
-        assert.strictEqual(collection[0].playerName, 'Гарри');
+        assert.strictEqual(collection[0].playerName, 'Илья Муромец');
         assert.strictEqual(collection[0].costPaid, 100);
 
         // Cannot buy same prize again
@@ -147,15 +156,15 @@ describe('Prize Catalog & MuseumManager Logic', () => {
 
     test('MuseumManager overdraft protection prevents purchase when score is insufficient', () => {
         const mm = new MuseumManager();
-        const player = { id: 2, name: 'Рон', score: 50 };
+        const player = { id: 3, name: 'Алёша Попович', score: 50 };
 
-        const res = mm.buyPrize('prize_car', player);
+        const res = mm.buyPrize('prize_horse', player);
         assert.strictEqual(res.success, false, 'Overdraft purchase should fail');
         assert.strictEqual(player.score, 50, 'Score must remain unchanged');
-        assert.strictEqual(mm.isPrizeOwned('prize_car'), false, 'Prize must not be added');
+        assert.strictEqual(mm.isPrizeOwned('prize_horse'), false, 'Prize must not be added');
     });
 
-    test('Sector P accepts prize bargain and grants trophy to museum', async () => {
+    test('Sector P accepts prize bargain and grants folklore trophy to museum', async () => {
         const game = new Game();
         await game.init();
         game.context.players[0].score = 500;
@@ -166,22 +175,25 @@ describe('Prize Catalog & MuseumManager Logic', () => {
         assert.strictEqual(game.museumManager.isPrizeOwned(trophy.prizeId), true, 'Trophy should be stored in museum');
     });
 
-    test('Super game win automatically awards the legendary CAR to museum and updates stats', async () => {
+    test('Super game win automatically awards the legendary horse Burushka and unlocks cosmonaut outfit', async () => {
         const game = new Game();
         await game.init();
 
         const trophy = game.awardSuperGamePrize();
-        assert.strictEqual(trophy.prizeId, 'prize_car');
+        assert.strictEqual(trophy.prizeId, 'prize_horse');
         assert.strictEqual(trophy.source, 'super_game');
-        assert.strictEqual(game.museumManager.isPrizeOwned('prize_car'), true);
+        assert.strictEqual(game.museumManager.isPrizeOwned('prize_horse'), true);
 
         const stats = game.museumManager.getStats();
         assert.strictEqual(stats.superGameWins, 1);
+
+        // Verify cosmonaut outfit was unlocked in wardrobe
+        assert.strictEqual(game.wardrobeManager.isUnlocked('outfit_cosmonaut'), true);
     });
 
     test('Resetting progress clears museum collection and statistics', () => {
         const mm = new MuseumManager();
-        const player = { id: 1, name: 'Гермиона', score: 10000 };
+        const player = { id: 2, name: 'Добрыня Никитич', score: 10000 };
         mm.buyPrize('prize_samovar', player);
         mm.recordRoundWin(2000);
 
@@ -201,7 +213,7 @@ describe('Continuous Game Loop (restartNewGame)', () => {
         global.localStorage.clear();
     });
 
-    test('restartNewGame resets game state properly', async () => {
+    test('restartNewGame restores Three Bogatyrs and resets game state', async () => {
         const game = new Game();
         await game.init();
         
@@ -220,8 +232,11 @@ describe('Continuous Game Loop (restartNewGame)', () => {
             assert.strictEqual(p.isEliminated, false, `Player ${idx} should not be eliminated`);
             assert.strictEqual(p.score, 0, `Player ${idx} score should be 0`);
         });
+
+        assert.strictEqual(game.context.players[0].name, 'Илья Муромец');
+        assert.strictEqual(game.context.players[1].name, 'Добрыня Никитич');
+        assert.strictEqual(game.context.players[2].name, 'Алёша Попович');
         
         assert.strictEqual(game.stateMachine.state, GameState.WAITING_FOR_SPIN, 'State should be WAITING_FOR_SPIN');
     });
 });
-
